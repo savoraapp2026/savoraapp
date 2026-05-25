@@ -15,8 +15,8 @@
   // Als frontend + backend op VERSCHILLENDE domeinen: specificeer volledige URL
   var API_URLS = {
     // Local development
-    localhost: 'http://localhost:3000',
-    '127.0.0.1': 'http://127.0.0.1:3000',
+    localhost: ''localhost': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+    '127.0.0.1': 'http://127.0.0.1:'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
     // Productie: directe Worker URL (werkt altijd)
     'savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
     'www.savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
@@ -41,7 +41,7 @@
 
   // Laatste fallback: localhost
   if (API_BASE === undefined) {
-    API_BASE = 'http://localhost:3000';
+    API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
   }
 
   // ---- Config Object ----
