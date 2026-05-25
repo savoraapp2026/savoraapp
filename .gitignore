@@ -5,9 +5,6 @@ yarn.lock
 
 # Environment variables
 .env
-node_modules/
-data/
-
 
 # Data (JSON database files)
 data/*.json
@@ -36,7 +33,3 @@ certs/*.key
 tmp/
 temp/
 *.tmp
-
-
-
-

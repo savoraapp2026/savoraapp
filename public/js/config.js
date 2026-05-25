@@ -20,12 +20,10 @@
     // Productie: directe Worker URL (werkt altijd)
     'savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
     'www.savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
-    // Pages preview URLs (tijdelijke deploy URLs)
+    // Pages preview URLs
+    '7b284410.savoraapp-eh5.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+    'main.savoraapp-eh5.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
     'f66baad9.savoraapp.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev'
-// Fallback: alle *.pages.dev URLs
-if (!API_BASE && hostname.includes('pages.dev')) {
-  API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
-}
   };
 
   // Bepaal de API base URL

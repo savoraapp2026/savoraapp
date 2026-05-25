@@ -77,7 +77,7 @@
     // Also send to backend if available (fire and forget)
     try {
       if (window.navigator.onLine) {
-        fetch((window.API_BASE_URL || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev') + '/api/analytics', {
+        fetch((window.API_BASE_URL || ((window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev')) + '/api/analytics', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(event),

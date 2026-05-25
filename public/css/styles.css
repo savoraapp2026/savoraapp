@@ -1598,6 +1598,24 @@ select[id^="phonePrefix"] {
   border-top: 1px solid var(--gray-800);
   font-size: var(--font-size-sm);
   color: var(--gray-500);
+  align-items: center;
+  text-align: center;
+}
+
+/* Paysera Quality Sign Trust Label */
+.quality-sign {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quality-sign iframe,
+.quality-sign img,
+.quality-sign a {
+  display: block !important;
+  max-width: 200px;
+  height: auto;
 }
 
 .footer-stats {
@@ -1622,6 +1640,7 @@ select[id^="phonePrefix"] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
   }
 }
 

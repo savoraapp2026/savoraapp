@@ -3,8 +3,8 @@
 // Handles Email and SMS verification via API
 // ========================================
 
-// Global API Configuration - accessible to all scripts
-window.API_BASE_URL = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
+// Global API Configuration - reads from config.js if available
+window.API_BASE_URL = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
 
 (function() {
   'use strict';

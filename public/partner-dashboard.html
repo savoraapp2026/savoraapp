@@ -2094,7 +2094,8 @@
   var partnerToken = localStorage.getItem('partnerToken') || '';
   var partnerInfo = null;
   var selectedPackageId = 0;
-  var API_BASE = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'http://localhost:3000';
+  var API_BASE = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
+  console.log('[API] Using endpoint:', API_BASE);
 
   // ===== SECURITY HELPERS =====
   function escapeHtml(text) {
@@ -2448,7 +2449,7 @@
       console.error('[LOGIN] Fetch error:', err);
       btn.disabled = false;
       btn.textContent = t.btnLogin || 'Login';
-      document.getElementById('loginError').innerHTML = '<div class="error-msg">Kan geen verbinding maken met de server. Controleer of <strong>node server.js</strong> draait op poort 3000.</div>';
+      document.getElementById('loginError').innerHTML = '<div class="error-msg">Kan geen verbinding maken met de server. Probeer het later opnieuw of neem contact op met support.</div>';
     });
   });
 
@@ -2524,7 +2525,7 @@
       console.error('[REGISTER] Error:', err);
       btn.disabled = false;
       btn.textContent = t.btnRegister;
-      errDiv.innerHTML = '<div class="error-msg">Cannot connect to backend. Make sure <strong>node server.js</strong> is running on port 3000.</div>';
+      errDiv.innerHTML = '<div class="error-msg">Kan geen verbinding maken met de server (' + API_BASE + '). Controleer je internetverbinding of probeer het later opnieuw.</div>';
     });
   });
 
@@ -3189,7 +3190,4 @@
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
-  }
-</script>
-</body>
-</html>
+ 
