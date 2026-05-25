@@ -1,5 +1,5 @@
 // ============================================
-// Savoraapp API - Cloudflare Worker v2.1
+// Savoraapp API - Cloudflare Worker v2.1.1
 // - Backwards compatible met oude plaintext wachtwoorden
 // - Ondersteunt BEIDE KV structuren (oud array + nieuw per-key)
 // - Automatische migratie bij eerste login
