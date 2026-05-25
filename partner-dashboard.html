@@ -6,7 +6,54 @@
   <title>Savoraapp - Partner Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="js/config.js"></script>
+  <script>
+  // INLINE CONFIG - omzeilt Service Worker cache
+  (function() {
+    'use strict';
+    var hostname = window.location.hostname;
+    var port = window.location.port;
+    var protocol = window.location.protocol;
+    var API_URLS = {
+      localhost: 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+      '127.0.0.1': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+      'savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+      'www.savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+      '7b284410.savoraapp-eh5.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+      'main.savoraapp-eh5.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+      'f66baad9.savoraapp.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev'
+    };
+    var API_BASE = API_URLS[hostname];
+    if (!API_BASE && hostname.endsWith('.savoraapp.pages.dev')) {
+      API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
+    }
+    if (!API_BASE && hostname.endsWith('.workers.dev')) {
+      API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
+    }
+    if (API_BASE === undefined) {
+      API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
+    }
+    window.SAVORA_CONFIG = {
+      API_BASE: API_BASE,
+      FRONTEND_URL: protocol + '//' + hostname + (port ? ':' + port : ''),
+      ENV: hostname === 'localhost' || hostname === '127.0.0.1' ? 'development' : 'production',
+      SESSION_TIMEOUT: 30 * 60 * 1000,
+      AD_PRICE_LEK: 200,
+      CREDIT_PACKAGES: [
+        { id: 1, credits: 20, price: 500, label: 'Pako Baze' },
+        { id: 2, credits: 50, price: 1000, label: 'Pako Standarte' },
+        { id: 3, credits: 100, price: 1800, label: 'Pako Premium' }
+      ]
+    };
+  })();
+  // ---- Analytics Stub ----
+  // Voorkomt 404 errors als analytics.js niet bestaat
+  window.savoraAnalytics = window.savoraAnalytics || {
+    trackPageView: function(){},
+    trackEvent: function(){},
+    trackPartnerAction: function(){},
+    storeEvent: function(){}
+  };
+  </script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
@@ -267,7 +314,7 @@
 
 <!-- LANGUAGE SWITCHER -->
 <div class="lang-switcher no-print" id="langSwitcher">
-  <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()">
+  <button type="button" class="lang-btn" id="langBtn" onclick="toggleLangDropdown(event)">
     <img id="langFlag" src="https://flagcdn.com/w40/al.png" alt="AL">
     <span id="langCode">AL</span>
   </button>
@@ -294,8 +341,8 @@
 
     <!-- AUTH TABS -->
     <div class="auth-tabs">
-      <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')" data-i18n="tabLogin">Hyr</button>
-      <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')" data-i18n="tabRegister">Regjistrohu</button>
+      <button type="button" class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')" data-i18n="tabLogin">Hyr</button>
+      <button type="button" class="auth-tab" id="registerTab" onclick="switchAuthTab('register')" data-i18n="tabRegister">Regjistrohu</button>
     </div>
 
     <!-- LOGIN FORM -->
@@ -316,7 +363,7 @@
           </div>
         </div>
         <div class="forgot-pw">
-          <a onclick="showForgotPassword()" data-i18n="linkForgotPw">Keni harruar fjalekalimin?</a>
+          <a href="javascript:void(0)" onclick="showForgotPassword(); return false;" data-i18n="linkForgotPw">Keni harruar fjalekalimin?</a>
         </div>
         <button type="submit" class="btn btn-primary" id="loginBtn" data-i18n="btnLogin" style="margin-top:16px">Hyr</button>
       </form>
@@ -909,6 +956,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
+(function() {
+  'use strict';
 
   // ========================================
   // TRANSLATIONS - 10 Languages
@@ -2116,7 +2165,7 @@
     if (!input || !btn) return;
     var isHidden = input.type === 'password';
     input.type = isHidden ? 'text' : 'password';
-    btn.textContent = isHidden ? '\u{1F648}' : '\u{1F441}';
+    btn.textContent = isHidden ? '\uD83D\uDE48' : '\uD83D\uDC41';
     btn.style.opacity = isHidden ? '1' : '0.5';
     btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
   }
@@ -2178,8 +2227,10 @@
     localStorage.setItem('partnerLang', lang);
   }
 
-  function toggleLangDropdown() {
-    document.getElementById('langDropdown').classList.toggle('show');
+  function toggleLangDropdown(e) {
+    if (e) e.stopPropagation();
+    var dropdown = document.getElementById('langDropdown');
+    if (dropdown) dropdown.classList.toggle('show');
   }
 
   document.addEventListener('click', function(e) {
@@ -2283,6 +2334,8 @@
     document.getElementById('loginError').innerHTML = '';
     document.getElementById('forgotPwError').innerHTML = '';
     document.getElementById('forgotPwSuccess').innerHTML = '';
+    document.getElementById('resetPwError').innerHTML = '';
+    document.getElementById('resetPwSuccess').innerHTML = '';
   }
   function showLogin() {
     switchAuthTab('login');
@@ -2449,7 +2502,7 @@
       console.error('[LOGIN] Fetch error:', err);
       btn.disabled = false;
       btn.textContent = t.btnLogin || 'Login';
-      document.getElementById('loginError').innerHTML = '<div class="error-msg">Kan geen verbinding maken met de server. Probeer het later opnieuw of neem contact op met support.</div>';
+      document.getElementById('loginError').innerHTML = '<div class="error-msg">' + escapeHtml(t.loginError || 'Gabim ne lidhje. Provoni perseri.') + '</div>';
     });
   });
 
@@ -3190,4 +3243,9 @@
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
- 
+  }
+})();
+</script>
+
+</body>
+</html>
