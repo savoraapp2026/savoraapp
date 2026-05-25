@@ -253,7 +253,9 @@ async function handleRequest(request, env) {
         'POST /api/contact',
         'POST /api/admin/login',
         'GET  /api/admin/data',
-        'POST /api/admin/credits'
+        'POST /api/admin/credits',
+        'POST /api/analytics',
+        'POST /api/paysera/create-payment'
       ]
     }, 200, origin);
   }
@@ -739,6 +741,40 @@ async function handleRequest(request, env) {
     await savePartner(db, partner);
 
     return jsonResponse({ success: true, credits: partner.credits }, 200, origin);
+  }
+
+  // ---- ANALYTICS ----
+  if (path === '/api/analytics' && method === 'POST') {
+    try {
+      const event = await request.json();
+      // Store analytics event in KV (fire and forget)
+      const eventId = 'analytics_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      ctx.waitUntil(db.put(eventId, JSON.stringify({...event, timestamp: new Date().toISOString()})));
+      return jsonResponse({ success: true }, 200, origin);
+    } catch {
+      return jsonResponse({ success: true }, 200, origin); // Soft fail
+    }
+  }
+
+  // ---- PAYSERA PAYMENT ----
+  if (path === '/api/paysera/create-payment' && method === 'POST') {
+    try {
+      const { partnerId, amount, orderId, currency } = await request.json();
+      if (!partnerId || !amount) {
+        return jsonResponse({ error: 'partnerId en amount zijn verplicht' }, 400, origin);
+      }
+      // Generate Paysera payment URL
+      const payseraUrl = 'https://bank.paysera.com/transfer?' + new URLSearchParams({
+        to: 'AL70202111230000000000537482',
+        amount: amount.toString(),
+        currency: currency || 'LEK',
+        description: `Savoraapp - ${orderId || 'credits'} - ${partnerId}`,
+        reference: orderId || `credit_${Date.now()}`
+      }).toString();
+      return jsonResponse({ success: true, url: payseraUrl }, 200, origin);
+    } catch {
+      return jsonResponse({ error: 'Ongeldige request' }, 400, origin);
+    }
   }
 
   // ============================================

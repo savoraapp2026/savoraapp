@@ -1,7 +1,0 @@
-Vanaf nu werkt het zo:
-
-Je maakt wijzigingen in je code
-Je commit en push naar GitHub
-GitHub Actions deployt alles automatisch binnen 1-2 minuten
-Je ziet het groene vinkje als het klaar is
-Geen wrangler deploy meer nodig! 🙌
