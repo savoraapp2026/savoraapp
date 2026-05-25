@@ -1,0 +1,23 @@
+name = "savoraapp-api"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Cloudflare account + zone (savoraapp.com)
+account_id = "de262f98ef47a3a6c986661d98a0c217"
+zone_id = "4a22a4e495996d64f1003d75b8c1a511"
+
+# Environment variables (set via wrangler secret or dashboard)
+[vars]
+ENVIRONMENT = "production"
+FRONTEND_URL = "https://savoraapp.com"
+ADMIN_USER = "admin"
+
+# Secrets (set via CLI, NIET in dit bestand):
+# npx wrangler secret put JWT_SECRET
+# npx wrangler secret put ADMIN_PASS
+# npx wrangler secret put RESEND_API_KEY
+
+# KV Namespace — VERIFICATION_KV (bestaand)
+[[kv_namespaces]]
+binding = "VERIFICATION_KV"
+id = "aace89c748a8424f8dd3393a7bf19f52"
