@@ -1,0 +1,20 @@
+name = "savoraapp-api"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+account_id = "de262f98ef47a3a6c986661d98a0c217"
+
+# Environment variables (set via wrangler secret or dashboard)
+[vars]
+ENVIRONMENT = "production"
+FRONTEND_URL = "https://savoraapp.com"
+
+# Secrets (set via: wrangler secret put JWT_SECRET)
+# JWT_SECRET = ""
+# PAYSERA_PASSWORD = ""
+# RESEND_API_KEY = ""
+# ADMIN_PASS = ""
+
+# KV Namespace - VERIFICATION_KV
+[[kv_namespaces]]
+binding = "VERIFICATION_KV"
+id = "aace89c748a8424f8dd3393a7bf19f52"
