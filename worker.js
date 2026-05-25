@@ -3,6 +3,7 @@
 // - Backwards compatible met oude plaintext wachtwoorden
 // - Ondersteunt BEIDE KV structuren (oud array + nieuw per-key)
 // - Automatische migratie bij eerste login
+// - GitHub Actions auto-deploy test
 // ============================================
 
 // ----- Password Hashing (SHA-256) -----
@@ -72,7 +73,12 @@ function corsHeaders(origin) {
     'http://localhost:3000',
     'http://127.0.0.1:3000'
   ];
-  const allowedOrigin = allowed.includes(origin) ? origin : 'https://savoraapp.com';
+  const allowedPatterns = [
+    /^https:\/\/[^.]+\.savoraapp-eh5\.pages\.dev$/,
+    /^https:\/\/[^.]+\.savoraapp\.pages\.dev$/
+  ];
+  const isAllowed = allowed.includes(origin) || allowedPatterns.some(p => p.test(origin));
+  const allowedOrigin = isAllowed ? origin : 'https://savoraapp.com';
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
@@ -256,7 +262,6 @@ async function handleRequest(request, env) {
   // REGISTER
   // ============================================
   if (path === '/api/partner/register' && method === 'POST') {
-    // Ondersteunt zowel oud veld (contact) als nieuw (email)
     const business = body.business;
     const contact = (body.contact || body.email || '').toLowerCase().trim();
     const password = body.password;
@@ -282,10 +287,10 @@ async function handleRequest(request, env) {
     const partner = {
       id: Date.now().toString() + Math.random().toString(36).slice(2),
       business, contact, name, phone,
-      nipt,        // nieuw veld
-      nui: nipt,   // alias voor frontend compatibiliteit
+      nipt,
+      nui: nipt,
       city,
-      password: await hashPassword(password), // altijd gehashed opslaan
+      password: await hashPassword(password),
       code,
       codeExpires: Date.now() + (35 * 24 * 60 * 60 * 1000),
       status: 'pending',
@@ -297,8 +302,24 @@ async function handleRequest(request, env) {
 
     await savePartner(db, partner);
 
-    // DEV: log code (in productie: stuur via email)
-    console.log(`[DEV] Code voor ${contact}: ${code}`);
+    // Stuur email via Resend
+    try {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + env.RESEND_API_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'Savoraapp <noreply@savoraapp.com>',
+          to: contact,
+          subject: 'Jouw verificatiecode voor Savoraapp',
+          html: `<h2>Welkom bij Savoraapp!</h2><p>Jouw verificatiecode is: <strong>${code}</strong></p><p>Deze code is 35 dagen geldig.</p>`
+        })
+      });
+    } catch (e) {
+      console.log('[DEV] Email verzenden mislukt, code:', code);
+    }
 
     return jsonResponse({
       success: true,
@@ -365,7 +386,24 @@ async function handleRequest(request, env) {
     partner.codeExpires = Date.now() + (35 * 24 * 60 * 60 * 1000);
     await savePartner(db, partner);
 
-    console.log(`[DEV] Nieuwe code voor ${partner.contact}: ${newCode}`);
+    // Stuur email via Resend
+    try {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + env.RESEND_API_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'Savoraapp <noreply@savoraapp.com>',
+          to: partner.contact,
+          subject: 'Nieuwe verificatiecode voor Savoraapp',
+          html: `<h2>Nieuwe code</h2><p>Jouw nieuwe verificatiecode is: <strong>${newCode}</strong></p>`
+        })
+      });
+    } catch (e) {
+      console.log('[DEV] Email verzenden mislukt, code:', newCode);
+    }
 
     return jsonResponse({ success: true, message: 'Nieuwe code verstuurd' }, 200, origin);
   }
@@ -394,13 +432,11 @@ async function handleRequest(request, env) {
       return jsonResponse({ error: 'Account niet geverifieerd. Controleer je email.' }, 403, origin);
     }
 
-    // Wachtwoord check — ondersteunt plaintext (oud) EN gehashed (nieuw)
     const passwordOk = await verifyPassword(password, partner.password);
     if (!passwordOk) {
       return jsonResponse({ error: 'Ongeldige inloggegevens' }, 401, origin);
     }
 
-    // AUTOMATISCHE MIGRATIE: als wachtwoord nog plaintext was → nu hashen
     const isHashed = partner.password.length === 64 && /^[0-9a-f]+$/.test(partner.password);
     if (!isHashed) {
       partner.password = await hashPassword(password);
@@ -421,7 +457,7 @@ async function handleRequest(request, env) {
       name: partner.name || partner.business,
       business: partner.business,
       email: partner.contact,
-      nui: partner.nipt || partner.nui || '',   // beide velden voor compatibiliteit
+      nui: partner.nipt || partner.nui || '',
       nipt: partner.nipt || partner.nui || '',
       credits: partner.credits || 0
     }, 200, origin);
@@ -478,7 +514,6 @@ async function handleRequest(request, env) {
         console.log(`[DEV] Reset token voor ${email}: ${resetToken}`);
       }
     }
-    // Altijd zelfde response (voorkomt email enumeration)
     return jsonResponse({
       success: true,
       message: 'Als dit email bekend is, ontvang je instructies.'
@@ -663,7 +698,6 @@ async function handleRequest(request, env) {
       status: p.status, verified: p.verified,
       credits: p.credits || 0,
       createdAt: p.createdAt, activatedAt: p.activatedAt
-      // password wordt NOOIT meegestuurd
     }));
 
     let contacts = [];
