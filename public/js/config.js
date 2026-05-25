@@ -15,15 +15,15 @@
   // Als frontend + backend op VERSCHILLENDE domeinen: specificeer volledige URL
   var API_URLS = {
     // Local development (ook live URL voor gemak)
-    localhost: 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev',
-    '127.0.0.1': 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev',
+    localhost: 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+    '127.0.0.1': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
     // Productie: directe Worker URL (werkt altijd)
-    'savoraapp.com': 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev',
-    'www.savoraapp.com': 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev',
+    'savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+    'www.savoraapp.com': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
     // Pages preview URLs
-    '7b284410.savoraapp-eh5.pages.dev': 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev',
-    'main.savoraapp-eh5.pages.dev': 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev',
-    'f66baad9.savoraapp.pages.dev': 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev'
+    '7b284410.savoraapp-eh5.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+    'main.savoraapp-eh5.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev',
+    'f66baad9.savoraapp.pages.dev': 'https://savoraapp-api.sparkling-scene-16e3.workers.dev'
   };
 
   // Bepaal de API base URL
@@ -31,17 +31,17 @@
 
   // Fallback: alle *.savoraapp.pages.dev URLs
   if (!API_BASE && hostname.endsWith('.savoraapp.pages.dev')) {
-    API_BASE = 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev';
+    API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
   }
 
   // Fallback: directe worker URL bezoek
   if (!API_BASE && hostname.endsWith('.workers.dev')) {
-    API_BASE = 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev';
+    API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
   }
 
   // Laatste fallback: live Worker URL
   if (API_BASE === undefined) {
-    API_BASE = 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev';
+    API_BASE = 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
   }
 
   // ---- Config Object ----

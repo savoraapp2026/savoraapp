@@ -4,7 +4,7 @@
 // ========================================
 
 // Global API Configuration - reads from config.js if available
-window.API_BASE_URL = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev';
+window.API_BASE_URL = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
 
 (function() {
   'use strict';
@@ -18,7 +18,7 @@ window.API_BASE_URL = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) ||
   }
 
   // Use global API_BASE_URL
-  var API_BASE_URL = window.API_BASE_URL || 'https://savoraapp-api.de262f98ef47a3a6c986661d98a0c217.workers.dev';
+  var API_BASE_URL = window.API_BASE_URL || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
   
   
   // State — default to email since SMS tabs are hidden in UI
