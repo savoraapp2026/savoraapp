@@ -45,7 +45,7 @@ git push -u origin main
 | Secret naam | Waarde |
 |-------------|--------|
 | `CLOUDFLARE_API_TOKEN` | Jouw API token |
-| `CLOUDFLARE_ACCOUNT_ID` | ae8bfaf0dbc71b9e3fcd97978de6ef21 |
+| `CLOUDFLARE_ACCOUNT_ID` | de262f98ef47a3a6c986661d98a0c217 |
 
 ## Stap 5: Test de automatische deploy
 
