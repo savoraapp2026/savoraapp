@@ -267,7 +267,7 @@
 
 <!-- LANGUAGE SWITCHER -->
 <div class="lang-switcher no-print" id="langSwitcher">
-  <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()">
+  <button type="button" class="lang-btn" id="langBtn" onclick="toggleLangDropdown(event)">
     <img id="langFlag" src="https://flagcdn.com/w40/al.png" alt="AL">
     <span id="langCode">AL</span>
   </button>
@@ -294,8 +294,8 @@
 
     <!-- AUTH TABS -->
     <div class="auth-tabs">
-      <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')" data-i18n="tabLogin">Hyr</button>
-      <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')" data-i18n="tabRegister">Regjistrohu</button>
+      <button type="button" class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')" data-i18n="tabLogin">Hyr</button>
+      <button type="button" class="auth-tab" id="registerTab" onclick="switchAuthTab('register')" data-i18n="tabRegister">Regjistrohu</button>
     </div>
 
     <!-- LOGIN FORM -->
@@ -316,7 +316,7 @@
           </div>
         </div>
         <div class="forgot-pw">
-          <a onclick="showForgotPassword()" data-i18n="linkForgotPw">Keni harruar fjalekalimin?</a>
+          <a href="javascript:void(0)" onclick="showForgotPassword(); return false;" data-i18n="linkForgotPw">Keni harruar fjalekalimin?</a>
         </div>
         <button type="submit" class="btn btn-primary" id="loginBtn" data-i18n="btnLogin" style="margin-top:16px">Hyr</button>
       </form>
@@ -2118,7 +2118,7 @@
     if (!input || !btn) return;
     var isHidden = input.type === 'password';
     input.type = isHidden ? 'text' : 'password';
-    btn.textContent = isHidden ? '\u{1F648}' : '\u{1F441}';
+    btn.textContent = isHidden ? '\uD83D\uDE48' : '\uD83D\uDC41';
     btn.style.opacity = isHidden ? '1' : '0.5';
     btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
   }
@@ -2180,8 +2180,10 @@
     localStorage.setItem('partnerLang', lang);
   }
 
-  function toggleLangDropdown() {
-    document.getElementById('langDropdown').classList.toggle('show');
+  function toggleLangDropdown(e) {
+    if (e) e.stopPropagation();
+    var dropdown = document.getElementById('langDropdown');
+    if (dropdown) dropdown.classList.toggle('show');
   }
 
   document.addEventListener('click', function(e) {
@@ -2285,6 +2287,8 @@
     document.getElementById('loginError').innerHTML = '';
     document.getElementById('forgotPwError').innerHTML = '';
     document.getElementById('forgotPwSuccess').innerHTML = '';
+    document.getElementById('resetPwError').innerHTML = '';
+    document.getElementById('resetPwSuccess').innerHTML = '';
   }
   function showLogin() {
     switchAuthTab('login');
@@ -2451,7 +2455,7 @@
       console.error('[LOGIN] Fetch error:', err);
       btn.disabled = false;
       btn.textContent = t.btnLogin || 'Login';
-      document.getElementById('loginError').innerHTML = '<div class="error-msg">Kan geen verbinding maken met de server. Probeer het later opnieuw of neem contact op met support.</div>';
+      document.getElementById('loginError').innerHTML = '<div class="error-msg">' + escapeHtml(t.loginError || 'Gabim ne lidhje. Provoni perseri.') + '</div>';
     });
   });
 
