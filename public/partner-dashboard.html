@@ -2516,12 +2516,18 @@
           btn.disabled = false;
           btn.textContent = t.btnRegister;
           errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(data.error) + '<br><a href="#" onclick="showLogin();return false;" style="color:var(--primary);text-decoration:underline;">' + (t.alreadyRegisteredLink || 'Klik hier om in te loggen') + '</a></div>';
+          return {alreadyRegistered: true}; // Marker voor volgende .then()
+        });
+      }
+      if (!r.ok) {
+        return r.json().then(function(data) {
+          throw new Error(data.error || 'Registratie mislukt');
         });
       }
       return r.json();
     })
     .then(function(data){
-      if (data && data.alreadyRegistered) return; // Al afgehandeld
+      if (!data || data.alreadyRegistered) return; // Al afgehandeld of geen data
       console.log('[REGISTER] Response:', data);
       btn.disabled = false;
       btn.textContent = t.btnRegister;
@@ -2545,7 +2551,8 @@
       console.error('[REGISTER] Error:', err);
       btn.disabled = false;
       btn.textContent = t.btnRegister;
-      errDiv.innerHTML = '<div class="error-msg">Kan geen verbinding maken met de server (' + API_BASE + '). Controleer je internetverbinding of probeer het later opnieuw.</div>';
+      var errorMsg = err && err.message ? err.message : 'Kan geen verbinding maken met de server. Probeer het later opnieuw.';
+      errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(errorMsg) + '</div>';
     });
   });
 
