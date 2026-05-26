@@ -3142,6 +3142,7 @@
   // ========================================
   async function init() {
     console.log('[INIT] Starting...');
+    try {
 
     // Set language
     try {
@@ -3202,6 +3203,12 @@
     if (tabParam === 'register') {
       console.log('[INIT] Register tab actief');
       switchAuthTab('register');
+    }
+
+    } catch(initErr) {
+      console.error('[INIT] CRITICAL ERROR:', initErr);
+      // Altijd login tonen als er iets misgaat
+      showLoginScreen();
     }
   }
 
