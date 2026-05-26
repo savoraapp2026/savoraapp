@@ -2305,11 +2305,21 @@
     document.getElementById('forgotPwSuccess').innerHTML = '';
   }
   function showLogin() {
-    switchAuthTab('login');
+    // Verberg alle sections eerst
+    document.querySelectorAll('.form-section').forEach(function(s){ s.classList.remove('active'); });
+    // Toon login section
+    var loginSection = document.getElementById('loginFormSection');
+    if (loginSection) loginSection.classList.add('active');
+    // Reset errors
     document.getElementById('forgotPwError').innerHTML = '';
     document.getElementById('forgotPwSuccess').innerHTML = '';
     document.getElementById('resetPwError').innerHTML = '';
     document.getElementById('resetPwSuccess').innerHTML = '';
+    // Update tabs
+    var loginTab = document.getElementById('loginTab');
+    var registerTab = document.getElementById('registerTab');
+    if (loginTab) loginTab.classList.add('active');
+    if (registerTab) registerTab.classList.remove('active');
   }
 
   function validateNuiRealtime(input) {
