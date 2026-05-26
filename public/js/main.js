@@ -320,7 +320,7 @@
       const fullPhone = prefix + ' ' + phone;
       
       try {
-        const apiBase = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp-api.sparkling-scene-16e3.workers.dev';
+        const apiBase = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp.sparkling-scene-16e3.workers.dev';
         const response = await fetch(apiBase + '/api/partner/lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
