@@ -2497,9 +2497,12 @@
     btn.textContent = t.registerLoading;
 
     console.log('[REGISTER] Submitting to:', API_BASE + '/api/partner/register');
+    var registerController = new AbortController();
+    var registerTimeout = setTimeout(function() { registerController.abort(); }, 8000); // 8 sec timeout
     fetch(API_BASE + '/api/partner/register', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
+      signal: registerController.signal,
       body: JSON.stringify({
         contact: document.getElementById('regEmail').value,
         password: pass,
@@ -2509,6 +2512,7 @@
       })
     })
     .then(function(r){ 
+      clearTimeout(registerTimeout);
       console.log('[REGISTER] Status:', r.status); 
       if (r.status === 409) {
         // Email al geregistreerd
@@ -3160,14 +3164,18 @@
     // Check for ?tab=register in URL
     var tabParam = urlParams.get('tab');
 
-    // === CHECK: bestaand JWT token ===
+    // === CHECK: bestaand JWT token (met timeout) ===
     var savedToken = localStorage.getItem('partnerToken') || '';
     if (savedToken) {
       console.log('[INIT] Token gevonden, check sessie...');
       try {
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function() { controller.abort(); }, 3000); // 3 sec timeout
         var res = await fetch(API_BASE + '/api/partner/session', {
-          headers: {'Authorization': 'Bearer ' + savedToken}
+          headers: {'Authorization': 'Bearer ' + savedToken},
+          signal: controller.signal
         });
+        clearTimeout(timeoutId);
         if (res.ok) {
           var data = await res.json();
           if (data.success) {
@@ -3179,7 +3187,7 @@
           }
         }
       } catch(e) {
-        console.warn('[INIT] Session check failed:', e);
+        console.warn('[INIT] Session check failed:', e.message || e);
       }
       // Token ongeldig, wis uit localStorage
       localStorage.removeItem('partnerToken');
