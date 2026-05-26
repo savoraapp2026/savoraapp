@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sq">
 <head>
   <meta charset="UTF-8">
@@ -351,7 +351,7 @@
           <label data-i18n="labelEmail">Email</label>
           <input type="email" id="forgotPwEmail" data-i18n-placeholder="placeholderEmail" placeholder="partner@savoraapp.com">
         </div>
-        <button type="submit" class="btn btn-primary" id="forgotPwBtn" data-i18n="btnSendReset">DÃ«rgo UdhÃ«zimet</button>
+        <button type="submit" class="btn btn-primary" id="forgotPwBtn" data-i18n="btnSendReset">Dërgo Udhëzimet</button>
       </form>
       <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
     </div>
@@ -374,7 +374,7 @@
             <button type="button" class="pw-toggle" onclick="togglePw('resetNewPassword',this)">&#128065;</button>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="resetPwBtn" data-i18n="btnUpdatePw">PÃ«rditÃ«so Fjalekalimin</button>
+        <button type="submit" class="btn btn-primary" id="resetPwBtn" data-i18n="btnUpdatePw">Përditëso Fjalekalimin</button>
       </form>
       <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
     </div>
@@ -456,7 +456,7 @@
         <button onclick="verifyRegistrationCode()" class="btn btn-primary" id="verifyCodeBtn" data-i18n="btnVerify" style="width:100%;max-width:200px">Verifiko</button>
         <p style="font-size:0.8rem;color:var(--gray-400);margin-top:16px">
           <span data-i18n="verifyNoCode">Nuk mori kod?</span>
-          <a onclick="resendVerifyCode()" style="color:var(--primary);cursor:pointer" data-i18n="verifyResend">RidÃ«rgo kodin</a>
+          <a onclick="resendVerifyCode()" style="color:var(--primary);cursor:pointer" data-i18n="verifyResend">Ridërgo kodin</a>
         </p>
         <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
       </div>
@@ -562,7 +562,7 @@
 <div class="dashboard" id="dashboard">
   <div class="mobile-nav-overlay no-print" id="mobileNavOverlay" onclick="toggleMobileNav()"></div>
   <div class="dash-header no-print">
-    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">â˜°</button>
+    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">☰</button>
     <h2> Savoraapp Partner</h2>
     <div class="dash-nav" id="dashNav">
       <button class="active" data-tab="overview" onclick="switchTab('overview')" data-i18n="tabOverview">Overview</button>
@@ -591,14 +591,14 @@
           <div class="credit-progress-bar green" id="creditProgressBar" style="width:0%"></div>
         </div>
         <div class="credit-meta">
-          <span id="creditUsed">0% e pÃ«rdorur</span>
+          <span id="creditUsed">0% e përdorur</span>
           <span id="creditMonthly">Limiti mujor: 500</span>
         </div>
       </div>
       <!-- CREDIT TOOLTIP -->
       <div class="credit-tooltip" id="creditTooltip">
-        <span class="info-icon">â„¹ï¸</span>
-        <span id="creditTooltipText">Kreditet pÃ«rdoren pÃ«r tÃ« paguar komisionet e platformÃ«s. Ã‡do porosi redukton kreditet tuaja me 15% tÃ« vlerÃ«s sÃ« shitjes.</span>
+        <span class="info-icon">ℹ️</span>
+        <span id="creditTooltipText">Kreditet përdoren për të paguar komisionet e platformës. Çdo porosi redukton kreditet tuaja me 15% të vlerës së shitjes.</span>
       </div>
       <div class="dash-grid">
         <div class="dash-card">
@@ -627,7 +627,7 @@
       </div>
       <!-- CREDIT HISTORY -->
       <div class="credit-history" id="creditHistory">
-        <h3><span class="icon">ðŸ•</span> <span id="creditHistoryTitle">Kredite Historiku</span></h3>
+        <h3><span class="icon">🕐</span> <span id="creditHistoryTitle">Kredite Historiku</span></h3>
         <div class="table-scroll">
           <table class="history-table" id="historyTable">
             <thead>
@@ -759,24 +759,24 @@
     <div id="tab-credits" class="tab-content" style="display:none">
       <div class="dash-card">
         <h3 data-i18n="creditsTitle">Blej Kredite</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="creditsSubtitle">Zgjidh njÃ« pako kreditesh dhe paguaj online me Paysera.</p>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="creditsSubtitle">Zgjidh një pako kreditesh dhe paguaj online me Paysera.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:20px">
           <div class="pkg-card" style="border:2px solid var(--gray-200);border-radius:12px;padding:16px;text-align:center">
-            <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgBasic">Pako BazÃ«</h4>
-            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgBasicDesc">20 Kredite pÃ«r 15 postime</p>
+            <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgBasic">Pako Bazë</h4>
+            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgBasicDesc">20 Kredite për 15 postime</p>
             <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:12px">500 <span style="font-size:0.8rem">LEK</span></div>
             <button class="btn btn-primary" onclick="buyCreditsViaPaysera(1, 500)" data-i18n="btnBuyCredits">Blej me Paysera</button>
           </div>
           <div class="pkg-card" style="border:2px solid var(--gray-200);border-radius:12px;padding:16px;text-align:center">
             <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgPopular">Pako Popullore</h4>
-            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgPopularDesc">50 Kredite pÃ«r 40 postime</p>
+            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgPopularDesc">50 Kredite për 40 postime</p>
             <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:12px">1,000 <span style="font-size:0.8rem">LEK</span></div>
             <button class="btn btn-primary" onclick="buyCreditsViaPaysera(2, 1000)" data-i18n="btnBuyCredits">Blej me Paysera</button>
           </div>
           <div class="pkg-card" style="border:2px solid var(--primary);border-radius:12px;padding:16px;text-align:center;position:relative">
             <span style="position:absolute;top:-8px;right:12px;background:var(--primary);color:#fff;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px" data-i18n="popularLabel">Popullore</span>
             <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgPro">Pako Pro</h4>
-            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgProDesc">100 Kredite pÃ«r 90 postime</p>
+            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgProDesc">100 Kredite për 90 postime</p>
             <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:12px">1,800 <span style="font-size:0.8rem">LEK</span></div>
             <button class="btn btn-primary" onclick="buyCreditsViaPaysera(3, 1800)" data-i18n="btnBuyCredits">Blej me Paysera</button>
           </div>
@@ -785,8 +785,8 @@
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
             <div style="background:#00A651;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem">&#10003;</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">PagesÃ« e sigurt me Paysera</div>
-              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpÃ«rdrejtÃ«. Kreditet shtohen brenda 15-30 minutave.</div>
+              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">Pagesë e sigurt me Paysera</div>
+              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpërdrejtë. Kreditet shtohen brenda 15-30 minutave.</div>
             </div>
           </div>
         </div>
@@ -797,29 +797,29 @@
     <div id="tab-ads" class="tab-content" style="display:none">
       <div class="dash-card">
         <h3 data-i18n="adsTitle">Reklamoni</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="adsSubtitle">Krijoni reklama pÃ«r produktet tuaja. Ã‡do reklamÃ« koston 200 LEK.</p>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="adsSubtitle">Krijoni reklama për produktet tuaja. Çdo reklamë koston 200 LEK.</p>
         <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:12px">
           <div style="font-size:1.3rem;font-weight:800;color:var(--primary)">200 <span style="font-size:0.8rem">LEK</span></div>
-          <div style="font-size:0.8rem;color:var(--gray-500)" data-i18n="adPriceInfo">Ã§do reklamÃ« Â· pago vetÃ«m kur publikohet</div>
+          <div style="font-size:0.8rem;color:var(--gray-500)" data-i18n="adPriceInfo">çdo reklamë · pago vetëm kur publikohet</div>
         </div>
         <form id="adForm" onsubmit="handleAdSubmit(event)">
           <div class="form-group">
-            <label data-i18n="adTitleLabel">Titulli i ReklamÃ«s</label>
+            <label data-i18n="adTitleLabel">Titulli i Reklamës</label>
             <input type="text" id="adTitle" data-i18n="placeholderAdTitle" placeholder="Shkruani titullin" required>
           </div>
           <div class="form-group">
-            <label data-i18n="adDescLabel">PÃ«rshkrimi</label>
-            <textarea id="adDescription" rows="3" data-i18n="placeholderAdDesc" placeholder="PÃ«rshkruani ofertÃ«n tuaj" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
+            <label data-i18n="adDescLabel">Përshkrimi</label>
+            <textarea id="adDescription" rows="3" data-i18n="placeholderAdDesc" placeholder="Përshkruani ofertën tuaj" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
           </div>
           <div class="form-group">
             <label data-i18n="adCategoryLabel">Kategoria</label>
             <select id="adCategory" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
               <option value="food" data-i18n="catFood">Ushqim</option>
-              <option value="bakery" data-i18n="catBakery">BukÃ«/pasticeri</option>
+              <option value="bakery" data-i18n="catBakery">Bukë/pasticeri</option>
               <option value="produce" data-i18n="catProduce">Fruta/perime</option>
               <option value="meat" data-i18n="catMeat">Mish</option>
               <option value="dairy" data-i18n="catDairy">Bulmet</option>
-              <option value="other" data-i18n="catOther">TÃ« tjera</option>
+              <option value="other" data-i18n="catOther">Të tjera</option>
             </select>
           </div>
           <div id="adError" style="margin-bottom:12px"></div>
@@ -832,8 +832,8 @@
           <div style="display:flex;align-items:center;gap:12px">
             <div style="background:#00A651;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem">&#10003;</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">PagesÃ« e sigurt me Paysera</div>
-              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpÃ«rdrejtÃ«. Reklamat publikohen menjÃ«herÃ« pas pagesÃ«s.</div>
+              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">Pagesë e sigurt me Paysera</div>
+              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpërdrejtë. Reklamat publikohen menjëherë pas pagesës.</div>
             </div>
           </div>
         </div>
@@ -841,7 +841,7 @@
       <div class="dash-card" style="margin-top:16px">
         <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="myAdsTitle">Reklamat e Mia</h4>
         <div class="ads-list" id="myAdsList">
-          <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="noAds">Nuk ka reklama ende. Krijoni reklamÃ«n tuaj tÃ« parÃ«!</p>
+          <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="noAds">Nuk ka reklama ende. Krijoni reklamën tuaj të parë!</p>
         </div>
       </div>
     </div>
@@ -938,7 +938,7 @@
       loginTitle: 'Partner Login', loginSubtitle: 'Qasja ne panelin e partnerit',
       registerTitle: 'Regjistrohu si Partner', registerSubtitle: 'Plotesoni te dhenat e biznesit tuaj',
       noAccount: 'Nuk keni llogari?', hasAccount: 'Keni llogari?',
-      linkRegister: 'Regjistrohu si Partner â†’', linkLogin: 'Hyr ketu â†’',
+      linkRegister: 'Regjistrohu si Partner →', linkLogin: 'Hyr ketu →',
       btnRegister: 'Regjistrohu', registerLoading: 'Duke u regjistruar...',
       registerSuccess: 'Regjistrimi u krye me sukses! Mund te hyni tani.',
       registerError: 'Gabim gjate regjistrimit',
@@ -961,37 +961,37 @@
       btnLogin: 'Hyr', linkBack: '\u2190 Kthehu ne faqen kryesore',
       linkForgotPw: 'Keni harruar fjalekalimin?',
       forgotPwTitle: 'Rivendos Fjalekalimin',
-      forgotPwSubtitle: 'Shkruani email-in tuaj dhe do ju dergojme udhÃ«zime per rivendosjen.',
-      btnSendReset: 'DÃ«rgo UdhÃ«zimet',
+      forgotPwSubtitle: 'Shkruani email-in tuaj dhe do ju dergojme udhëzime per rivendosjen.',
+      btnSendReset: 'Dërgo Udhëzimet',
       btnSending: 'Duke u derguar...',
-      resetEmailSent: 'UdhÃ«zimet per rivendosjen u derguan! Kontrolloni email-in tuaj.',
+      resetEmailSent: 'Udhëzimet per rivendosjen u derguan! Kontrolloni email-in tuaj.',
       resetEmailError: 'Gabim ne dergim. Kontrolloni email-in dhe provoni perseri.',
-      linkBackLogin: 'â† Kthehu tek Hyrja',
+      linkBackLogin: '← Kthehu tek Hyrja',
       loginLoading: 'Duke u kyqur...', loginError: 'Gabim ne lidhje',
       invalidCredentials: 'Kredencialet e pasakta',
       pricingTitle: 'Cmimet', pricingSubtitle: 'Zgjidhni paketen qe ju pershtatet me mire.',
       pkg1Name: 'Paketa 1', pkg1Desc: 'Per biznese te vogla',
       pkg2Name: 'Paketa 2', pkg2Desc: 'Per biznese ne rritje',
       pkg3Name: 'Paketa 3', pkg3Desc: 'Per biznese te medha',
-      pkgPopular: 'Me e Popullarizuara', btnSelect: 'Zgjidh', linkSkip: 'Kalo per tani â†’',
+      pkgPopular: 'Me e Popullarizuara', btnSelect: 'Zgjidh', linkSkip: 'Kalo per tani →',
       pkgFeature1: '20 Kredite', pkgFeature2: '1 Kredit = 1 Postim',
       pkgFeature3: 'Vlefshmeri 3 muaj', pkgFeature4a: 'Support baze',
       pkgFeature4b: 'Support prioritet', pkgFeature5: '50 Kredite',
       pkgFeature6: 'Statistika te detajuara', pkgFeature7: '100 Kredite',
       pkgFeature8: 'Reklama premium',
-      tabOverview: 'Overview', tabBoxes: 'KutitÃ« SurprizÃ«', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
-      boxesTitle: 'KutitÃ« SurprizÃ«', boxesSubtitle: 'Krijoni kutitÃ« surprizÃ« me produkte ushqimore dhe shitini me zbritje.',
-      boxSmall: 'Kuti e VogÃ«l', boxSmallDesc: '3-5 produkte, vlerÃ« ~1000 LEK',
-      boxMedium: 'Kuti e Mesme', boxMediumDesc: '5-8 produkte, vlerÃ« ~2000 LEK',
-      boxLarge: 'Kuti e Madhe', boxLargeDesc: '8-12 produkte, vlerÃ« ~3500 LEK',
-      popularLabel: 'Popullore', btnCreateBox: 'Krijo Kuti', myBoxesTitle: 'KutitÃ« e Mia', noBoxes: 'Nuk ka kutitÃ« ende. Krijoni njÃ« kuti surprizÃ«!', boxCreated: 'Kuti u krijua me sukses!',
-      adsTitle: 'Reklamoni', adsSubtitle: 'Krijoni reklama pÃ«r produktet tuaja dhe arrini mÃ« shumÃ« klientÃ«.',
-      adTitleLabel: 'Titulli i ReklamÃ«s', placeholderAdTitle: 'Shkruani titullin',
-      adDescLabel: 'PÃ«rshkrimi', placeholderAdDesc: 'PÃ«rshkruani ofertÃ«n tuaj',
-      adPriceLabel: 'Ã‡mimi (LEK)', adCategoryLabel: 'Kategoria',
-      catFood: 'Ushqim', catBakery: 'BukÃ«/pasticeri', catProduce: 'Fruta/perime', catMeat: 'Mish', catDairy: 'Bulmet', catOther: 'TÃ« tjera',
-      btnPublishAd: 'Publiko ReklamÃ«n', btnPublishing: 'Duke publikuar...', btnClear: 'Pastro',
-      adPublished: 'Reklama u publikua me sukses!', myAdsTitle: 'Reklamat e Mia', noAds: 'Nuk ka reklama ende. Krijoni reklamÃ«n tuaj tÃ« parÃ«!',
+      tabOverview: 'Overview', tabBoxes: 'Kutitë Surprizë', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
+      boxesTitle: 'Kutitë Surprizë', boxesSubtitle: 'Krijoni kutitë surprizë me produkte ushqimore dhe shitini me zbritje.',
+      boxSmall: 'Kuti e Vogël', boxSmallDesc: '3-5 produkte, vlerë ~1000 LEK',
+      boxMedium: 'Kuti e Mesme', boxMediumDesc: '5-8 produkte, vlerë ~2000 LEK',
+      boxLarge: 'Kuti e Madhe', boxLargeDesc: '8-12 produkte, vlerë ~3500 LEK',
+      popularLabel: 'Popullore', btnCreateBox: 'Krijo Kuti', myBoxesTitle: 'Kutitë e Mia', noBoxes: 'Nuk ka kutitë ende. Krijoni një kuti surprizë!', boxCreated: 'Kuti u krijua me sukses!',
+      adsTitle: 'Reklamoni', adsSubtitle: 'Krijoni reklama për produktet tuaja dhe arrini më shumë klientë.',
+      adTitleLabel: 'Titulli i Reklamës', placeholderAdTitle: 'Shkruani titullin',
+      adDescLabel: 'Përshkrimi', placeholderAdDesc: 'Përshkruani ofertën tuaj',
+      adPriceLabel: 'Çmimi (LEK)', adCategoryLabel: 'Kategoria',
+      catFood: 'Ushqim', catBakery: 'Bukë/pasticeri', catProduce: 'Fruta/perime', catMeat: 'Mish', catDairy: 'Bulmet', catOther: 'Të tjera',
+      btnPublishAd: 'Publiko Reklamën', btnPublishing: 'Duke publikuar...', btnClear: 'Pastro',
+      adPublished: 'Reklama u publikua me sukses!', myAdsTitle: 'Reklamat e Mia', noAds: 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!',
       btnLogout: 'Logout', welcomeTitle: 'Miresevini',
       welcomeDesc: 'Krijoni dhe menaxhoni faturat tua tatimore ketu.',
       statInvoices: 'Total Faturat', statInvoicesLabel: 'Fatura te krijuara',
@@ -1024,7 +1024,7 @@
       serialLabel: 'Seriali: ', dateLabel: 'Data: ',
       invoiceTitle: 'FATURE TATIMORE SHITJE',
       buyerLabel: 'BLERESI', sellerLabel: 'SHITESI',
-      paymentDueLabel: 'Afati i Pageses: ', paymentMethodLabel: 'MÃ«nyra e PagesÃ«s: ',
+      paymentDueLabel: 'Afati i Pageses: ', paymentMethodLabel: 'Mënyra e Pagesës: ',
       webLabel: 'Web: ', totalExcl: 'Total pa TVSH:', vatLabel: 'TVSH (20%):',
       footerNote: 'Fature e gjeneruar nga Savoraapp | savoraapp.com',
       bankLabel: 'Banka:', noItems: 'Nuk ka artikuj',
@@ -1046,14 +1046,14 @@
       modalFooterDetail: 'NUI: M51921505O | Marrveshja: AL-WILLIAM-2026 | E licencuar nga Banka e Shqiperise',
       payInstructions: '<strong>Instruksionet per Transferte Bankare:</strong><br>1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>3. Shkruani IBAN-in: <strong>AL70202111230000000000537482</strong><br>4. Shkruani shum&euml;n: <strong id="paymentAmount2">500 LEK</strong><br>5. N&euml; p&euml;rshkrim: <strong>"Savoraapp - [Email]"</strong><br>6. Klikoni "D&euml;rgo"<br><br><small style="color:var(--success)">&#10003; Llogaria e verifikuar nga Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Marr&euml;veshja: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Kreditet aktivizohen brenda 15-30 minutave.',
       creditTitle: 'Kredite Aktuale',
-      btnTopUp: 'BÃ«j Kredi',
+      btnTopUp: 'Bëj Kredi',
       creditHistoryTitle: 'Kredite Historiku',
       colDate: 'Data',
       colAmount: 'Shuma',
       colBalance: 'Bilanci',
-      creditUsed: '% e pÃ«rdorur',
+      creditUsed: '% e përdorur',
       creditMonthly: 'Limiti mujor',
-      creditTooltipText: 'Kreditet pÃ«rdoren pÃ«r tÃ« paguar komisionet e platformÃ«s. Ã‡do porosi redukton kreditet tuaja me 15% tÃ« vlerÃ«s sÃ« shitjes.',
+      creditTooltipText: 'Kreditet përdoren për të paguar komisionet e platformës. Çdo porosi redukton kreditet tuaja me 15% të vlerës së shitjes.',
       noHistory: 'Nuk ka transaksione',
       creditsAdded: 'Kreditet u shtuan',
       paymentNote: 'Kreditet do te shtohen ne llogarine tuaje menjehere.',
@@ -1063,7 +1063,7 @@
       loginTitle: 'Partner Login', loginSubtitle: 'Access your partner dashboard',
       registerTitle: 'Register as Partner', registerSubtitle: 'Fill in your business details',
       noAccount: 'No account?', hasAccount: 'Already have an account?',
-      linkRegister: 'Register as Partner â†’', linkLogin: 'Login here â†’',
+      linkRegister: 'Register as Partner →', linkLogin: 'Login here →',
       btnRegister: 'Register', registerLoading: 'Registering...',
       registerSuccess: 'Registration successful! You can now login.',
       registerError: 'Registration failed',
@@ -1083,22 +1083,22 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Other',
       labelEmail: 'Email', labelPassword: 'Password', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Login', linkBack: 'â† Back to main site',
-      linkForgotPw: 'Ù‡Ù„ Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±ØŸ',
-      forgotPwTitle: 'Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±',
-      forgotPwSubtitle: 'Ø£Ø¯Ø®Ù„ Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ³Ù†Ø±Ø³Ù„ Ù„Ùƒ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª.',
-      btnSendReset: 'Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª',
-      btnSending: 'Ø¬Ø§Ø±ÙŠ Ø§Ù„Ø¥Ø±Ø³Ø§Ù„...',
-      resetEmailSent: 'ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª! ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ.',
-      resetEmailError: 'Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø¥Ø±Ø³Ø§Ù„. ØªØ­Ù‚Ù‚ Ù…Ù† Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ­Ø§ÙˆÙ„ Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.',
-      linkBackLogin: 'â† Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„',
+      btnLogin: 'Login', linkBack: '← Back to main site',
+      linkForgotPw: 'هل نسيت كلمة المرور؟',
+      forgotPwTitle: 'إعادة تعيين كلمة المرور',
+      forgotPwSubtitle: 'أدخل بريدك الإلكتروني وسنرسل لك التعليمات.',
+      btnSendReset: 'إرسال التعليمات',
+      btnSending: 'جاري الإرسال...',
+      resetEmailSent: 'تم إرسال التعليمات! يرجى التحقق من بريدك الإلكتروني.',
+      resetEmailError: 'خطأ في الإرسال. تحقق من بريدك الإلكتروني وحاول مرة أخرى.',
+      linkBackLogin: '← العودة إلى تسجيل الدخول',
       loginLoading: 'Logging in...', loginError: 'Connection error',
       invalidCredentials: 'Invalid credentials',
       pricingTitle: 'Pricing', pricingSubtitle: 'Choose the package that suits you best.',
       pkg1Name: 'Package 1', pkg1Desc: 'For small businesses',
       pkg2Name: 'Package 2', pkg2Desc: 'For growing businesses',
       pkg3Name: 'Package 3', pkg3Desc: 'For large businesses',
-      pkgPopular: 'Most Popular', btnSelect: 'Select', linkSkip: 'Skip for now â†’',
+      pkgPopular: 'Most Popular', btnSelect: 'Select', linkSkip: 'Skip for now →',
       pkgFeature1: '20 Credits', pkgFeature2: '1 Credit = 1 Post',
       pkgFeature3: 'Valid 3 months', pkgFeature4a: 'Basic support',
       pkgFeature4b: 'Priority support', pkgFeature5: '50 Credits',
@@ -1188,7 +1188,7 @@
       loginTitle: 'Partner Login', loginSubtitle: 'Toegang tot uw partner dashboard',
       registerTitle: 'Registreer als Partner', registerSubtitle: 'Vul uw bedrijfsgegevens in',
       noAccount: 'Geen account?', hasAccount: 'Heeft u al een account?',
-      linkRegister: 'Registreer als Partner â†’', linkLogin: 'Login hier â†’',
+      linkRegister: 'Registreer als Partner →', linkLogin: 'Login hier →',
       btnRegister: 'Registreren', registerLoading: 'Bezig met registreren...',
       registerSuccess: 'Registratie succesvol! U kunt nu inloggen.',
       registerError: 'Registratie mislukt',
@@ -1208,7 +1208,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarkt', optCafe: 'Cafe', optOther: 'Overige',
       labelEmail: 'Email', labelPassword: 'Wachtwoord', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Inloggen', linkBack: 'â† Terug naar hoofdpagina',
+      btnLogin: 'Inloggen', linkBack: '← Terug naar hoofdpagina',
       linkForgotPw: 'Wachtwoord vergeten?',
       forgotPwTitle: 'Wachtwoord Herstellen',
       forgotPwSubtitle: 'Vul uw email in en wij sturen u herstelinstructies.',
@@ -1216,14 +1216,14 @@
       btnSending: 'Bezig met verzenden...',
       resetEmailSent: 'Herstelinstructies verstuurd! Controleer uw email.',
       resetEmailError: 'Fout bij verzenden. Controleer uw email en probeer opnieuw.',
-      linkBackLogin: 'â† Terug naar Inloggen',
+      linkBackLogin: '← Terug naar Inloggen',
       loginLoading: 'Bezig met inloggen...', loginError: 'Verbindingsfout',
       invalidCredentials: 'Ongeldige inloggegevens',
       pricingTitle: 'Prijzen', pricingSubtitle: 'Kies het pakket dat het beste bij u past.',
       pkg1Name: 'Pakket 1', pkg1Desc: 'Voor kleine bedrijven',
       pkg2Name: 'Pakket 2', pkg2Desc: 'Voor groeiende bedrijven',
       pkg3Name: 'Pakket 3', pkg3Desc: 'Voor grote bedrijven',
-      pkgPopular: 'Meest Populair', btnSelect: 'Kies', linkSkip: 'Overslaan â†’',
+      pkgPopular: 'Meest Populair', btnSelect: 'Kies', linkSkip: 'Overslaan →',
       pkgFeature1: '20 Credits', pkgFeature2: '1 Credit = 1 Post',
       pkgFeature3: 'Geldig 3 maanden', pkgFeature4a: 'Basis support',
       pkgFeature4b: 'Prioriteit support', pkgFeature5: '50 Credits',
@@ -1313,7 +1313,7 @@
       loginTitle: 'Partner Login', loginSubtitle: 'Zugriff auf Ihr Partner-Dashboard',
       registerTitle: 'Als Partner registrieren', registerSubtitle: 'Fuellen Sie Ihre Unternehmensdaten aus',
       noAccount: 'Kein Konto?', hasAccount: 'Bereits ein Konto?',
-      linkRegister: 'Als Partner registrieren â†’', linkLogin: 'Hier anmelden â†’',
+      linkRegister: 'Als Partner registrieren →', linkLogin: 'Hier anmelden →',
       btnRegister: 'Registrieren', registerLoading: 'Registrierung laeuft...',
       registerSuccess: 'Registrierung erfolgreich! Sie koennen sich jetzt anmelden.',
       registerError: 'Registrierung fehlgeschlagen',
@@ -1333,14 +1333,14 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarkt', optCafe: 'Cafe', optOther: 'Sonstiges',
       labelEmail: 'E-Mail', labelPassword: 'Passwort', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Anmelden', linkBack: 'â† Zurueck zur Hauptseite',
+      btnLogin: 'Anmelden', linkBack: '← Zurueck zur Hauptseite',
       loginLoading: 'Anmeldung laeuft...', loginError: 'Verbindungsfehler',
       invalidCredentials: 'Ungueltige Anmeldedaten',
       pricingTitle: 'Preise', pricingSubtitle: 'Waehlen Sie das Paket, das am besten zu Ihnen passt.',
       pkg1Name: 'Paket 1', pkg1Desc: 'Fuer kleine Unternehmen',
       pkg2Name: 'Paket 2', pkg2Desc: 'Fuer wachsende Unternehmen',
       pkg3Name: 'Paket 3', pkg3Desc: 'Fuer grosse Unternehmen',
-      pkgPopular: 'Beliebteste', btnSelect: 'Auswaehlen', linkSkip: 'Ueberspringen â†’',
+      pkgPopular: 'Beliebteste', btnSelect: 'Auswaehlen', linkSkip: 'Ueberspringen →',
       pkgFeature1: '20 Credits', pkgFeature2: '1 Credit = 1 Post',
       pkgFeature3: 'Gueltig 3 Monate', pkgFeature4a: 'Basis-Support',
       pkgFeature4b: 'Prioritaets-Support', pkgFeature5: '50 Credits',
@@ -1417,7 +1417,7 @@
       loginTitle: 'Login Partner', loginSubtitle: 'Accesso alla dashboard partner',
       registerTitle: 'Registrati come Partner', registerSubtitle: 'Compila i dati della tua attivita',
       noAccount: 'Nessun account?', hasAccount: 'Hai gia un account?',
-      linkRegister: 'Registrati come Partner â†’', linkLogin: 'Accedi qui â†’',
+      linkRegister: 'Registrati come Partner →', linkLogin: 'Accedi qui →',
       btnRegister: 'Registrati', registerLoading: 'Registrazione in corso...',
       registerSuccess: 'Registrazione completata! Ora puoi accedere.',
       registerError: 'Registrazione fallita',
@@ -1437,7 +1437,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Ristorante', optSupermarket: 'Supermercato', optCafe: 'Caffe', optOther: 'Altro',
       labelEmail: 'Email', labelPassword: 'Password', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Accedi', linkBack: 'â† Torna al sito principale',
+      btnLogin: 'Accedi', linkBack: '← Torna al sito principale',
       linkForgotPw: 'Password dimenticata?',
       forgotPwTitle: 'Reimposta Password',
       forgotPwSubtitle: 'Inserisci la tua email e ti invieremo le istruzioni.',
@@ -1445,14 +1445,14 @@
       btnSending: 'Invio in corso...',
       resetEmailSent: 'Istruzioni inviate! Controlla la tua email.',
       resetEmailError: 'Errore nell\'invio. Controlla l\'email e riprova.',
-      linkBackLogin: 'â† Torna al Login',
+      linkBackLogin: '← Torna al Login',
       loginLoading: 'Accesso in corso...', loginError: 'Errore di connessione',
       invalidCredentials: 'Credenziali non valide',
       pricingTitle: 'Prezzi', pricingSubtitle: 'Scegli il pacchetto piu adatto a te.',
       pkg1Name: 'Pacchetto 1', pkg1Desc: 'Per piccole attivita',
       pkg2Name: 'Pacchetto 2', pkg2Desc: 'Per attivita in crescita',
       pkg3Name: 'Pacchetto 3', pkg3Desc: 'Per grandi attivita',
-      pkgPopular: 'Piu Popolare', btnSelect: 'Seleziona', linkSkip: 'Salta per ora â†’',
+      pkgPopular: 'Piu Popolare', btnSelect: 'Seleziona', linkSkip: 'Salta per ora →',
       pkgFeature1: '20 Crediti', pkgFeature2: '1 Credito = 1 Post',
       pkgFeature3: 'Valido 3 mesi', pkgFeature4a: 'Supporto base',
       pkgFeature4b: 'Supporto prioritario', pkgFeature5: '50 Crediti',
@@ -1529,7 +1529,7 @@
       loginTitle: 'Login Partner', loginSubtitle: 'Prosbasi sto panel synergati',
       registerTitle: 'Eggrafi os Partner', registerSubtitle: 'Symplirwste ta stoixeia tis epixeirisis sas',
       noAccount: 'Den exete logariasmo?', hasAccount: 'Exete idi logariasmo?',
-      linkRegister: 'Eggrafi os Partner â†’', linkLogin: 'Sindethite edw â†’',
+      linkRegister: 'Eggrafi os Partner →', linkLogin: 'Sindethite edw →',
       btnRegister: 'Eggrafi', registerLoading: 'Eggrafi se exelixi...',
       registerSuccess: 'Eggrafi epityxhs! Mporite na syndetheite twra.',
       registerError: 'Apotyxia eggrafis',
@@ -1549,7 +1549,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Estiatorio', optSupermarket: 'Supermarket', optCafe: 'Kafeteria', optOther: 'Allo',
       labelEmail: 'Email', labelPassword: 'Kodikos', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Eisodos', linkBack: 'â† Epistrofi stin arxiki selida',
+      btnLogin: 'Eisodos', linkBack: '← Epistrofi stin arxiki selida',
       linkForgotPw: 'Xasate ton kodiko sas?',
       forgotPwTitle: 'Epanafora Kodikou',
       forgotPwSubtitle: 'Eisagete to email sas kai tha sas steiloume odigies.',
@@ -1557,14 +1557,14 @@
       btnSending: 'Apostoli se exelixi...',
       resetEmailSent: 'Oi odigies staleikan! Elekste to email sas.',
       resetEmailError: 'Sfalma apostolis. Elekste to email kai prospatheiste ksana.',
-      linkBackLogin: 'â† Epistrofi sto Login',
+      linkBackLogin: '← Epistrofi sto Login',
       loginLoading: 'Eisodos se exelixi...', loginError: 'Sfalma syndesis',
       invalidCredentials: 'Mi egkyra stoixeia',
       pricingTitle: 'Times', pricingSubtitle: 'Epilekte to paketo pou sas taisazei kalutera.',
       pkg1Name: 'Paketo 1', pkg1Desc: 'Gia mikres epixeiriseis',
       pkg2Name: 'Paketo 2', pkg2Desc: 'Gia anaptussomenes epixeiriseis',
       pkg3Name: 'Paketo 3', pkg3Desc: 'Gia megales epixeiriseis',
-      pkgPopular: 'Poi Dimiourgiko', btnSelect: 'Epilogi', linkSkip: 'Paraleipsh gia twra â†’',
+      pkgPopular: 'Poi Dimiourgiko', btnSelect: 'Epilogi', linkSkip: 'Paraleipsh gia twra →',
       pkgFeature1: '20 Pistwtikes Monades', pkgFeature2: '1 Monada = 1 Anartisi',
       pkgFeature3: 'Isxyei 3 mines', pkgFeature4a: 'Vasiki ypostiriksi',
       pkgFeature4b: 'Proteraiothta ypostiriksis', pkgFeature5: '50 Monades',
@@ -1624,24 +1624,24 @@
       modalFooterSecure: '>> Asfalis Plirwmi - Paysera Albania SH.P.K.',
       modalFooterDetail: 'NUI: M51921505O | Symfwnia: AL-WILLIAM-2026 | Adeiodotimeno apo Trapeza tis Albanias',
       payInstructions: '<strong>Odigies Trapezikis Metaforas:</strong><br>1. Anoixte tin efarmogi trapezas sas (Paysera, BKT, Raiffeisen, Intesa klp.)<br>2. Epilekste "Metafora Xrimatwn" i "Nea Plirwmi"<br>3. Eisagete IBAN: <strong>AL70202111230000000000537482</strong><br>4. Eisagete poso: <strong id="paymentAmount2">500 LEK</strong><br>5. Stin perigrafi: <strong>"Savoraapp - [Email]"</strong><br>6. Kante klik "Apostoli"<br><br><small style="color:var(--success)">&#10003; Logariasmos epalitheumenos apo Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Symfwnia: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Oi monades energopoiountai entos 15-30 leptwn.',
-      creditTitle: 'Î¤ÏÎ­Ï‡Î¿Î½Ï„Î± Credits',
-      btnTopUp: 'Î‘Î½Î±Î½Î­Ï‰ÏƒÎ·',
-      creditHistoryTitle: 'Î™ÏƒÏ„Î¿ÏÎ¹ÎºÏŒ Credits',
-      colDate: 'Î—Î¼ÎµÏÎ¿Î¼Î·Î½Î¯Î±',
-      colAmount: 'Î Î¿ÏƒÏŒ',
-      colBalance: 'Î¥Ï€ÏŒÎ»Î¿Î¹Ï€Î¿',
-      creditUsed: '% Ï‡ÏÎ·ÏƒÎ¹Î¼Î¿Ï€Î¿Î¹Î·Î¼Î­Î½Î¿',
-      creditMonthly: 'ÎœÎ·Î½Î¹Î±Î¯Î¿ ÏŒÏÎ¹Î¿',
-      creditTooltipText: 'Î¤Î± credits Ï‡ÏÎ·ÏƒÎ¹Î¼Î¿Ï€Î¿Î¹Î¿ÏÎ½Ï„Î±Î¹ Î³Î¹Î± Ï„Î·Î½ Ï€Î»Î·ÏÏ‰Î¼Î® Ï€ÏÎ¿Î¼Î·Î¸ÎµÎ¹ÏŽÎ½ Ï€Î»Î±Ï„Ï†ÏŒÏÎ¼Î±Ï‚. ÎšÎ¬Î¸Îµ Ï€Î±ÏÎ±Î³Î³ÎµÎ»Î¯Î± Î¼ÎµÎ¹ÏŽÎ½ÎµÎ¹ Ï„Î± credits ÏƒÎ±Ï‚ ÎºÎ±Ï„Î¬ 15% Ï„Î·Ï‚ Î±Î¾Î¯Î±Ï‚ Ï€ÏŽÎ»Î·ÏƒÎ·Ï‚.',
-      noHistory: 'ÎšÎ±Î¼Î¯Î± ÏƒÏ…Î½Î±Î»Î»Î±Î³Î®',
-      creditsAdded: 'Credits Ï€ÏÎ¿ÏƒÏ„Î­Î¸Î·ÎºÎ±Î½',
-      paymentNote: 'Î¤Î± credits Î¸Î± Ï€ÏÎ¿ÏƒÏ„ÎµÎ¸Î¿ÏÎ½ Î±Î¼Î­ÏƒÏ‰Ï‚ ÏƒÏ„Î¿Î½ Î»Î¿Î³Î±ÏÎ¹Î±ÏƒÎ¼ÏŒ ÏƒÎ±Ï‚.',
+      creditTitle: 'Τρέχοντα Credits',
+      btnTopUp: 'Ανανέωση',
+      creditHistoryTitle: 'Ιστορικό Credits',
+      colDate: 'Ημερομηνία',
+      colAmount: 'Ποσό',
+      colBalance: 'Υπόλοιπο',
+      creditUsed: '% χρησιμοποιημένο',
+      creditMonthly: 'Μηνιαίο όριο',
+      creditTooltipText: 'Τα credits χρησιμοποιούνται για την πληρωμή προμηθειών πλατφόρμας. Κάθε παραγγελία μειώνει τα credits σας κατά 15% της αξίας πώλησης.',
+      noHistory: 'Καμία συναλλαγή',
+      creditsAdded: 'Credits προστέθηκαν',
+      paymentNote: 'Τα credits θα προστεθούν αμέσως στον λογαριασμό σας.',
     },
     fr: {
       loginTitle: 'Connexion Partenaire', loginSubtitle: 'Acces a votre tableau de bord',
       registerTitle: 'S\'inscrire comme Partenaire', registerSubtitle: 'Remplissez les informations de votre entreprise',
       noAccount: 'Pas de compte?', hasAccount: 'Vous avez deja un compte?',
-      linkRegister: 'S\'inscrire comme Partenaire â†’', linkLogin: 'Connectez-vous ici â†’',
+      linkRegister: 'S\'inscrire comme Partenaire →', linkLogin: 'Connectez-vous ici →',
       btnRegister: 'S\'inscrire', registerLoading: 'Inscription en cours...',
       registerSuccess: 'Inscription reussie! Vous pouvez maintenant vous connecter.',
       registerError: 'L\'inscription a echoue',
@@ -1661,7 +1661,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarche', optCafe: 'Cafe', optOther: 'Autre',
       labelEmail: 'Email', labelPassword: 'Mot de passe', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Connexion', linkBack: 'â† Retour au site principal',
+      btnLogin: 'Connexion', linkBack: '← Retour au site principal',
       linkForgotPw: 'Mot de passe oublie?',
       forgotPwTitle: 'Reinitialiser le Mot de Passe',
       forgotPwSubtitle: 'Entrez votre email et nous vous enverrons les instructions.',
@@ -1669,20 +1669,20 @@
       btnSending: 'Envoi en cours...',
       resetEmailSent: 'Instructions envoyees! Verifiez votre email.',
       resetEmailError: 'Erreur d\'envoi. Verifiez votre email et reessayez.',
-      linkBackLogin: 'â† Retour a la Connexion',
+      linkBackLogin: '← Retour a la Connexion',
       loginLoading: 'Connexion en cours...', loginError: 'Erreur de connexion',
       invalidCredentials: 'Identifiants invalides',
       pricingTitle: 'Tarifs', pricingSubtitle: 'Choisissez le forfait qui vous convient le mieux.',
       pkg1Name: 'Forfait 1', pkg1Desc: 'Pour petites entreprises',
       pkg2Name: 'Forfait 2', pkg2Desc: 'Pour entreprises en croissance',
       pkg3Name: 'Forfait 3', pkg3Desc: 'Pour grandes entreprises',
-      pkgPopular: 'Plus Populaire', btnSelect: 'Choisir', linkSkip: 'Passer pour l\'instant â†’',
+      pkgPopular: 'Plus Populaire', btnSelect: 'Choisir', linkSkip: 'Passer pour l\'instant →',
       pkgFeature1: '20 Credits', pkgFeature2: '1 Credit = 1 Publication',
       pkgFeature3: 'Valable 3 mois', pkgFeature4a: 'Support de base',
       pkgFeature4b: 'Support prioritaire', pkgFeature5: '50 Credits',
       pkgFeature6: 'Statistiques detaillees', pkgFeature7: '100 Credits',
       pkgFeature8: 'Publicite premium',
-      tabOverview: 'Apercu', tabBoxes: 'BoÃ®tes Surprise', tabAds: 'Annoncer', tabInvoice: 'Nouvelle Facture', tabInvoices: 'Mes Factures',
+      tabOverview: 'Apercu', tabBoxes: 'Boîtes Surprise', tabAds: 'Annoncer', tabInvoice: 'Nouvelle Facture', tabInvoices: 'Mes Factures',
       btnLogout: 'Deconnexion', welcomeTitle: 'Bienvenue',
       welcomeDesc: 'Creez et gerez vos factures fiscales ici.',
       statInvoices: 'Total Factures', statInvoicesLabel: 'Factures creees',
@@ -1742,9 +1742,9 @@
       colDate: 'Date',
       colAmount: 'Montant',
       colBalance: 'Solde',
-      creditUsed: '% utilisÃ©',
+      creditUsed: '% utilisé',
       creditMonthly: 'Limite mensuelle',
-      creditTooltipText: 'Les credits servent Ã  payer les commissions de la plateforme. Chaque commande rÃ©duit vos credits de 15% de la valeur de la vente.',
+      creditTooltipText: 'Les credits servent à payer les commissions de la plateforme. Chaque commande réduit vos credits de 15% de la valeur de la vente.',
       noHistory: 'Aucune transaction',
       creditsAdded: 'Credits ajoutes',
       paymentNote: 'Les credits seront ajoutes a votre compte immediatement.',
@@ -1753,7 +1753,7 @@
       loginTitle: 'Inicio Socio', loginSubtitle: 'Acceso a su panel de socio',
       registerTitle: 'Registrarse como Socio', registerSubtitle: 'Complete los datos de su negocio',
       noAccount: 'No tiene cuenta?', hasAccount: 'Ya tiene una cuenta?',
-      linkRegister: 'Registrarse como Socio â†’', linkLogin: 'Inicie sesion aqui â†’',
+      linkRegister: 'Registrarse como Socio →', linkLogin: 'Inicie sesion aqui →',
       btnRegister: 'Registrarse', registerLoading: 'Registrando...',
       registerSuccess: 'Registro exitoso! Ahora puede iniciar sesion.',
       registerError: 'El registro fallo',
@@ -1773,7 +1773,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurante', optSupermarket: 'Supermercado', optCafe: 'Cafeteria', optOther: 'Otro',
       labelEmail: 'Email', labelPassword: 'Contrasena', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Iniciar Sesion', linkBack: 'â† Volver al sitio principal',
+      btnLogin: 'Iniciar Sesion', linkBack: '← Volver al sitio principal',
       linkForgotPw: 'Olvidaste tu contrasena?',
       forgotPwTitle: 'Restablecer Contrasena',
       forgotPwSubtitle: 'Introduce tu email y te enviaremos instrucciones.',
@@ -1781,14 +1781,14 @@
       btnSending: 'Enviando...',
       resetEmailSent: 'Instrucciones enviadas! Revisa tu email.',
       resetEmailError: 'Error al enviar. Revisa tu email e intenta de nuevo.',
-      linkBackLogin: 'â† Volver al Inicio de Sesion',
+      linkBackLogin: '← Volver al Inicio de Sesion',
       loginLoading: 'Iniciando sesion...', loginError: 'Error de conexion',
       invalidCredentials: 'Credenciales invalidas',
       pricingTitle: 'Precios', pricingSubtitle: 'Elija el paquete que mas le convenga.',
       pkg1Name: 'Paquete 1', pkg1Desc: 'Para pequenos negocios',
       pkg2Name: 'Paquete 2', pkg2Desc: 'Para negocios en crecimiento',
       pkg3Name: 'Paquete 3', pkg3Desc: 'Para grandes negocios',
-      pkgPopular: 'Mas Popular', btnSelect: 'Seleccionar', linkSkip: 'Saltar por ahora â†’',
+      pkgPopular: 'Mas Popular', btnSelect: 'Seleccionar', linkSkip: 'Saltar por ahora →',
       pkgFeature1: '20 Creditos', pkgFeature2: '1 Credito = 1 Publicacion',
       pkgFeature3: 'Valido 3 meses', pkgFeature4a: 'Soporte basico',
       pkgFeature4b: 'Soporte prioritario', pkgFeature5: '50 Creditos',
@@ -1865,7 +1865,7 @@
       loginTitle: 'Partner Giris', loginSubtitle: 'Partner panelinize erisim',
       registerTitle: 'Partner Olarak Kaydol', registerSubtitle: 'Isletme bilgilerinizi doldurun',
       noAccount: 'Hesabiniz yok mu?', hasAccount: 'Zaten hesabiniz var mi?',
-      linkRegister: 'Partner Olarak Kaydol â†’', linkLogin: 'Buradan giris yapin â†’',
+      linkRegister: 'Partner Olarak Kaydol →', linkLogin: 'Buradan giris yapin →',
       btnRegister: 'Kaydol', registerLoading: 'Kaydediliyor...',
       registerSuccess: 'Kayit basarili! Simdi giris yapabilirsiniz.',
       registerError: 'Kayit basarisiz',
@@ -1885,7 +1885,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restoran', optSupermarket: 'Supermarket', optCafe: 'Kafe', optOther: 'Diger',
       labelEmail: 'E-posta', labelPassword: 'Sifre', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Giris Yap', linkBack: 'â† Ana siteye don',
+      btnLogin: 'Giris Yap', linkBack: '← Ana siteye don',
       linkForgotPw: 'Sifrenizi mi unuttunuz?',
       forgotPwTitle: 'Sifre Sifirla',
       forgotPwSubtitle: 'E-postanizi girin ve size talimatlari gonderecegiz.',
@@ -1893,14 +1893,14 @@
       btnSending: 'Gonderiliyor...',
       resetEmailSent: 'Talimatlar gonderildi! Lutfen e-postanizi kontrol edin.',
       resetEmailError: 'Gonderme hatasi. E-postayi kontrol edin ve tekrar deneyin.',
-      linkBackLogin: 'â† Girise Don',
+      linkBackLogin: '← Girise Don',
       loginLoading: 'Giris yapiliyor...', loginError: 'Baglanti hatasi',
       invalidCredentials: 'Gecersiz kimlik bilgileri',
       pricingTitle: 'Fiyatlar', pricingSubtitle: 'Size en uygun paketi secin.',
       pkg1Name: 'Paket 1', pkg1Desc: 'Kucuk isletmeler icin',
       pkg2Name: 'Paket 2', pkg2Desc: 'Buyuyen isletmeler icin',
       pkg3Name: 'Paket 3', pkg3Desc: 'Buyuk isletmeler icin',
-      pkgPopular: 'En Populer', btnSelect: 'Sec', linkSkip: 'Simdiik gec â†’',
+      pkgPopular: 'En Populer', btnSelect: 'Sec', linkSkip: 'Simdiik gec →',
       pkgFeature1: '20 Kredi', pkgFeature2: '1 Kredi = 1 Gonderi',
       pkgFeature3: '3 ay gecerli', pkgFeature4a: 'Temel destek',
       pkgFeature4b: 'Oncelikli destek', pkgFeature5: '50 Kredi',
@@ -1977,7 +1977,7 @@
       loginTitle: 'Partner Login', loginSubtitle: 'Access your partner dashboard',
       registerTitle: 'Register as Partner', registerSubtitle: 'Fill in your business details',
       noAccount: 'No account?', hasAccount: 'Already have an account?',
-      linkRegister: 'Register as Partner â†’', linkLogin: 'Login here â†’',
+      linkRegister: 'Register as Partner →', linkLogin: 'Login here →',
       btnRegister: 'Register', registerLoading: 'Registering...',
       registerSuccess: 'Registration successful! You can now login.',
       registerError: 'Registration failed',
@@ -1997,15 +1997,15 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Other',
       labelEmail: 'Email', labelPassword: 'Password', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Login', linkBack: 'â† Back to main site',
-      linkForgotPw: 'Ù‡Ù„ Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±ØŸ',
-      forgotPwTitle: 'Ø¥Ø¹Ø§Ø¯Ø© ØªØ¹ÙŠÙŠÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±',
-      forgotPwSubtitle: 'Ø£Ø¯Ø®Ù„ Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ³Ù†Ø±Ø³Ù„ Ù„Ùƒ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª.',
-      btnSendReset: 'Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª',
-      btnSending: 'Ø¬Ø§Ø±ÙŠ Ø§Ù„Ø¥Ø±Ø³Ø§Ù„...',
-      resetEmailSent: 'ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„ØªØ¹Ù„ÙŠÙ…Ø§Øª! ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ.',
-      resetEmailError: 'Ø®Ø·Ø£ ÙÙŠ Ø§Ù„Ø¥Ø±Ø³Ø§Ù„. ØªØ­Ù‚Ù‚ Ù…Ù† Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ÙˆØ­Ø§ÙˆÙ„ Ù…Ø±Ø© Ø£Ø®Ø±Ù‰.',
-      linkBackLogin: 'â† Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„',
+      btnLogin: 'Login', linkBack: '← Back to main site',
+      linkForgotPw: 'هل نسيت كلمة المرور؟',
+      forgotPwTitle: 'إعادة تعيين كلمة المرور',
+      forgotPwSubtitle: 'أدخل بريدك الإلكتروني وسنرسل لك التعليمات.',
+      btnSendReset: 'إرسال التعليمات',
+      btnSending: 'جاري الإرسال...',
+      resetEmailSent: 'تم إرسال التعليمات! يرجى التحقق من بريدك الإلكتروني.',
+      resetEmailError: 'خطأ في الإرسال. تحقق من بريدك الإلكتروني وحاول مرة أخرى.',
+      linkBackLogin: '← العودة إلى تسجيل الدخول',
       linkForgotPw: 'Forgot your password?',
       forgotPwTitle: 'Reset Password',
       forgotPwSubtitle: 'Enter your email and we will send you reset instructions.',
@@ -2013,14 +2013,14 @@
       btnSending: 'Sending...',
       resetEmailSent: 'Reset instructions sent! Please check your email.',
       resetEmailError: 'Error sending. Please check your email and try again.',
-      linkBackLogin: 'â† Back to Login',
+      linkBackLogin: '← Back to Login',
       loginLoading: 'Logging in...', loginError: 'Connection error',
       invalidCredentials: 'Invalid credentials',
       pricingTitle: 'Pricing', pricingSubtitle: 'Choose the package that suits you best.',
       pkg1Name: 'Package 1', pkg1Desc: 'For small businesses',
       pkg2Name: 'Package 2', pkg2Desc: 'For growing businesses',
       pkg3Name: 'Package 3', pkg3Desc: 'For large businesses',
-      pkgPopular: 'Most Popular', btnSelect: 'Select', linkSkip: 'Skip for now â†’',
+      pkgPopular: 'Most Popular', btnSelect: 'Select', linkSkip: 'Skip for now →',
       pkgFeature1: '20 Credits', pkgFeature2: '1 Credit = 1 Post',
       pkgFeature3: 'Valid 3 months', pkgFeature4a: 'Basic support',
       pkgFeature4b: 'Priority support', pkgFeature5: '50 Credits',
@@ -2092,29 +2092,25 @@
       modalFooterSecure: '>> Secure Payment - Paysera Albania SH.P.K.',
       modalFooterDetail: 'NUI: M51921505O | Agreement: AL-WILLIAM-2026 | Licensed by Bank of Albania',
       payInstructions: '<strong>Bank Transfer Instructions:</strong><br>1. Open your banking app (Paysera, BKT, Raiffeisen, Intesa etc.)<br>2. Select "Transfer Money" or "New Payment"<br>3. Enter IBAN: <strong>AL70202111230000000000537482</strong><br>4. Enter amount: <strong id="paymentAmount2">500 LEK</strong><br>5. In description: <strong>"Savoraapp - [Email]"</strong><br>6. Click "Send"<br><br><small style="color:var(--success)">&#10003; Account verified by Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Agreement: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Credits activated within 15-30 minutes.',
-      creditTitle: 'Ø§Ù„Ø±ØµÙŠØ¯ Ø§Ù„Ø­Ø§Ù„ÙŠ',
-      btnTopUp: 'Ø´Ø­Ù†',
-      creditHistoryTitle: 'Ø³Ø¬Ù„ Ø§Ù„Ø±ØµÙŠØ¯',
-      colDate: 'Ø§Ù„ØªØ§Ø±ÙŠØ®',
-      colAmount: 'Ø§Ù„Ù…Ø¨Ù„Øº',
-      colBalance: 'Ø§Ù„Ø±ØµÙŠØ¯',
-      creditUsed: '% Ù…Ø³ØªØ®Ø¯Ù…',
-      creditMonthly: 'Ø§Ù„Ø­Ø¯ Ø§Ù„Ø´Ù‡Ø±ÙŠ',
-      creditTooltipText: 'ØªØ³ØªØ®Ø¯Ù… Ø§Ù„Ø±ØµÙŠØ¯ Ù„Ø¯ÙØ¹ Ø¹Ù…ÙˆÙ„Ø§Øª Ø§Ù„Ù…Ù†ØµØ©. ÙƒÙ„ Ø·Ù„Ø¨ ÙŠÙ‚Ù„Ù„ Ø±ØµÙŠØ¯Ùƒ Ø¨Ù†Ø³Ø¨Ø© 15% Ù…Ù† Ù‚ÙŠÙ…Ø© Ø§Ù„Ø¨ÙŠØ¹.',
-      noHistory: 'Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ø¹Ø§Ù…Ù„Ø§Øª',
-      creditsAdded: 'ØªÙ…Øª Ø¥Ø¶Ø§ÙØ© Ø§Ù„Ø±ØµÙŠØ¯',
-      paymentNote: 'Ø³ÙŠØªÙ… Ø¥Ø¶Ø§ÙØ© Ø§Ù„Ø±ØµÙŠØ¯ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ø¹Ù„Ù‰ Ø§Ù„ÙÙˆØ±.'
+      creditTitle: 'الرصيد الحالي',
+      btnTopUp: 'شحن',
+      creditHistoryTitle: 'سجل الرصيد',
+      colDate: 'التاريخ',
+      colAmount: 'المبلغ',
+      colBalance: 'الرصيد',
+      creditUsed: '% مستخدم',
+      creditMonthly: 'الحد الشهري',
+      creditTooltipText: 'تستخدم الرصيد لدفع عمولات المنصة. كل طلب يقلل رصيدك بنسبة 15% من قيمة البيع.',
+      noHistory: 'لا توجد معاملات',
+      creditsAdded: 'تمت إضافة الرصيد',
+      paymentNote: 'سيتم إضافة الرصيد إلى حسابك على الفور.'
     }
   };
 
   // ========================================
   // STATE
   // ========================================
-  var currentPartnerId = '';
-  var currentVerifyCode = '';
   var currentLang = localStorage.getItem('partnerLang') || 'sq';
-  var currentPartnerId = localStorage.getItem('currentPartnerId') || '';
-  var currentPartnerId = '';
   var partnerToken = localStorage.getItem('partnerToken') || '';
   var partnerInfo = null;
   var selectedPackageId = 0;
@@ -2291,10 +2287,10 @@
     })
     .then(function(r){ return r.json(); })
     .then(function(data){
-      showToast('Kodi u ridÃ«rgua!');
+      showToast('Kodi u ridërgua!');
     })
     .catch(function(){
-      showToast('Gabim ne ridÃ«rgim.');
+      showToast('Gabim ne ridërgim.');
     });
   }
 
@@ -2569,9 +2565,9 @@
   function renderCredits() {
     var t = T[currentLang];
     document.getElementById('creditLabel').textContent = t.creditTitle || 'Kredite Aktuale';
-    document.getElementById('btnTopUp').textContent = t.btnTopUp || 'BÃ«j Kredi';
+    document.getElementById('btnTopUp').textContent = t.btnTopUp || 'Bëj Kredi';
     document.getElementById('creditHistoryTitle').textContent = t.creditHistoryTitle || 'Kredite Historiku';
-    document.getElementById('creditTooltipText').textContent = t.creditTooltipText || 'Kreditet pÃ«rdoren pÃ«r tÃ« paguar komisionet e platformÃ«s. Ã‡do porosi redukton kreditet tuaja me 15% tÃ« vlerÃ«s sÃ« shitjes.';
+    document.getElementById('creditTooltipText').textContent = t.creditTooltipText || 'Kreditet përdoren për të paguar komisionet e platformës. Çdo porosi redukton kreditet tuaja me 15% të vlerës së shitjes.';
 
     // Load from API
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
@@ -2587,7 +2583,7 @@
       var pctRemaining = Math.max(0, Math.min(100, 100 - pct));
       document.getElementById('creditBalance').textContent = balance.toLocaleString();
       document.getElementById('creditMonthly').textContent = (t.creditMonthly || 'Limiti mujor') + ': ' + monthlyLimit.toLocaleString();
-      document.getElementById('creditUsed').textContent = pctUsed + '% ' + (t.creditUsed || 'e pÃ«rdorur').replace('% ', '');
+      document.getElementById('creditUsed').textContent = pctUsed + '% ' + (t.creditUsed || 'e përdorur').replace('% ', '');
       var bar = document.getElementById('creditProgressBar');
       bar.style.width = pctRemaining + '%';
       bar.className = 'credit-progress-bar';
@@ -2677,7 +2673,7 @@
 
   function createBox(size) {
     var t = T[currentLang] || {};
-    var boxNames = {small: 'Kuti e VogÃ«l', medium: 'Kuti e Mesme', large: 'Kuti e Madhe'};
+    var boxNames = {small: 'Kuti e Vogël', medium: 'Kuti e Mesme', large: 'Kuti e Madhe'};
     var boxPrices = {small: 500, medium: 900, large: 1500};
     var boxData = {
       id: 'box_' + Date.now(),
@@ -2698,17 +2694,17 @@
     var list = document.getElementById('myBoxesList');
     if (!list) return;
     if (myBoxes.length === 0) {
-      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noBoxes || 'Nuk ka kutitÃ« ende. Krijoni njÃ« kuti surprizÃ«!') + '</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noBoxes || 'Nuk ka kutitë ende. Krijoni një kuti surprizë!') + '</p>';
       return;
     }
     list.innerHTML = myBoxes.slice().reverse().map(function(box) {
-      var sizeLabel = {small: 'e VogÃ«l', medium: 'e Mesme', large: 'e Madhe'}[box.size] || box.size;
+      var sizeLabel = {small: 'e Vogël', medium: 'e Mesme', large: 'e Madhe'}[box.size] || box.size;
       return '<div class="box-card" style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center">' +
         '<div>' +
           '<strong style="font-size:0.9rem">' + escapeHtml(box.name) + '</strong>' +
-          '<div style="font-size:0.75rem;color:var(--gray-500)">' + sizeLabel + ' Â· ' + box.price + ' LEK Â· ' + box.createdAt + '</div>' +
+          '<div style="font-size:0.75rem;color:var(--gray-500)">' + sizeLabel + ' · ' + box.price + ' LEK · ' + box.createdAt + '</div>' +
         '</div>' +
-        '<span class="badge" style="background:var(--success);color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:10px">' + (box.status === 'active' ? 'Aktive' : 'PÃ«rfunduar') + '</span>' +
+        '<span class="badge" style="background:var(--success);color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:10px">' + (box.status === 'active' ? 'Aktive' : 'Përfunduar') + '</span>' +
       '</div>';
     }).join('');
   }
@@ -2760,7 +2756,7 @@
         myAds.push(adData);
         adData.status = 'active';
         localStorage.setItem('savora_my_ads', JSON.stringify(myAds));
-        if (succDiv) succDiv.innerHTML = '<div class="success-msg">' + (t.adPublished || 'Reklama u ruajt! Pagesa do tÃ« pÃ«rpunohet mÃ« vonÃ«.') + '</div>';
+        if (succDiv) succDiv.innerHTML = '<div class="success-msg">' + (t.adPublished || 'Reklama u ruajt! Pagesa do të përpunohet më vonë.') + '</div>';
         document.getElementById('adForm').reset();
         renderMyAds();
         if (btn) { btn.disabled = false; btn.textContent = t.btnPublishPay || 'Publiko & Paguaj 200 LEK me Paysera'; }
@@ -2793,10 +2789,10 @@
     var list = document.getElementById('myAdsList');
     if (!list) return;
     if (myAds.length === 0) {
-      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noAds || 'Nuk ka reklama ende. Krijoni reklamÃ«n tuaj tÃ« parÃ«!') + '</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noAds || 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!') + '</p>';
       return;
     }
-    var catLabels = {food: 'Ushqim', bakery: 'BukÃ«', produce: 'Fruta', meat: 'Mish', dairy: 'Bulmet', other: 'TÃ« tjera'};
+    var catLabels = {food: 'Ushqim', bakery: 'Bukë', produce: 'Fruta', meat: 'Mish', dairy: 'Bulmet', other: 'Të tjera'};
     list.innerHTML = myAds.slice().reverse().map(function(ad) {
       return '<div class="ad-card" style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">' +
@@ -3183,7 +3179,7 @@
       partnerToken = '';
     }
 
-    // Geen geldig token â†’ toon login
+    // Geen geldig token → toon login
     console.log('[INIT] Toon login scherm');
     showLoginScreen();
 
@@ -3220,7 +3216,3 @@
 
 </body>
 </html>
-
-
-
-

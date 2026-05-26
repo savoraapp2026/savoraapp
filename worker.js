@@ -210,7 +210,7 @@ function generateCode() {
 }
 
 // ===== MAIN ROUTER =====
-async function handleRequest(request, env) {
+async function handleRequest(request, env, ctx) {
   const url = new URL(request.url);
   const path = url.pathname;
   const method = request.method;
@@ -304,23 +304,23 @@ async function handleRequest(request, env) {
 
     await savePartner(db, partner);
 
-    // Stuur email via Resend
-    try {
-      await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ' + env.RESEND_API_KEY,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          from: 'Savoraapp <noreply@savoraapp.com>',
-          to: contact,
-          subject: 'Jouw verificatiecode voor Savoraapp',
-          html: `<h2>Welkom bij Savoraapp!</h2><p>Jouw verificatiecode is: <strong>${code}</strong></p><p>Deze code is 35 dagen geldig.</p>`
-        })
-      });
-    } catch (e) {
-      console.log('[DEV] Email verzenden mislukt, code:', code);
+    // Stuur email via Resend (fire and forget via ctx.waitUntil)
+    if (ctx && env.RESEND_API_KEY) {
+      ctx.waitUntil(
+        fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + env.RESEND_API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'Savoraapp <noreply@savoraapp.com>',
+            to: contact,
+            subject: 'Jouw verificatiecode voor Savoraapp',
+            html: `<h2>Welkom bij Savoraapp!</h2><p>Jouw verificatiecode is: <strong>${code}</strong></p><p>Deze code is 35 dagen geldig.</p>`
+          })
+        }).catch(() => {})
+      );
     }
 
     return jsonResponse({
@@ -786,7 +786,7 @@ async function handleRequest(request, env) {
 export default {
   async fetch(request, env, ctx) {
     try {
-      return await handleRequest(request, env);
+      return await handleRequest(request, env, ctx);
     } catch (err) {
       console.error('Worker error:', err.message);
       return new Response(JSON.stringify({ error: 'Interne serverfout' }), {
