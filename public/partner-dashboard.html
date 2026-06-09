@@ -2549,14 +2549,31 @@
         currentPartnerId = data.id || '';
         if (data.code) currentVerifyCode = data.code;
         if (currentPartnerId) localStorage.setItem('savora_partner_id', currentPartnerId);
-        // Verberg formulier, toon verificatiecode
-        document.getElementById('registerForm').classList.add('hidden');
-        document.getElementById('verifyCodeSection').classList.remove('hidden');
+        // Verberg formulier met animatie, toon verificatie
+        var regForm = document.getElementById('registerForm');
+        var verifySec = document.getElementById('verifyCodeSection');
+        regForm.style.opacity = '0';
+        regForm.style.transform = 'translateY(-10px)';
+        regForm.style.transition = 'all 0.3s ease';
+        setTimeout(function() {
+          regForm.classList.add('hidden');
+          regForm.style.opacity = '';
+          regForm.style.transform = '';
+          verifySec.classList.remove('hidden');
+          verifySec.style.opacity = '0';
+          verifySec.style.transform = 'translateY(10px)';
+          verifySec.style.transition = 'all 0.3s ease';
+          requestAnimationFrame(function() {
+            verifySec.style.opacity = '1';
+            verifySec.style.transform = 'translateY(0)';
+          });
+        }, 300);
         succDiv.innerHTML = '<div class="success-msg">' + (t.registerSuccess || 'Registration successful! Check your email for the verification code.') + '</div>';
+        showToast('✅ ' + (t.registerSuccess || 'Registratie gelukt! Check je e-mail.'), 'success');
         setTimeout(function() {
           document.getElementById('verifyCodeInput').value = '';
           document.getElementById('verifyCodeInput').focus();
-        }, 100);
+        }, 400);
       } else {
         errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(data.error || t.registerError || 'Registration failed') + '</div>';
       }
@@ -2565,8 +2582,17 @@
       console.error('[REGISTER] Error:', err);
       btn.disabled = false;
       btn.textContent = t.btnRegister;
-      var errorMsg = err && err.message ? err.message : 'Kan geen verbinding maken met de server. Probeer het later opnieuw.';
+      // Betere error berichten per situatie
+      var errorMsg = 'Kan geen verbinding maken met de server. Probeer het later opnieuw.';
+      if (err && err.message && err.message.indexOf('Failed to fetch') > -1) {
+        errorMsg = 'Geen verbinding met server. Controleer je internetverbinding.';
+      } else if (err && err.message && err.message.indexOf('abort') > -1) {
+        errorMsg = 'Verzoek duurde te lang. Probeer het opnieuw.';
+      } else if (err && err.message) {
+        errorMsg = err.message;
+      }
       errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(errorMsg) + '</div>';
+      showToast(errorMsg, 'error');
     });
   });
 
@@ -3215,6 +3241,14 @@
       switchAuthTab('register');
     }
 
+    // Enter key listener op verificatie input
+    var verifyInput = document.getElementById('verifyCodeInput');
+    if (verifyInput) {
+      verifyInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') verifyRegistrationCode();
+      });
+    }
+
     } catch(initErr) {
       console.error('[INIT] CRITICAL ERROR:', initErr);
       // Altijd login tonen als er iets misgaat
@@ -3236,6 +3270,21 @@
     var paymentDueEl = document.getElementById('paymentDue');
     if (paymentDueEl) paymentDueEl.value = pd.toISOString().split('T')[0];
   } catch(e) { /* ignore */ }
+
+  // ===== TOAST NOTIFICATIES =====
+  function showToast(msg, type) {
+    type = type || 'info';
+    var colors = { success: '#10b981', error: '#ef4444', info: 'var(--primary)', warning: '#f59e0b' };
+    var t = document.createElement('div');
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%) scale(0.95);background:' + (colors[type] || colors.info) + ';color:#fff;padding:12px 24px;border-radius:12px;font-size:0.9rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9999;opacity:0;transition:all 0.3s;white-space:nowrap;pointer-events:none;';
+    t.textContent = msg;
+    document.body.appendChild(t);
+    requestAnimationFrame(function() { t.style.opacity = '1'; t.style.transform = 'translateX(-50%) scale(1)'; });
+    setTimeout(function() {
+      t.style.opacity = '0'; t.style.transform = 'translateX(-50%) scale(0.95)';
+      setTimeout(function() { if(t.parentNode) t.remove(); }, 300);
+    }, 3500);
+  }
 
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
