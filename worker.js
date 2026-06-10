@@ -71,11 +71,14 @@ function corsHeaders(origin) {
     'https://savoraapp.com',
     'https://www.savoraapp.com',
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'https://savoraapp.sparkling-scene-16e3.workers.dev',
+    'https://api.savoraapp.com'
   ];
   const allowedPatterns = [
     /^https:\/\/[^.]+\.savoraapp-eh5\.pages\.dev$/,
-    /^https:\/\/[^.]+\.savoraapp\.pages\.dev$/
+    /^https:\/\/[^.]+\.savoraapp\.pages\.dev$/,
+    /^https:\/\/[^.]+\.savoraapp\.workers\.dev$/
   ];
   const isAllowed = allowed.includes(origin) || allowedPatterns.some(p => p.test(origin));
   const allowedOrigin = isAllowed ? origin : 'https://savoraapp.com';
@@ -217,13 +220,31 @@ async function handleRequest(request, env, ctx) {
   const origin = request.headers.get('Origin') || '';
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
 
+  // Redirect root to frontend (Pages)
+  if (path === '/' || path === '') {
+    return Response.redirect('https://main.savoraapp-eh5.pages.dev', 302);
+  }
+
   if (method === 'OPTIONS') {
     return new Response(null, { status: 204, headers: corsHeaders(origin) });
   }
 
+  // ===== BODY PARSING (robuust) =====
   let body = {};
   if (['POST', 'PATCH', 'PUT'].includes(method)) {
-    try { body = await request.json(); } catch { body = {}; }
+    try {
+      const ct = request.headers.get('content-type') || '';
+      if (ct.includes('application/json')) {
+        body = await request.json();
+      } else {
+        // Fallback: probeer JSON te parsen uit raw body
+        const text = await request.text();
+        body = JSON.parse(text);
+      }
+    } catch (err) {
+      console.log('[BODY PARSE] Error:', err.message);
+      body = {};
+    }
   }
 
   const db = env.VERIFICATION_KV;
@@ -414,12 +435,18 @@ async function handleRequest(request, env, ctx) {
   // LOGIN — met automatische wachtwoord migratie
   // ============================================
   if (path === '/api/partner/login' && method === 'POST') {
+    console.log('[LOGIN] Request received from IP:', ip, 'Origin:', origin);
+    console.log('[LOGIN] Body keys:', Object.keys(body));
+
     if (!checkRateLimit('login_' + ip, 5, 900000)) {
+      console.log('[LOGIN] Rate limited for IP:', ip);
       return jsonResponse({ error: 'Te veel pogingen. Wacht 15 minuten.' }, 429, origin);
     }
 
     const email = (body.email || body.contact || '').toLowerCase().trim();
     const password = body.password;
+
+    console.log('[LOGIN] Email:', email, 'Password provided:', !!password);
 
     if (!email || !password) {
       return jsonResponse({ error: 'Email en wachtwoord zijn verplicht' }, 400, origin);
@@ -427,15 +454,25 @@ async function handleRequest(request, env, ctx) {
 
     const partner = await getPartnerByEmail(db, email);
     if (!partner) {
+      console.log('[LOGIN] Partner not found:', email);
       return jsonResponse({ error: 'Ongeldige inloggegevens' }, 401, origin);
     }
 
+    console.log('[LOGIN] Partner found:', partner.business, 'Verified:', partner.verified, 'Status:', partner.status);
+
     if (!partner.verified || partner.status !== 'active') {
-      return jsonResponse({ error: 'Account niet geverifieerd. Controleer je email.' }, 403, origin);
+      console.log('[LOGIN] Account not verified for:', email);
+      return jsonResponse({
+        error: 'Account niet geverifieerd. Controleer je email.',
+        needsVerification: true,
+        partnerId: partner.id,
+        contact: partner.contact
+      }, 403, origin);
     }
 
     const passwordOk = await verifyPassword(password, partner.password);
     if (!passwordOk) {
+      console.log('[LOGIN] Invalid password for:', email);
       return jsonResponse({ error: 'Ongeldige inloggegevens' }, 401, origin);
     }
 
@@ -452,6 +489,7 @@ async function handleRequest(request, env, ctx) {
       604800
     );
 
+    console.log('[LOGIN] Success for:', email);
     return jsonResponse({
       success: true,
       token,
@@ -746,7 +784,8 @@ async function handleRequest(request, env, ctx) {
   // ---- ANALYTICS ----
   if (path === '/api/analytics' && method === 'POST') {
     try {
-      const event = await request.json();
+      // Gebruik al geparse body (niet request.json() want body is al consumed)
+      const event = body || {};
       // Store analytics event in KV (fire and forget)
       const eventId = 'analytics_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
       ctx.waitUntil(db.put(eventId, JSON.stringify({...event, timestamp: new Date().toISOString()})));
@@ -759,7 +798,8 @@ async function handleRequest(request, env, ctx) {
   // ---- PAYSERA PAYMENT ----
   if (path === '/api/paysera/create-payment' && method === 'POST') {
     try {
-      const { partnerId, amount, orderId, currency } = await request.json();
+      // Gebruik al geparse body (niet request.json() want body is al consumed)
+      const { partnerId, amount, orderId, currency } = body || {};
       if (!partnerId || !amount) {
         return jsonResponse({ error: 'partnerId en amount zijn verplicht' }, 400, origin);
       }

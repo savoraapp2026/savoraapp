@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Backend Test - Savoraapp</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+    button { padding: 12px 24px; font-size: 16px; cursor: pointer; margin: 10px; }
+    .success { color: green; background: #e8f5e9; padding: 10px; border-radius: 5px; }
+    .error { color: red; background: #ffebee; padding: 10px; border-radius: 5px; }
+    .info { background: #e3f2fd; padding: 10px; border-radius: 5px; }
+    pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>Backend Test</h1>
+  
+  <div class="info">
+    <strong>API URL:</strong> <span id="apiUrl"></span><br>
+    <strong>Page Origin:</strong> <span id="pageOrigin"></span>
+  </div>
+  
+  <h2>Test 1: Health Check</h2>
+  <button onclick="testHealth()">Test Health</button>
+  <div id="healthResult"></div>
+  
+  <h2>Test 2: Register</h2>
+  <button onclick="testRegister()">Test Register</button>
+  <div id="registerResult"></div>
+  
+  <h2>Test 3: CORS Preflight</h2>
+  <button onclick="testCors()">Test CORS</button>
+  <div id="corsResult"></div>
+
+  <script>
+    // Auto-detect API URL
+    var API_URL = 'https://savoraapp.sparkling-scene-16e3.workers.dev';
+    
+    document.getElementById('apiUrl').textContent = API_URL;
+    document.getElementById('pageOrigin').textContent = window.location.origin;
+    
+    function showResult(id, success, message) {
+      var div = document.getElementById(id);
+      div.className = success ? 'success' : 'error';
+      div.innerHTML = '<pre>' + message + '</pre>';
+    }
+    
+    async function testHealth() {
+      try {
+        var start = Date.now();
+        var response = await fetch(API_URL + '/api/health', { 
+          method: 'GET',
+          signal: AbortSignal.timeout(5000)
+        });
+        var duration = Date.now() - start;
+        var data = await response.json();
+        showResult('healthResult', true, 
+          'Status: ' + response.status + '\n' +
+          'Time: ' + duration + 'ms\n' +
+          'Response: ' + JSON.stringify(data, null, 2)
+        );
+      } catch(err) {
+        showResult('healthResult', false, 
+          'Error: ' + err.name + '\n' +
+          'Message: ' + err.message
+        );
+      }
+    }
+    
+    async function testRegister() {
+      try {
+        var email = 'test' + Date.now() + '@test.com';
+        var start = Date.now();
+        var response = await fetch(API_URL + '/api/partner/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: AbortSignal.timeout(8000),
+          body: JSON.stringify({
+            contact: email,
+            password: 'Test123!',
+            business: 'Test Biz',
+            nipt: 'M12345678O',
+            city: 'Tirana'
+          })
+        });
+        var duration = Date.now() - start;
+        var text = await response.text();
+        showResult('registerResult', response.ok, 
+          'Status: ' + response.status + '\n' +
+          'Time: ' + duration + 'ms\n' +
+          'Response: ' + text
+        );
+      } catch(err) {
+        showResult('registerResult', false, 
+          'Error: ' + err.name + '\n' +
+          'Message: ' + err.message
+        );
+      }
+    }
+    
+    async function testCors() {
+      try {
+        var response = await fetch(API_URL + '/api/health', {
+          method: 'OPTIONS',
+          headers: {
+            'Origin': window.location.origin,
+            'Access-Control-Request-Method': 'POST',
+            'Access-Control-Request-Headers': 'Content-Type'
+          },
+          signal: AbortSignal.timeout(5000)
+        });
+        var corsHeaders = {
+          'Access-Control-Allow-Origin': response.headers.get('Access-Control-Allow-Origin'),
+          'Access-Control-Allow-Methods': response.headers.get('Access-Control-Allow-Methods'),
+          'Access-Control-Allow-Headers': response.headers.get('Access-Control-Allow-Headers')
+        };
+        showResult('corsResult', true, 
+          'Status: ' + response.status + '\n' +
+          'CORS Headers:\n' + JSON.stringify(corsHeaders, null, 2)
+        );
+      } catch(err) {
+        showResult('corsResult', false, 
+          'Error: ' + err.name + '\n' +
+          'Message: ' + err.message
+        );
+      }
+    }
+  </script>
+</body>
+</html>

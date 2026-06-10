@@ -25,6 +25,114 @@
   </script>
   
   <script src="js/config.js?v=2"></script>
+  
+  <!-- EARLY FUNCTION DEFINITIONS (voorkomt ReferenceError) -->
+  <script>
+    // Deze functies moeten VROEG gedefinieerd worden voor inline onclick/oninput handlers
+    function togglePw(inputId, btn) {
+      var input = document.getElementById(inputId);
+      if (!input || !btn) return;
+      var isHidden = input.type === 'password';
+      input.type = isHidden ? 'text' : 'password';
+      btn.style.opacity = isHidden ? '1' : '0.5';
+      btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+    }
+    function validateNuiRealtime(input) {
+      if (!input) return;
+      var val = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      input.value = val;
+      var status = document.getElementById('nuiStatus');
+      var help = document.getElementById('nuiHelp');
+      if (!status || !help) return;
+      if (val.length === 0) { status.textContent = ''; help.textContent = ''; return; }
+      if (val.length === 10) {
+        if (/^[A-Z]\d{8}[A-Z]$/.test(val)) {
+          status.textContent = '\u2713';
+          status.style.color = 'var(--success)';
+          help.textContent = 'NUI valid!';
+          help.style.color = 'var(--success)';
+        } else {
+          status.textContent = '\u2717';
+          status.style.color = 'var(--danger)';
+          help.textContent = 'NUI invalid format';
+          help.style.color = 'var(--danger)';
+        }
+      } else {
+        status.textContent = (10 - val.length) + ' left';
+        status.style.color = 'var(--gray-400)';
+        help.textContent = (10 - val.length) + ' chars left';
+        help.style.color = 'var(--gray-400)';
+      }
+    }
+    // Navigatie functies voor inline onclick handlers
+    function switchAuthTab(tab) {
+      var sections = ['loginFormSection', 'forgotPwSection', 'resetPwSection', 'registerFormSection'];
+      sections.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+      var errors = ['loginError', 'forgotPwError', 'forgotPwSuccess', 'resetPwError', 'resetPwSuccess', 'registerError', 'registerSuccess'];
+      errors.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '';
+      });
+      var map = { 'login': 'loginFormSection', 'forgot': 'forgotPwSection', 'reset': 'resetPwSection', 'register': 'registerFormSection' };
+      var tid = map[tab];
+      if (tid) {
+        var t = document.getElementById(tid);
+        if (t) t.classList.add('active');
+      }
+    }
+    function showLogin() { switchAuthTab('login'); }
+    function showForgotPassword() { switchAuthTab('forgot'); }
+    function showResetPassword() { switchAuthTab('reset'); }
+    function showRegister() { switchAuthTab('register'); }
+    // Language Switcher functies (voorkomt ReferenceError)
+    var currentLang = localStorage.getItem('savora_lang') || 'sq';
+    function toggleLangDropdown() {
+      var dropdown = document.getElementById('langDropdown');
+      if (dropdown) dropdown.classList.toggle('show');
+    }
+    document.addEventListener('click', function(e) {
+      var switcher = document.getElementById('langSwitcher');
+      if (switcher && !switcher.contains(e.target)) {
+        var dropdown = document.getElementById('langDropdown');
+        if (dropdown) dropdown.classList.remove('show');
+      }
+    });
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('savora_lang', lang);
+      // Update vlag en code
+      var flagMap = {
+        sq: { flag: 'al', code: 'AL' },
+        en: { flag: 'gb', code: 'EN' },
+        nl: { flag: 'nl', code: 'NL' },
+        de: { flag: 'de', code: 'DE' },
+        it: { flag: 'it', code: 'IT' },
+        gr: { flag: 'gr', code: 'GR' },
+        fr: { flag: 'fr', code: 'FR' },
+        es: { flag: 'es', code: 'ES' },
+        tr: { flag: 'tr', code: 'TR' },
+        ar: { flag: 'sa', code: 'AR' }
+      };
+      var selected = flagMap[lang] || flagMap['sq'];
+      var flagEl = document.getElementById('langFlag');
+      var codeEl = document.getElementById('langCode');
+      if (flagEl) flagEl.src = 'https://flagcdn.com/w40/' + selected.flag + '.png';
+      if (codeEl) codeEl.textContent = selected.code;
+      // Update actieve optie
+      document.querySelectorAll('.lang-option').forEach(function(opt) {
+        opt.classList.toggle('active', opt.dataset.lang === lang);
+      });
+      // Sluit dropdown
+      var dropdown = document.getElementById('langDropdown');
+      if (dropdown) dropdown.classList.remove('show');
+      // Vertalingen toepassen
+      if (typeof applyTranslations === 'function') applyTranslations(lang);
+    }
+  </script>
+  
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
@@ -43,8 +151,8 @@
     .lang-switcher .lang-option img{width:18px;height:12px;border-radius:2px;object-fit:cover}
 
     /* Login Screen */
-    .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
-    .login-card{background:var(--card);border-radius:16px;padding:40px;width:100%;max-width:420px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+    .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;overflow-y:auto}
+    .login-card{background:var(--card);border-radius:16px;padding:40px;width:100%;max-width:420px;box-shadow:0 4px 24px rgba(0,0,0,0.08);max-height:calc(100vh - 40px);overflow-y:auto}
     .login-card h1{font-size:1.75rem;font-weight:700;color:var(--text);margin-bottom:8px;text-align:center}
     .login-card .subtitle{text-align:center;color:var(--gray-500);margin-bottom:28px;font-size:0.9rem}
     .form-group{margin-bottom:18px}
@@ -270,6 +378,10 @@
       .user-info{width:100%;justify-content:space-between;order:3}
       .items-table input,.items-table select{font-size:16px}
       .form-group input,.form-group select{width:100%}
+      .login-card{padding:20px;max-height:calc(100vh - 20px);border-radius:12px}
+      .login-screen{padding:10px}
+      .form-group{margin-bottom:12px}
+      .form-group input,.form-group select{padding:10px 12px;font-size:16px}
     }
     @media print{
       .print-modal{position:static;background:none;padding:0;display:block!important}
@@ -324,12 +436,12 @@
       <form id="loginForm" novalidate>
         <div class="form-group">
           <label data-i18n="labelEmail">Email</label>
-          <input type="email" id="loginEmail" data-i18n-placeholder="placeholderEmail" placeholder="partner@savoraapp.com">
+          <input type="email" id="loginEmail" data-i18n-placeholder="placeholderEmail" placeholder="partner@savoraapp.com" autocomplete="email">
         </div>
         <div class="form-group" style="margin-bottom:8px">
           <label data-i18n="labelPassword">Fjalekalimi</label>
           <div class="pw-wrap">
-            <input type="password" id="loginPassword" placeholder="">
+            <input type="password" id="loginPassword" placeholder="" autocomplete="current-password">
             <button type="button" class="pw-toggle" onclick="togglePw('loginPassword',this)" aria-label="Show password">&#128065;</button>
           </div>
         </div>
@@ -338,6 +450,10 @@
         </div>
         <button type="submit" class="btn btn-primary" id="loginBtn" data-i18n="btnLogin" style="margin-top:16px">Hyr</button>
       </form>
+      <div class="toggle-form">
+        <p data-i18n="noAccount">Nuk keni llogari?</p>
+        <a onclick="showRegister()" data-i18n="linkRegister">Regjistrohu si Partner &rarr;</a>
+      </div>
     </div>
 
     <!-- FORGOT PASSWORD FORM -->
@@ -365,12 +481,12 @@
       <form id="resetPwForm">
         <div class="form-group">
           <label>Token</label>
-          <input type="text" id="resetToken" placeholder="ABC123...">
+          <input type="text" id="resetToken" placeholder="ABC123..." autocomplete="one-time-code">
         </div>
         <div class="form-group">
           <label data-i18n="labelPassword">Fjalekalimi i Ri</label>
           <div class="pw-wrap">
-            <input type="password" id="resetNewPassword" placeholder="">
+            <input type="password" id="resetNewPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('resetNewPassword',this)">&#128065;</button>
           </div>
         </div>
@@ -381,6 +497,8 @@
 
     <!-- REGISTER FORM -->
     <div class="form-section" id="registerFormSection">
+      <h1 data-i18n="registerTitle">Regjistrohu si Partner</h1>
+      <p class="subtitle" data-i18n="registerSubtitle">Plotesoni te dhenat e biznesit tuaj</p>
       <div id="registerError"></div>
       <div id="registerSuccess"></div>
       <form id="registerForm" novalidate>
@@ -424,41 +542,48 @@
         </div>
         <div class="form-group">
           <label data-i18n="labelPhone">Numri i Telefonit *</label>
-          <input type="tel" id="regPhone" data-i18n-placeholder="placeholderPhone" placeholder="+355 67 XXX XXXX">
+          <input type="tel" id="regPhone" data-i18n-placeholder="placeholderPhone" placeholder="+355 67 XXX XXXX" autocomplete="tel">
         </div>
         <div class="form-group">
           <label data-i18n="labelPassword">Fjalekalimi *</label>
           <div class="pw-wrap">
-            <input type="password" id="regPassword" placeholder="">
+            <input type="password" id="regPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('regPassword',this)" aria-label="Show password">&#128065;</button>
           </div>
         </div>
         <div class="form-group">
           <label data-i18n="labelConfirmPassword">Konfirmo Fjalekalimin *</label>
           <div class="pw-wrap">
-            <input type="password" id="regConfirmPassword" placeholder="">
+            <input type="password" id="regConfirmPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('regConfirmPassword',this)" aria-label="Show password">&#128065;</button>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="registerBtn" data-i18n="btnRegister">Regjistrohu</button>
+        <button type="submit" class="btn btn-primary" id="registerBtn" data-i18n="btnRegister" style="margin-top:8px;margin-bottom:8px">Regjistrohu</button>
       </form>
+      <div class="toggle-form">
+        <p data-i18n="hasAccount">Keni llogari?</p>
+        <a onclick="showLogin()" data-i18n="linkLogin">Hyr ketu &rarr;</a>
+      </div>
 
-      <!-- VERIFICATIE CODE (na succesvolle registratie) -->
+      <!-- VERIFICATIE CODE (na succesvolle registratie of login) -->
       <div id="verifyCodeSection" class="hidden" style="text-align:center">
         <div style="font-size:3rem;margin-bottom:16px">&#128231;</div>
         <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:8px" data-i18n="verifyTitle">Verifiko Email-in</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:20px" data-i18n="verifySubtitle">Ne kemi derguar nje kod verifikimi ne email-in tuaj. Shkruani kodin me poshte.</p>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:8px" data-i18n="verifySubtitle">Ne kemi derguar nje kod verifikimi ne email-in tuaj.</p>
+        <p id="verifyEmailDisplay" style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:16px"></p>
         <div id="verifyCodeError" class="hidden" style="color:var(--danger);font-size:0.85rem;margin-bottom:12px">Kodi i verifikimit eshte i pasakte.</div>
         <div id="verifyCodeSuccess" style="margin-bottom:12px"></div>
         <div class="form-group" style="max-width:200px;margin:0 auto 16px">
-          <input type="text" id="verifyCodeInput" maxlength="6" placeholder="123456" style="text-align:center;font-size:1.5rem;font-weight:600;letter-spacing:8px" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <input type="text" id="verifyCodeInput" maxlength="6" placeholder="123456" style="text-align:center;font-size:1.5rem;font-weight:600;letter-spacing:8px" oninput="this.value=this.value.replace(/[^0-9]/g,'')" onkeydown="if(event.key==='Enter')verifyRegistrationCode()">
         </div>
-        <button onclick="verifyRegistrationCode()" class="btn btn-primary" id="verifyCodeBtn" data-i18n="btnVerify" style="width:100%;max-width:200px">Verifiko</button>
-        <p style="font-size:0.8rem;color:var(--gray-400);margin-top:16px">
-          <span data-i18n="verifyNoCode">Nuk mori kod?</span>
-          <a onclick="resendVerifyCode()" style="color:var(--primary);cursor:pointer" data-i18n="verifyResend">Ridërgo kodin</a>
-        </p>
-        <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
+        <button onclick="verifyRegistrationCode()" class="btn btn-primary" id="verifyCodeBtn" data-i18n="btnVerify" style="width:100%;max-width:200px;margin-bottom:12px">Verifiko</button>
+        <div style="margin-top:12px">
+          <button onclick="resendVerifyCodeWithTimer(this)" id="resendCodeBtn" class="btn btn-secondary" style="width:100%;max-width:200px;font-size:0.85rem">
+            <span id="resendCodeText">&#128232; Ridërgo kodin</span>
+            <span id="resendCodeTimer" style="display:none"></span>
+          </button>
+        </div>
+        <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin" style="margin-top:16px">&larr; Kthehu tek Hyrja</a>
       </div>
     </div>
 
@@ -469,16 +594,6 @@
 <!-- PRICING / PACKAGES SCREEN -->
 <div class="pricing-screen" id="pricingScreen">
   <div class="pricing-container">
-
-    <!-- Paysera Trust Badge -->
-    <div class="paysera-trust">
-      <div class="trust-icon"></div>
-      <div class="trust-text">
-        <strong data-i18n="trustTitle">Pagesa e Verifikuar nga Paysera Albania SH.P.K.</strong>
-        <span data-i18n="trustSubtitle">Licencuar nga Banka e Shqiperise (Nr. 47) | Marrveshje zyrtare: AL-WILLIAM-2026 | NUI: M51921505O</span>
-      </div>
-      <div class="trust-badge" data-i18n="trustBadge">Verified</div>
-    </div>
 
     <!-- Paysera Payment Banner -->
     <div class="paysera-banner">
@@ -845,6 +960,25 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- DASHBOARD FOOTER -->
+<div class="dash-footer" style="padding:16px 32px;border-top:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:var(--gray-500);background:var(--card)">
+  <div style="display:flex;align-items:center;gap:12px">
+    <span data-i18n="copyright">&copy; 2026 Savoraapp</span>
+    <!-- Paysera Trust Label Badge - LINKSONDER -->
+    <div class="quality-sign" data-id="256849" data-lang="sq">
+      <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:#f0fdf4;border:1px solid #10b981;border-radius:8px;color:#065f46;font-size:11px;text-decoration:none;font-weight:500">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        Secure Payments by Paysera
+      </a>
+    </div>
+  </div>
+  <div style="display:flex;gap:16px">
+    <span data-i18n="footerVersion">v2.1</span>
+    <a href="privacy-policy.html" data-i18n="footerPrivacy" style="color:var(--gray-500);text-decoration:none">Privacy</a>
+    <a href="terms-of-service.html" data-i18n="footerTerms" style="color:var(--gray-500);text-decoration:none">Terms</a>
   </div>
 </div>
 
@@ -2129,17 +2263,8 @@
   }
 
   // ========================================
-  // PASSWORD TOGGLE
+  // PASSWORD TOGGLE (al vroeg gedefinieerd bovenin <head>)
   // ========================================
-  function togglePw(inputId, btn) {
-    var input = document.getElementById(inputId);
-    if (!input || !btn) return;
-    var isHidden = input.type === 'password';
-    input.type = isHidden ? 'text' : 'password';
-    btn.textContent = isHidden ? '\u{1F648}' : '\u{1F441}';
-    btn.style.opacity = isHidden ? '1' : '0.5';
-    btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
-  }
 
   // ========================================
   // TRANSLATION ENGINE
@@ -2277,9 +2402,34 @@
     });
   }
 
-  function resendVerifyCode() {
+  var resendTimerInterval = null;
+
+  function resendVerifyCodeWithTimer(btn) {
     var partnerId = currentPartnerId || localStorage.getItem('savora_partner_id');
-    if (!partnerId) return;
+    if (!partnerId) {
+      showToast('Gabim: partner ID mungon.');
+      return;
+    }
+    // Disable button
+    if (btn) btn.disabled = true;
+    var timerEl = document.getElementById('resendCodeTimer');
+    var textEl = document.getElementById('resendCodeText');
+    var seconds = 60;
+    if (timerEl) timerEl.style.display = '';
+    if (textEl) textEl.style.display = 'none';
+    function updateTimer() {
+      if (timerEl) timerEl.textContent = 'Ridërgo (' + seconds + 's)';
+      seconds--;
+      if (seconds < 0) {
+        clearInterval(resendTimerInterval);
+        if (btn) btn.disabled = false;
+        if (timerEl) timerEl.style.display = 'none';
+        if (textEl) textEl.style.display = '';
+      }
+    }
+    updateTimer();
+    resendTimerInterval = setInterval(updateTimer, 1000);
+    // Send request
     fetch(API_BASE + '/api/partner/resend', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -2287,11 +2437,15 @@
     })
     .then(function(r){ return r.json(); })
     .then(function(data){
-      showToast('Kodi u ridërgua!');
+      showToast('&#128232; Kodi i ri u dërgua! Kontrollo email-in.');
     })
     .catch(function(){
-      showToast('Gabim ne ridërgim.');
+      showToast('&#9888; Gabim ne ridërgim. Provoni përsëri.');
     });
+  }
+
+  function resendVerifyCode() {
+    resendVerifyCodeWithTimer(document.getElementById('resendCodeBtn'));
   }
 
   function showRegister() {
@@ -2322,34 +2476,7 @@
     if (registerTab) registerTab.classList.remove('active');
   }
 
-  function validateNuiRealtime(input) {
-    var val = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-    input.value = val;
-    var status = document.getElementById('nuiStatus');
-    var help = document.getElementById('nuiHelp');
-    var t = T[currentLang] || T['en'] || {};
-    if (!status || !help) return;
-    if (val.length === 0) { status.textContent = ''; help.textContent = ''; return; }
-    if (val.length === 10) {
-      if (/^[A-Z]\d{8}[A-Z]$/.test(val)) {
-        status.textContent = '\u2713';
-        status.style.color = 'var(--success)';
-        help.textContent = t.nuiValid || 'NUI valid!';
-        help.style.color = 'var(--success)';
-      } else {
-        status.textContent = '\u2717';
-        status.style.color = 'var(--danger)';
-        help.textContent = t.nuiInvalid || 'Invalid NUI format';
-        help.style.color = 'var(--danger)';
-      }
-    } else {
-      var remaining = 10 - val.length;
-      status.textContent = remaining > 0 ? remaining : '';
-      status.style.color = 'var(--gray-400)';
-      help.textContent = remaining + ' ' + (t.nuiCharsLeft || 'chars left');
-      help.style.color = 'var(--gray-400)';
-    }
-  }
+  // validateNuiRealtime() al vroeg gedefinieerd in <head>
 
   function showResetPassword() {
     document.getElementById('loginFormSection').classList.remove('active');
@@ -2471,6 +2598,11 @@
           partnerId: data.partnerId || email
         }));
         showDashboard();
+      } else if (data.needsVerification) {
+        // Nog niet geverifieerd — toon verificatie scherm
+        localStorage.setItem('savora_partner_id', data.partnerId);
+        localStorage.setItem('savora_partner_email', data.contact || email);
+        showVerificationScreen(data.partnerId);
       } else {
         document.getElementById('loginError').innerHTML = '<div class="error-msg">' + escapeHtml(data.error || t.invalidCredentials || 'Invalid credentials') + '</div>';
       }
@@ -2494,14 +2626,20 @@
     var confirm = document.getElementById('regConfirmPassword').value;
     var nui = document.getElementById('regNui').value.toUpperCase();
 
+    // Validatie met helper functies
+    clearError('registerError');
     if (!document.getElementById('regBusinessName').value || !document.getElementById('regOwnerName').value ||
         !document.getElementById('regEmail').value || !pass || !document.getElementById('regPhone').value) {
-      errDiv.innerHTML = '<div class="error-msg">' + t.fillRequired + '</div>';
+      showError('registerError', t.fillRequired);
       return;
     }
-    if (pass !== confirm) { errDiv.innerHTML = '<div class="error-msg">' + t.passwordMismatch + '</div>'; return; }
-    if (pass.length < 6) { errDiv.innerHTML = '<div class="error-msg">' + t.passwordShort + '</div>'; return; }
-    if (!/^[A-Z]\d{8}[A-Z]$/.test(nui)) { errDiv.innerHTML = '<div class="error-msg">' + t.nuiInvalid + '</div>'; return; }
+    if (!validateNui(nui)) {
+      showError('registerError', t.nuiInvalid || 'NUI format i gabuar! Duhet: M12345678O');
+      document.getElementById('regNui').focus();
+      return;
+    }
+    if (pass.length < 6) { showError('registerError', t.passwordShort); return; }
+    if (pass !== confirm) { showError('registerError', t.passwordMismatch); return; }
 
     btn.disabled = true;
     btn.textContent = t.registerLoading;
@@ -3256,11 +3394,49 @@
     }
   }
 
+  function showVerificationScreen(partnerId) {
+    // Verberg alle auth form secties
+    ['loginFormSection', 'forgotPwSection', 'resetPwSection', 'registerFormSection'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+    // Toon verificatie sectie
+    var verifySection = document.getElementById('verifyCodeSection');
+    if (verifySection) {
+      verifySection.classList.remove('hidden');
+      verifySection.style.display = 'block';
+    }
+    // Toon email adres
+    var emailDisplay = document.getElementById('verifyEmailDisplay');
+    var partnerEmail = localStorage.getItem('savora_partner_email');
+    if (emailDisplay && partnerEmail) {
+      emailDisplay.textContent = partnerEmail;
+    }
+    // Reset input en errors
+    var input = document.getElementById('verifyCodeInput');
+    if (input) input.value = '';
+    var errDiv = document.getElementById('verifyCodeError');
+    if (errDiv) { errDiv.classList.add('hidden'); errDiv.textContent = ''; }
+    var succDiv = document.getElementById('verifyCodeSuccess');
+    if (succDiv) succDiv.innerHTML = '';
+    // Focus op input
+    setTimeout(function() {
+      if (input) input.focus();
+    }, 100);
+    console.log('[VERIFY] Showing verification screen for partner:', partnerId);
+  }
+
   function showLoginScreen() {
     document.getElementById('loginScreen').classList.remove('hidden');
     document.getElementById('loginScreen').style.display = '';
     document.getElementById('pricingScreen').style.display = 'none';
     document.getElementById('dashboard').style.display = 'none';
+    // Verberg verify sectie als die zichtbaar is
+    var verifySection = document.getElementById('verifyCodeSection');
+    if (verifySection) {
+      verifySection.classList.add('hidden');
+      verifySection.style.display = 'none';
+    }
     showLogin();
   }
 
@@ -3270,6 +3446,27 @@
     var paymentDueEl = document.getElementById('paymentDue');
     if (paymentDueEl) paymentDueEl.value = pd.toISOString().split('T')[0];
   } catch(e) { /* ignore */ }
+
+  // ===== HELPER FUNCTIES =====
+  function showError(elementId, message) {
+    var el = document.getElementById(elementId);
+    if (el) {
+      el.innerHTML = '<div class="error-msg">' + message + '</div>';
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+  function showSuccessMsg(elementId, message) {
+    var el = document.getElementById(elementId);
+    if (el) el.innerHTML = '<div class="success-msg">' + message + '</div>';
+  }
+  function clearError(elementId) {
+    var el = document.getElementById(elementId);
+    if (el) el.innerHTML = '';
+  }
+  function validateNui(value) {
+    if (!value || value.length !== 10) return false;
+    return /^[A-Z]\d{8}[A-Z]$/.test(value.toUpperCase());
+  }
 
   // ===== TOAST NOTIFICATIES =====
   function showToast(msg, type) {
