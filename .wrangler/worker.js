@@ -1081,7 +1081,7 @@ async function handleRequest(request, env, ctx) {
       }
       // Generate Paysera payment URL
       const payseraUrl = 'https://bank.paysera.com/transfer?' + new URLSearchParams({
-        to: 'AL70202111230000000000537482',
+        to: 'AL57902127674521230229786655',
         amount: amount.toString(),
         currency: currency || 'LEK',
         description: `Savoraapp - ${orderId || 'credits'} - ${partnerId}`,
