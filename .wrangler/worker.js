@@ -214,6 +214,82 @@ function generateCode() {
 }
 
 // ============================================
+// PAYSERA WebToPay (echte betaalverificatie)
+// ============================================
+
+// Pure-JS MD5 (Workers heeft geen ingebouwde MD5) — getest tegen bekende vectoren
+function md5(inputStr) {
+  function add32(a, b) { return (a + b) & 0xFFFFFFFF; }
+  function rol(x, c) { return (x << c) | (x >>> (32 - c)); }
+  const bytes = new TextEncoder().encode(inputStr);
+  const origLenBits = bytes.length * 8;
+  const withOne = bytes.length + 1;
+  const padLen = (((withOne + 8) + 63) & ~63) - bytes.length;
+  const msg = new Uint8Array(bytes.length + padLen);
+  msg.set(bytes);
+  msg[bytes.length] = 0x80;
+  const dv = new DataView(msg.buffer);
+  dv.setUint32(msg.length - 8, origLenBits >>> 0, true);
+  dv.setUint32(msg.length - 4, Math.floor(origLenBits / 0x100000000) >>> 0, true);
+  let a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
+  const S = [7,12,17,22,7,12,17,22,7,12,17,22,7,12,17,22,5,9,14,20,5,9,14,20,5,9,14,20,5,9,14,20,
+             4,11,16,23,4,11,16,23,4,11,16,23,4,11,16,23,6,10,15,21,6,10,15,21,6,10,15,21,6,10,15,21];
+  const K = [];
+  for (let i = 0; i < 64; i++) K[i] = Math.floor(Math.abs(Math.sin(i + 1)) * 0x100000000) >>> 0;
+  for (let off = 0; off < msg.length; off += 64) {
+    const M = [];
+    for (let i = 0; i < 16; i++) M[i] = dv.getUint32(off + i * 4, true);
+    let A = a0, B = b0, C = c0, D = d0;
+    for (let i = 0; i < 64; i++) {
+      let F, g;
+      if (i < 16) { F = (B & C) | (~B & D); g = i; }
+      else if (i < 32) { F = (D & B) | (~D & C); g = (5 * i + 1) % 16; }
+      else if (i < 48) { F = B ^ C ^ D; g = (3 * i + 5) % 16; }
+      else { F = C ^ (B | ~D); g = (7 * i) % 16; }
+      F = add32(add32(add32(F, A), K[i]), M[g]);
+      A = D; D = C; C = B;
+      B = add32(B, rol(F, S[i]));
+    }
+    a0 = add32(a0, A); b0 = add32(b0, B); c0 = add32(c0, C); d0 = add32(d0, D);
+  }
+  function hex(n) { let s = ''; for (let i = 0; i < 4; i++) s += ((n >>> (i * 8)) & 0xFF).toString(16).padStart(2, '0'); return s; }
+  return hex(a0) + hex(b0) + hex(c0) + hex(d0);
+}
+
+const PAYSERA_PROJECT_ID = '256849';
+const PAYSERA_PAY_URL = 'https://www.paysera.com/pay/';
+
+// URL-veilige base64 zoals Paysera (+ → -, / → _)
+function payseraBase64Encode(str) {
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_');
+}
+function payseraBase64Decode(str) {
+  return atob(str.replace(/-/g, '+').replace(/_/g, '/'));
+}
+
+// Bouw de ondertekende redirect naar Paysera
+function buildPayseraPaymentUrl(params, signPassword) {
+  const query = Object.keys(params)
+    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+    .join('&');
+  const data = payseraBase64Encode(query);
+  const sign = md5(data + signPassword);
+  return PAYSERA_PAY_URL + '?data=' + encodeURIComponent(data) + '&sign=' + encodeURIComponent(sign);
+}
+
+// Parse de 'data' uit een callback terug naar een object
+function parsePayseraData(dataParam) {
+  const decoded = payseraBase64Decode(dataParam);
+  const out = {};
+  for (const pair of decoded.split('&')) {
+    const idx = pair.indexOf('=');
+    if (idx === -1) continue;
+    out[decodeURIComponent(pair.slice(0, idx))] = decodeURIComponent(pair.slice(idx + 1));
+  }
+  return out;
+}
+
+// ============================================
 // CREDIT SYSTEM
 // ============================================
 
@@ -404,7 +480,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.1.3-fix', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.2.0-paysera', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- API INFO ----
@@ -1071,25 +1147,127 @@ async function handleRequest(request, env, ctx) {
     }
   }
 
-  // ---- PAYSERA PAYMENT ----
+  // ---- PAYSERA: BETALING STARTEN (WebToPay) ----
   if (path === '/api/paysera/create-payment' && method === 'POST') {
     try {
-      // Gebruik al geparse body (niet request.json() want body is al consumed)
-      const { partnerId, amount, orderId, currency } = body || {};
-      if (!partnerId || !amount) {
-        return jsonResponse({ error: 'partnerId en amount zijn verplicht' }, 400, origin);
+      // Vereist een ingelogde partner
+      const decoded = await isPartnerAuthorized(request, env);
+      if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+
+      if (!env.PAYSERA_PASSWORD) {
+        return jsonResponse({ error: 'Paysera niet geconfigureerd (PAYSERA_PASSWORD ontbreekt)' }, 500, origin);
       }
-      // Generate Paysera payment URL
-      const payseraUrl = 'https://bank.paysera.com/transfer?' + new URLSearchParams({
-        to: 'AL57902127674521230229786655',
-        amount: amount.toString(),
-        currency: currency || 'LEK',
-        description: `Savoraapp - ${orderId || 'credits'} - ${partnerId}`,
-        reference: orderId || `credit_${Date.now()}`
-      }).toString();
-      return jsonResponse({ success: true, url: payseraUrl }, 200, origin);
-    } catch {
-      return jsonResponse({ error: 'Ongeldige request' }, 400, origin);
+
+      const partnerId = decoded.partnerId;
+      const packageKey = body.package || body.packageKey;
+      const pkgDef = CREDIT_PACKAGES[packageKey];
+      if (!pkgDef) return jsonResponse({ error: 'Ongeldig pakket' }, 400, origin);
+
+      // Bedrag + valuta komen van de SERVER (pakketprijs), niet van de client — anti-fraude.
+      // Prijzen staan in Lek, dus valuta = ALL (ISO-code Albanese Lek). Override mogelijk via env.
+      const currency = (env.PAYSERA_CURRENCY || 'ALL').toUpperCase();
+      const amountCents = pkgDef.price * 100;
+
+      // Uniek ordernummer + pending-order in KV zodat de callback weet wie/wat
+      const orderId = 'SAV' + Date.now() + Math.floor(Math.random() * 1000);
+      await db.put('payorder_' + orderId, JSON.stringify({
+        orderId, partnerId, packageKey,
+        amountCents, currency,
+        status: 'pending',
+        createdAt: Date.now()
+      }), { expirationTtl: 60 * 60 * 24 * 7 });
+
+      const apiBase = url.origin; // callback komt op deze worker binnen
+      const frontend = env.FRONTEND_URL || 'https://savoraapp.com';
+
+      const params = {
+        projectid: env.PAYSERA_PROJECT_ID || PAYSERA_PROJECT_ID,
+        orderid: orderId,
+        accepturl: frontend + '/partner-dashboard?payment=success',
+        cancelurl: frontend + '/partner-dashboard?payment=cancel',
+        callbackurl: apiBase + '/api/paysera/callback',
+        amount: String(amountCents),
+        currency: currency,
+        p_email: decoded.email || '',
+        test: env.PAYSERA_TEST === '1' ? '1' : '0',
+        version: '1.6'
+      };
+
+      const payUrl = buildPayseraPaymentUrl(params, env.PAYSERA_PASSWORD);
+      return jsonResponse({ success: true, url: payUrl, orderId }, 200, origin);
+    } catch (err) {
+      console.error('[PAYSERA] create-payment fout:', err.message);
+      return jsonResponse({ error: 'Kon betaling niet starten' }, 500, origin);
+    }
+  }
+
+  // ---- PAYSERA: CALLBACK (server-naar-server, verifieert betaling) ----
+  if (path === '/api/paysera/callback') {
+    // Paysera roept dit aan met data + ss1. Bij succes MOET de body exact "OK" zijn.
+    try {
+      const dataParam = url.searchParams.get('data');
+      const ss1 = url.searchParams.get('ss1');
+      if (!dataParam || !ss1) {
+        return new Response('missing data/ss1', { status: 400 });
+      }
+      if (!env.PAYSERA_PASSWORD) {
+        return new Response('not configured', { status: 500 });
+      }
+
+      // 1) Handtekening verifiëren (ss1 = md5(data + projectwachtwoord))
+      const expected = md5(dataParam + env.PAYSERA_PASSWORD);
+      if (expected !== ss1) {
+        console.error('[PAYSERA] ongeldige ss1-handtekening');
+        return new Response('invalid sign', { status: 400 });
+      }
+
+      // 2) Data uitlezen en controleren
+      const p = parsePayseraData(dataParam);
+      const expectedProject = env.PAYSERA_PROJECT_ID || PAYSERA_PROJECT_ID;
+      if (String(p.projectid) !== String(expectedProject)) {
+        console.error('[PAYSERA] verkeerd projectid:', p.projectid);
+        return new Response('bad projectid', { status: 400 });
+      }
+
+      // Status 1 = betaling geslaagd (alleen dan crediteren)
+      if (String(p.status) !== '1') {
+        console.log('[PAYSERA] status niet betaald:', p.status, 'order:', p.orderid);
+        return new Response('OK'); // bevestig ontvangst; nog geen credits
+      }
+
+      // 3) Pending-order ophalen
+      const orderKey = 'payorder_' + p.orderid;
+      let order = null;
+      try { const raw = await db.get(orderKey); order = raw ? JSON.parse(raw) : null; } catch {}
+      if (!order) {
+        console.error('[PAYSERA] onbekende order:', p.orderid);
+        return new Response('unknown order', { status: 400 });
+      }
+
+      // Idempotent: al verwerkt? niets dubbel crediteren
+      if (order.status === 'paid') {
+        return new Response('OK');
+      }
+
+      // Bedrag/valuta controleren tegen wat wij verwachtten
+      if (String(p.amount) !== String(order.amountCents) || String(p.currency).toUpperCase() !== String(order.currency).toUpperCase()) {
+        console.error('[PAYSERA] bedrag/valuta mismatch voor order', p.orderid);
+        return new Response('amount mismatch', { status: 400 });
+      }
+
+      // 4) Credits toekennen via bestaand pakketsysteem
+      await purchaseCreditPackage(db, order.partnerId, order.packageKey, 'paysera_' + p.orderid);
+
+      order.status = 'paid';
+      order.paidAt = Date.now();
+      order.payseraRequestId = p.requestid || '';
+      await db.put(orderKey, JSON.stringify(order), { expirationTtl: 60 * 60 * 24 * 30 });
+
+      console.log('[PAYSERA] betaling bevestigd, credits toegekend:', order.partnerId, order.packageKey);
+      return new Response('OK');
+    } catch (err) {
+      console.error('[PAYSERA] callback fout:', err.message);
+      return new Response('error', { status: 500 });
     }
   }
 

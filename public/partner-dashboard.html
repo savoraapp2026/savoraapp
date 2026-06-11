@@ -3265,9 +3265,10 @@
         headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
         body: JSON.stringify({
           partnerId: partnerId,
+          package: packageKey,
           amount: amountLEK,
           orderId: orderId,
-          currency: 'LEK'
+          currency: 'EUR'
         })
       });
       var data = await res.json();
