@@ -31,6 +31,9 @@ async function verifyPassword(input, stored) {
 
 // ----- JWT -----
 async function jwtSign(payload, secret, expiresIn = 604800) {
+  if (!secret || secret.length < 16) {
+    throw new Error('JWT_SECRET ontbreekt of is te kort (minimaal 16 tekens vereist)');
+  }
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
     'raw', encoder.encode(secret),
@@ -46,6 +49,7 @@ async function jwtSign(payload, secret, expiresIn = 604800) {
 }
 
 async function jwtVerify(token, secret) {
+  if (!secret || secret.length < 16) return null;
   try {
     const [h, b, s] = token.split('.');
     if (!h || !b || !s) return null;
@@ -177,15 +181,32 @@ async function getAllPartners(db) {
   return getOldPartnersArray(db);
 }
 
-// ----- Rate Limiting -----
-const rateLimitMap = new Map();
-function checkRateLimit(key, max = 5, windowMs = 900000) {
+// ----- Rate Limiting (KV-based, gedeeld over alle Cloudflare-nodes) -----
+// Een in-memory Map werkt niet betrouwbaar op Workers: elk isolate/node heeft zijn
+// eigen geheugen, dus een aanvaller kan de limiet omzeilen door andere nodes te raken.
+// KV is gedeeld. De minimale TTL van KV is 60s, dus windows worden daarop afgerond.
+async function checkRateLimit(db, key, max = 5, windowMs = 900000) {
   const now = Date.now();
-  const entry = rateLimitMap.get(key) || { count: 0, reset: now + windowMs };
-  if (now > entry.reset) { entry.count = 0; entry.reset = now + windowMs; }
-  entry.count++;
-  rateLimitMap.set(key, entry);
-  return entry.count <= max;
+  const kvKey = 'ratelimit_' + key;
+  try {
+    let entry = null;
+    const raw = await db.get(kvKey);
+    if (raw) { try { entry = JSON.parse(raw); } catch { entry = null; } }
+    if (!entry || now > entry.reset) {
+      entry = { count: 1, reset: now + windowMs };
+      await db.put(kvKey, JSON.stringify(entry), { expirationTtl: Math.max(60, Math.ceil(windowMs / 1000)) });
+      return true;
+    }
+    if (entry.count >= max) return false;
+    entry.count++;
+    const ttl = Math.max(60, Math.ceil((entry.reset - now) / 1000));
+    await db.put(kvKey, JSON.stringify(entry), { expirationTtl: ttl });
+    return true;
+  } catch (err) {
+    // Als KV faalt, blokkeer de gebruiker niet — log en laat door
+    console.error('[RATELIMIT] KV-fout, request toegelaten:', err.message);
+    return true;
+  }
 }
 
 // ----- Auth -----
@@ -480,7 +501,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.2.0-paysera', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.3.0-secure', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- API INFO ----
@@ -622,7 +643,7 @@ async function handleRequest(request, env, ctx) {
   // RESEND CODE
   // ============================================
   if (path === '/api/partner/resend' && method === 'POST') {
-    if (!checkRateLimit('resend_' + ip, 3, 3600000)) {
+    if (!(await checkRateLimit(db, 'resend_' + ip, 3, 3600000))) {
       return jsonResponse({ error: 'Te veel verzoeken. Wacht een uur.' }, 429, origin);
     }
 
@@ -668,7 +689,7 @@ async function handleRequest(request, env, ctx) {
     console.log('[LOGIN] Request received from IP:', ip, 'Origin:', origin);
     console.log('[LOGIN] Body keys:', Object.keys(body));
 
-    if (!checkRateLimit('login_' + ip, 5, 900000)) {
+    if (!(await checkRateLimit(db, 'login_' + ip, 5, 900000))) {
       console.log('[LOGIN] Rate limited for IP:', ip);
       return jsonResponse({ error: 'Te veel pogingen. Wacht 15 minuten.' }, 429, origin);
     }
@@ -772,7 +793,7 @@ async function handleRequest(request, env, ctx) {
   // WACHTWOORD VERGETEN
   // ============================================
   if (path === '/api/partner/forgot-password' && method === 'POST') {
-    if (!checkRateLimit('forgot_' + ip, 3, 3600000)) {
+    if (!(await checkRateLimit(db, 'forgot_' + ip, 3, 3600000))) {
       return jsonResponse({ error: 'Te veel verzoeken.' }, 429, origin);
     }
     const email = (body.email || '').toLowerCase().trim();
@@ -895,9 +916,12 @@ async function handleRequest(request, env, ctx) {
     const activePackages = await getActiveCreditPackages(db, decoded.partnerId);
     const transactions = await getCreditTransactions(db, decoded.partnerId);
 
+    // Saldo uit de pakketten zelf — zo loopt het nooit uit de pas met een los veld
+    const liveCredits = activePackages.reduce((sum, pkg) => sum + (pkg.remainingCredits || 0), 0);
+
     return jsonResponse({
       success: true,
-      credits: partner ? (partner.credits || 0) : 0,
+      credits: liveCredits,
       activePackages,
       transactions: transactions.slice(0, 50),
       postCost: POST_COST,
@@ -980,12 +1004,16 @@ async function handleRequest(request, env, ctx) {
   // ============================================
   if (path === '/api/admin/login' && method === 'POST') {
     console.log('[ADMIN LOGIN] Request from IP:', ip);
-    if (!checkRateLimit('admin_' + ip, 3, 900000)) {
+    if (!(await checkRateLimit(db, 'admin_' + ip, 3, 900000))) {
       return jsonResponse({ error: 'Te veel pogingen. Wacht 15 minuten.' }, 429, origin);
     }
-    // Fallback als ADMIN_USER/ADMIN_PASS niet geconfigureerd zijn
-    const adminUser = env.ADMIN_USER || 'admin';
-    const adminPass = env.ADMIN_PASS || 'Savora2026';
+    // Vereist dat ADMIN_USER en ADMIN_PASS als secrets zijn ingesteld — geen onveilige fallback
+    if (!env.ADMIN_USER || !env.ADMIN_PASS) {
+      console.error('[ADMIN LOGIN] Geweigerd: ADMIN_USER/ADMIN_PASS niet geconfigureerd');
+      return jsonResponse({ error: 'Admin-login is niet geconfigureerd op de server' }, 503, origin);
+    }
+    const adminUser = env.ADMIN_USER;
+    const adminPass = env.ADMIN_PASS;
     const { username, password } = body;
     console.log('[ADMIN LOGIN] Username:', username, 'Password provided:', !!password);
     if (username === adminUser && password === adminPass) {
@@ -1502,7 +1530,7 @@ async function handleRequest(request, env, ctx) {
       if (env.ADMIN_USER && env.ADMIN_PASS) {
         tests.push({ name: 'admin_login', label: 'Admin Login', status: 'ok', detail: 'Admin credentials geconfigureerd' });
       } else {
-        tests.push({ name: 'admin_login', label: 'Admin Login', status: 'warning', detail: 'Gebruikt fallback credentials (admin/Savora2026)' });
+        tests.push({ name: 'admin_login', label: 'Admin Login', status: 'error', detail: 'Admin-login UITGESCHAKELD: ADMIN_USER/ADMIN_PASS niet ingesteld' });
       }
     } catch (err) {
       tests.push({ name: 'admin_login', label: 'Admin Login', status: 'error', detail: err.message });

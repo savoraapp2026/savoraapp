@@ -501,7 +501,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.3.0-secure', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.3.1-secure', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- API INFO ----
@@ -1205,7 +1205,9 @@ async function handleRequest(request, env, ctx) {
         createdAt: Date.now()
       }), { expirationTtl: 60 * 60 * 24 * 7 });
 
-      const apiBase = url.origin; // callback komt op deze worker binnen
+      // Callback moet op een in Paysera bevestigd domein staan. Het workers.dev-adres
+      // kun je niet bevestigen, dus wijs naar je eigen (sub)domein. Overschrijfbaar via env.
+      const apiBase = env.PAYSERA_CALLBACK_BASE || 'https://api.savoraapp.com';
       const frontend = env.FRONTEND_URL || 'https://savoraapp.com';
 
       const params = {
