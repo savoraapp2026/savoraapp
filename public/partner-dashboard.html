@@ -3581,6 +3581,17 @@
     }, 3500);
   }
 
+  // Maak handlers bereikbaar voor de inline onclick/onchange in de HTML
+  // (deze functies staan binnen de IIFE en zijn anders niet globaal zichtbaar)
+  Object.assign(window, {
+    switchTab, switchAuthTab, setLang, toggleLangDropdown, toggleMobileNav, togglePw,
+    showLogin, showRegister, showForgotPassword, logout,
+    verifyRegistrationCode, resendVerifyCodeWithTimer,
+    selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
+    handleAdSubmit, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
+    validateNuiRealtime
+  });
+
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
