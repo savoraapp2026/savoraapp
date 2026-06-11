@@ -230,9 +230,8 @@ const POST_VISIBILITY_HOURS = 24;
 // ----- Credit Helpers -----
 
 async function getCreditBalance(db, partnerId) {
-  const partner = await getPartnerById(db, partnerId);
-  if (!partner) return 0;
-  // Recalculate from active packages
+  // Bereken uit actieve pakketten (de bron van waarheid).
+  // Een partner-record is hiervoor niet nodig — de pakketten staan los opgeslagen.
   const packages = await getActiveCreditPackages(db, partnerId);
   return packages.reduce((sum, pkg) => sum + pkg.remainingCredits, 0);
 }
@@ -405,7 +404,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.1.0', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.1.3-fix', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- API INFO ----
