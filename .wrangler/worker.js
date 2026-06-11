@@ -405,7 +405,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.1.2-fix', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.1.0', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- API INFO ----

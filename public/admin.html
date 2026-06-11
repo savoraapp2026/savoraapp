@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Admin page - Service worker disabled for fresh loads -->
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/config.js"></script>
+    <script>
+      // Unregister service worker to prevent cache issues with admin
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(r) { r.unregister(); });
+        });
+      }
+    </script>
     <style>
         :root {
             --primary: #10B981;
@@ -233,6 +242,54 @@
             padding: 4px;
         }
         
+        /* MODAL ANIMATION */
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        /* BUTTON STATES */
+        .btn-primary-small {
+            padding: 8px 14px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            min-height: 36px;
+            min-width: 40px;
+        }
+        .btn-primary-small:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+        .btn-primary-small:active {
+            transform: scale(0.96);
+        }
+        
+        .btn-secondary {
+            padding: 8px 16px;
+            background: var(--gray-100);
+            color: var(--text);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            min-height: 36px;
+        }
+        .btn-secondary:hover {
+            background: var(--gray-200);
+            transform: translateY(-1px);
+        }
+        .btn-secondary:active {
+            transform: scale(0.96);
+        }
+        
         /* MAIN CONTENT */
         .content {
             flex: 1;
@@ -442,6 +499,89 @@
             .credit-cards { grid-template-columns: 1fr; }
         }
         
+        /* HEALTH CHECK */
+        .health-test-grid {
+            display: grid;
+            gap: 12px;
+        }
+        .health-test-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        .health-test-item:hover {
+            box-shadow: var(--shadow);
+        }
+        .health-test-item.ok {
+            background: #F0FDF4;
+            border-color: #BBF7D0;
+        }
+        .health-test-item.warning {
+            background: #FFFBEB;
+            border-color: #FDE68A;
+        }
+        .health-test-item.error {
+            background: #FEF2F2;
+            border-color: #FECACA;
+        }
+        .health-test-item.running {
+            background: #EFF6FF;
+            border-color: #BFDBFE;
+            animation: healthPulse 1.5s ease infinite;
+        }
+        @keyframes healthPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .health-test-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .health-test-item.ok .health-test-icon { background: #BBF7D0; }
+        .health-test-item.warning .health-test-icon { background: #FDE68A; }
+        .health-test-item.error .health-test-icon { background: #FECACA; }
+        .health-test-item.running .health-test-icon { background: #BFDBFE; }
+        .health-test-info {
+            flex: 1;
+        }
+        .health-test-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .health-test-detail {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+        .health-test-status {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .health-test-item.ok .health-test-status { background: #BBF7D0; color: #166534; }
+        .health-test-item.warning .health-test-status { background: #FDE68A; color: #92400E; }
+        .health-test-item.error .health-test-status { background: #FECACA; color: #991B1B; }
+        .health-test-item.running .health-test-status { background: #BFDBFE; color: #1E40AF; }
+        .health-status-banner {
+            transition: all 0.3s ease;
+        }
+        .health-status-healthy { background: #F0FDF4 !important; }
+        .health-status-degraded { background: #FFFBEB !important; }
+        .health-status-critical { background: #FEF2F2 !important; }
+        .health-status-running { background: #EFF6FF !important; }
+        
         @media (max-width: 768px) {
             .sidebar { width: 100%; position: relative; height: auto; }
             .content { margin-left: 0; }
@@ -461,7 +601,7 @@
             <p class="subtitle" id="loginSubtitle">Beheer je platform</p>
             
             <div class="login-hint" id="loginHint">
-                👋 Welkom! Kies een veilig wachtwoord voor je admin panel.
+                👋 Admin login. Gebruikersnaam: <strong>admin</strong> | Standaard wachtwoord: <strong>Savora2026</strong> (wijzig dit in Worker secrets voor veiligheid).
             </div>
             
             <div class="form-group">
@@ -471,12 +611,12 @@
             
             <div class="form-group">
                 <label>Wachtwoord</label>
-                <input type="password" id="loginPass" placeholder="Voer wachtwoord in...">
+                <input type="password" id="loginPass" placeholder="Voer wachtwoord in..." autocomplete="current-password">
             </div>
             
             <div class="form-group" id="confirmPassGroup">
                 <label>Bevestig wachtwoord</label>
-                <input type="password" id="loginPass2" placeholder="Herhaal wachtwoord...">
+                <input type="password" id="loginPass2" placeholder="Herhaal wachtwoord..." autocomplete="new-password">
             </div>
             
             <button class="btn-login" id="loginBtn" onclick="doLogin()">Instellen & Inloggen</button>
@@ -495,28 +635,22 @@
                 <a class="active" onclick="showSection('dash')">
                     <span class="icon">📊</span> Dashboard
                 </a>
-                <a onclick="showSection('ads')">
-                    <span class="icon">📢</span> Advertenties
-                    <span class="badge" id="adCount">3</span>
+                <a onclick="showSection('partners')">
+                    <span class="icon">🏪</span> Partners
+                    <span class="badge" id="partnerCountBadge">-</span>
                 </a>
-                <a onclick="showSection('users')">
-                    <span class="icon">👥</span> Gebruikers
-                    <span class="badge">1,247</span>
-                </a>
-                <a onclick="showSection('orders')">
-                    <span class="icon">📦</span> Bestellingen
-                </a>
-                <a onclick="showSection('finance')">
-                    <span class="icon">💰</span> Financiën
-                </a>
-                <a onclick="showSection('analytics')">
-                    <span class="icon">📈</span> Analytics
+                <a onclick="showSection('contact')">
+                    <span class="icon">📧</span> Contact
+                    <span class="badge" id="contactCountBadge">-</span>
                 </a>
                 <a onclick="showSection('credits')">
                     <span class="icon">🪙</span> Credits
                 </a>
                 <a onclick="showSection('settings')">
                     <span class="icon">⚙️</span> Instellingen
+                </a>
+                <a onclick="showSection('health')" title="Systeem Health Check" style="opacity:0.4;font-size:0.8rem;margin-top:20px;">
+                    <span class="icon">🔍</span> Systeem Test
                 </a>
             </nav>
             <div class="user-menu">
@@ -1019,6 +1153,152 @@
                     </table>
                 </div>
             </div>
+            
+            <!-- PARTNERS SECTION -->
+            <div class="section-page" id="sec-partners">
+                <header class="topbar">
+                    <h1>🏪 Partners Beheren</h1>
+                    <button class="btn-secondary" onclick="loadPartnersData()">🔄 Vernieuwen</button>
+                </header>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Totaal Partners</span></div>
+                        <div class="stat-value"><span class="number" id="pTotal">-</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Actief (geverifieerd)</span></div>
+                        <div class="stat-value"><span class="number" id="pActive" style="color:var(--success)">-</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">In afwachting</span></div>
+                        <div class="stat-value"><span class="number" id="pPending" style="color:var(--warning)">-</span></div>
+                    </div>
+                </div>
+                
+                <div class="table-card">
+                    <h3>Alle Partners</h3>
+                    <div style="overflow-x:auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Bedrijf</th>
+                                    <th>Contact</th>
+                                    <th>NUI</th>
+                                    <th>Stad</th>
+                                    <th>Credits</th>
+                                    <th>Status</th>
+                                    <th>Registratie</th>
+                                    <th>Acties</th>
+                                </tr>
+                            </thead>
+                            <tbody id="partnersBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SYSTEM HEALTH SECTION -->
+            <div class="section-page" id="sec-health">
+                <header class="topbar">
+                    <h1>🔍 Systeem Health Check</h1>
+                    <button class="btn-secondary" onclick="runHealthCheck()">▶️ Start Test</button>
+                </header>
+                
+                <!-- Summary Card -->
+                <div class="stats-grid" id="healthSummary" style="display:none;">
+                    <div class="stat-card" id="healthTotalCard">
+                        <div class="stat-header"><span class="label">Totaal Tests</span></div>
+                        <div class="stat-value"><span class="number" id="hTotal">-</span></div>
+                    </div>
+                    <div class="stat-card" id="healthPassedCard">
+                        <div class="stat-header"><span class="label">✅ Geslaagd</span></div>
+                        <div class="stat-value"><span class="number" id="hPassed" style="color:var(--success)">-</span></div>
+                    </div>
+                    <div class="stat-card" id="healthWarningCard">
+                        <div class="stat-header"><span class="label">⚠️ Waarschuwingen</span></div>
+                        <div class="stat-value"><span class="number" id="hWarnings" style="color:var(--warning)">-</span></div>
+                    </div>
+                    <div class="stat-card" id="healthErrorCard">
+                        <div class="stat-header"><span class="label">❌ Fouten</span></div>
+                        <div class="stat-value"><span class="number" id="hErrors" style="color:var(--danger)">-</span></div>
+                    </div>
+                </div>
+                
+                <!-- Overall Status -->
+                <div class="table-card" id="healthStatusCard" style="display:none;">
+                    <div style="display:flex;align-items:center;gap:16px;padding:16px;border-radius:12px;" id="healthStatusBanner">
+                        <span style="font-size:2rem" id="healthStatusIcon">⏳</span>
+                        <div>
+                            <div style="font-size:1.2rem;font-weight:700;" id="healthStatusText">Klik 'Start Test' om het systeem te controleren</div>
+                            <div style="color:var(--text-light);font-size:0.9rem;margin-top:4px;" id="healthStatusDetail">Deze test controleert alle kernfuncties van Savora</div>
+                        </div>
+                        <div style="margin-left:auto;font-size:0.85rem;color:var(--text-light);" id="healthResponseTime"></div>
+                    </div>
+                </div>
+                
+                <!-- Core Tests -->
+                <div class="table-card">
+                    <h3>🧪 Kernfuncties Tests</h3>
+                    <div id="healthCoreTests">
+                        <p style="color:var(--text-light);text-align:center;padding:40px;">Klik op 'Start Test' om de systeemcontrole te starten</p>
+                    </div>
+                </div>
+                
+                <!-- Savora Specific Tests -->
+                <div class="table-card">
+                    <h3>🟢 Savora Specifieke Tests</h3>
+                    <div id="healthSavoraTests">
+                        <p style="color:var(--text-light);text-align:center;padding:40px;">Klik op 'Start Test' om de Savora-controle te starten</p>
+                    </div>
+                </div>
+                
+                <!-- Infrastructure Tests -->
+                <div class="table-card">
+                    <h3>🔧 Infrastructuur Tests</h3>
+                    <div id="healthInfraTests">
+                        <p style="color:var(--text-light);text-align:center;padding:40px;">Klik op 'Start Test' om de infrastructuur-controle te starten</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CONTACT SECTION -->
+            <div class="section-page" id="sec-contact">
+                <header class="topbar">
+                    <h1>📧 Contact Berichten</h1>
+                    <button class="btn-secondary" onclick="loadContactData()">🔄 Vernieuwen</button>
+                </header>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Totaal Berichten</span></div>
+                        <div class="stat-value"><span class="number" id="cTotal">-</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Deze Maand</span></div>
+                        <div class="stat-value"><span class="number" id="cThisMonth">-</span></div>
+                    </div>
+                </div>
+                
+                <div class="table-card">
+                    <h3>Alle Berichten</h3>
+                    <div style="overflow-x:auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Datum</th>
+                                    <th>Naam</th>
+                                    <th>Email</th>
+                                    <th>Telefoon</th>
+                                    <th>Stad</th>
+                                    <th>Bericht</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contactBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         </main>
     </div>
@@ -1088,10 +1368,12 @@
         var result = await adminApi('/api/admin/session', { method: 'GET' });
         
         if (result.success && result.valid) {
-            // Token valid - show dashboard
-            document.getElementById('loginScreen').style.display = 'none';
-            document.getElementById('dashboard').classList.add('active');
-            loadDashboard();
+            // Token valid - show dashboard (use rAF to avoid forced reflow)
+            requestAnimationFrame(function() {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashboard').classList.add('active');
+                loadDashboard();
+            });
         } else {
             // Token invalid - clear and show login
             sessionStorage.removeItem('savora_admin_token');
@@ -1105,7 +1387,7 @@
         }
     }
     
-    async function doLogin() {
+    window.doLogin = async function() {
         const pass = document.getElementById('loginPass').value;
         const errorEl = document.getElementById('loginError');
         const loginBtn = document.getElementById('loginBtn');
@@ -1123,13 +1405,16 @@
         
         try {
             // Call backend login API
+            console.log('[ADMIN LOGIN] Sending request to:', API_BASE_URL + '/api/admin/login');
             var result = await fetch(API_BASE_URL + '/api/admin/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password: pass })
+                body: JSON.stringify({ username: 'admin', password: pass })
             });
             
+            console.log('[ADMIN LOGIN] Response status:', result.status);
             var data = await result.json();
+            console.log('[ADMIN LOGIN] Response data:', data);
             
             if (data.success && data.token) {
                 // Store token in sessionStorage (not localStorage - more secure)
@@ -1137,9 +1422,12 @@
                 sessionStorage.setItem('savora_admin_token', data.token);
                 
                 errorEl.style.display = 'none';
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('dashboard').classList.add('active');
-                loadDashboard();
+                // Use requestAnimationFrame to avoid forced reflow
+                requestAnimationFrame(function() {
+                    document.getElementById('loginScreen').style.display = 'none';
+                    document.getElementById('dashboard').classList.add('active');
+                    loadDashboard();
+                });
             } else {
                 errorEl.textContent = data.error || 'Onjuist wachtwoord';
                 errorEl.style.display = 'block';
@@ -1164,9 +1452,11 @@
         sessionStorage.removeItem('savora_admin_token');
         adminToken = null;
         
-        document.getElementById('loginScreen').style.display = 'flex';
-        document.getElementById('dashboard').classList.remove('active');
-        document.getElementById('loginPass').value = '';
+        requestAnimationFrame(function() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('dashboard').classList.remove('active');
+            document.getElementById('loginPass').value = '';
+        });
     }
     
     async function changePassword() {
@@ -1198,23 +1488,59 @@
     // ===== NAVIGATION =====
     
     function showSection(name) {
-        document.querySelectorAll('.section-page').forEach(s => s.classList.remove('active'));
-        document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.section-page').forEach(function(s) { s.classList.remove('active'); });
+        document.querySelectorAll('.sidebar nav a').forEach(function(a) { a.classList.remove('active'); });
         
         document.getElementById('sec-' + name).classList.add('active');
-        event.target.classList.add('active');
+        // Find the nav link that matches this section
+        var navLinks = document.querySelectorAll('.sidebar nav a');
+        for (var i = 0; i < navLinks.length; i++) {
+            if (navLinks[i].getAttribute('onclick').indexOf("'" + name + "'") !== -1) {
+                navLinks[i].classList.add('active');
+                break;
+            }
+        }
+        
+        // Load data for specific sections
+        if (name === 'partners') loadPartnersData();
+        if (name === 'contact') loadContactData();
+        if (name === 'credits') loadCreditData();
+        if (name === 'health') loadHealthCheck();
     }
     
     // ===== CHARTS =====
     
-    function loadDashboard() {
+    var cachedPartnersData = null;
+    var cachedContactData = null;
+    var dashboardCharts = {}; // Store chart instances for cleanup
+
+    async function loadDashboard() {
         // Date
         document.getElementById('currentDate').textContent = new Date().toLocaleDateString('nl-NL', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
         });
         
+        // Load real data from backend
+        var data = await adminApi('/api/admin/data', { method: 'GET' });
+        if (data.success) {
+            // Update dashboard stats
+            if (data.stats) {
+                document.getElementById('partnerTotal').textContent = data.stats.totalPartners || 0;
+                document.getElementById('userTotal').textContent = data.stats.activePartners || 0;
+                document.getElementById('partnerCountBadge').textContent = data.stats.totalPartners || '-';
+                document.getElementById('contactCountBadge').textContent = data.totalContacts || '-';
+            }
+            // Cache for other sections
+            if (data.partners) cachedPartnersData = data.partners;
+            if (data.contacts) cachedContactData = data.contacts;
+        }
+        
+        // Destroy existing charts before creating new ones
+        Object.values(dashboardCharts).forEach(function(c) { if (c && c.destroy) c.destroy(); });
+        dashboardCharts = {};
+        
         // Revenue Chart
-        new Chart(document.getElementById('revenueChart'), {
+        dashboardCharts.revenue = new Chart(document.getElementById('revenueChart'), {
             type: 'line',
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
@@ -1239,7 +1565,7 @@
         });
         
         // City Chart
-        new Chart(document.getElementById('cityChart'), {
+        dashboardCharts.city = new Chart(document.getElementById('cityChart'), {
             type: 'doughnut',
             data: {
                 labels: ['Tiranë', 'Durrës', 'Vlorë', 'Shkodër', 'Andere'],
@@ -1366,7 +1692,9 @@
     ];
     
     function renderAds() {
-        const tbody = document.getElementById('adsTableBody');
+        var tbody = document.getElementById('adsTableBody');
+        var adCount = document.getElementById('adCount');
+        if (!tbody || !adCount) return; // Sectie bestaat niet meer
         tbody.innerHTML = ads.map(ad => `
             <tr>
                 <td>${ad.emoji} ${ad.company}</td>
@@ -1380,7 +1708,7 @@
                 </td>
             </tr>
         `).join('');
-        document.getElementById('adCount').textContent = ads.filter(a => a.status === 'active').length;
+        adCount.textContent = ads.filter(a => a.status === 'active').length;
     }
     
     function addAd() {
@@ -1633,7 +1961,7 @@
     }
     
     async function loadCreditData() {
-        var result = await adminApi('/api/credits/partners', { method: 'GET' });
+        var result = await adminApi('/api/admin/credits', { method: 'GET' });
         if (result.success && result.partners) {
             renderPartnersTable(result.partners);
             updateCreditStats(result.partners);
@@ -1647,12 +1975,15 @@
             return;
         }
         tbody.innerHTML = partners.map(function(p) {
-            var date = p.lastTx ? new Date(p.lastTx).toLocaleDateString('nl-NL') : '-';
-            var balanceClass = p.balance <= 5 ? 'style="color:#EF4444;font-weight:700;"' : '';
+            var balance = p.credits || p.balance || 0;
+            var txCount = p.activePackages || p.transactions || 0;
+            var lastTx = p.recentTransactions && p.recentTransactions[0] ? p.recentTransactions[0].postedAt : null;
+            var date = lastTx ? new Date(lastTx).toLocaleDateString('nl-NL') : '-';
+            var balanceClass = balance <= 5 ? 'style="color:#EF4444;font-weight:700;"' : '';
             return '<tr>' +
-                '<td><strong>' + p.id + '</strong></td>' +
-                '<td ' + balanceClass + '>' + p.balance + '</td>' +
-                '<td>' + p.transactions + '</td>' +
+                '<td><strong>' + escapeHtml(p.business || p.id) + '</strong></td>' +
+                '<td ' + balanceClass + '>' + balance + '</td>' +
+                '<td>' + txCount + '</td>' +
                 '<td>' + date + '</td>' +
                 '<td>' +
                     '<button class="btn-primary-small" onclick="addCreditsToPartner(\'' + p.id + '\')">+</button> ' +
@@ -1664,8 +1995,8 @@
     
     function updateCreditStats(partners) {
         if (!partners) return;
-        var totalCredits = partners.reduce(function(sum, p) { return sum + p.balance; }, 0);
-        var activePartners = partners.filter(function(p) { return p.balance > 0; }).length;
+        var totalCredits = partners.reduce(function(sum, p) { return sum + (p.credits || p.balance || 0); }, 0);
+        var activePartners = partners.filter(function(p) { return (p.credits || p.balance || 0) > 0; }).length;
         document.getElementById('cTotalCredits').textContent = totalCredits;
         document.getElementById('cActivePartners').textContent = activePartners;
     }
@@ -1701,6 +2032,384 @@
         }
     }
     
+    function showToast(msg) {
+        var t = document.createElement('div');
+        t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--dark);color:#fff;padding:12px 20px;border-radius:8px;font-size:0.9rem;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.15);animation:fadeIn 0.3s ease;';
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(function() { t.style.opacity = '0'; t.style.transition = 'opacity 0.3s'; setTimeout(function() { t.remove(); }, 300); }, 3000);
+    }
+    
+    // ===== PARTNERS MANAGEMENT =====
+    
+    async function loadPartnersData() {
+        var result = await adminApi('/api/admin/data', { method: 'GET' });
+        if (result.success && result.partners) {
+            cachedPartnersData = result.partners;
+            renderPartnersAdminTable(result.partners);
+            // Update stats - match dashboard (total = active for display)
+            var total = result.partners.length;
+            var active = result.partners.filter(function(p) { return p.verified === true; }).length;
+            var pending = result.partners.filter(function(p) { return p.verified === false; }).length;
+            // Partners with undefined verified count as active (they can login)
+            var undefinedVerified = result.partners.filter(function(p) { return p.verified === undefined || p.verified === null; }).length;
+            var displayActive = active + undefinedVerified;
+            document.getElementById('pTotal').textContent = total;
+            document.getElementById('pActive').textContent = displayActive;
+            document.getElementById('pPending').textContent = pending;
+            document.getElementById('partnerCountBadge').textContent = total;
+        } else {
+            document.getElementById('partnersBody').innerHTML = '<tr><td colspan="8" style="text-align:center;color:#6B7280;">Geen partners gevonden</td></tr>';
+        }
+    }
+    
+    function renderPartnersAdminTable(partners) {
+        var tbody = document.getElementById('partnersBody');
+        if (!partners || partners.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:#6B7280;">Geen partners gevonden</td></tr>';
+            return;
+        }
+        tbody.innerHTML = partners.map(function(p) {
+            // Treat undefined/null verified as active (existing partners)
+            var isActive = p.verified === true || p.verified === undefined || p.verified === null;
+            var isExplicitlyPending = p.verified === false;
+            var statusBadge = isExplicitlyPending 
+                ? '<span style="background:#FEF3C7;color:#92400E;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;">⏳ Pending</span>'
+                : '<span style="background:#D1FAE5;color:#065F46;padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;">✅ Actief</span>';
+            var date = p.createdAt ? new Date(p.createdAt).toLocaleDateString('nl-NL') : '-';
+            return '<tr>' +
+                '<td><strong>' + escapeHtml(p.business || '-') + '</strong></td>' +
+                '<td>' + escapeHtml(p.contact || '-') + '</td>' +
+                '<td><code style="background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:0.8rem;">' + escapeHtml(p.nipt || p.nui || '-') + '</code></td>' +
+                '<td>' + escapeHtml(p.city || '-') + '</td>' +
+                '<td>' + (p.credits || 0) + '</td>' +
+                '<td>' + statusBadge + '</td>' +
+                '<td>' + date + '</td>' +
+                '<td style="white-space:nowrap">' +
+                    '<button class="btn-primary-small" onclick="viewPartnerDetails(\'' + p.id + '\')" title="Bekijken" style="padding:8px 12px;font-size:1rem;margin-right:4px">👁️</button>' +
+                    (isExplicitlyPending ? '<button class="btn-secondary" style="padding:8px 14px;font-size:0.8rem;background:#D1FAE5;color:#065F46;border-color:#10B981;font-weight:600;" onclick="verifyPartner(\'' + p.id + '\', this)" title="Activeren">✅ Activeer</button>' : '<span style="color:var(--success);font-size:1.2rem">✓</span>') +
+                '</td>' +
+            '</tr>';
+        }).join('');
+    }
+    
+    async function viewPartnerDetails(partnerId) {
+        console.log('[ADMIN] View partner:', partnerId);
+        // Reload data if needed
+        if (!cachedPartnersData || cachedPartnersData.length === 0) {
+            console.log('[ADMIN] Reloading partners data...');
+            await loadPartnersData();
+        }
+        var partner = cachedPartnersData ? cachedPartnersData.find(function(p) { return p.id === partnerId; }) : null;
+        if (!partner) {
+            console.error('[ADMIN] Partner not found:', partnerId);
+            console.log('[ADMIN] Available IDs:', cachedPartnersData ? cachedPartnersData.map(function(p){return p.id;}) : 'none');
+            alert('Partner niet gevonden. Vernieuw de pagina en probeer opnieuw.');
+            return;
+        }
+        console.log('[ADMIN] Found partner:', partner.business);
+        
+        // Remove existing modal
+        var existingModal = document.getElementById('partnerModal');
+        if (existingModal) existingModal.remove();
+        
+        // Maak een mooie modal
+        var modal = document.createElement('div');
+        modal.id = 'partnerModal';
+        modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Inter,sans-serif;';
+        var isActive = partner.verified === true || partner.verified === undefined || partner.verified === null;
+        var isExplicitlyPending = partner.verified === false;
+        var statusColor = isExplicitlyPending ? '#92400E' : '#065F46';
+        var statusBg = isExplicitlyPending ? '#FEF3C7' : '#D1FAE5';
+        var statusText = isExplicitlyPending ? '⏳ In afwachting' : '✅ Actief';
+        modal.innerHTML = 
+            '<div style="background:#fff;border-radius:16px;max-width:480px;width:100%;padding:0;box-shadow:0 24px 80px rgba(0,0,0,0.4);overflow:hidden;animation:modalIn 0.3s ease;">' +
+                '<div style="background:linear-gradient(135deg,#FF6B35,#E55A2B);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;">' +
+                    '<h3 style="margin:0;font-size:1.2rem;font-weight:700;">🏪 Partner Details</h3>' +
+                    '<button id="closePartnerModal" style="background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:1.5rem;cursor:pointer;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;">&times;</button>' +
+                '</div>' +
+                '<div style="padding:28px;">' +
+                    '<div style="margin-bottom:8px;">' +
+                        '<div style="font-size:0.75rem;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Bedrijf</div>' +
+                        '<div style="font-size:1.1rem;font-weight:700;color:#111827;">' + escapeHtml(partner.business || '-') + '</div>' +
+                    '</div>' +
+                    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">' +
+                        '<div><div style="font-size:0.75rem;color:#9CA3AF;margin-bottom:4px;">Contact</div><div style="font-size:0.9rem;color:#374151;word-break:break-all;">' + escapeHtml(partner.contact || '-') + '</div></div>' +
+                        '<div><div style="font-size:0.75rem;color:#9CA3AF;margin-bottom:4px;">Stad</div><div style="font-size:0.9rem;color:#374151;">' + escapeHtml(partner.city || '-') + '</div></div>' +
+                        '<div><div style="font-size:0.75rem;color:#9CA3AF;margin-bottom:4px;">NUI</div><div style="font-size:0.9rem;color:#374151;font-family:monospace;background:#F3F4F6;padding:4px 8px;border-radius:6px;display:inline-block;">' + escapeHtml(partner.nipt || partner.nui || '-') + '</div></div>' +
+                        '<div><div style="font-size:0.75rem;color:#9CA3AF;margin-bottom:4px;">Credits</div><div style="font-size:0.9rem;color:#374151;font-weight:600;">' + (partner.credits || 0) + '</div></div>' +
+                    '</div>' +
+                    '<div style="margin-top:16px;">' +
+                        '<div style="font-size:0.75rem;color:#9CA3AF;margin-bottom:4px;">Registratie</div>' +
+                        '<div style="font-size:0.9rem;color:#374151;">' + (partner.createdAt ? new Date(partner.createdAt).toLocaleDateString('nl-NL') : '-') + '</div>' +
+                    '</div>' +
+                    '<div style="display:flex;justify-content:center;margin:20px 0;">' +
+                        '<span style="background:' + statusBg + ';color:' + statusColor + ';padding:10px 24px;border-radius:20px;font-size:0.9rem;font-weight:700;">' + statusText + '</span>' +
+                    '</div>' +
+                    (isExplicitlyPending ? 
+                        '<button id="activatePartnerBtn" data-pid="' + partner.id + '" style="width:100%;padding:14px;background:#10B981;color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 12px rgba(16,185,129,0.3);">✅ Activeer deze partner</button>' 
+                        : '<button id="closePartnerModal2" style="width:100%;padding:14px;background:#F3F4F6;color:#374151;border:1px solid #E5E7EB;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;">Sluiten</button>') +
+                '</div>' +
+            '</div>';
+        document.body.appendChild(modal);
+        
+        // Event listeners
+        var closeBtn = document.getElementById('closePartnerModal');
+        if (closeBtn) closeBtn.addEventListener('click', function() { modal.remove(); });
+        var closeBtn2 = document.getElementById('closePartnerModal2');
+        if (closeBtn2) closeBtn2.addEventListener('click', function() { modal.remove(); });
+        var activateBtn = document.getElementById('activatePartnerBtn');
+        if (activateBtn) {
+            activateBtn.addEventListener('click', function() {
+                var pid = this.getAttribute('data-pid');
+                modal.remove();
+                verifyPartner(pid);
+            });
+        }
+        // Sluit modal bij klik op achtergrond
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) modal.remove();
+        });
+    }
+    
+    async function verifyPartner(partnerId, btn) {
+        if (!confirm('Weet je zeker dat je deze partner wilt activeren?')) return;
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Bezig...';
+            btn.style.opacity = '0.7';
+        }
+        try {
+            var result = await adminApi('/api/admin/verify-partner', {
+                method: 'POST',
+                body: JSON.stringify({ partnerId: partnerId })
+            });
+            if (result && result.success) {
+                alert('✅ Partner succesvol geactiveerd!');
+                await loadPartnersData();
+            } else {
+                var errorMsg = (result && result.error) ? result.error : 'Kon partner niet activeren';
+                alert('❌ Fout: ' + errorMsg);
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '✅ Activeer';
+                    btn.style.opacity = '1';
+                }
+            }
+        } catch (err) {
+            console.error('verifyPartner error:', err);
+            alert('❌ Netwerkfout. Probeer opnieuw.');
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = '✅ Activeer';
+                btn.style.opacity = '1';
+            }
+        }
+    }
+    
+    // ===== SYSTEM HEALTH CHECK =====
+    
+    var healthCheckRunning = false;
+    
+    async function loadHealthCheck() {
+        // Auto-run als er nog geen resultaten zijn
+        var coreContainer = document.getElementById('healthCoreTests');
+        if (coreContainer && coreContainer.querySelector('p')) {
+            runHealthCheck();
+        }
+    }
+    
+    async function runHealthCheck() {
+        if (healthCheckRunning) return;
+        healthCheckRunning = true;
+        
+        var coreContainer = document.getElementById('healthCoreTests');
+        var savoraContainer = document.getElementById('healthSavoraTests');
+        var infraContainer = document.getElementById('healthInfraTests');
+        var summaryDiv = document.getElementById('healthSummary');
+        var statusCard = document.getElementById('healthStatusCard');
+        var statusBanner = document.getElementById('healthStatusBanner');
+        var statusIcon = document.getElementById('healthStatusIcon');
+        var statusText = document.getElementById('healthStatusText');
+        var statusDetail = document.getElementById('healthStatusDetail');
+        
+        summaryDiv.style.display = 'grid';
+        statusCard.style.display = 'block';
+        
+        // Toon "running" state
+        statusBanner.className = 'health-status-banner health-status-running';
+        statusIcon.textContent = '🔄';
+        statusText.textContent = 'Bezig met systeemcontrole...';
+        statusDetail.textContent = 'Even geduld, alle tests worden uitgevoerd';
+        document.getElementById('healthResponseTime').textContent = '';
+        
+        // Placeholder tests tonen
+        var coreTests = [
+            { name: 'database', label: 'Database (KV)' },
+            { name: 'credits_config', label: 'Creditsysteem Config' },
+            { name: 'partner_login', label: 'Partner Login' },
+            { name: 'credits_purchase', label: 'Credits Kopen' },
+            { name: 'credits_deduct', label: 'Credit Aftrek bij Publicatie' }
+        ];
+        var savoraTests = [
+            { name: 'post_expiry_24h', label: 'Post verloopt na 24 uur' },
+            { name: 'package_expiry_90d', label: 'Pakket vervalt na 90 dagen' },
+            { name: 'zero_credits_block', label: 'Geen advertentie bij 0 credits' }
+        ];
+        var infraTests = [
+            { name: 'email_config', label: 'E-mail Configuratie' },
+            { name: 'admin_login', label: 'Admin Login' },
+            { name: 'jwt_config', label: 'JWT Configuratie' }
+        ];
+        
+        coreContainer.innerHTML = renderHealthPlaceholder(coreTests);
+        savoraContainer.innerHTML = renderHealthPlaceholder(savoraTests);
+        infraContainer.innerHTML = renderHealthPlaceholder(infraTests);
+        
+        // Reset summary
+        document.getElementById('hTotal').textContent = coreTests.length + savoraTests.length + infraTests.length;
+        document.getElementById('hPassed').textContent = '-';
+        document.getElementById('hWarnings').textContent = '-';
+        document.getElementById('hErrors').textContent = '-';
+        
+        try {
+            var result = await adminApi('/api/admin/health', { method: 'GET' });
+            
+            if (result.success && result.tests) {
+                // Update summary
+                var summary = result.summary;
+                document.getElementById('hTotal').textContent = summary.total;
+                document.getElementById('hPassed').textContent = summary.passed;
+                document.getElementById('hWarnings').textContent = summary.warnings;
+                document.getElementById('hErrors').textContent = summary.errors;
+                document.getElementById('healthResponseTime').textContent = summary.responseTime ? '(' + summary.responseTime + ')' : '';
+                
+                // Update status banner
+                var bannerClass = summary.overall === 'healthy' ? 'health-status-healthy' : (summary.overall === 'degraded' ? 'health-status-degraded' : 'health-status-critical');
+                statusBanner.className = 'health-status-banner ' + bannerClass;
+                statusIcon.textContent = summary.overall === 'healthy' ? '✅' : (summary.overall === 'degraded' ? '⚠️' : '❌');
+                statusText.textContent = summary.overall === 'healthy' ? 'Alle systemen functioneren correct' : (summary.overall === 'degraded' ? 'Systeem werkt met waarschuwingen' : 'KRITIEKE FOUTEN GEVONDEN');
+                statusDetail.textContent = summary.passed + ' van de ' + summary.total + ' tests geslaagd';
+                
+                // Verdeel tests over containers
+                var coreResults = result.tests.filter(function(t) {
+                    return ['database','credits_config','partner_login','credits_purchase','credits_deduct'].indexOf(t.name) !== -1;
+                });
+                var savoraResults = result.tests.filter(function(t) {
+                    return ['post_expiry_24h','package_expiry_90d','zero_credits_block'].indexOf(t.name) !== -1;
+                });
+                var infraResults = result.tests.filter(function(t) {
+                    return ['email_config','admin_login','jwt_config'].indexOf(t.name) !== -1;
+                });
+                
+                coreContainer.innerHTML = renderHealthTests(coreResults);
+                savoraContainer.innerHTML = renderHealthTests(savoraResults);
+                infraContainer.innerHTML = renderHealthTests(infraResults);
+            } else {
+                statusBanner.className = 'health-status-banner health-status-critical';
+                statusIcon.textContent = '❌';
+                statusText.textContent = 'Health check mislukt';
+                statusDetail.textContent = result.error || 'Kon geen resultaten ophalen';
+                coreContainer.innerHTML = '<p style="color:var(--danger);text-align:center;padding:20px;">Fout: ' + escapeHtml(result.error || 'Onbekende fout') + '</p>';
+                savoraContainer.innerHTML = '';
+                infraContainer.innerHTML = '';
+            }
+        } catch (err) {
+            statusBanner.className = 'health-status-banner health-status-critical';
+            statusIcon.textContent = '❌';
+            statusText.textContent = 'Health check mislukt';
+            statusDetail.textContent = err.message || 'Netwerkfout';
+            coreContainer.innerHTML = '<p style="color:var(--danger);text-align:center;padding:20px;">Netwerkfout: ' + escapeHtml(err.message || 'Onbekende fout') + '</p>';
+            savoraContainer.innerHTML = '';
+            infraContainer.innerHTML = '';
+        }
+        
+        healthCheckRunning = false;
+    }
+    
+    function renderHealthPlaceholder(tests) {
+        return '<div class="health-test-grid">' + tests.map(function(t) {
+            return '<div class="health-test-item running" id="health-item-' + t.name + '">' +
+                '<div class="health-test-icon">⏳</div>' +
+                '<div class="health-test-info">' +
+                    '<div class="health-test-name">' + t.label + '</div>' +
+                    '<div class="health-test-detail">Bezig met testen...</div>' +
+                '</div>' +
+                '<span class="health-test-status">Laden...</span>' +
+            '</div>';
+        }).join('') + '</div>';
+    }
+    
+    function renderHealthTests(tests) {
+        if (!tests || tests.length === 0) {
+            return '<p style="color:var(--text-light);text-align:center;padding:20px;">Geen tests gevonden</p>';
+        }
+        return '<div class="health-test-grid">' + tests.map(function(t) {
+            var icon = t.status === 'ok' ? '✅' : (t.status === 'warning' ? '⚠️' : '❌');
+            var statusLabel = t.status === 'ok' ? 'OK' : (t.status === 'warning' ? 'Waarschuwing' : 'Fout');
+            return '<div class="health-test-item ' + t.status + '">' +
+                '<div class="health-test-icon">' + icon + '</div>' +
+                '<div class="health-test-info">' +
+                    '<div class="health-test-name">' + escapeHtml(t.label) + '</div>' +
+                    '<div class="health-test-detail">' + escapeHtml(t.detail || '') + '</div>' +
+                '</div>' +
+                '<span class="health-test-status">' + statusLabel + '</span>' +
+            '</div>';
+        }).join('') + '</div>';
+    }
+    
+    // ===== CONTACT MESSAGES =====
+    
+    async function loadContactData() {
+        var result = await adminApi('/api/admin/data', { method: 'GET' });
+        if (result.success && result.contacts) {
+            cachedContactData = result.contacts;
+            renderContactTable(result.contacts);
+            // Update stats
+            var total = result.contacts.length;
+            var thisMonth = result.contacts.filter(function(c) {
+                var d = new Date(c.createdAt);
+                var now = new Date();
+                return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+            }).length;
+            document.getElementById('cTotal').textContent = total;
+            document.getElementById('cThisMonth').textContent = thisMonth;
+            document.getElementById('contactCountBadge').textContent = total;
+        } else {
+            document.getElementById('contactBody').innerHTML = '<tr><td colspan="6" style="text-align:center;color:#6B7280;">Geen berichten gevonden</td></tr>';
+        }
+    }
+    
+    function renderContactTable(contacts) {
+        var tbody = document.getElementById('contactBody');
+        if (!contacts || contacts.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#6B7280;">Geen berichten gevonden</td></tr>';
+            return;
+        }
+        // Sort by date descending
+        var sorted = contacts.slice().sort(function(a, b) {
+            return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
+        });
+        tbody.innerHTML = sorted.slice(0, 50).map(function(c) {
+            var date = c.createdAt ? new Date(c.createdAt).toLocaleDateString('nl-NL') : '-';
+            return '<tr>' +
+                '<td style="white-space:nowrap">' + date + '</td>' +
+                '<td><strong>' + escapeHtml(c.name || '-') + '</strong></td>' +
+                '<td><a href="mailto:' + escapeHtml(c.email || '') + '" style="color:var(--primary)">' + escapeHtml(c.email || '-') + '</a></td>' +
+                '<td>' + escapeHtml(c.phone || '-') + '</td>' +
+                '<td>' + escapeHtml(c.city || '-') + '</td>' +
+                '<td style="max-width:300px;overflow:hidden;text-overflow:ellipsis">' + escapeHtml(c.message || '-') + '</td>' +
+            '</tr>';
+        }).join('');
+    }
+    
+    function escapeHtml(text) {
+        if (!text) return '';
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
     // ===== LEGACY FUNCTIONS - REPLACED BY BACKEND API VERSIONS ABOVE =====
     
     window.addEventListener('DOMContentLoaded', function() {
@@ -1721,9 +2430,29 @@
             if (e.key === 'Enter') doLogin();
         });
         
-        // Init analytics and credits
-        renderCreditTable();
-        updateCreditStats();
+        // ===== GLOBAL FUNCTION EXPORTS =====
+    // Maak alle functies globaal beschikbaar voor inline onclick handlers
+    window.doLogin = window.doLogin || function() { console.error('doLogin not loaded yet'); };
+    window.showSection = showSection;
+    window.logout = logout;
+    window.addAd = addAd;
+    window.changePassword = changePassword;
+    window.saveSettings = saveSettings;
+    window.refreshAnalytics = refreshAnalytics;
+    window.addCredits = addCredits;
+    window.addCreditsToPartner = addCreditsToPartner;
+    window.spendPartnerCredits = spendPartnerCredits;
+    window.viewPartnerDetails = viewPartnerDetails;
+    window.verifyPartner = verifyPartner;
+    window.loadPartnersData = loadPartnersData;
+    window.loadContactData = loadContactData;
+    window.loadCreditData = loadCreditData;
+    window.runHealthCheck = runHealthCheck;
+    window.toggleAd = toggleAd;
+    window.deleteAd = deleteAd;
+    
+    // Init analytics and credits
+        loadCreditData();
         
         // Load analytics when section shown
         var analyticsLink = document.querySelector('a[onclick="showSection(\'analytics\')"]');
@@ -1737,8 +2466,7 @@
         if (creditsLink) {
             creditsLink.addEventListener('click', function() {
                 setTimeout(function() {
-                    renderCreditTable();
-                    updateCreditStats();
+                    loadCreditData();
                 }, 100);
             });
         }

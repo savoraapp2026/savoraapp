@@ -51,10 +51,13 @@
     ENV: hostname === 'localhost' || hostname === '127.0.0.1' ? 'development' : 'production',
     SESSION_TIMEOUT: 30 * 60 * 1000,  // 30 minuten in ms
     AD_PRICE_LEK: 200,
+    POST_COST_CREDITS: 1,
+    POST_VISIBILITY_HOURS: 24,
+    CREDIT_EXPIRY_DAYS: 90,
     CREDIT_PACKAGES: [
-      { id: 1, credits: 20, price: 500, label: 'Pako Baze' },
-      { id: 2, credits: 50, price: 1000, label: 'Pako Standarte' },
-      { id: 3, credits: 100, price: 1800, label: 'Pako Premium' }
+      { id: 'basic',    credits: 20,  price: 500,  label: 'Pako Baze',    description: '20 postime' },
+      { id: 'standard', credits: 50,  price: 1000, label: 'Pako Standarte', description: '50 postime' },
+      { id: 'premium',  credits: 120, price: 1800, label: 'Pako Premium',  description: '120 postime' }
     ]
   };
 

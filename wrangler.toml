@@ -7,7 +7,7 @@ account_id = "de262f98ef47a3a6c986661d98a0c217"
 
 # Environment variables
 [vars]
-ENVIRONMENT = "production"
+ENVIRONMENT = "productie"
 FRONTEND_URL = "https://savoraapp.com"
 ADMIN_USER = "admin"
 
