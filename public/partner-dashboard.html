@@ -681,6 +681,7 @@
       <button class="active" data-tab="overview" onclick="switchTab('overview')" data-i18n="tabOverview">Overview</button>
       <button data-tab="credits" onclick="switchTab('credits')" data-i18n="tabCredits">Blej Kredite</button>
       <button data-tab="ads" onclick="switchTab('ads')" data-i18n="tabAds">Reklamoni</button>
+      <button data-tab="ofertat" onclick="switchTab('ofertat')">Ofertat</button>
     </div>
     <div class="user-info">
       <span id="userName">Partner</span>
@@ -978,6 +979,69 @@
         <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="myAdsTitle">Reklamat e Mia</h4>
         <div class="ads-list" id="myAdsList">
           <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="noAds">Nuk ka reklama ende. Krijoni reklamën tuaj të parë!</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-ofertat" class="tab-content" style="display:none">
+      <div class="dash-card">
+        <h3>Ofertat ditore</h3>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px">Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.</p>
+        <div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:12px">
+          <div style="font-size:1.3rem;font-weight:800;color:#059669">1 <span style="font-size:0.8rem">Kredit</span></div>
+          <div style="font-size:0.8rem;color:#166534">çdo ofertë · 24 orë e dukshme · shfaqet te klientët</div>
+        </div>
+        <form id="dealForm" onsubmit="handleDealSubmit(event)">
+          <div class="form-group">
+            <label>Titulli i ofertës</label>
+            <input type="text" id="dealTitle" placeholder="p.sh. Bukë e freskët -50%" required>
+          </div>
+          <div class="form-group">
+            <label>Përshkrimi</label>
+            <textarea id="dealDescription" rows="3" placeholder="Përshkruani ofertën tuaj" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
+          </div>
+          <div style="display:flex;gap:12px">
+            <div class="form-group" style="flex:1">
+              <label>Çmimi i vjetër (L)</label>
+              <input type="number" id="dealOriginalPrice" placeholder="500" min="0" step="1">
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>Çmimi i ofertës (L)</label>
+              <input type="number" id="dealPrice" placeholder="250" min="0" step="1" required>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px">
+            <div class="form-group" style="flex:1">
+              <label>Kategoria</label>
+              <select id="dealCategory" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
+                <option value="food">Ushqim</option>
+                <option value="bakery">Bukë/pasticeri</option>
+                <option value="produce">Fruta/perime</option>
+                <option value="meat">Mish</option>
+                <option value="dairy">Bulmet</option>
+                <option value="other">Të tjera</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>Sasia (opsionale)</label>
+              <input type="text" id="dealQuantity" placeholder="p.sh. 10 copë">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Qyteti</label>
+            <input type="text" id="dealCity" placeholder="p.sh. Tiranë">
+          </div>
+          <div id="dealError" style="margin-bottom:12px"></div>
+          <div id="dealSuccess" style="margin-bottom:12px"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="dealSubmitBtn">Publiko ofertën (1 Kredit)</button>
+          </div>
+        </form>
+      </div>
+      <div class="dash-card" style="margin-top:16px">
+        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Ofertat e mia</h4>
+        <div class="ads-list" id="myDealsList">
+          <p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>
         </div>
       </div>
     </div>
@@ -2884,6 +2948,7 @@
     if (tab === 'invoices') loadInvoices();
     if (tab === 'boxes') renderMyBoxes();
     if (tab === 'ads') renderMyAds();
+    if (tab === 'ofertat') loadMyDeals();
   }
 
   // Set tab data attributes
@@ -3581,12 +3646,117 @@
 
   // Maak handlers bereikbaar voor de inline onclick/onchange in de HTML
   // (deze functies staan binnen de IIFE en zijn anders niet globaal zichtbaar)
+  // ========================================
+  // DAG-AANBIEDINGEN (DEALS)
+  // ========================================
+  function handleDealSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('dealSubmitBtn');
+    var errDiv = document.getElementById('dealError');
+    var succDiv = document.getElementById('dealSuccess');
+    if (errDiv) errDiv.innerHTML = '';
+    if (succDiv) succDiv.innerHTML = '';
+
+    var title = document.getElementById('dealTitle').value.trim();
+    var description = document.getElementById('dealDescription').value.trim();
+    var originalPrice = document.getElementById('dealOriginalPrice').value.trim();
+    var dealPrice = document.getElementById('dealPrice').value.trim();
+    var category = document.getElementById('dealCategory').value;
+    var quantity = document.getElementById('dealQuantity').value.trim();
+    var city = document.getElementById('dealCity').value.trim();
+
+    if (!title || !dealPrice) {
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin dhe çmimin e ofertës.</div>';
+      return;
+    }
+    if (!partnerToken) {
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Identifikohuni përsëri për të vazhduar.</div>';
+      return;
+    }
+
+    if (btn) { btn.disabled = true; btn.textContent = 'Duke publikuar...'; }
+
+    fetch(API_BASE + '/api/deals', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken },
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        category: category,
+        city: city,
+        quantity: quantity,
+        originalPrice: originalPrice ? Number(originalPrice) : null,
+        dealPrice: Number(dealPrice)
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (btn) { btn.disabled = false; btn.textContent = 'Publiko ofertën (1 Kredit)'; }
+      if (data && data.success) {
+        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Oferta u publikua! 1 kredit u përdor.</div>';
+        var f = document.getElementById('dealForm'); if (f) f.reset();
+        loadMyDeals();
+        var pid = localStorage.getItem('savora_partner_id');
+        if (pid && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(pid);
+      } else {
+        if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + ((data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.') + '</div>';
+      }
+    })
+    .catch(function(){
+      if (btn) { btn.disabled = false; btn.textContent = 'Publiko ofertën (1 Kredit)'; }
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Lidhja dështoi. Provoni përsëri.</div>';
+    });
+  }
+
+  function loadMyDeals() {
+    var list = document.getElementById('myDealsList');
+    if (!list) return;
+    if (!partnerToken) {
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Identifikohuni për të parë ofertat tuaja.</p>';
+      return;
+    }
+    list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>';
+    fetch(API_BASE + '/api/deals/mine', {
+      headers: { 'Authorization': 'Bearer ' + partnerToken }
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (!data || !data.success) {
+        list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">S\'u ngarkuan ofertat.</p>';
+        return;
+      }
+      var deals = data.deals || [];
+      if (deals.length === 0) {
+        list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Nuk ka oferta ende. Krijoni të parën!</p>';
+        return;
+      }
+      var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+      var now = Date.now();
+      list.innerHTML = deals.map(function(d){
+        var expired = d.expiresAt && new Date(d.expiresAt).getTime() < now;
+        var priceLine = (d.dealPrice != null ? d.dealPrice + ' L' : '');
+        if (d.originalPrice && Number(d.originalPrice) > Number(d.dealPrice)) {
+          priceLine += ' <span style="text-decoration:line-through;color:var(--gray-400);font-size:0.8rem">' + esc(d.originalPrice) + ' L</span>';
+        }
+        return '<div style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px">' +
+          '<div style="min-width:0"><div style="font-weight:600;font-size:0.9rem">' + esc(d.title) + '</div>' +
+          '<div style="font-size:0.8rem;color:var(--gray-500)">' + priceLine + (d.city ? ' · ' + esc(d.city) : '') + '</div></div>' +
+          '<span style="font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;' + (expired ? 'background:#FEE2E2;color:#991B1B' : 'background:#DCFCE7;color:#166534') + '">' + (expired ? 'Skaduar' : 'Aktive') + '</span>' +
+          '</div>';
+      }).join('');
+    })
+    .catch(function(){
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">S\'u ngarkuan ofertat.</p>';
+    });
+  }
+
   Object.assign(window, {
     switchTab, switchAuthTab, setLang, toggleLangDropdown, toggleMobileNav, togglePw,
     showLogin, showRegister, showForgotPassword, logout,
     verifyRegistrationCode, resendVerifyCodeWithTimer,
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
     handleAdSubmit, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
+    handleDealSubmit, loadMyDeals,
     validateNuiRealtime
   });
 

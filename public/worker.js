@@ -31,6 +31,9 @@ async function verifyPassword(input, stored) {
 
 // ----- JWT -----
 async function jwtSign(payload, secret, expiresIn = 604800) {
+  if (!secret || secret.length < 16) {
+    throw new Error('JWT_SECRET ontbreekt of is te kort (minimaal 16 tekens vereist)');
+  }
   const encoder = new TextEncoder();
   const key = await crypto.subtle.importKey(
     'raw', encoder.encode(secret),
@@ -46,6 +49,7 @@ async function jwtSign(payload, secret, expiresIn = 604800) {
 }
 
 async function jwtVerify(token, secret) {
+  if (!secret || secret.length < 16) return null;
   try {
     const [h, b, s] = token.split('.');
     if (!h || !b || !s) return null;
@@ -177,15 +181,32 @@ async function getAllPartners(db) {
   return getOldPartnersArray(db);
 }
 
-// ----- Rate Limiting -----
-const rateLimitMap = new Map();
-function checkRateLimit(key, max = 5, windowMs = 900000) {
+// ----- Rate Limiting (KV-based, gedeeld over alle Cloudflare-nodes) -----
+// Een in-memory Map werkt niet betrouwbaar op Workers: elk isolate/node heeft zijn
+// eigen geheugen, dus een aanvaller kan de limiet omzeilen door andere nodes te raken.
+// KV is gedeeld. De minimale TTL van KV is 60s, dus windows worden daarop afgerond.
+async function checkRateLimit(db, key, max = 5, windowMs = 900000) {
   const now = Date.now();
-  const entry = rateLimitMap.get(key) || { count: 0, reset: now + windowMs };
-  if (now > entry.reset) { entry.count = 0; entry.reset = now + windowMs; }
-  entry.count++;
-  rateLimitMap.set(key, entry);
-  return entry.count <= max;
+  const kvKey = 'ratelimit_' + key;
+  try {
+    let entry = null;
+    const raw = await db.get(kvKey);
+    if (raw) { try { entry = JSON.parse(raw); } catch { entry = null; } }
+    if (!entry || now > entry.reset) {
+      entry = { count: 1, reset: now + windowMs };
+      await db.put(kvKey, JSON.stringify(entry), { expirationTtl: Math.max(60, Math.ceil(windowMs / 1000)) });
+      return true;
+    }
+    if (entry.count >= max) return false;
+    entry.count++;
+    const ttl = Math.max(60, Math.ceil((entry.reset - now) / 1000));
+    await db.put(kvKey, JSON.stringify(entry), { expirationTtl: ttl });
+    return true;
+  } catch (err) {
+    // Als KV faalt, blokkeer de gebruiker niet — log en laat door
+    console.error('[RATELIMIT] KV-fout, request toegelaten:', err.message);
+    return true;
+  }
 }
 
 // ----- Auth -----
@@ -480,7 +501,16 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.2.0-paysera', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.5.0-deals', time: new Date().toISOString() }, 200, origin);
+  }
+
+  // ---- PAYSERA DOMEINVERIFICATIE ----
+  // Paysera haalt de root van api.savoraapp.com op en zoekt deze meta-tag om eigendom te bevestigen.
+  if (path === '/' || path === '') {
+    return new Response(
+      '<!DOCTYPE html><html><head><meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704"><title>Savoraapp API</title></head><body>Savoraapp API</body></html>',
+      { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+    );
   }
 
   // ---- API INFO ----
@@ -622,7 +652,7 @@ async function handleRequest(request, env, ctx) {
   // RESEND CODE
   // ============================================
   if (path === '/api/partner/resend' && method === 'POST') {
-    if (!checkRateLimit('resend_' + ip, 3, 3600000)) {
+    if (!(await checkRateLimit(db, 'resend_' + ip, 3, 3600000))) {
       return jsonResponse({ error: 'Te veel verzoeken. Wacht een uur.' }, 429, origin);
     }
 
@@ -668,7 +698,7 @@ async function handleRequest(request, env, ctx) {
     console.log('[LOGIN] Request received from IP:', ip, 'Origin:', origin);
     console.log('[LOGIN] Body keys:', Object.keys(body));
 
-    if (!checkRateLimit('login_' + ip, 5, 900000)) {
+    if (!(await checkRateLimit(db, 'login_' + ip, 5, 900000))) {
       console.log('[LOGIN] Rate limited for IP:', ip);
       return jsonResponse({ error: 'Te veel pogingen. Wacht 15 minuten.' }, 429, origin);
     }
@@ -772,7 +802,7 @@ async function handleRequest(request, env, ctx) {
   // WACHTWOORD VERGETEN
   // ============================================
   if (path === '/api/partner/forgot-password' && method === 'POST') {
-    if (!checkRateLimit('forgot_' + ip, 3, 3600000)) {
+    if (!(await checkRateLimit(db, 'forgot_' + ip, 3, 3600000))) {
       return jsonResponse({ error: 'Te veel verzoeken.' }, 429, origin);
     }
     const email = (body.email || '').toLowerCase().trim();
@@ -895,9 +925,12 @@ async function handleRequest(request, env, ctx) {
     const activePackages = await getActiveCreditPackages(db, decoded.partnerId);
     const transactions = await getCreditTransactions(db, decoded.partnerId);
 
+    // Saldo uit de pakketten zelf — zo loopt het nooit uit de pas met een los veld
+    const liveCredits = activePackages.reduce((sum, pkg) => sum + (pkg.remainingCredits || 0), 0);
+
     return jsonResponse({
       success: true,
-      credits: partner ? (partner.credits || 0) : 0,
+      credits: liveCredits,
       activePackages,
       transactions: transactions.slice(0, 50),
       postCost: POST_COST,
@@ -946,6 +979,77 @@ async function handleRequest(request, env, ctx) {
   }
 
   // ============================================
+  // AANBIEDINGEN (DEALS)
+  // ============================================
+  // Partner plaatst een aanbieding — kost 1 credit
+  if (path === '/api/deals' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+
+    const { title, description, category, city, originalPrice, dealPrice, quantity, expiresAt, imageUrl } = body;
+    if (!title || (dealPrice === undefined || dealPrice === null || dealPrice === '')) {
+      return jsonResponse({ error: 'Titel en aanbiedingsprijs zijn verplicht' }, 400, origin);
+    }
+
+    const dealId = 'deal_' + Date.now() + Math.random().toString(36).slice(2, 6);
+
+    // 1 credit afschrijven voor plaatsing
+    const credit = await deductCredit(db, decoded.partnerId, dealId, 'daily_deal', 1);
+    if (!credit.success) return jsonResponse({ error: credit.error || 'Onvoldoende credits' }, 400, origin);
+
+    const partner = await getPartnerById(db, decoded.partnerId);
+    // Standaard 24 uur zichtbaar tenzij anders opgegeven
+    const expiry = expiresAt || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+
+    const deal = {
+      id: dealId,
+      partnerId: decoded.partnerId,
+      partnerName: partner ? (partner.business || partner.name || '') : '',
+      title: title,
+      description: description || '',
+      category: category || '',
+      city: city || (partner ? partner.city : '') || '',
+      originalPrice: originalPrice || null,
+      dealPrice: dealPrice,
+      quantity: quantity || null,
+      imageUrl: imageUrl || '',
+      createdAt: new Date().toISOString(),
+      expiresAt: expiry,
+      active: true
+    };
+
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    deals.push(deal);
+    await db.put('deals', JSON.stringify(deals));
+    return jsonResponse({ success: true, deal: deal }, 200, origin);
+  }
+
+  // Publiek: actieve aanbiedingen voor klanten
+  if (path === '/api/deals' && method === 'GET') {
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    const now = Date.now();
+    const active = deals.filter(function(d) {
+      if (d.active === false) return false;
+      if (d.expiresAt && new Date(d.expiresAt).getTime() < now) return false;
+      return true;
+    }).sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: active.length, deals: active }, 200, origin);
+  }
+
+  // Partner: eigen aanbiedingen
+  if (path === '/api/deals/mine' && method === 'GET') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    const mine = deals.filter(function(d) { return d.partnerId === decoded.partnerId; })
+      .sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: mine.length, deals: mine }, 200, origin);
+  }
+
+  // ============================================
   // CONTACT FORMULIER
   // ============================================
   if (path === '/api/contact' && method === 'POST') {
@@ -964,6 +1068,54 @@ async function handleRequest(request, env, ctx) {
     return jsonResponse({ success: true, message: 'Bericht ontvangen' }, 200, origin);
   }
 
+  // ---- LEADS: klant-aanmeldingen (vroegtijdige toegang + dag-aanbieding) ----
+  if (path === '/api/leads' && method === 'POST') {
+    const { type, email, phone, name, city, dealId, dealTitle, note } = body;
+    if (!email && !phone) {
+      return jsonResponse({ error: 'E-mailadres of telefoonnummer is verplicht' }, 400, origin);
+    }
+    // Lichte anti-spam: max 10 aanmeldingen per uur per IP
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    if (!(await checkRateLimit(db, 'lead_' + ip, 10, 3600000))) {
+      return jsonResponse({ error: 'Te veel aanmeldingen, probeer het later opnieuw' }, 429, origin);
+    }
+    const lead = {
+      id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
+      type: type === 'deal_claim' ? 'deal_claim' : 'early_access',
+      email: email || '',
+      phone: phone || '',
+      name: name || '',
+      city: city || '',
+      dealId: dealId || '',
+      dealTitle: dealTitle || '',
+      note: note || '',
+      createdAt: new Date().toISOString()
+    };
+    let leads = [];
+    try { const existing = await db.get('leads'); leads = existing ? JSON.parse(existing) : []; } catch { leads = []; }
+    leads.push(lead);
+    await db.put('leads', JSON.stringify(leads));
+    return jsonResponse({ success: true, message: 'Bedankt! We hebben je gegevens ontvangen.' }, 200, origin);
+  }
+
+  // ---- ADMIN: leads bekijken ----
+  if (path === '/api/admin/leads' && method === 'GET') {
+    const decoded = await isAdminAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    let leads = [];
+    try { const existing = await db.get('leads'); leads = existing ? JSON.parse(existing) : []; } catch { leads = []; }
+    leads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // nieuwste eerst
+    const earlyAccess = leads.filter(l => l.type === 'early_access');
+    const dealClaims = leads.filter(l => l.type === 'deal_claim');
+    return jsonResponse({
+      success: true,
+      count: leads.length,
+      earlyAccessCount: earlyAccess.length,
+      dealClaimCount: dealClaims.length,
+      leads
+    }, 200, origin);
+  }
+
   // ============================================
   // ADMIN: SESSIE CHECK
   // ============================================
@@ -980,12 +1132,16 @@ async function handleRequest(request, env, ctx) {
   // ============================================
   if (path === '/api/admin/login' && method === 'POST') {
     console.log('[ADMIN LOGIN] Request from IP:', ip);
-    if (!checkRateLimit('admin_' + ip, 3, 900000)) {
+    if (!(await checkRateLimit(db, 'admin_' + ip, 3, 900000))) {
       return jsonResponse({ error: 'Te veel pogingen. Wacht 15 minuten.' }, 429, origin);
     }
-    // Fallback als ADMIN_USER/ADMIN_PASS niet geconfigureerd zijn
-    const adminUser = env.ADMIN_USER || 'admin';
-    const adminPass = env.ADMIN_PASS || 'Savora2026';
+    // Vereist dat ADMIN_USER en ADMIN_PASS als secrets zijn ingesteld — geen onveilige fallback
+    if (!env.ADMIN_USER || !env.ADMIN_PASS) {
+      console.error('[ADMIN LOGIN] Geweigerd: ADMIN_USER/ADMIN_PASS niet geconfigureerd');
+      return jsonResponse({ error: 'Admin-login is niet geconfigureerd op de server' }, 503, origin);
+    }
+    const adminUser = env.ADMIN_USER;
+    const adminPass = env.ADMIN_PASS;
     const { username, password } = body;
     console.log('[ADMIN LOGIN] Username:', username, 'Password provided:', !!password);
     if (username === adminUser && password === adminPass) {
@@ -1177,7 +1333,9 @@ async function handleRequest(request, env, ctx) {
         createdAt: Date.now()
       }), { expirationTtl: 60 * 60 * 24 * 7 });
 
-      const apiBase = url.origin; // callback komt op deze worker binnen
+      // Callback moet op een in Paysera bevestigd domein staan. Het workers.dev-adres
+      // kun je niet bevestigen, dus wijs naar je eigen (sub)domein. Overschrijfbaar via env.
+      const apiBase = env.PAYSERA_CALLBACK_BASE || 'https://api.savoraapp.com';
       const frontend = env.FRONTEND_URL || 'https://savoraapp.com';
 
       const params = {
@@ -1502,7 +1660,7 @@ async function handleRequest(request, env, ctx) {
       if (env.ADMIN_USER && env.ADMIN_PASS) {
         tests.push({ name: 'admin_login', label: 'Admin Login', status: 'ok', detail: 'Admin credentials geconfigureerd' });
       } else {
-        tests.push({ name: 'admin_login', label: 'Admin Login', status: 'warning', detail: 'Gebruikt fallback credentials (admin/Savora2026)' });
+        tests.push({ name: 'admin_login', label: 'Admin Login', status: 'error', detail: 'Admin-login UITGESCHAKELD: ADMIN_USER/ADMIN_PASS niet ingesteld' });
       }
     } catch (err) {
       tests.push({ name: 'admin_login', label: 'Admin Login', status: 'error', detail: err.message });
