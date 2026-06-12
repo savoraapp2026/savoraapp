@@ -1024,7 +1024,8 @@
             </div>
             <div class="form-group" style="flex:1">
               <label>Sasia (opsionale)</label>
-              <input type="text" id="dealQuantity" placeholder="p.sh. 10 copë">
+              <input type="number" id="dealQuantity" placeholder="p.sh. 10" min="1">
+              <small style="display:block;color:var(--gray-500);font-size:0.72rem;margin-top:4px">Numri i artikujve — bie automatikisht kur klientët i marrin</small>
             </div>
           </div>
           <div class="form-group">
@@ -1036,6 +1037,10 @@
             <input type="text" id="dealAddress" placeholder="p.sh. Rruga Dëshmorët e Kombit 5" required>
             <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px">Rrugë dhe numër — që klientët të të gjejnë në Google Maps</small>
           </div>
+          <div class="form-group">
+            <label>Foto (URL) <span style="color:var(--gray-500);font-weight:400;font-size:0.8rem">— opsionale</span></label>
+            <input type="url" id="dealImage" placeholder="https://....jpg">
+          </div>
           <div id="dealError" style="margin-bottom:12px"></div>
           <div id="dealSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
@@ -1046,6 +1051,12 @@
       <div class="dash-card" style="margin-top:16px">
         <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Ofertat e mia</h4>
         <div class="ads-list" id="myDealsList">
+          <p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>
+        </div>
+      </div>
+      <div class="dash-card" style="margin-top:16px">
+        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Kush i ka kërkuar ofertat e tua</h4>
+        <div class="ads-list" id="myClaimsList">
           <p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>
         </div>
       </div>
@@ -2953,7 +2964,7 @@
     if (tab === 'invoices') loadInvoices();
     if (tab === 'boxes') renderMyBoxes();
     if (tab === 'ads') renderMyAds();
-    if (tab === 'ofertat') loadMyDeals();
+    if (tab === 'ofertat') { loadMyDeals(); loadMyClaims(); }
   }
 
   // Set tab data attributes
@@ -3670,6 +3681,7 @@
     var quantity = document.getElementById('dealQuantity').value.trim();
     var city = document.getElementById('dealCity').value.trim();
     var address = document.getElementById('dealAddress').value.trim();
+    var image = document.getElementById('dealImage') ? document.getElementById('dealImage').value.trim() : '';
 
     if (!title || !dealPrice || !address) {
       if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin, çmimin dhe adresën e ofertës.</div>';
@@ -3691,6 +3703,7 @@
         category: category,
         city: city,
         address: address,
+        imageUrl: image,
         quantity: quantity,
         originalPrice: originalPrice ? Number(originalPrice) : null,
         dealPrice: Number(dealPrice)
@@ -3741,20 +3754,76 @@
       var now = Date.now();
       list.innerHTML = deals.map(function(d){
         var expired = d.expiresAt && new Date(d.expiresAt).getTime() < now;
+        var soldOut = d.soldOut === true;
+        var stopped = d.active === false && !soldOut;
         var priceLine = (d.dealPrice != null ? d.dealPrice + ' L' : '');
         if (d.originalPrice && Number(d.originalPrice) > Number(d.dealPrice)) {
           priceLine += ' <span style="text-decoration:line-through;color:var(--gray-400);font-size:0.8rem">' + esc(d.originalPrice) + ' L</span>';
         }
+        var qtyTxt = '';
+        var qn = parseInt(d.quantity, 10);
+        if (!isNaN(qn)) qtyTxt = ' · ' + qn + ' të mbetura';
+        var status, statusStyle;
+        if (soldOut) { status = 'Shitur'; statusStyle = 'background:#FEF3C7;color:#92400E'; }
+        else if (stopped) { status = 'Ndaluar'; statusStyle = 'background:#F3F4F6;color:#6B7280'; }
+        else if (expired) { status = 'Skaduar'; statusStyle = 'background:#FEE2E2;color:#991B1B'; }
+        else { status = 'Aktive'; statusStyle = 'background:#DCFCE7;color:#166534'; }
+        var canStop = !soldOut && !stopped && !expired;
         return '<div style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px">' +
           '<div style="min-width:0"><div style="font-weight:600;font-size:0.9rem">' + esc(d.title) + '</div>' +
-          '<div style="font-size:0.8rem;color:var(--gray-500)">' + priceLine + (d.city ? ' · ' + esc(d.city) : '') + '</div></div>' +
-          '<span style="font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;' + (expired ? 'background:#FEE2E2;color:#991B1B' : 'background:#DCFCE7;color:#166534') + '">' + (expired ? 'Skaduar' : 'Aktive') + '</span>' +
+          '<div style="font-size:0.8rem;color:var(--gray-500)">' + priceLine + (d.city ? ' · ' + esc(d.city) : '') + qtyTxt + '</div></div>' +
+          '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap">' +
+          '<span style="font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:999px;' + statusStyle + '">' + status + '</span>' +
+          (canStop ? '<button type="button" class="deal-stop-btn" data-id="' + esc(d.id) + '" style="border:1px solid #FCA5A5;background:#fff;color:#dc2626;font-size:0.72rem;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer">Ndalo</button>' : '') +
+          '</div>' +
           '</div>';
       }).join('');
+      list.querySelectorAll('.deal-stop-btn').forEach(function(b){
+        b.addEventListener('click', function(){ stopDeal(b.getAttribute('data-id')); });
+      });
     })
     .catch(function(){
       list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">S\'u ngarkuan ofertat.</p>';
     });
+  }
+
+  function stopDeal(dealId) {
+    if (!dealId || !partnerToken) return;
+    if (!confirm('Ndalo këtë ofertë? Nuk do të shfaqet më te klientët.')) return;
+    fetch(API_BASE + '/api/deals/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken },
+      body: JSON.stringify({ dealId: dealId })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){ if (data && data.success) loadMyDeals(); else alert((data && data.error) || 'Nuk u ndal dot.'); })
+    .catch(function(){ alert('Lidhja dështoi.'); });
+  }
+
+  function loadMyClaims() {
+    var list = document.getElementById('myClaimsList');
+    if (!list) return;
+    if (!partnerToken) { list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Identifikohuni.</p>'; return; }
+    list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>';
+    fetch(API_BASE + '/api/deals/claims', { headers: { 'Authorization': 'Bearer ' + partnerToken } })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (!data || !data.success) { list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">S\'u ngarkuan.</p>'; return; }
+      var claims = data.claims || [];
+      if (claims.length === 0) { list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Ende askush nuk ka kërkuar një ofertë.</p>'; return; }
+      var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+      list.innerHTML = claims.map(function(c){
+        var dt = new Date(c.createdAt);
+        var when = isNaN(dt.getTime()) ? '' : (dt.toLocaleDateString('sq-AL') + ' ' + dt.toLocaleTimeString('sq-AL', {hour:'2-digit',minute:'2-digit'}));
+        var contact = [c.phone, c.email].filter(Boolean).join(' · ');
+        return '<div style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px">' +
+          '<div style="font-weight:600;font-size:0.9rem">' + esc(c.name || 'Klient') + (c.dealTitle ? ' <span style="font-weight:400;color:var(--gray-500)">— ' + esc(c.dealTitle) + '</span>' : '') + '</div>' +
+          '<div style="font-size:0.82rem;color:var(--gray-600)">' + esc(contact) + '</div>' +
+          '<div style="font-size:0.72rem;color:var(--gray-400);margin-top:2px">' + esc(when) + '</div>' +
+          '</div>';
+      }).join('');
+    })
+    .catch(function(){ list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">S\'u ngarkuan.</p>'; });
   }
 
   Object.assign(window, {
@@ -3763,7 +3832,7 @@
     verifyRegistrationCode, resendVerifyCodeWithTimer,
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
     handleAdSubmit, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
-    handleDealSubmit, loadMyDeals,
+    handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims,
     validateNuiRealtime
   });
 

@@ -500,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.5.3-cleanup', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.6.0-pickup', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1049,6 +1049,38 @@ async function handleRequest(request, env, ctx) {
     return jsonResponse({ success: true, count: mine.length, deals: mine }, 200, origin);
   }
 
+  // Partner: aanbieding stoppen (alleen eigen)
+  if (path === '/api/deals/delete' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    const dealId = body.dealId || body.id;
+    if (!dealId) return jsonResponse({ error: 'dealId is verplicht' }, 400, origin);
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    let found = false;
+    deals = deals.map(function(d) {
+      if (d.id === dealId && d.partnerId === decoded.partnerId) { found = true; d.active = false; d.stoppedAt = new Date().toISOString(); }
+      return d;
+    });
+    if (!found) return jsonResponse({ error: 'Aanbieding niet gevonden' }, 404, origin);
+    await db.put('deals', JSON.stringify(deals));
+    return jsonResponse({ success: true }, 200, origin);
+  }
+
+  // Partner: wie heeft mijn aanbiedingen geclaimd
+  if (path === '/api/deals/claims' && method === 'GET') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    const myDealIds = deals.filter(function(d) { return d.partnerId === decoded.partnerId; }).map(function(d) { return d.id; });
+    let leads = [];
+    try { const ex = await db.get('leads'); leads = ex ? JSON.parse(ex) : []; } catch { leads = []; }
+    const claims = leads.filter(function(l) { return l.type === 'deal_claim' && myDealIds.indexOf(l.dealId) !== -1; })
+      .sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: claims.length, claims: claims }, 200, origin);
+  }
+
   // ============================================
   // CONTACT FORMULIER
   // ============================================
@@ -1095,6 +1127,29 @@ async function handleRequest(request, env, ctx) {
     try { const existing = await db.get('leads'); leads = existing ? JSON.parse(existing) : []; } catch { leads = []; }
     leads.push(lead);
     await db.put('leads', JSON.stringify(leads));
+
+    // Voorraad bijwerken bij een dag-aanbieding claim
+    if (lead.type === 'deal_claim' && lead.dealId) {
+      try {
+        const ex = await db.get('deals');
+        let deals = ex ? JSON.parse(ex) : [];
+        let changed = false;
+        deals = deals.map(function(d) {
+          if (d.id === lead.dealId) {
+            var qty = parseInt(d.quantity, 10);
+            if (!isNaN(qty)) {
+              qty = Math.max(0, qty - 1);
+              d.quantity = qty;
+              if (qty === 0) { d.active = false; d.soldOut = true; }
+              changed = true;
+            }
+          }
+          return d;
+        });
+        if (changed) await db.put('deals', JSON.stringify(deals));
+      } catch (e) {}
+    }
+
     return jsonResponse({ success: true, message: 'Bedankt! We hebben je gegevens ontvangen.' }, 200, origin);
   }
 
