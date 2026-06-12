@@ -147,9 +147,11 @@
       <div class="modal-success" id="modalSuccess" style="display:none">
         <div class="emoji">✅</div>
         <h3>Faleminderit!</h3>
-        <p class="sub">Të dhënat u dërguan. Do të kontaktohesh së shpejti.</p>
-        <div class="modal-actions" style="justify-content:center">
-          <button class="btn-primary" type="button" onclick="closeModal()">Mbyll</button>
+        <p class="sub">Të dhënat u dërguan. Hapni Google Maps për të shkuar te oferta.</p>
+        <div id="successWhere" style="background:var(--greenL);color:var(--greenD);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:10px;margin-bottom:14px;display:none"></div>
+        <div class="modal-actions">
+          <button class="btn-ghost" type="button" onclick="closeModal()">Mbyll</button>
+          <button class="btn-primary" type="button" id="mapsBtn">🧭 Hap Google Maps</button>
         </div>
       </div>
     </div>
@@ -206,7 +208,7 @@
     html += '<div class="price-row"><span class="price-now">'+fmtPrice(d.dealPrice)+'</span>';
     if(d.originalPrice && Number(d.originalPrice)>Number(d.dealPrice)) html += '<span class="price-old">'+fmtPrice(d.originalPrice)+'</span>';
     html += '</div>';
-    var mapQ = ((d.partnerName||'') + ' ' + (d.city||'')).trim();
+    var mapQ = (d.address && String(d.address).trim()) ? String(d.address).trim() : ((d.partnerName||'') + ' ' + (d.city||'')).trim();
     html += '<div class="card-actions">';
     if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="Shiko në hartë">📍 Hartë</button>';
     html += '<button class="btn-claim" type="button" data-id="'+esc(d.id)+'">E dua këtë</button>';
@@ -338,8 +340,28 @@
     .then(function(data){
       btn.textContent='Dërgo';
       if(data && data.success){
+        var q = '';
+        if(currentDeal){
+          q = (currentDeal.address && String(currentDeal.address).trim())
+            ? String(currentDeal.address).trim()
+            : ((currentDeal.partnerName||'') + ' ' + (currentDeal.city||'')).trim();
+        }
+        var mapUrl = q ? ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q)) : '';
+        var whereEl = document.getElementById('successWhere');
+        var mapsBtn = document.getElementById('mapsBtn');
+        if(currentDeal && (currentDeal.partnerName || currentDeal.city || currentDeal.address)){
+          whereEl.textContent = '📍 ' + [currentDeal.partnerName, currentDeal.address || currentDeal.city].filter(Boolean).join(' · ');
+          whereEl.style.display = 'block';
+        } else { whereEl.style.display = 'none'; }
+        if(mapUrl){
+          mapsBtn.style.display = '';
+          mapsBtn.onclick = function(){ window.open(mapUrl, '_blank', 'noopener'); };
+        } else {
+          mapsBtn.style.display = 'none';
+        }
         document.getElementById('modalForm').style.display='none';
         document.getElementById('modalSuccess').style.display='block';
+        if(mapUrl){ try { window.open(mapUrl, '_blank', 'noopener'); } catch(e){} }
       } else {
         document.getElementById('cErr').textContent=(data&&data.error)?data.error:'Diçka shkoi keq.';
         document.getElementById('cErr').style.display='block';
