@@ -57,6 +57,18 @@
   .btn-claim:hover{filter:brightness(1.06)}
   .btn-claim:active{transform:translateY(1px)}
 
+  /* City filter */
+  .city-filter{max-width:1120px;margin:0 auto;padding:14px 20px 0;display:flex;gap:8px;flex-wrap:wrap}
+  .city-chip{border:1.5px solid var(--grayB);background:#fff;color:var(--gray);font-family:inherit;font-weight:600;font-size:.85rem;padding:8px 16px;border-radius:999px;cursor:pointer;transition:border-color .15s ease,color .15s ease,background .15s ease}
+  .city-chip:hover{border-color:var(--green);color:var(--greenD)}
+  .city-chip.active{background:var(--greenD);border-color:var(--greenD);color:#fff}
+
+  /* Card actions (map + claim) */
+  .card-actions{display:flex;gap:8px;margin-top:4px}
+  .card-actions .btn-claim{width:auto;flex:1;margin-top:0}
+  .btn-map{flex:0 0 auto;border:1.5px solid var(--grayB);background:#fff;color:var(--greenD);font-family:inherit;font-weight:600;font-size:.9rem;padding:13px 15px;border-radius:11px;cursor:pointer;transition:border-color .15s ease,background .15s ease;white-space:nowrap}
+  .btn-map:hover{border-color:var(--green);background:var(--greenL)}
+
   /* States */
   .state{max-width:560px;margin:40px auto;text-align:center;padding:48px 24px;color:var(--gray)}
   .state .emoji{font-size:3rem;margin-bottom:14px}
@@ -104,6 +116,7 @@
     <p>Produkte të freskëta nga bizneset pranë teje, me zbritje. Zgjidh një ofertë para se të mbarojë.</p>
   </section>
 
+  <div id="cityFilter" class="city-filter"></div>
   <main id="dealsGrid" class="grid" aria-live="polite"></main>
 
   <!-- Claim modal -->
@@ -193,7 +206,11 @@
     html += '<div class="price-row"><span class="price-now">'+fmtPrice(d.dealPrice)+'</span>';
     if(d.originalPrice && Number(d.originalPrice)>Number(d.dealPrice)) html += '<span class="price-old">'+fmtPrice(d.originalPrice)+'</span>';
     html += '</div>';
+    var mapQ = ((d.partnerName||'') + ' ' + (d.city||'')).trim();
+    html += '<div class="card-actions">';
+    if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="Shiko në hartë">📍 Hartë</button>';
     html += '<button class="btn-claim" type="button" data-id="'+esc(d.id)+'">E dua këtë</button>';
+    html += '</div>';
     html += '</div></article>';
     return html;
   }
@@ -216,6 +233,13 @@
         if(d) openModal(d);
       });
     });
+    // koppel kaart-knoppen (Google Maps)
+    grid.querySelectorAll('.btn-map').forEach(function(b){
+      b.addEventListener('click', function(){
+        var q = b.getAttribute('data-mapq');
+        if(q) window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q), '_blank', 'noopener');
+      });
+    });
   }
 
   function showLoading(){
@@ -232,15 +256,46 @@
     grid.innerHTML = '<div class="state"><div class="emoji">⚠️</div><h2>Nuk u ngarkuan ofertat</h2><p>Provo të rifreskosh faqen.</p></div>';
   }
 
+  var allDeals = [];
+  var currentCity = '';
+
   function loadDeals(){
     showLoading();
     fetch(API_BASE + '/api/deals')
       .then(function(r){ return r.json(); })
       .then(function(data){
-        if(data && data.success) render(data.deals||[]);
-        else showError();
+        if(data && data.success){
+          allDeals = data.deals || [];
+          buildCityFilter(allDeals);
+          applyFilter();
+        } else showError();
       })
       .catch(showError);
+  }
+
+  function buildCityFilter(deals){
+    var bar = document.getElementById('cityFilter');
+    if(!bar) return;
+    var cities = [];
+    deals.forEach(function(d){ if(d.city && cities.indexOf(d.city)===-1) cities.push(d.city); });
+    cities.sort();
+    if(cities.length===0){ bar.innerHTML=''; return; }
+    var html = '<button class="city-chip active" data-city="">Të gjitha</button>';
+    cities.forEach(function(c){ html += '<button class="city-chip" data-city="'+esc(c)+'">'+esc(c)+'</button>'; });
+    bar.innerHTML = html;
+    bar.querySelectorAll('.city-chip').forEach(function(chip){
+      chip.addEventListener('click', function(){
+        currentCity = chip.getAttribute('data-city') || '';
+        bar.querySelectorAll('.city-chip').forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        applyFilter();
+      });
+    });
+  }
+
+  function applyFilter(){
+    var filtered = currentCity ? allDeals.filter(function(d){ return d.city === currentCity; }) : allDeals;
+    render(filtered);
   }
 
   // ---- Modal ----
