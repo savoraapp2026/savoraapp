@@ -1031,6 +1031,11 @@
             <label>Qyteti</label>
             <input type="text" id="dealCity" placeholder="p.sh. Tiranë">
           </div>
+          <div class="form-group">
+            <label>Adresa e plotë <span style="color:#dc2626">*</span></label>
+            <input type="text" id="dealAddress" placeholder="p.sh. Rruga Dëshmorët e Kombit 5" required>
+            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px">Rrugë dhe numër — që klientët të të gjejnë në Google Maps</small>
+          </div>
           <div id="dealError" style="margin-bottom:12px"></div>
           <div id="dealSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
@@ -3664,9 +3669,10 @@
     var category = document.getElementById('dealCategory').value;
     var quantity = document.getElementById('dealQuantity').value.trim();
     var city = document.getElementById('dealCity').value.trim();
+    var address = document.getElementById('dealAddress').value.trim();
 
-    if (!title || !dealPrice) {
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin dhe çmimin e ofertës.</div>';
+    if (!title || !dealPrice || !address) {
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin, çmimin dhe adresën e ofertës.</div>';
       return;
     }
     if (!partnerToken) {
@@ -3684,6 +3690,7 @@
         description: description,
         category: category,
         city: city,
+        address: address,
         quantity: quantity,
         originalPrice: originalPrice ? Number(originalPrice) : null,
         dealPrice: Number(dealPrice)

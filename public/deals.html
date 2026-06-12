@@ -186,6 +186,16 @@
     return Math.round((1-(n/o))*100);
   }
 
+  function mapQuery(d){
+    if(d && d.address && String(d.address).trim()){
+      var parts = [String(d.address).trim()];
+      if(d.city) parts.push(d.city);
+      parts.push('Shqipëri');
+      return parts.join(', ');
+    }
+    return ((d && d.partnerName||'') + ' ' + (d && d.city||'')).trim();
+  }
+
   function dealCard(d){
     var pct = discountPct(d.originalPrice, d.dealPrice);
     var tl = timeLeft(d.expiresAt);
@@ -208,7 +218,7 @@
     html += '<div class="price-row"><span class="price-now">'+fmtPrice(d.dealPrice)+'</span>';
     if(d.originalPrice && Number(d.originalPrice)>Number(d.dealPrice)) html += '<span class="price-old">'+fmtPrice(d.originalPrice)+'</span>';
     html += '</div>';
-    var mapQ = (d.address && String(d.address).trim()) ? String(d.address).trim() : ((d.partnerName||'') + ' ' + (d.city||'')).trim();
+    var mapQ = mapQuery(d);
     html += '<div class="card-actions">';
     if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="Shiko në hartë">📍 Hartë</button>';
     html += '<button class="btn-claim" type="button" data-id="'+esc(d.id)+'">E dua këtë</button>';
@@ -340,12 +350,7 @@
     .then(function(data){
       btn.textContent='Dërgo';
       if(data && data.success){
-        var q = '';
-        if(currentDeal){
-          q = (currentDeal.address && String(currentDeal.address).trim())
-            ? String(currentDeal.address).trim()
-            : ((currentDeal.partnerName||'') + ' ' + (currentDeal.city||'')).trim();
-        }
+        var q = currentDeal ? mapQuery(currentDeal) : '';
         var mapUrl = q ? ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q)) : '';
         var whereEl = document.getElementById('successWhere');
         var mapsBtn = document.getElementById('mapsBtn');

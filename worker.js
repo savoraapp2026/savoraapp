@@ -501,7 +501,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.5.1-creditfix', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.5.2-address', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -986,9 +986,9 @@ async function handleRequest(request, env, ctx) {
     const decoded = await isPartnerAuthorized(request, env);
     if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
 
-    const { title, description, category, city, originalPrice, dealPrice, quantity, expiresAt, imageUrl } = body;
-    if (!title || (dealPrice === undefined || dealPrice === null || dealPrice === '')) {
-      return jsonResponse({ error: 'Titel en aanbiedingsprijs zijn verplicht' }, 400, origin);
+    const { title, description, category, city, address, originalPrice, dealPrice, quantity, expiresAt, imageUrl } = body;
+    if (!title || (dealPrice === undefined || dealPrice === null || dealPrice === '') || !address || !String(address).trim()) {
+      return jsonResponse({ error: 'Titel, aanbiedingsprijs en adres zijn verplicht' }, 400, origin);
     }
 
     const dealId = 'deal_' + Date.now() + Math.random().toString(36).slice(2, 6);
@@ -1009,6 +1009,7 @@ async function handleRequest(request, env, ctx) {
       description: description || '',
       category: category || '',
       city: city || (partner ? partner.city : '') || '',
+      address: String(address).trim(),
       originalPrice: originalPrice || null,
       dealPrice: dealPrice,
       quantity: quantity || null,
