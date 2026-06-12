@@ -2788,6 +2788,48 @@ if (document.readyState === 'loading') {
       }
     });
   }
+
+  // ===== Early-access aanmelding: e-mail/telefoon opslaan via /api/leads =====
+  var LEADS_API_BASE = 'https://api.savoraapp.com';
+  var signupFormEl = document.getElementById('signupForm');
+  if (signupFormEl) {
+    signupFormEl.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var emailEl = document.getElementById('email');
+      var phoneEl = document.getElementById('phone');
+      var prefixEl = document.getElementById('phonePrefix1');
+      var email = emailEl ? emailEl.value.trim() : '';
+      var phoneRaw = phoneEl ? phoneEl.value.trim() : '';
+      var phone = phoneRaw ? ((prefixEl ? prefixEl.value + ' ' : '') + phoneRaw) : '';
+
+      if (!email && !phone) {
+        alert('Vul je e-mailadres of telefoonnummer in.');
+        return;
+      }
+
+      var btns = signupFormEl.querySelectorAll('button[type="submit"]');
+      btns.forEach(function(b){ b.disabled = true; });
+
+      fetch(LEADS_API_BASE + '/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'early_access', email: email, phone: phone })
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if (data && data.success) {
+          signupFormEl.innerHTML = '<div style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ Faleminderit! Të dhënat u ruajtën. Do t\'ju njoftojmë së shpejti.</div>';
+        } else {
+          alert((data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.');
+          btns.forEach(function(b){ b.disabled = false; });
+        }
+      })
+      .catch(function(){
+        alert('Lidhja dështoi. Provoni përsëri.');
+        btns.forEach(function(b){ b.disabled = false; });
+      });
+    });
+  }
 })();
 </script>
 

@@ -501,7 +501,16 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.3.1-secure', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.3.2-secure', time: new Date().toISOString() }, 200, origin);
+  }
+
+  // ---- PAYSERA DOMEINVERIFICATIE ----
+  // Paysera haalt de root van api.savoraapp.com op en zoekt deze meta-tag om eigendom te bevestigen.
+  if (path === '/' || path === '') {
+    return new Response(
+      '<!DOCTYPE html><html><head><meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704"><title>Savoraapp API</title></head><body>Savoraapp API</body></html>',
+      { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+    );
   }
 
   // ---- API INFO ----

@@ -643,6 +643,10 @@
                     <span class="icon">📧</span> Contact
                     <span class="badge" id="contactCountBadge">-</span>
                 </a>
+                <a onclick="showSection('leads')">
+                    <span class="icon">📨</span> Aanmeldingen
+                    <span class="badge" id="leadsCountBadge">-</span>
+                </a>
                 <a onclick="showSection('credits')">
                     <span class="icon">🪙</span> Credits
                 </a>
@@ -1300,6 +1304,48 @@
                 </div>
             </div>
 
+            <div class="section-page" id="sec-leads">
+                <header class="topbar">
+                    <h1>📨 Klant-aanmeldingen</h1>
+                    <button class="btn-secondary" onclick="loadLeads()">🔄 Vernieuwen</button>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Totaal aanmeldingen</span></div>
+                        <div class="stat-value"><span class="number" id="lTotal">-</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Vroegtijdige toegang</span></div>
+                        <div class="stat-value"><span class="number" id="lEarly">-</span></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Dag-aanbieding</span></div>
+                        <div class="stat-value"><span class="number" id="lDeal">-</span></div>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <h3>Alle aanmeldingen</h3>
+                    <div style="overflow-x:auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Datum</th>
+                                    <th>Type</th>
+                                    <th>Naam</th>
+                                    <th>Email</th>
+                                    <th>Telefoon</th>
+                                    <th>Stad</th>
+                                    <th>Aanbieding</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leadsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 
@@ -1506,8 +1552,45 @@
         if (name === 'contact') loadContactData();
         if (name === 'credits') loadCreditData();
         if (name === 'health') loadHealthCheck();
+        if (name === 'leads') loadLeads();
     }
     
+    // ===== LEADS (klant-aanmeldingen) =====
+    async function loadLeads() {
+        var tbody = document.getElementById('leadsBody');
+        if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:#888">Laden...</td></tr>';
+        var result = await adminApi('/api/admin/leads');
+        if (!result || !result.success) {
+            if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:#c00">Kon aanmeldingen niet laden</td></tr>';
+            return;
+        }
+        var setTxt = function(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+        setTxt('lTotal', result.count || 0);
+        setTxt('lEarly', result.earlyAccessCount || 0);
+        setTxt('lDeal', result.dealClaimCount || 0);
+        setTxt('leadsCountBadge', result.count || 0);
+
+        var leads = result.leads || [];
+        if (leads.length === 0) {
+            if (tbody) tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:#888">Nog geen aanmeldingen</td></tr>';
+            return;
+        }
+        tbody.innerHTML = leads.map(function(l) {
+            var d = new Date(l.createdAt);
+            var datum = isNaN(d.getTime()) ? '' : (d.toLocaleDateString('nl-NL') + ' ' + d.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' }));
+            var typeLabel = l.type === 'deal_claim' ? '🎯 Dag-aanbieding' : '✨ Vroegtijdige toegang';
+            return '<tr>' +
+                '<td>' + escapeHtml(datum) + '</td>' +
+                '<td>' + typeLabel + '</td>' +
+                '<td>' + escapeHtml(l.name || '-') + '</td>' +
+                '<td>' + escapeHtml(l.email || '-') + '</td>' +
+                '<td>' + escapeHtml(l.phone || '-') + '</td>' +
+                '<td>' + escapeHtml(l.city || '-') + '</td>' +
+                '<td>' + escapeHtml(l.dealTitle || '-') + '</td>' +
+                '</tr>';
+        }).join('');
+    }
+
     // ===== CHARTS =====
     
     var cachedPartnersData = null;
