@@ -501,7 +501,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.3.2-secure', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.4.0-leads', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -995,6 +995,54 @@ async function handleRequest(request, env, ctx) {
     contacts.push(contact);
     await db.put('contacts', JSON.stringify(contacts));
     return jsonResponse({ success: true, message: 'Bericht ontvangen' }, 200, origin);
+  }
+
+  // ---- LEADS: klant-aanmeldingen (vroegtijdige toegang + dag-aanbieding) ----
+  if (path === '/api/leads' && method === 'POST') {
+    const { type, email, phone, name, city, dealId, dealTitle, note } = body;
+    if (!email && !phone) {
+      return jsonResponse({ error: 'E-mailadres of telefoonnummer is verplicht' }, 400, origin);
+    }
+    // Lichte anti-spam: max 10 aanmeldingen per uur per IP
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    if (!(await checkRateLimit(db, 'lead_' + ip, 10, 3600000))) {
+      return jsonResponse({ error: 'Te veel aanmeldingen, probeer het later opnieuw' }, 429, origin);
+    }
+    const lead = {
+      id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
+      type: type === 'deal_claim' ? 'deal_claim' : 'early_access',
+      email: email || '',
+      phone: phone || '',
+      name: name || '',
+      city: city || '',
+      dealId: dealId || '',
+      dealTitle: dealTitle || '',
+      note: note || '',
+      createdAt: new Date().toISOString()
+    };
+    let leads = [];
+    try { const existing = await db.get('leads'); leads = existing ? JSON.parse(existing) : []; } catch { leads = []; }
+    leads.push(lead);
+    await db.put('leads', JSON.stringify(leads));
+    return jsonResponse({ success: true, message: 'Bedankt! We hebben je gegevens ontvangen.' }, 200, origin);
+  }
+
+  // ---- ADMIN: leads bekijken ----
+  if (path === '/api/admin/leads' && method === 'GET') {
+    const decoded = await isAdminAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    let leads = [];
+    try { const existing = await db.get('leads'); leads = existing ? JSON.parse(existing) : []; } catch { leads = []; }
+    leads.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // nieuwste eerst
+    const earlyAccess = leads.filter(l => l.type === 'early_access');
+    const dealClaims = leads.filter(l => l.type === 'deal_claim');
+    return jsonResponse({
+      success: true,
+      count: leads.length,
+      earlyAccessCount: earlyAccess.length,
+      dealClaimCount: dealClaims.length,
+      leads
+    }, 200, origin);
   }
 
   // ============================================
