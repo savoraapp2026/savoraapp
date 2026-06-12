@@ -77,8 +77,7 @@ function corsHeaders(origin) {
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'https://savoraapp.sparkling-scene-16e3.workers.dev',
-    'https://api.savoraapp.com',
-    'https://tf6qb34cfkmra.kimi.show'
+    'https://api.savoraapp.com'
   ];
   const allowedPatterns = [
     /^https:\/\/[^.]+\.savoraapp-eh5\.pages\.dev$/,
@@ -501,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.5.2-address', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.5.3-cleanup', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----

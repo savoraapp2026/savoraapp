@@ -48,8 +48,8 @@
   <meta property="og:title" content="savoraapp - Kurseni para në ushqime të freskëta">
   <meta property="og:description" content="Kurseni deri në 70% në ushqime të freskëta nga bizneset lokale. 1,247+ përdorues aktivë.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tf6qb34cfkmra.kimi.page">
-  <meta property="og:image" content="https://tf6qb34cfkmra.kimi.page/icons/icon-512x512.png">
+  <meta property="og:url" content="https://savoraapp.com">
+  <meta property="og:image" content="https://savoraapp.com/icons/icon-512x512.png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
   <meta property="og:image:type" content="image/png">
@@ -731,7 +731,7 @@
       </div>
       
       <div class="categories-cta">
-        <a href="#early-access" class="btn btn-primary">Shiko Të Gjitha Ofertat</a>
+        <a href="/deals.html" class="btn btn-primary">Shiko Të Gjitha Ofertat</a>
       </div>
     </div>
   </section>
@@ -763,7 +763,7 @@
                 <h3 class="rotatie-title">Furra Bukës</h3>
                 <p class="rotatie-desc">Bukë e freskët çdo ditë me 50% ulje</p>
                 <div class="rotatie-city">📍 Tiranë</div>
-                <a href="#early-access" class="rotatie-link">Shiko Ofertat →</a>
+                <a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>
               </div>
             </div>
           </div>
@@ -777,7 +777,7 @@
                 <h3 class="rotatie-title">Burger Grill</h3>
                 <p class="rotatie-desc">Menu surprise me -56% ulje</p>
                 <div class="rotatie-city">📍 Tiranë</div>
-                <a href="#early-access" class="rotatie-link">Shiko Ofertat →</a>
+                <a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>
               </div>
             </div>
           </div>
@@ -791,7 +791,7 @@
                 <h3 class="rotatie-title">Pizza Napoli</h3>
                 <p class="rotatie-desc">Pizza autentike italiane me -40% ulje</p>
                 <div class="rotatie-city">📍 Durrës</div>
-                <a href="#early-access" class="rotatie-link">Shiko Ofertat →</a>
+                <a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>
               </div>
             </div>
           </div>
@@ -805,7 +805,7 @@
                 <h3 class="rotatie-title">Delizia Pastiçeri</h3>
                 <p class="rotatie-desc">Ëmbëlsira freskëte çdo ditë</p>
                 <div class="rotatie-city">📍 Vlorë</div>
-                <a href="#early-access" class="rotatie-link">Shiko Ofertat →</a>
+                <a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>
               </div>
             </div>
           </div>
@@ -819,7 +819,7 @@
                 <h3 class="rotatie-title">Taverna e Re</h3>
                 <p class="rotatie-desc">Pjatë tradicionale për 2 persona</p>
                 <div class="rotatie-city">📍 Shkodër</div>
-                <a href="#early-access" class="rotatie-link">Shiko Ofertat →</a>
+                <a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>
               </div>
             </div>
           </div>
@@ -2818,7 +2818,8 @@ if (document.readyState === 'loading') {
       .then(function(r){ return r.json(); })
       .then(function(data){
         if (data && data.success) {
-          signupFormEl.innerHTML = '<div style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ Faleminderit! Të dhënat u ruajtën. Do t\'ju njoftojmë së shpejti.</div>';
+          signupFormEl.innerHTML = '<div style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ Faleminderit! Po ju çojmë te ofertat...</div>';
+          setTimeout(function(){ window.location.href = '/deals.html'; }, 1200);
         } else {
           alert((data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.');
           btns.forEach(function(b){ b.disabled = false; });

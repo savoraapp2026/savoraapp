@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /partner-dashboard.html
+
+Sitemap: https://savoraapp.com/sitemap.xml
