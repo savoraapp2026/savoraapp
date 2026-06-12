@@ -501,7 +501,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.5.0-deals', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.5.1-creditfix', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1238,12 +1238,55 @@ async function handleRequest(request, env, ctx) {
     const partner = await getPartnerById(db, partnerId);
     if (!partner) return jsonResponse({ error: 'Niet gevonden' }, 404, origin);
 
-    partner.credits = (partner.credits || 0) + credits;
+    const amount = Number(credits);
+    if (isNaN(amount) || amount === 0) {
+      return jsonResponse({ error: 'Ongeldig aantal credits' }, 400, origin);
+    }
+
+    if (amount > 0) {
+      // Maak een ECHT actief credit-pakket aan, zodat deductCredit deze credits ziet
+      const purchaseId = 'purchase_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      const now = Date.now();
+      const pkg = {
+        id: 'admin_grant',
+        purchaseId,
+        partnerId,
+        name: 'Admin-toekenning',
+        totalCredits: amount,
+        remainingCredits: amount,
+        usedCredits: 0,
+        price: 0,
+        purchasedAt: now,
+        expiresAt: now + (CREDIT_EXPIRY_DAYS * 24 * 60 * 60 * 1000),
+        paymentRef: 'admin:' + (reason || 'toekenning'),
+        status: 'active'
+      };
+      await db.put('creditpkg_' + partnerId + '_' + purchaseId, JSON.stringify(pkg));
+    } else {
+      // Negatieve correctie: trek af van actieve pakketten (FIFO)
+      let toRemove = -amount;
+      const pkgs = await getActiveCreditPackages(db, partnerId);
+      for (const p of pkgs) {
+        if (toRemove <= 0) break;
+        const take = Math.min(p.remainingCredits, toRemove);
+        p.remainingCredits -= take;
+        p.usedCredits += take;
+        toRemove -= take;
+        await db.put('creditpkg_' + partnerId + '_' + p.purchaseId, JSON.stringify(p));
+      }
+    }
+
+    // Houd partner.credits + geschiedenis bij (voor weergave/log)
+    partner.credits = Math.max(0, (partner.credits || 0) + amount);
     partner.creditHistory = partner.creditHistory || [];
-    partner.creditHistory.push({ type: 'admin_adjustment', credits, reason: reason || 'Admin', date: new Date().toISOString() });
+    partner.creditHistory.push({ type: 'admin_adjustment', credits: amount, reason: reason || 'Admin', date: new Date().toISOString() });
     await savePartner(db, partner);
 
-    return jsonResponse({ success: true, credits: partner.credits }, 200, origin);
+    // Geef het werkelijk bruikbare saldo terug (uit actieve pakketten)
+    const activeNow = await getActiveCreditPackages(db, partnerId);
+    const liveCredits = activeNow.reduce(function(s, p) { return s + p.remainingCredits; }, 0);
+
+    return jsonResponse({ success: true, credits: liveCredits }, 200, origin);
   }
 
   // ============================================

@@ -2028,9 +2028,9 @@
             return;
         }
         
-        var result = await adminApi('/api/credits/add', {
+        var result = await adminApi('/api/admin/credits', {
             method: 'POST',
-            body: JSON.stringify({ partner: partner, amount: amount, reason: reason })
+            body: JSON.stringify({ partnerId: partner, credits: amount, reason: reason })
         });
         
         if (result.success) {
@@ -2088,9 +2088,9 @@
         var amount = prompt('Aantal credits om toe te voegen aan ' + partnerId + ':', '10');
         if (!amount || isNaN(parseInt(amount))) return;
         
-        var result = await adminApi('/api/credits/add', {
+        var result = await adminApi('/api/admin/credits', {
             method: 'POST',
-            body: JSON.stringify({ partner: partnerId, amount: parseInt(amount), reason: 'Admin adjustment' })
+            body: JSON.stringify({ partnerId: partnerId, credits: parseInt(amount), reason: 'Admin adjustment' })
         });
         
         if (result.success) {
