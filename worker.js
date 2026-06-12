@@ -501,7 +501,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.4.0-leads', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.5.0-deals', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -976,6 +976,77 @@ async function handleRequest(request, env, ctx) {
     if (!result.success) return jsonResponse(result, 400, origin);
 
     return jsonResponse(result, 200, origin);
+  }
+
+  // ============================================
+  // AANBIEDINGEN (DEALS)
+  // ============================================
+  // Partner plaatst een aanbieding — kost 1 credit
+  if (path === '/api/deals' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+
+    const { title, description, category, city, originalPrice, dealPrice, quantity, expiresAt, imageUrl } = body;
+    if (!title || (dealPrice === undefined || dealPrice === null || dealPrice === '')) {
+      return jsonResponse({ error: 'Titel en aanbiedingsprijs zijn verplicht' }, 400, origin);
+    }
+
+    const dealId = 'deal_' + Date.now() + Math.random().toString(36).slice(2, 6);
+
+    // 1 credit afschrijven voor plaatsing
+    const credit = await deductCredit(db, decoded.partnerId, dealId, 'daily_deal', 1);
+    if (!credit.success) return jsonResponse({ error: credit.error || 'Onvoldoende credits' }, 400, origin);
+
+    const partner = await getPartnerById(db, decoded.partnerId);
+    // Standaard 24 uur zichtbaar tenzij anders opgegeven
+    const expiry = expiresAt || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+
+    const deal = {
+      id: dealId,
+      partnerId: decoded.partnerId,
+      partnerName: partner ? (partner.business || partner.name || '') : '',
+      title: title,
+      description: description || '',
+      category: category || '',
+      city: city || (partner ? partner.city : '') || '',
+      originalPrice: originalPrice || null,
+      dealPrice: dealPrice,
+      quantity: quantity || null,
+      imageUrl: imageUrl || '',
+      createdAt: new Date().toISOString(),
+      expiresAt: expiry,
+      active: true
+    };
+
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    deals.push(deal);
+    await db.put('deals', JSON.stringify(deals));
+    return jsonResponse({ success: true, deal: deal }, 200, origin);
+  }
+
+  // Publiek: actieve aanbiedingen voor klanten
+  if (path === '/api/deals' && method === 'GET') {
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    const now = Date.now();
+    const active = deals.filter(function(d) {
+      if (d.active === false) return false;
+      if (d.expiresAt && new Date(d.expiresAt).getTime() < now) return false;
+      return true;
+    }).sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: active.length, deals: active }, 200, origin);
+  }
+
+  // Partner: eigen aanbiedingen
+  if (path === '/api/deals/mine' && method === 'GET') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    const mine = deals.filter(function(d) { return d.partnerId === decoded.partnerId; })
+      .sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: mine.length, deals: mine }, 200, origin);
   }
 
   // ============================================
