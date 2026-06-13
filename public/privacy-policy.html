@@ -1,287 +1,154 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="sq">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Savora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #10B981;
-            --text: #1F2937;
-            --text-light: #6B7280;
-            --bg: #FFFFFF;
-            --bg-light: #F9FAFB;
-            --border: #E5E7EB;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg-light);
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-        
-        .header {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        
-        .last-updated {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        .content {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        h3 {
-            font-size: 1.1rem;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        p {
-            margin-bottom: 16px;
-        }
-        
-        ul {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        th {
-            background: var(--bg-light);
-            font-weight: 600;
-        }
-        
-        .contact-box {
-            background: var(--bg-light);
-            padding: 24px;
-            border-radius: 12px;
-            margin: 24px 0;
-        }
-        
-        .contact-box p {
-            margin-bottom: 8px;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-light);
-        }
-        
-        @media (max-width: 768px) {
-            .header, .content {
-                padding: 24px;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-  <meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika e Privatësisë · SavoraApp</title>
+<meta name="description" content="Si i mbledh, përdor dhe mbron SavoraApp të dhënat tuaja personale, dhe të drejtat tuaja sipas legjislacionit shqiptar për mbrojtjen e të dhënave.">
+<meta property="og:title" content="Politika e Privatësisë · SavoraApp">
+<meta property="og:description" content="Si i mbledh, përdor dhe mbron SavoraApp të dhënat tuaja personale.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://savoraapp.com/privacy-policy.html">
+<meta property="og:image" content="https://savoraapp.com/icons/icon-512x512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#10B981; --greenD:#059669; --greenL:#D1FAE5;
+    --dark:#0F172A; --gray:#64748B; --grayL:#94A3B8;
+    --grayB:#E2E8F0; --grayS:#F1F5F9; --light:#F8FAFC; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--light);color:var(--dark);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--grayB)}
+  .topbar-inner{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+  .brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--green),var(--greenD));display:grid;place-items:center;color:#fff;font-size:1rem}
+  .back{font-size:.9rem;font-weight:600;color:var(--gray);padding:8px 14px;border-radius:9px}
+  .back:hover{background:var(--grayS);color:var(--dark)}
+
+  .hero{max-width:820px;margin:0 auto;padding:44px 20px 4px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--greenL);color:var(--greenD);font-weight:700;font-size:.78rem;letter-spacing:.03em;padding:6px 12px;border-radius:999px;text-transform:uppercase}
+  .hero h1{font-size:clamp(1.8rem,5vw,2.5rem);font-weight:800;letter-spacing:-.02em;margin:18px 0 8px}
+  .hero .updated{color:var(--grayL);font-size:.9rem}
+
+  .prose{max-width:820px;margin:0 auto;padding:20px 20px 40px}
+  .prose h2{font-size:1.3rem;font-weight:800;letter-spacing:-.01em;margin:34px 0 12px;padding-top:8px}
+  .prose h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:#1e293b}
+  .prose p{color:#334155;font-size:1rem;margin-bottom:14px}
+  .prose ul{margin:0 0 16px 22px;color:#334155}
+  .prose li{margin-bottom:6px}
+  .prose strong{color:#1e293b}
+  .prose a{color:var(--greenD);font-weight:600;text-decoration:underline}
+
+  table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:.95rem;border:1px solid var(--grayB);border-radius:12px;overflow:hidden}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--grayB);vertical-align:top}
+  th{background:var(--grayS);font-weight:700;color:#1e293b}
+  tr:last-child td{border-bottom:none}
+  td.basis{white-space:nowrap;color:var(--greenD);font-weight:600}
+
+  .callout{background:linear-gradient(135deg,var(--greenL),#ecfdf5);border:1px solid #a7f3d0;border-radius:14px;padding:18px 20px;margin:8px 0 18px}
+  .callout p{margin:0;color:#065f46}
+
+  footer{max-width:1120px;margin:40px auto 0;padding:24px 20px 44px;border-top:1px solid var(--grayB);text-align:center;color:var(--grayL);font-size:.85rem}
+  footer .pay{margin-bottom:14px;display:flex;justify-content:center}
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="/" class="back-link">← Terug naar website</a>
-        
-        <div class="header">
-            <a href="/" class="logo">Savora</a>
-            <h1>Privacy Policy</h1>
-            <p class="last-updated">Laatst bijgewerkt: 15 april 2026</p>
-        </div>
-        
-        <div class="content">
-            <h2>1. Wie zijn we?</h2>
-            <p>Savoraapp is een food surplus marketplace platform.</p>
-            
-            <div class="contact-box">
-                <p><strong>Contactgegevens:</strong></p>
-                <p>E-mail: support@savoraapp.com</p>
-            </div>
-            
-            <h2>2. Welke gegevens verzamelen we?</h2>
-            
-            <h3>A. Van consumenten (bij bestelling):</h3>
-            <ul>
-                <li><strong>Verplicht:</strong> Naam, e-mailadres, telefoonnummer</li>
-                <li><strong>Automatisch:</strong> Tijdstip van bestelling, IP-adres (voor misbruikpreventie)</li>
-            </ul>
-            
-            <h3>B. Van partners (winkels/restaurants):</h3>
-            <ul>
-                <li>Naam en achternaam</li>
-                <li>E-mailadres</li>
-                <li>Bedrijfsgegevens (bedrijfsnaam, NUI, adres)</li>
-                <li>Gebruikersgedrag binnen het dashboard (voor verbeteringen)</li>
-            </ul>
-            
-            <h2>3. Waarvoor gebruiken we deze gegevens?</h2>
-            <table>
-                <tr>
-                    <th>Doel</th>
-                    <th>Grondslag (AVG)</th>
-                </tr>
-                <tr>
-                    <td>Bestellingen verwerken en surplus voedsel koppelen</td>
-                    <td>Gerechtvaardigd belang</td>
-                </tr>
-                <tr>
-                    <td>Bestellingen verwerken en surplus voedsel koppelen</td>
-                    <td>Gerechtvaardigd belang</td>
-                </tr>
-                <tr>
-                    <td>Account aanmaken voor restaurantgebruiker</td>
-                    <td>Overeenkomst</td>
-                </tr>
-                <tr>
-                    <td>E-mailnotificaties bij bestellingen</td>
-                    <td>Gerechtvaardigd belang + toestemming</td>
-                </tr>
-                <tr>
-                    <td>Beveiliging en misbruikpreventie</td>
-                    <td>Gerechtvaardigd belang</td>
-                </tr>
-            </table>
-            
-            <h2>4. Wie heeft toegang tot de gegevens?</h2>
-            <p><strong>Intern:</strong> Alleen geautoriseerde medewerkers van Savoraapp. Partners zien alleen hun eigen bestellingen.</p>
-            <p><strong>Extern (verwerkers):</strong> Cloudflare (hosting), OpenAI (AI-analyse).</p>
-            <p><strong>Wij verkopen nooit gegevens aan derden.</strong></p>
-            
-            <h2>5. Hoe lang bewaren we gegevens?</h2>
-            <table>
-                <tr>
-                    <th>Type data</th>
-                    <th>Bewaartermijn</th>
-                </tr>
-                <tr>
-                    <td>Bestelgegevens (anoniem)</td>
-                    <td>2 jaar</td>
-                </tr>
-                <tr>
-                    <td>Bestelgegevens (met naam/e-mail)</td>
-                    <td>1 jaar, tenzij gast verwijdering vraagt</td>
-                </tr>
-                <tr>
-                    <td>Restaurantaccounts</td>
-                    <td>Zolang account actief is + 1 jaar na opzegging</td>
-                </tr>
-                <tr>
-                    <td>IP-adressen</td>
-                    <td>30 dagen</td>
-                </tr>
-            </table>
-            
-            <h2>6. Jouw rechten (AVG)</h2>
-            <p>Je hebt recht op:</p>
-            <ul>
-                <li>✅ <strong>Inzage</strong> — bekijk welke gegevens we hebben</li>
-                <li>✅ <strong>Correctie</strong> — pas onjuiste gegevens aan</li>
-                <li>✅ <strong>Verwijdering</strong> ("recht om vergeten te worden")</li>
-                <li>✅ <strong>Beperking van verwerking</strong></li>
-                <li>✅ <strong>Bezwaar maken</strong> tegen verwerking</li>
-                <li>✅ <strong>Dataportabiliteit</strong></li>
-            </ul>
-            <p><strong>Hoe uitoefenen?</strong> Mail naar support@savoraapp.com. Responstijd: binnen 30 dagen.</p>
-            
-            <h2>7. Beveiliging</h2>
-            <p>We nemen de volgende maatregelen:</p>
-            <ul>
-                <li>🔒 HTTPS-encryptie (SSL/TLS)</li>
-                <li>🔐 Wachtwoorden worden gehashed</li>
-                <li>🛡️ Regelmatige security audits</li>
-                <li>👤 Toegangscontrole op basis van rollen</li>
-            </ul>
-            
-            <h2>8. Cookies</h2>
-            <p>Zie onze aparte <a href="/cookie-policy.html">Cookie Policy</a>. We gebruiken alleen functionele cookies (geen tracking).</p>
-            
-            <h2>9. Klachten</h2>
-            <p>Niet tevreden? Je kunt een klacht indienen bij de <strong>Autoriteit Persoonsgegevens</strong>:<br>
-            <a href="https://autoriteitpersoonsgegevens.nl" target="_blank">autoriteitpersoonsgegevens.nl</a></p>
-            
-            <h2>10. Contact</h2>
-            <p><strong>Vragen?</strong> Mail naar <a href="mailto:support@savoraapp.com">support@savoraapp.com</a></p>
-        </div>
-        
-        <div class="footer">
-            <p>© 2026 Savora. Alle rechten voorbehouden.</p>
-        </div>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand"><span class="dot">S</span><span>SavoraApp</span></a>
+      <a href="/" class="back">← Kthehu</a>
     </div>
+  </div>
+
+  <section class="hero">
+    <span class="eyebrow">🔒 Privatësia</span>
+    <h1>Politika e Privatësisë</h1>
+    <p class="updated">Përditësuar së fundi: 15 prill 2026</p>
+  </section>
+
+  <article class="prose">
+
+    <h2>1. Kush jemi ne?</h2>
+    <p>SavoraApp është një platformë “food surplus marketplace” që lidh konsumatorët me bizneset lokale për të reduktuar humbjen e ushqimit.</p>
+    <p><strong>Të dhënat e kontaktit:</strong><br>Email: <a href="mailto:support@savoraapp.com">support@savoraapp.com</a></p>
+
+    <h2>2. Çfarë të dhënash mbledhim?</h2>
+    <h3>A. Nga konsumatorët (gjatë rezervimit)</h3>
+    <ul>
+      <li><strong>Të detyrueshme:</strong> emri, adresa e email-it, numri i telefonit</li>
+      <li><strong>Automatikisht:</strong> ora e rezervimit, adresa IP (për parandalimin e abuzimit)</li>
+    </ul>
+    <h3>B. Nga partnerët (dyqane / restorante)</h3>
+    <ul>
+      <li>Emri dhe mbiemri</li>
+      <li>Adresa e email-it</li>
+      <li>Të dhënat e biznesit (emri i biznesit, NUI, adresa)</li>
+      <li>Sjellja e përdoruesit brenda panelit (për përmirësime)</li>
+    </ul>
+
+    <h2>3. Për çfarë i përdorim këto të dhëna?</h2>
+    <table>
+      <thead><tr><th>Qëllimi</th><th>Baza ligjore (GDPR)</th></tr></thead>
+      <tbody>
+        <tr><td>Përpunimi i rezervimeve dhe lidhja e ushqimit të tepërt</td><td class="basis">Interes legjitim</td></tr>
+        <tr><td>Krijimi i llogarisë për përdoruesin e biznesit</td><td class="basis">Kontratë</td></tr>
+        <tr><td>Njoftime me email për rezervimet</td><td class="basis">Interes legjitim + pëlqim</td></tr>
+        <tr><td>Siguria dhe parandalimi i abuzimit</td><td class="basis">Interes legjitim</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Kush ka qasje në të dhënat?</h2>
+    <p><strong>Brenda:</strong> vetëm punonjësit e autorizuar të SavoraApp. Partnerët shohin vetëm rezervimet e tyre.</p>
+    <p><strong>Jashtë (përpunues të dhënash):</strong></p>
+    <ul>
+      <li>Cloudflare — hosting dhe infrastrukturë</li>
+      <li>Paysera — përpunimi i pagesave për partnerët</li>
+      <li>Resend — dërgimi i email-eve të njoftimit</li>
+    </ul>
+    <div class="callout"><p>Ne nuk i shesim kurrë të dhënat tuaja tek palët e treta.</p></div>
+
+    <h2>5. Sa gjatë i ruajmë të dhënat?</h2>
+    <table>
+      <thead><tr><th>Lloji i të dhënave</th><th>Afati i ruajtjes</th></tr></thead>
+      <tbody>
+        <tr><td>Të dhënat e rezervimit (anonime)</td><td class="basis">2 vjet</td></tr>
+        <tr><td>Të dhënat e rezervimit (me emër / email)</td><td class="basis">1 vit, përveç nëse kërkohet fshirja</td></tr>
+        <tr><td>Llogaritë e bizneseve</td><td class="basis">Sa kohë llogaria është aktive + 1 vit pas mbylljes</td></tr>
+        <tr><td>Adresat IP</td><td class="basis">30 ditë</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. Të drejtat tuaja</h2>
+    <p>Ju keni të drejtë: të aksesoni të dhënat tuaja, t'i korrigjoni, të kërkoni fshirjen (“e drejta për t'u harruar”), të kufizoni ose të kundërshtoni përpunimin, dhe të tërhiqni pëlqimin në çdo kohë. Për të ushtruar këto të drejta, na shkruani në <a href="mailto:support@savoraapp.com">support@savoraapp.com</a>.</p>
+
+    <h2>7. Autoriteti mbikëqyrës dhe ankesat</h2>
+    <p>Për pyetje lidhur me mbrojtjen e të dhënave, raportim të një shkeljeje të të dhënave, ushtrim të të drejtave të subjektit ose ankesa për përpunimin e të dhënave personale, mund t'i drejtoheni autoritetit përgjegjës në Shqipëri — <strong>Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave Personale (IDP)</strong>:</p>
+    <ul>
+      <li>Informacion, të drejtat dhe ankesat: <a href="https://idp.al/" target="_blank" rel="noopener noreferrer">https://idp.al/</a></li>
+      <li>Kontakti, adresa dhe korrespondenca: <a href="https://idp.al/kontakt/" target="_blank" rel="noopener noreferrer">https://idp.al/kontakt/</a></li>
+    </ul>
+
+  </article>
+
+  <footer>
+    <div class="pay">
+      <!-- Paysera Trust Label Badge -->
+      <div class="quality-sign" data-id="256849" data-lang="sq">
+        <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#f0fdf4;border:1px solid #10b981;border-radius:8px;color:#065f46;font-size:12px;text-decoration:none;font-weight:500;white-space:nowrap;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Secure Payments by Paysera
+        </a>
+      </div>
+    </div>
+    &copy; 2026 SavoraApp. Të gjitha të drejtat e rezervuara. · <a href="/" style="color:var(--gray);">Faqja kryesore</a>
+  </footer>
+
+  <script src="https://bank.paysera.com/js/compiled/quality-sign.js" data-paysera-project-id="256849" async></script>
 </body>
 </html>

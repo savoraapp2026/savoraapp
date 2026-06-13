@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rreth Nesh · SavoraApp</title>
+<meta name="description" content="SavoraApp është një platformë e re shqiptare që lidh konsumatorët me bizneset lokale për të reduktuar humbjen e ushqimit dhe për t'i dhënë një shans të dytë produkteve ende të përdorshme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#10B981; --greenD:#059669; --greenL:#D1FAE5;
+    --dark:#0F172A; --gray:#64748B; --grayL:#94A3B8;
+    --grayB:#E2E8F0; --grayS:#F1F5F9; --light:#F8FAFC; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--light);color:var(--dark);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:inherit;text-decoration:none}
+
+  /* Topbar */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--grayB)}
+  .topbar-inner{max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+  .brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--green),var(--greenD));display:grid;place-items:center;color:#fff;font-size:1rem}
+  .back{font-size:.9rem;font-weight:600;color:var(--gray);padding:8px 14px;border-radius:9px}
+  .back:hover{background:var(--grayS);color:var(--dark)}
+
+  /* Hero */
+  .hero{max-width:760px;margin:0 auto;padding:48px 20px 8px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--greenL);color:var(--greenD);font-weight:700;font-size:.78rem;letter-spacing:.03em;padding:6px 12px;border-radius:999px;text-transform:uppercase}
+  .hero h1{font-size:clamp(1.9rem,5vw,2.7rem);font-weight:800;letter-spacing:-.02em;margin:18px 0 10px}
+  .hero .lead{color:var(--gray);font-size:1.12rem}
+
+  /* Prose */
+  .prose{max-width:760px;margin:0 auto;padding:24px 20px 40px}
+  .prose h2{font-size:1.4rem;font-weight:800;letter-spacing:-.01em;margin:34px 0 12px}
+  .prose p{color:#334155;font-size:1.02rem;margin-bottom:16px}
+  .prose .accent{color:var(--greenD);font-weight:700}
+
+  .mission{background:linear-gradient(135deg,var(--greenL),#ecfdf5);border:1px solid #a7f3d0;border-radius:16px;padding:22px 24px;margin:8px 0 8px;text-align:center}
+  .mission strong{display:block;font-size:1.15rem;color:#065f46;font-weight:800}
+
+  /* CTA */
+  .cta-box{max-width:760px;margin:8px auto 0;padding:0 20px}
+  .cta-inner{background:var(--white);border:1px solid var(--grayB);border-radius:18px;padding:28px 24px;text-align:center;box-shadow:0 18px 40px -28px rgba(15,23,42,.25)}
+  .cta-inner h3{font-size:1.3rem;font-weight:800;margin-bottom:6px}
+  .cta-inner p{color:var(--gray);margin-bottom:18px}
+  .cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.98rem;padding:13px 22px;border-radius:12px;cursor:pointer;transition:filter .15s ease,background .15s ease}
+  .btn-primary{color:#fff;background:linear-gradient(135deg,var(--green),var(--greenD))}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .btn-ghost{color:var(--greenD);background:var(--greenL)}
+  .btn-ghost:hover{background:#bbf7d0}
+
+  /* Contact + footer */
+  .contact{max-width:760px;margin:32px auto 0;padding:0 20px;color:var(--gray);font-size:.95rem;text-align:center}
+  .contact a{color:var(--greenD);font-weight:600}
+  footer{max-width:1120px;margin:48px auto 0;padding:24px 20px 40px;border-top:1px solid var(--grayB);text-align:center;color:var(--grayL);font-size:.85rem}
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand"><span class="dot">S</span><span>SavoraApp</span></a>
+      <a href="/" class="back">← Kthehu</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <span class="eyebrow">🌱 Rreth Nesh</span>
+    <h1>Çfarë është SavoraApp?</h1>
+    <p class="lead">SavoraApp është një platformë e re shqiptare që lidh konsumatorët me bizneset lokale, për t'u dhënë një shans të dytë ushqimeve të tepërta dhe produkteve të tjera ende të përdorshme.</p>
+  </section>
+
+  <article class="prose">
+    <p>Nëpërmjet platformës, dyqanet, furrat, restorantet, supermarketet dhe sipërmarrës të tjerë mund të ofrojnë produkte që janë ende cilësore, por që nuk shiten më nëpërmjet kanaleve të zakonshme të shitjes.</p>
+
+    <div class="mission">
+      <strong>Misioni ynë është i thjeshtë:</strong>
+      <span>më pak humbje, më shumë vlerë për të gjithë.</span>
+    </div>
+
+    <p>Në Shqipëri, çdo ditë hidhen produkte që mund të përdoren ose konsumohen pa asnjë problem. Në të njëjtën kohë, ka shumë njerëz që dëshirojnë të blejnë produkte cilësore me një çmim të përballueshëm. SavoraApp i bashkon këto dy nevoja: konsumatorët përfitojnë nga oferta tërheqëse, ndërsa sipërmarrësit mund të ofrojnë stokun e tyre të tepërt në mënyrë të përgjegjshme.</p>
+
+    <p>Duke punuar së bashku për të reduktuar humbjen e ushqimit dhe mbetjet e panevojshme, kontribuojmë në një të ardhme më të qëndrueshme për Shqipërinë. Çdo vakt i shpëtuar ose çdo produkt i ripërdorur do të thotë më pak ngarkesë për mjedisin dhe më shumë përfitim për komunitetin.</p>
+
+    <h2>Vizioni ynë</h2>
+    <p>Ne besojmë se produktet që janë ende të përdorshme nuk duhet të hidhen pa nevojë. Duke kombinuar teknologjinë me bashkëpunimin lokal, duam të nxisim një kulturë ku humbjet reduktohen dhe burimet e disponueshme shfrytëzohen më mirë.</p>
+    <p>SavoraApp nuk i ndihmon vetëm konsumatorët të kursejnë para, por mbështet edhe sipërmarrësit lokalë, duke u ofruar një mundësi shtesë për të shitur produkte që përndryshe do të humbisnin. Kështu krijohet një situatë ku fitojnë të gjithë: bizneset, konsumatorët dhe shoqëria në tërësi.</p>
+
+    <h2>Së bashku bëjmë ndryshimin</h2>
+    <p>Me SavoraApp po ndërtojmë një komunitet ku qëndrueshmëria, bashkëpunimi dhe përgjegjësia shoqërore janë në qendër. Duke bërë zgjedhje të vetëdijshme, së bashku mund të reduktojmë humbjen e ushqimit, të kufizojmë mbetjet dhe të kontribuojmë në një ekonomi shqiptare më të fortë dhe më të qëndrueshme.</p>
+    <p class="accent">SavoraApp – Më pak humbje, më shumë vlerë për të gjithë.</p>
+  </article>
+
+  <div class="cta-box">
+    <div class="cta-inner">
+      <h3>Bëhu pjesë e SavoraApp</h3>
+      <p>Gjej oferta pranë teje ose bashkohu si partner biznesi.</p>
+      <div class="cta-actions">
+        <a href="/deals.html" class="btn btn-primary">Shiko Ofertat</a>
+        <a href="/partner.html" class="btn btn-ghost">Bëhu Partner</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="contact">
+    Pyetje? Na shkruani në <a href="mailto:info@savoraapp.com">info@savoraapp.com</a> ose telefononi <a href="tel:+355696080926">+355 69 608 0926</a>.
+  </p>
+
+  <footer>
+    <div style="margin-bottom:14px;display:flex;justify-content:center;">
+      <div class="quality-sign" data-id="256849" data-lang="sq">
+        <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#f0fdf4;border:1px solid #10b981;border-radius:8px;color:#065f46;font-size:12px;text-decoration:none;font-weight:500;white-space:nowrap;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Secure Payments by Paysera
+        </a>
+      </div>
+    </div>
+    &copy; 2026 SavoraApp. Të gjitha të drejtat e rezervuara.
+  </footer>
+
+  <script src="https://bank.paysera.com/js/compiled/quality-sign.js" data-paysera-project-id="256849" async></script>
+
+</body>
+</html>
