@@ -628,7 +628,7 @@
             <div class="app-header">
               <span>savoraapp</span>
             </div>
-            <div class="app-content">
+            <div class="app-content" id="appContent">
               <div class="app-card">
                 <div class="app-card-image">🥐</div>
                 <div class="app-card-info">
@@ -2656,6 +2656,36 @@ if (document.readyState === 'loading') {
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(d){ applyStats(d); })
     .catch(function(){ /* basisgetallen blijven staan */ });
+})();
+</script>
+
+<script>
+// Toon echte Ofertat-aanbiedingen in het telefoon-mockup; val terug op de voorbeelden als er nog geen zijn
+(function(){
+  var el = document.getElementById('appContent');
+  if (!el) return;
+  var catEmoji = { food: '🍽️', bakery: '🥐', produce: '🍎', meat: '🥩', dairy: '🧀', other: '🍴' };
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+  fetch('https://api.savoraapp.com/api/deals')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      var deals = (data && data.deals) || [];
+      if (!deals.length) return; // behoud de voorbeeldkaarten
+      el.innerHTML = deals.slice(0, 3).map(function(d){
+        var emoji = catEmoji[d.category] || '🍴';
+        var oldPrice = (d.originalPrice != null && d.originalPrice !== '')
+          ? '<span class="app-card-old">' + esc(d.originalPrice) + ' ALL</span>' : '';
+        return '<div class="app-card">' +
+            '<div class="app-card-image">' + emoji + '</div>' +
+            '<div class="app-card-info">' +
+              '<span class="app-card-title">' + esc(d.title) + '</span>' +
+              '<span class="app-card-price">' + esc(d.dealPrice) + ' ALL</span>' +
+              oldPrice +
+            '</div>' +
+          '</div>';
+      }).join('');
+    })
+    .catch(function(){ /* voorbeeldkaarten blijven staan */ });
 })();
 </script>
 
