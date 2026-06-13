@@ -985,80 +985,80 @@
 
     <div id="tab-ofertat" class="tab-content" style="display:none">
       <div class="dash-card">
-        <h3>Ofertat ditore</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px">Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.</p>
+        <h3 data-i18n="ofTitle">Ofertat ditore</h3>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="ofSubtitle">Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.</p>
         <div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:12px">
-          <div style="font-size:1.3rem;font-weight:800;color:#059669">1 <span style="font-size:0.8rem">Kredit</span></div>
-          <div style="font-size:0.8rem;color:#166534">çdo ofertë · 24 orë e dukshme · shfaqet te klientët</div>
+          <div style="font-size:1.3rem;font-weight:800;color:#059669">1 <span style="font-size:0.8rem" data-i18n="ofKredit">Kredit</span></div>
+          <div style="font-size:0.8rem;color:#166534" data-i18n="ofBadge">çdo ofertë · 24 orë e dukshme · shfaqet te klientët</div>
         </div>
         <form id="dealForm" onsubmit="handleDealSubmit(event)">
           <div class="form-group">
-            <label>Titulli i ofertës</label>
-            <input type="text" id="dealTitle" placeholder="p.sh. Bukë e freskët -50%" required>
+            <label data-i18n="ofTitleLabel">Titulli i ofertës</label>
+            <input type="text" id="dealTitle" placeholder="p.sh. Bukë e freskët -50%" data-i18n-placeholder="ofTitlePh" required>
           </div>
           <div class="form-group">
-            <label>Përshkrimi</label>
-            <textarea id="dealDescription" rows="3" placeholder="Përshkruani ofertën tuaj" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
+            <label data-i18n="adDescLabel">Përshkrimi</label>
+            <textarea id="dealDescription" rows="3" placeholder="Përshkruani ofertën tuaj" data-i18n-placeholder="placeholderAdDesc" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
           </div>
           <div style="display:flex;gap:12px">
             <div class="form-group" style="flex:1">
-              <label>Çmimi i vjetër (L)</label>
+              <label data-i18n="ofOldPriceLabel">Çmimi i vjetër (L)</label>
               <input type="number" id="dealOriginalPrice" placeholder="500" min="0" step="1">
             </div>
             <div class="form-group" style="flex:1">
-              <label>Çmimi i ofertës (L)</label>
+              <label data-i18n="ofNewPriceLabel">Çmimi i ofertës (L)</label>
               <input type="number" id="dealPrice" placeholder="250" min="0" step="1" required>
             </div>
           </div>
           <div style="display:flex;gap:12px">
             <div class="form-group" style="flex:1">
-              <label>Kategoria</label>
+              <label data-i18n="ofCatLabel">Kategoria</label>
               <select id="dealCategory" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
-                <option value="food">Ushqim</option>
-                <option value="bakery">Bukë/pasticeri</option>
-                <option value="produce">Fruta/perime</option>
-                <option value="meat">Mish</option>
-                <option value="dairy">Bulmet</option>
-                <option value="other">Të tjera</option>
+                <option value="food" data-i18n="catFood">Ushqim</option>
+                <option value="bakery" data-i18n="catBakery">Bukë/pasticeri</option>
+                <option value="produce" data-i18n="catProduce">Fruta/perime</option>
+                <option value="meat" data-i18n="catMeat">Mish</option>
+                <option value="dairy" data-i18n="catDairy">Bulmet</option>
+                <option value="other" data-i18n="catOther">Të tjera</option>
               </select>
             </div>
             <div class="form-group" style="flex:1">
-              <label>Sasia (opsionale)</label>
-              <input type="number" id="dealQuantity" placeholder="p.sh. 10" min="1">
-              <small style="display:block;color:var(--gray-500);font-size:0.72rem;margin-top:4px">Numri i artikujve — bie automatikisht kur klientët i marrin</small>
+              <label data-i18n="ofQtyLabel">Sasia (opsionale)</label>
+              <input type="number" id="dealQuantity" placeholder="p.sh. 10" data-i18n-placeholder="ofQtyPh" min="1">
+              <small style="display:block;color:var(--gray-500);font-size:0.72rem;margin-top:4px" data-i18n="ofQtyHint">Numri i artikujve — bie automatikisht kur klientët i marrin</small>
             </div>
           </div>
           <div class="form-group">
-            <label>Qyteti</label>
-            <input type="text" id="dealCity" placeholder="p.sh. Tiranë">
+            <label data-i18n="ofCityLabel">Qyteti</label>
+            <input type="text" id="dealCity" placeholder="p.sh. Tiranë" data-i18n-placeholder="ofCityPh">
           </div>
           <div class="form-group">
-            <label>Adresa e plotë <span style="color:#dc2626">*</span></label>
-            <input type="text" id="dealAddress" placeholder="p.sh. Rruga Dëshmorët e Kombit 5" required>
-            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px">Rrugë dhe numër — që klientët të të gjejnë në Google Maps</small>
+            <label><span data-i18n="ofAddrLabel">Adresa e plotë</span> <span style="color:#dc2626">*</span></label>
+            <input type="text" id="dealAddress" placeholder="p.sh. Rruga Dëshmorët e Kombit 5" data-i18n-placeholder="ofAddrPh" required>
+            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px" data-i18n="ofAddrHint">Rrugë dhe numër — që klientët të të gjejnë në Google Maps</small>
           </div>
           <div class="form-group">
-            <label>Foto <span style="color:var(--gray-500);font-weight:400;font-size:0.8rem">— opsionale</span></label>
+            <label><span data-i18n="ofPhotoLabel">Foto</span> <span style="color:var(--gray-500);font-weight:400;font-size:0.8rem" data-i18n="ofPhotoOptional">— opsionale</span></label>
             <input type="file" id="dealImageFile" accept="image/*">
             <img id="dealImagePreview" alt="" style="display:none;margin-top:8px;max-height:130px;border-radius:8px;border:1px solid var(--gray-200)">
           </div>
           <div id="dealError" style="margin-bottom:12px"></div>
           <div id="dealSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="dealSubmitBtn">Publiko ofertën (1 Kredit)</button>
+            <button type="submit" class="btn btn-primary" id="dealSubmitBtn" data-i18n="ofSubmitBtn">Publiko ofertën (1 Kredit)</button>
           </div>
         </form>
       </div>
       <div class="dash-card" style="margin-top:16px">
-        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Ofertat e mia</h4>
+        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="ofMyDeals">Ofertat e mia</h4>
         <div class="ads-list" id="myDealsList">
-          <p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>
+          <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="ofLoading">Po ngarkohet...</p>
         </div>
       </div>
       <div class="dash-card" style="margin-top:16px">
-        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px">Kush i ka kërkuar ofertat e tua</h4>
+        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="ofMyClaims">Kush i ka kërkuar ofertat e tua</h4>
         <div class="ads-list" id="myClaimsList">
-          <p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>
+          <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="ofLoading">Po ngarkohet...</p>
         </div>
       </div>
     </div>
@@ -1193,7 +1193,7 @@
       labelOwnerName: 'Emri i Pronarit', labelNui: 'NUI *', labelConfirmPassword: 'Konfirmo Fjalekalimin',
       placeholderBusinessName: 'Emri i kompanise', placeholderOwnerName: 'William',
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
-      optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Other',
+      optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Tjetër',
       labelEmail: 'Email', labelPassword: 'Fjalekalimi', placeholderEmail: 'partner@savoraapp.com',
       btnLogin: 'Hyr', linkBack: '\u2190 Kthehu ne faqen kryesore',
       linkForgotPw: 'Keni harruar fjalekalimin?',
@@ -1216,7 +1216,7 @@
       pkgFeature4b: 'Support prioritet', pkgFeature5: '50 Kredite',
       pkgFeature6: 'Statistika te detajuara', pkgFeature7: '100 Kredite',
       pkgFeature8: 'Reklama premium',
-      tabOverview: 'Overview', tabBoxes: 'Kutitë Surprizë', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
+      tabOverview: 'Përmbledhje', tabBoxes: 'Kutitë Surprizë', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
       boxesTitle: 'Kutitë Surprizë', boxesSubtitle: 'Krijoni kutitë surprizë me produkte ushqimore dhe shitini me zbritje.',
       boxSmall: 'Kuti e Vogël', boxSmallDesc: '3-5 produkte, vlerë ~1000 LEK',
       boxMedium: 'Kuti e Mesme', boxMediumDesc: '5-8 produkte, vlerë ~2000 LEK',
@@ -1229,7 +1229,8 @@
       catFood: 'Ushqim', catBakery: 'Bukë/pasticeri', catProduce: 'Fruta/perime', catMeat: 'Mish', catDairy: 'Bulmet', catOther: 'Të tjera',
       btnPublishAd: 'Publiko (3 Kredite)', btnPublishing: 'Duke publikuar...', btnClear: 'Pastro',
       adPublished: 'Reklama u publikua me sukses!', myAdsTitle: 'Reklamat e Mia', noAds: 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!',
-      btnLogout: 'Logout', welcomeTitle: 'Miresevini',
+      btnLogout: 'Dil', welcomeTitle: 'Miresevini',
+      ofTitle: 'Ofertat ditore', ofSubtitle: 'Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.', ofKredit: 'Kredit', ofBadge: 'çdo ofertë · 24 orë e dukshme · shfaqet te klientët', ofTitleLabel: 'Titulli i ofertës', ofTitlePh: 'p.sh. Bukë e freskët -50%', ofOldPriceLabel: 'Çmimi i vjetër (L)', ofNewPriceLabel: 'Çmimi i ofertës (L)', ofCatLabel: 'Kategoria', ofQtyLabel: 'Sasia (opsionale)', ofQtyPh: 'p.sh. 10', ofQtyHint: 'Numri i artikujve — bie automatikisht kur klientët i marrin', ofCityLabel: 'Qyteti', ofCityPh: 'p.sh. Tiranë', ofAddrLabel: 'Adresa e plotë', ofAddrPh: 'p.sh. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Rrugë dhe numër — që klientët të të gjejnë në Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: '— opsionale', ofSubmitBtn: 'Publiko ofertën (1 Kredit)', ofMyDeals: 'Ofertat e mia', ofMyClaims: 'Kush i ka kërkuar ofertat e tua', ofLoading: 'Po ngarkohet...',
       welcomeDesc: 'Krijoni dhe menaxhoni faturat tua tatimore ketu.',
       statInvoices: 'Total Faturat', statInvoicesLabel: 'Fatura te krijuara',
       statValue: 'Vlera Totale', statValueLabel: 'Vlera e te gjitha faturave',
@@ -1327,14 +1328,14 @@
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Other',
       labelEmail: 'Email', labelPassword: 'Password', placeholderEmail: 'partner@savoraapp.com',
       btnLogin: 'Login', linkBack: '← Back to main site',
-      linkForgotPw: 'هل نسيت كلمة المرور؟',
-      forgotPwTitle: 'إعادة تعيين كلمة المرور',
-      forgotPwSubtitle: 'أدخل بريدك الإلكتروني وسنرسل لك التعليمات.',
-      btnSendReset: 'إرسال التعليمات',
-      btnSending: 'جاري الإرسال...',
-      resetEmailSent: 'تم إرسال التعليمات! يرجى التحقق من بريدك الإلكتروني.',
-      resetEmailError: 'خطأ في الإرسال. تحقق من بريدك الإلكتروني وحاول مرة أخرى.',
-      linkBackLogin: '← العودة إلى تسجيل الدخول',
+      linkForgotPw: 'Forgot password?',
+      forgotPwTitle: 'Reset Password',
+      forgotPwSubtitle: 'Enter your email and we will send you instructions.',
+      btnSendReset: 'Send Instructions',
+      btnSending: 'Sending...',
+      resetEmailSent: 'Instructions sent! Please check your email.',
+      resetEmailError: 'Error sending. Check your email and try again.',
+      linkBackLogin: '← Back to login',
       loginLoading: 'Logging in...', loginError: 'Connection error',
       invalidCredentials: 'Invalid credentials',
       pricingTitle: 'Pricing', pricingSubtitle: 'Choose the package that suits you best.',
@@ -1361,6 +1362,7 @@
       btnPublishAd: 'Publish (3 Credits)', btnPublishing: 'Publishing...', btnClear: 'Clear',
       adPublished: 'Ad published successfully!', myAdsTitle: 'My Ads', noAds: 'No ads yet. Create your first ad!',
       btnLogout: 'Logout', welcomeTitle: 'Welcome',
+      ofTitle: 'Daily Deals', ofSubtitle: 'Publish a daily deal for customers. Each deal costs only 1 credit and shows for 24 hours on the deals page.', ofKredit: 'Credit', ofBadge: 'each deal · visible 24h · shown to customers', ofTitleLabel: 'Deal title', ofTitlePh: 'e.g. Fresh bread -50%', ofOldPriceLabel: 'Old price (L)', ofNewPriceLabel: 'Deal price (L)', ofCatLabel: 'Category', ofQtyLabel: 'Quantity (optional)', ofQtyPh: 'e.g. 10', ofQtyHint: 'Number of items — decreases automatically when customers claim them', ofCityLabel: 'City', ofCityPh: 'e.g. Tirana', ofAddrLabel: 'Full address', ofAddrPh: 'e.g. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Street and number — so customers find you on Google Maps', ofPhotoLabel: 'Photo', ofPhotoOptional: '— optional', ofSubmitBtn: 'Publish deal (1 Credit)', ofMyDeals: 'My deals', ofMyClaims: 'Who has claimed your deals', ofLoading: 'Loading...',
       welcomeDesc: 'Create and manage your tax invoices here.',
       statInvoices: 'Total Invoices', statInvoicesLabel: 'Invoices created',
       statValue: 'Total Value', statValueLabel: 'Value of all invoices',
@@ -1434,6 +1436,7 @@
       alreadyRegisteredLink: 'Click here to login',
     },
     nl: {
+      alreadyRegisteredLink: 'Klik hier om in te loggen',
       loginTitle: 'Partner Login', loginSubtitle: 'Toegang tot uw partner dashboard',
       registerTitle: 'Registreer als Partner', registerSubtitle: 'Vul uw bedrijfsgegevens in',
       noAccount: 'Geen account?', hasAccount: 'Heeft u al een account?',
@@ -1492,6 +1495,7 @@
       btnPublishAd: 'Publiceer (3 Credits)', btnPublishing: 'Publiceren...', btnClear: 'Wissen',
       adPublished: 'Advertentie succesvol gepubliceerd!', myAdsTitle: 'Mijn Advertenties', noAds: 'Nog geen advertenties. Maak je eerste advertentie!',
       btnLogout: 'Uitloggen', welcomeTitle: 'Welkom',
+      ofTitle: 'Dagaanbiedingen', ofSubtitle: 'Publiceer een dagaanbieding voor klanten. Elke aanbieding kost slechts 1 credit en is 24 uur zichtbaar op de aanbiedingenpagina.', ofKredit: 'Credit', ofBadge: 'elke aanbieding · 24u zichtbaar · getoond aan klanten', ofTitleLabel: 'Titel van aanbieding', ofTitlePh: 'bijv. Vers brood -50%', ofOldPriceLabel: 'Oude prijs (L)', ofNewPriceLabel: 'Aanbiedingsprijs (L)', ofCatLabel: 'Categorie', ofQtyLabel: 'Aantal (optioneel)', ofQtyPh: 'bijv. 10', ofQtyHint: 'Aantal items — daalt automatisch als klanten ze claimen', ofCityLabel: 'Stad', ofCityPh: 'bijv. Tirana', ofAddrLabel: 'Volledig adres', ofAddrPh: 'bijv. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Straat en nummer — zodat klanten je vinden op Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: '— optioneel', ofSubmitBtn: 'Aanbieding publiceren (1 Credit)', ofMyDeals: 'Mijn aanbiedingen', ofMyClaims: 'Wie je aanbiedingen heeft geclaimd', ofLoading: 'Laden...',
       welcomeDesc: 'Maak en beheer uw btw-facturen hier.',
       statInvoices: 'Totaal Facturen', statInvoicesLabel: 'Facturen aangemaakt',
       statValue: 'Totale Waarde', statValueLabel: 'Waarde van alle facturen',
@@ -1565,6 +1569,11 @@
     },
 
     de: {
+      boxesTitle: 'Überraschungsboxen', boxesSubtitle: 'Erstellen Sie Überraschungsboxen mit Lebensmitteln und verkaufen Sie sie mit Rabatt.', boxSmall: 'Kleine Box', boxSmallDesc: '3-5 Produkte, Wert ~1000 LEK', boxMedium: 'Mittlere Box', boxMediumDesc: '5-8 Produkte, Wert ~2000 LEK', boxLarge: 'Große Box', boxLargeDesc: '8-12 Produkte, Wert ~3500 LEK', popularLabel: 'Beliebt', btnCreateBox: 'Box erstellen', myBoxesTitle: 'Meine Boxen', noBoxes: 'Noch keine Boxen. Erstellen Sie Ihre erste Überraschungsbox!', boxCreated: 'Box erfolgreich erstellt!',
+      adsTitle: 'Werben', adsSubtitle: 'Erstellen Sie Premium-Anzeigen für Ihre Produkte. Jede Anzeige kostet 3 Credits.', adTitleLabel: 'Anzeigentitel', placeholderAdTitle: 'Titel eingeben', adDescLabel: 'Beschreibung', placeholderAdDesc: 'Beschreiben Sie Ihr Angebot', adPriceLabel: 'Preis (LEK)', adCategoryLabel: 'Kategorie', catFood: 'Lebensmittel', catBakery: 'Bäckerei', catProduce: 'Obst/Gemüse', catMeat: 'Fleisch', catDairy: 'Milchprodukte', catOther: 'Sonstiges', btnPublishAd: 'Veröffentlichen (3 Credits)', btnPublishing: 'Wird veröffentlicht...', adPublished: 'Anzeige erfolgreich veröffentlicht!', myAdsTitle: 'Meine Anzeigen', noAds: 'Noch keine Anzeigen. Erstellen Sie Ihre erste Anzeige!',
+      ofTitle: 'Tagesangebote', ofSubtitle: 'Veröffentlichen Sie ein Tagesangebot für Kunden. Jedes Angebot kostet nur 1 Credit und wird 24 Stunden auf der Angebotsseite angezeigt.', ofKredit: 'Credit', ofBadge: 'jedes Angebot · 24h sichtbar · für Kunden sichtbar', ofTitleLabel: 'Angebotstitel', ofTitlePh: 'z.B. Frisches Brot -50%', ofOldPriceLabel: 'Alter Preis (L)', ofNewPriceLabel: 'Angebotspreis (L)', ofCatLabel: 'Kategorie', ofQtyLabel: 'Menge (optional)', ofQtyPh: 'z.B. 10', ofQtyHint: 'Anzahl der Artikel — sinkt automatisch, wenn Kunden sie beanspruchen', ofCityLabel: 'Stadt', ofCityPh: 'z.B. Tirana', ofAddrLabel: 'Vollständige Adresse', ofAddrPh: 'z.B. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Straße und Nummer — damit Kunden Sie auf Google Maps finden', ofPhotoLabel: 'Foto', ofPhotoOptional: '— optional', ofSubmitBtn: 'Angebot veröffentlichen (1 Credit)', ofMyDeals: 'Meine Angebote', ofMyClaims: 'Wer Ihre Angebote beansprucht hat', ofLoading: 'Wird geladen...',
+      payseraBtn: 'Klicken Sie OK, um über Paysera zu zahlen, oder Abbrechen für Banküberweisung.', bankTransfer: 'Banküberweisung an:', bankTransferNote: 'Nach der Zahlung werden die Credits innerhalb von 1 Werktag hinzugefügt.', paymentSuccess: 'Zahlung erfolgreich!', paymentError: 'Zahlung fehlgeschlagen. Bitte versuchen Sie es später erneut.', paymentRedirect: 'Sie werden zur Zahlungsseite weitergeleitet. Nach der Zahlung werden die Credits automatisch hinzugefügt.', alreadyRegisteredLink: 'Hier klicken, um sich anzumelden',
+      linkForgotPw: 'Passwort vergessen?', forgotPwTitle: 'Passwort zurücksetzen', forgotPwSubtitle: 'Geben Sie Ihre E-Mail ein und wir senden Ihnen Anweisungen.', btnSendReset: 'Anweisungen senden', btnSending: 'Wird gesendet...', resetEmailSent: 'Anweisungen gesendet! Bitte überprüfen Sie Ihre E-Mail.', resetEmailError: 'Fehler beim Senden. Überprüfen Sie Ihre E-Mail und versuchen Sie es erneut.', linkBackLogin: '← Zurück zur Anmeldung',
       loginTitle: 'Partner Login', loginSubtitle: 'Zugriff auf Ihr Partner-Dashboard',
       registerTitle: 'Als Partner registrieren', registerSubtitle: 'Fuellen Sie Ihre Unternehmensdaten aus',
       noAccount: 'Kein Konto?', hasAccount: 'Bereits ein Konto?',
@@ -1669,6 +1678,10 @@
       paymentNote: 'Credits werden sofort Ihrem Konto hinzugefuegt.',
     },
     it: {
+      boxesTitle: 'Box a Sorpresa', boxesSubtitle: 'Crea box a sorpresa con prodotti alimentari e vendili a prezzo scontato.', boxSmall: 'Box Piccola', boxSmallDesc: '3-5 prodotti, valore ~1000 LEK', boxMedium: 'Box Media', boxMediumDesc: '5-8 prodotti, valore ~2000 LEK', boxLarge: 'Box Grande', boxLargeDesc: '8-12 prodotti, valore ~3500 LEK', popularLabel: 'Popolare', btnCreateBox: 'Crea Box', myBoxesTitle: 'Le Mie Box', noBoxes: 'Ancora nessuna box. Crea la tua prima box a sorpresa!', boxCreated: 'Box creata con successo!',
+      adsTitle: 'Pubblicizza', adsSubtitle: 'Crea annunci premium per i tuoi prodotti. Ogni annuncio costa 3 crediti.', adTitleLabel: 'Titolo annuncio', placeholderAdTitle: 'Inserisci titolo', adDescLabel: 'Descrizione', placeholderAdDesc: 'Descrivi la tua offerta', adPriceLabel: 'Prezzo (LEK)', adCategoryLabel: 'Categoria', catFood: 'Cibo', catBakery: 'Panetteria', catProduce: 'Frutta/verdura', catMeat: 'Carne', catDairy: 'Latticini', catOther: 'Altro', btnPublishAd: 'Pubblica (3 crediti)', btnPublishing: 'Pubblicazione...', adPublished: 'Annuncio pubblicato con successo!', myAdsTitle: 'I Miei Annunci', noAds: 'Ancora nessun annuncio. Crea il tuo primo annuncio!',
+      ofTitle: 'Offerte del Giorno', ofSubtitle: 'Pubblica un\u0027offerta del giorno per i clienti. Ogni offerta costa solo 1 credito e viene mostrata per 24 ore nella pagina delle offerte.', ofKredit: 'Credito', ofBadge: 'ogni offerta · visibile 24h · mostrata ai clienti', ofTitleLabel: 'Titolo offerta', ofTitlePh: 'es. Pane fresco -50%', ofOldPriceLabel: 'Prezzo vecchio (L)', ofNewPriceLabel: 'Prezzo offerta (L)', ofCatLabel: 'Categoria', ofQtyLabel: 'Quantità (opzionale)', ofQtyPh: 'es. 10', ofQtyHint: 'Numero di articoli — diminuisce automaticamente quando i clienti li richiedono', ofCityLabel: 'Città', ofCityPh: 'es. Tirana', ofAddrLabel: 'Indirizzo completo', ofAddrPh: 'es. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Via e numero — così i clienti ti trovano su Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: '— opzionale', ofSubmitBtn: 'Pubblica offerta (1 credito)', ofMyDeals: 'Le mie offerte', ofMyClaims: 'Chi ha richiesto le tue offerte', ofLoading: 'Caricamento...',
+      payseraBtn: 'Clicca OK per pagare con Paysera, o Annulla per bonifico bancario.', bankTransfer: 'Bonifico bancario a:', bankTransferNote: 'Dopo il pagamento, i crediti saranno aggiunti entro 1 giorno lavorativo.', paymentSuccess: 'Pagamento riuscito!', paymentError: 'Pagamento fallito. Riprova più tardi.', paymentRedirect: 'Sarai reindirizzato alla pagina di pagamento. Dopo il pagamento, i crediti saranno aggiunti automaticamente.', alreadyRegisteredLink: 'Clicca qui per accedere',
       loginTitle: 'Login Partner', loginSubtitle: 'Accesso alla dashboard partner',
       registerTitle: 'Registrati come Partner', registerSubtitle: 'Compila i dati della tua attivita',
       noAccount: 'Nessun account?', hasAccount: 'Hai gia un account?',
@@ -1781,6 +1794,10 @@
       paymentNote: 'I crediti verranno aggiunti immediatamente al tuo account.',
     },
     gr: {
+      boxesTitle: 'Kouties Ekplixis', boxesSubtitle: 'Dimiourgiste kouties ekplixis me trofima kai poulisteta se ekptwsi.', boxSmall: 'Mikri Koutia', boxSmallDesc: '3-5 proionta, axia ~1000 LEK', boxMedium: 'Mesaia Koutia', boxMediumDesc: '5-8 proionta, axia ~2000 LEK', boxLarge: 'Megali Koutia', boxLargeDesc: '8-12 proionta, axia ~3500 LEK', popularLabel: 'Dimofili', btnCreateBox: 'Dimiourgia Koutias', myBoxesTitle: 'Oi Kouties mou', noBoxes: 'Kamia koutia akoma. Dimiourgiste tin prwti sas koutia ekplixis!', boxCreated: 'I koutia dimiourgithike me epityxia!',
+      adsTitle: 'Diafimisi', adsSubtitle: 'Dimiourgiste premium diafimiseis gia ta proionta sas. Kathe diafimisi kostizei 3 credits.', adTitleLabel: 'Titlos diafimisis', placeholderAdTitle: 'Eisagete titlo', adDescLabel: 'Perigrafi', placeholderAdDesc: 'Perigrapste tin prosfora sas', adPriceLabel: 'Timi (LEK)', adCategoryLabel: 'Katigoria', catFood: 'Trofima', catBakery: 'Fournos', catProduce: 'Frouta/laxanika', catMeat: 'Kreas', catDairy: 'Galaktokomika', catOther: 'Alla', btnPublishAd: 'Dimosiefsi (3 credits)', btnPublishing: 'Dimosiefsi...', adPublished: 'I diafimisi dimosieftike me epityxia!', myAdsTitle: 'Oi Diafimiseis mou', noAds: 'Kamia diafimisi akoma. Dimiourgiste tin prwti sas diafimisi!',
+      ofTitle: 'Kathimerines Prosfores', ofSubtitle: 'Dimosiefste mia kathimerini prosfora gia tous pelates. Kathe prosfora kostizei mono 1 credit kai emfanizetai gia 24 wres sti selida prosforwn.', ofKredit: 'Credit', ofBadge: 'kathe prosfora · orati 24w · emfanizetai stous pelates', ofTitleLabel: 'Titlos prosforas', ofTitlePh: 'p.x. Fresko pswmi -50%', ofOldPriceLabel: 'Palia timi (L)', ofNewPriceLabel: 'Timi prosforas (L)', ofCatLabel: 'Katigoria', ofQtyLabel: 'Posotita (proairetiko)', ofQtyPh: 'p.x. 10', ofQtyHint: 'Arithmos eidwn — meiwnetai aytomata otan oi pelates ta zitoun', ofCityLabel: 'Poli', ofCityPh: 'p.x. Tirana', ofAddrLabel: 'Plires diefthynsi', ofAddrPh: 'p.x. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Odos kai arithmos — gia na sas vroun oi pelates sto Google Maps', ofPhotoLabel: 'Fwtografia', ofPhotoOptional: '— proairetiko', ofSubmitBtn: 'Dimosiefsi prosforas (1 credit)', ofMyDeals: 'Oi prosfores mou', ofMyClaims: 'Poioi zitisan tis prosfores sas', ofLoading: 'Fortwsi...',
+      payseraBtn: 'Kante klik sto OK gia plirwmi mesw Paysera, i Akyrwsi gia trapeziki metafora.', bankTransfer: 'Trapeziki metafora se:', bankTransferNote: 'Meta tin plirwmi, ta credits tha prostethoun entos 1 ergasimis imeras.', paymentSuccess: 'Epityxis plirwmi!', paymentError: 'I plirwmi apetyxe. Dokimaste xana argotera.', paymentRedirect: 'Tha anakatefthynthite sti selida plirwmis. Meta tin plirwmi, ta credits tha prostethoun aytomata.', alreadyRegisteredLink: 'Kante klik edw gia syndesi',
       loginTitle: 'Login Partner', loginSubtitle: 'Prosbasi sto panel synergati',
       registerTitle: 'Eggrafi os Partner', registerSubtitle: 'Symplirwste ta stoixeia tis epixeirisis sas',
       noAccount: 'Den exete logariasmo?', hasAccount: 'Exete idi logariasmo?',
@@ -1893,6 +1910,10 @@
       paymentNote: 'Τα credits θα προστεθούν αμέσως στον λογαριασμό σας.',
     },
     fr: {
+      boxesTitle: 'Boîtes Surprise', boxesSubtitle: 'Créez des boîtes surprise avec des produits alimentaires et vendez-les à prix réduit.', boxSmall: 'Petite Boîte', boxSmallDesc: '3-5 produits, valeur ~1000 LEK', boxMedium: 'Boîte Moyenne', boxMediumDesc: '5-8 produits, valeur ~2000 LEK', boxLarge: 'Grande Boîte', boxLargeDesc: '8-12 produits, valeur ~3500 LEK', popularLabel: 'Populaire', btnCreateBox: 'Créer une Boîte', myBoxesTitle: 'Mes Boîtes', noBoxes: 'Aucune boîte pour le moment. Créez votre première boîte surprise!', boxCreated: 'Boîte créée avec succès!',
+      adsTitle: 'Annoncer', adsSubtitle: 'Créez des annonces premium pour vos produits. Chaque annonce coûte 3 crédits.', adTitleLabel: 'Titre de l\u0027annonce', placeholderAdTitle: 'Saisir le titre', adDescLabel: 'Description', placeholderAdDesc: 'Décrivez votre offre', adPriceLabel: 'Prix (LEK)', adCategoryLabel: 'Catégorie', catFood: 'Alimentation', catBakery: 'Boulangerie', catProduce: 'Fruits/légumes', catMeat: 'Viande', catDairy: 'Produits laitiers', catOther: 'Autre', btnPublishAd: 'Publier (3 crédits)', btnPublishing: 'Publication...', adPublished: 'Annonce publiée avec succès!', myAdsTitle: 'Mes Annonces', noAds: 'Aucune annonce pour le moment. Créez votre première annonce!',
+      ofTitle: 'Offres du Jour', ofSubtitle: 'Publiez une offre du jour pour les clients. Chaque offre coûte seulement 1 crédit et s\u0027affiche pendant 24 heures sur la page des offres.', ofKredit: 'Crédit', ofBadge: 'chaque offre · visible 24h · montrée aux clients', ofTitleLabel: 'Titre de l\u0027offre', ofTitlePh: 'ex. Pain frais -50%', ofOldPriceLabel: 'Ancien prix (L)', ofNewPriceLabel: 'Prix de l\u0027offre (L)', ofCatLabel: 'Catégorie', ofQtyLabel: 'Quantité (facultatif)', ofQtyPh: 'ex. 10', ofQtyHint: 'Nombre d\u0027articles — diminue automatiquement quand les clients les réclament', ofCityLabel: 'Ville', ofCityPh: 'ex. Tirana', ofAddrLabel: 'Adresse complète', ofAddrPh: 'ex. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Rue et numéro — pour que les clients vous trouvent sur Google Maps', ofPhotoLabel: 'Photo', ofPhotoOptional: '— facultatif', ofSubmitBtn: 'Publier l\u0027offre (1 crédit)', ofMyDeals: 'Mes offres', ofMyClaims: 'Qui a réclamé vos offres', ofLoading: 'Chargement...',
+      payseraBtn: 'Cliquez sur OK pour payer via Paysera, ou Annuler pour un virement bancaire.', bankTransfer: 'Virement bancaire à:', bankTransferNote: 'Après le paiement, les crédits seront ajoutés sous 1 jour ouvrable.', paymentSuccess: 'Paiement réussi!', paymentError: 'Paiement échoué. Veuillez réessayer plus tard.', paymentRedirect: 'Vous serez redirigé vers la page de paiement. Après le paiement, les crédits seront ajoutés automatiquement.', alreadyRegisteredLink: 'Cliquez ici pour vous connecter',
       loginTitle: 'Connexion Partenaire', loginSubtitle: 'Acces a votre tableau de bord',
       registerTitle: 'S\'inscrire comme Partenaire', registerSubtitle: 'Remplissez les informations de votre entreprise',
       noAccount: 'Pas de compte?', hasAccount: 'Vous avez deja un compte?',
@@ -2005,6 +2026,10 @@
       paymentNote: 'Les credits seront ajoutes a votre compte immediatement.',
     },
     es: {
+      boxesTitle: 'Cajas Sorpresa', boxesSubtitle: 'Crea cajas sorpresa con productos alimenticios y véndelas con descuento.', boxSmall: 'Caja Pequeña', boxSmallDesc: '3-5 productos, valor ~1000 LEK', boxMedium: 'Caja Mediana', boxMediumDesc: '5-8 productos, valor ~2000 LEK', boxLarge: 'Caja Grande', boxLargeDesc: '8-12 productos, valor ~3500 LEK', popularLabel: 'Popular', btnCreateBox: 'Crear Caja', myBoxesTitle: 'Mis Cajas', noBoxes: 'Aún no hay cajas. ¡Crea tu primera caja sorpresa!', boxCreated: '¡Caja creada con éxito!',
+      adsTitle: 'Anunciar', adsSubtitle: 'Crea anuncios premium para tus productos. Cada anuncio cuesta 3 créditos.', adTitleLabel: 'Título del anuncio', placeholderAdTitle: 'Introduce el título', adDescLabel: 'Descripción', placeholderAdDesc: 'Describe tu oferta', adPriceLabel: 'Precio (LEK)', adCategoryLabel: 'Categoría', catFood: 'Comida', catBakery: 'Panadería', catProduce: 'Frutas/verduras', catMeat: 'Carne', catDairy: 'Lácteos', catOther: 'Otros', btnPublishAd: 'Publicar (3 créditos)', btnPublishing: 'Publicando...', adPublished: '¡Anuncio publicado con éxito!', myAdsTitle: 'Mis Anuncios', noAds: 'Aún no hay anuncios. ¡Crea tu primer anuncio!',
+      ofTitle: 'Ofertas del Día', ofSubtitle: 'Publica una oferta del día para los clientes. Cada oferta cuesta solo 1 crédito y se muestra durante 24 horas en la página de ofertas.', ofKredit: 'Crédito', ofBadge: 'cada oferta · visible 24h · mostrada a los clientes', ofTitleLabel: 'Título de la oferta', ofTitlePh: 'ej. Pan fresco -50%', ofOldPriceLabel: 'Precio anterior (L)', ofNewPriceLabel: 'Precio de oferta (L)', ofCatLabel: 'Categoría', ofQtyLabel: 'Cantidad (opcional)', ofQtyPh: 'ej. 10', ofQtyHint: 'Número de artículos — disminuye automáticamente cuando los clientes los reclaman', ofCityLabel: 'Ciudad', ofCityPh: 'ej. Tirana', ofAddrLabel: 'Dirección completa', ofAddrPh: 'ej. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Calle y número — para que los clientes te encuentren en Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: '— opcional', ofSubmitBtn: 'Publicar oferta (1 crédito)', ofMyDeals: 'Mis ofertas', ofMyClaims: 'Quién ha reclamado tus ofertas', ofLoading: 'Cargando...',
+      payseraBtn: 'Haz clic en OK para pagar con Paysera, o Cancelar para transferencia bancaria.', bankTransfer: 'Transferencia bancaria a:', bankTransferNote: 'Tras el pago, los créditos se añadirán en 1 día laborable.', paymentSuccess: '¡Pago exitoso!', paymentError: 'Pago fallido. Inténtalo de nuevo más tarde.', paymentRedirect: 'Serás redirigido a la página de pago. Tras el pago, los créditos se añadirán automáticamente.', alreadyRegisteredLink: 'Haz clic aquí para iniciar sesión',
       loginTitle: 'Inicio Socio', loginSubtitle: 'Acceso a su panel de socio',
       registerTitle: 'Registrarse como Socio', registerSubtitle: 'Complete los datos de su negocio',
       noAccount: 'No tiene cuenta?', hasAccount: 'Ya tiene una cuenta?',
@@ -2117,6 +2142,10 @@
       paymentNote: 'Los creditos se anadiran a su cuenta inmediatamente.',
     },
     tr: {
+      boxesTitle: 'Sürpriz Kutular', boxesSubtitle: 'Gıda ürünleriyle sürpriz kutular oluşturun ve indirimli satın.', boxSmall: 'Küçük Kutu', boxSmallDesc: '3-5 ürün, değer ~1000 LEK', boxMedium: 'Orta Kutu', boxMediumDesc: '5-8 ürün, değer ~2000 LEK', boxLarge: 'Büyük Kutu', boxLargeDesc: '8-12 ürün, değer ~3500 LEK', popularLabel: 'Popüler', btnCreateBox: 'Kutu Oluştur', myBoxesTitle: 'Kutularım', noBoxes: 'Henüz kutu yok. İlk sürpriz kutunuzu oluşturun!', boxCreated: 'Kutu başarıyla oluşturuldu!',
+      adsTitle: 'Reklam Ver', adsSubtitle: 'Ürünleriniz için premium reklamlar oluşturun. Her reklam 3 kredidir.', adTitleLabel: 'Reklam Başlığı', placeholderAdTitle: 'Başlık girin', adDescLabel: 'Açıklama', placeholderAdDesc: 'Teklifinizi açıklayın', adPriceLabel: 'Fiyat (LEK)', adCategoryLabel: 'Kategori', catFood: 'Yiyecek', catBakery: 'Fırın', catProduce: 'Meyve/sebze', catMeat: 'Et', catDairy: 'Süt ürünleri', catOther: 'Diğer', btnPublishAd: 'Yayınla (3 kredi)', btnPublishing: 'Yayınlanıyor...', adPublished: 'Reklam başarıyla yayınlandı!', myAdsTitle: 'Reklamlarım', noAds: 'Henüz reklam yok. İlk reklamınızı oluşturun!',
+      ofTitle: 'Günün Fırsatları', ofSubtitle: 'Müşteriler için günlük bir fırsat yayınlayın. Her fırsat yalnızca 1 kredidir ve fırsatlar sayfasında 24 saat görünür.', ofKredit: 'Kredi', ofBadge: 'her fırsat · 24s görünür · müşterilere gösterilir', ofTitleLabel: 'Fırsat başlığı', ofTitlePh: 'örn. Taze ekmek -50%', ofOldPriceLabel: 'Eski fiyat (L)', ofNewPriceLabel: 'Fırsat fiyatı (L)', ofCatLabel: 'Kategori', ofQtyLabel: 'Miktar (isteğe bağlı)', ofQtyPh: 'örn. 10', ofQtyHint: 'Ürün sayısı — müşteriler aldıkça otomatik olarak azalır', ofCityLabel: 'Şehir', ofCityPh: 'örn. Tiran', ofAddrLabel: 'Tam adres', ofAddrPh: 'örn. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Sokak ve numara — müşterilerin sizi Google Haritalar\u0027da bulması için', ofPhotoLabel: 'Fotoğraf', ofPhotoOptional: '— isteğe bağlı', ofSubmitBtn: 'Fırsatı yayınla (1 kredi)', ofMyDeals: 'Fırsatlarım', ofMyClaims: 'Fırsatlarınızı kimler istedi', ofLoading: 'Yükleniyor...',
+      payseraBtn: 'Paysera ile ödemek için Tamam\u0027a, banka havalesi için İptal\u0027e tıklayın.', bankTransfer: 'Banka havalesi:', bankTransferNote: 'Ödemeden sonra krediler 1 iş günü içinde eklenir.', paymentSuccess: 'Ödeme başarılı!', paymentError: 'Ödeme başarısız. Lütfen daha sonra tekrar deneyin.', paymentRedirect: 'Ödeme sayfasına yönlendirileceksiniz. Ödemeden sonra krediler otomatik eklenir.', alreadyRegisteredLink: 'Giriş yapmak için buraya tıklayın',
       loginTitle: 'Partner Giris', loginSubtitle: 'Partner panelinize erisim',
       registerTitle: 'Partner Olarak Kaydol', registerSubtitle: 'Isletme bilgilerinizi doldurun',
       noAccount: 'Hesabiniz yok mu?', hasAccount: 'Zaten hesabiniz var mi?',
@@ -2229,6 +2258,8 @@
       paymentNote: 'Krediler hesabiniza aninda eklenecektir.',
     },
     ar: {
+      ofTitle: 'Daily Deals', ofSubtitle: 'Publish a daily deal for customers. Each deal costs only 1 credit and shows for 24 hours on the deals page.', ofKredit: 'Credit', ofBadge: 'each deal · visible 24h · shown to customers', ofTitleLabel: 'Deal title', ofTitlePh: 'e.g. Fresh bread -50%', ofOldPriceLabel: 'Old price (L)', ofNewPriceLabel: 'Deal price (L)', ofCatLabel: 'Category', ofQtyLabel: 'Quantity (optional)', ofQtyPh: 'e.g. 10', ofQtyHint: 'Number of items — decreases automatically when customers claim them', ofCityLabel: 'City', ofCityPh: 'e.g. Tirana', ofAddrLabel: 'Full address', ofAddrPh: 'e.g. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Street and number — so customers find you on Google Maps', ofPhotoLabel: 'Photo', ofPhotoOptional: '— optional', ofSubmitBtn: 'Publish deal (1 Credit)', ofMyDeals: 'My deals', ofMyClaims: 'Who has claimed your deals', ofLoading: 'Loading...',
+      payseraBtn: 'Click OK to pay via Paysera, or Cancel for bank transfer.', bankTransfer: 'Bank transfer to:', bankTransferNote: 'After payment, credits will be added within 1 business day.', paymentSuccess: 'Payment successful!', paymentError: 'Payment failed. Please try again later.', paymentRedirect: 'You will be redirected to the payment page. After payment, credits will be added automatically.', alreadyRegisteredLink: 'Click here to login',
       loginTitle: 'Partner Login', loginSubtitle: 'Access your partner dashboard',
       registerTitle: 'Register as Partner', registerSubtitle: 'Fill in your business details',
       noAccount: 'No account?', hasAccount: 'Already have an account?',
@@ -2394,13 +2425,15 @@
     currentLang = lang;
     var t = T[lang];
     if (!t) return;
+    function tr(key){ return (t && t[key]) || (T['en'] && T['en'][key]) || (T['sq'] && T['sq'][key]) || ''; }
 
     // Update text content
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');
-      if (t[key]) {
+      var val = tr(key);
+      if (val) {
         if (key === 'payInstructions') {
-          el.innerHTML = t[key];
+          el.innerHTML = val;
         } else if (el.querySelector('svg')) {
           // Element heeft SVG - update alleen tekstnodes, behoud SVG
           var textNodes = [];
@@ -2408,12 +2441,12 @@
             if (node.nodeType === 3) textNodes.push(node); // tekstnode
           });
           if (textNodes.length > 0) {
-            textNodes[textNodes.length - 1].nodeValue = ' ' + t[key];
+            textNodes[textNodes.length - 1].nodeValue = ' ' + val;
           } else {
-            el.appendChild(document.createTextNode(' ' + t[key]));
+            el.appendChild(document.createTextNode(' ' + val));
           }
         } else {
-          el.textContent = t[key];
+          el.textContent = val;
         }
       }
     });
@@ -2421,7 +2454,8 @@
     // Update placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
       var key = el.getAttribute('data-i18n-placeholder');
-      if (t[key]) el.placeholder = t[key];
+      var val = tr(key);
+      if (val) el.placeholder = val;
     });
 
     // Update flag
