@@ -3055,6 +3055,17 @@
   // ========================================
   var myAds = JSON.parse(localStorage.getItem('savora_my_ads') || '[]');
 
+  // Herstel een advertentie die in de oude Paysera-flow bleef hangen
+  try {
+    var _pend = JSON.parse(localStorage.getItem('savora_pending_ad') || 'null');
+    if (_pend && _pend.id && !myAds.some(function(a){ return a.id === _pend.id; })) {
+      _pend.status = 'active';
+      myAds.push(_pend);
+      localStorage.setItem('savora_my_ads', JSON.stringify(myAds));
+    }
+    localStorage.removeItem('savora_pending_ad');
+  } catch(e) {}
+
   var AD_PRICE_LEK = 200;
 
   function handleAdSubmit(e) {
@@ -3067,41 +3078,59 @@
     var desc = document.getElementById('adDescription').value.trim();
     var category = document.getElementById('adCategory').value;
 
+    if (errDiv) errDiv.innerHTML = '';
+    if (succDiv) succDiv.innerHTML = '';
+
     if (!title) {
       if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + (t.fillRequired || 'Plotesoni te gjitha fushat') + '</div>';
       return;
     }
 
-    // Store ad data temporarily, then redirect to Paysera payment
     var adData = {
       id: 'ad_' + Date.now(),
       title: title,
       description: desc,
       price: AD_PRICE_LEK,
       category: category,
-      status: 'pending_payment',
+      status: 'active',
       createdAt: new Date().toISOString().split('T')[0]
     };
 
-    // Save pending ad
-    localStorage.setItem('savora_pending_ad', JSON.stringify(adData));
+    function saveAndShow() {
+      myAds.push(adData);
+      localStorage.setItem('savora_my_ads', JSON.stringify(myAds));
+      localStorage.removeItem('savora_pending_ad');
+      var f = document.getElementById('adForm'); if (f) f.reset();
+      renderMyAds();
+      if (succDiv) succDiv.innerHTML = '<div class="success-msg">' + (t.adPublished || 'Reklama u publikua!') + '</div>';
+    }
+    function resetBtn() {
+      if (btn) { btn.disabled = false; btn.textContent = t.btnPublishAd || 'Publiko Reklamën (3 Kredite)'; }
+    }
 
-    // Redirect to Paysera for ad publishing (3 credits)
-    if (btn) { btn.disabled = true; btn.textContent = t.redirectingToPaysera || 'Duke hapur Paysera...'; }
-    
-    createPayseraPayment(AD_PRICE_LEK, 'ad_' + adData.id, function(success, url) {
-      if (success && url) {
-        window.location.href = url;
-      } else {
-        // Fallback: save ad locally without payment
-        myAds.push(adData);
-        adData.status = 'active';
-        localStorage.setItem('savora_my_ads', JSON.stringify(myAds));
-        if (succDiv) succDiv.innerHTML = '<div class="success-msg">' + (t.adPublished || 'Reklama u ruajt! Pagesa do të përpunohet më vonë.') + '</div>';
-        document.getElementById('adForm').reset();
-        renderMyAds();
-        if (btn) { btn.disabled = false; btn.textContent = t.btnPublishAd || 'Publiko Reklamën (3 Kredite)'; }
+    if (btn) btn.disabled = true;
+    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : '';
+
+    // Schrijf 3 credits af; toon de advertentie alleen als dat lukt
+    fetch(API_BASE + '/api/credits/use', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
+      body: JSON.stringify({ adId: adData.id, adType: 'premium_ad' })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if (d && d.success) {
+        saveAndShow();
+        if (partnerId && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(partnerId);
+      } else if (errDiv) {
+        errDiv.innerHTML = '<div class="error-msg">' + ((d && d.error) || 'Kredite të pamjaftueshme. Blini një paketë krediti.') + '</div>';
       }
+      resetBtn();
+    })
+    .catch(function(){
+      // Netwerkfout: bewaar de advertentie toch zodat je werk niet verloren gaat
+      saveAndShow();
+      resetBtn();
     });
   }
 
@@ -3447,7 +3476,7 @@
     .then(function(r){ return r.json(); })
     .then(function(data){
       var balance = data.credits || 0;
-      var history = data.history || [];
+      var history = data.transactions || data.history || [];
 
       document.getElementById('creditBalance').textContent = balance.toLocaleString();
       document.getElementById('creditMonthly').textContent = '1 kredit = 1 postim';
@@ -3468,12 +3497,25 @@
       // Render history
       var tbody = document.getElementById('historyTableBody');
       if (history.length > 0) {
+        var txLabels = {
+          daily_deal: {sq:'Ofertë ditore', en:'Daily deal', nl:'Dagaanbieding', de:'Tagesangebot', it:'Offerta del giorno', gr:'Kathimerini prosfora', fr:'Offre du jour', es:'Oferta del día', tr:'Günlük fırsat', ar:'Daily deal'},
+          premium_ad: {sq:'Reklamë premium', en:'Premium ad', nl:'Premium advertentie', de:'Premium-Anzeige', it:'Annuncio premium', gr:'Premium diafimisi', fr:'Annonce premium', es:'Anuncio premium', tr:'Premium reklam', ar:'Premium ad'},
+          advertentie: {sq:'Reklamë', en:'Ad', nl:'Advertentie', de:'Anzeige', it:'Annuncio', gr:'Diafimisi', fr:'Annonce', es:'Anuncio', tr:'Reklam', ar:'Ad'},
+          purchase: {sq:'Blerje kreditesh', en:'Credit purchase', nl:'Credits gekocht', de:'Credit-Kauf', it:'Acquisto crediti', gr:'Agora credits', fr:'Achat de crédits', es:'Compra de créditos', tr:'Kredi alımı', ar:'Credit purchase'},
+          admin_adjustment: {sq:'Rregullim krediti', en:'Adjustment', nl:'Aanpassing', de:'Anpassung', it:'Rettifica', gr:'Prosarmogi', fr:'Ajustement', es:'Ajuste', tr:'Düzeltme', ar:'Adjustment'}
+        };
         tbody.innerHTML = history.map(function(tx) {
-          var amtClass = tx.amount >= 0 ? 'amount-positive' : 'amount-negative';
-          var sign = tx.amount >= 0 ? '+' : '';
-          var desc = tx.description || tx.type || '';
-          var date = tx.date ? tx.date.split('T')[0] : '';
-          return '<tr><td>' + date + '</td><td><div>' + escapeHtml(desc) + '</div></td><td class="' + amtClass + '">' + sign + Number(tx.amount).toFixed(2) + '</td><td>' + balance.toLocaleString() + '</td></tr>';
+          var amt = (typeof tx.amount === 'number') ? tx.amount
+                  : (typeof tx.credits === 'number') ? tx.credits
+                  : -(tx.creditsUsed || 0);
+          var amtClass = amt >= 0 ? 'amount-positive' : 'amount-negative';
+          var sign = amt > 0 ? '+' : '';
+          var typ = tx.adType || tx.type || '';
+          var lbl = (txLabels[typ] && (txLabels[typ][currentLang] || txLabels[typ].en)) || tx.description || tx.reason || typ || '';
+          var ts = tx.postedAt || tx.date || tx.purchasedAt;
+          var date = '';
+          try { date = ts ? new Date(ts).toISOString().split('T')[0] : ''; } catch(e){ date = String(ts || ''); }
+          return '<tr><td>' + date + '</td><td><div>' + escapeHtml(lbl) + '</div></td><td class="' + amtClass + '">' + sign + amt + '</td><td>' + balance.toLocaleString() + '</td></tr>';
         }).join('');
       } else {
         tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--gray-400);padding:20px">' + (T[currentLang].noHistory || 'Nuk ka transaksione') + '</td></tr>';
