@@ -46,7 +46,7 @@
   
   <!-- Open Graph - ABSOLUTE URLs required for social media scrapers -->
   <meta property="og:title" content="savoraapp - Kurseni para në ushqime të freskëta">
-  <meta property="og:description" content="Kurseni deri në 70% në ushqime të freskëta nga bizneset lokale. 1,247+ përdorues aktivë.">
+  <meta property="og:description" content="Kurseni deri në 70% në ushqime të freskëta nga bizneset lokale. 787+ përdorues aktivë.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://savoraapp.com">
   <meta property="og:image" content="https://savoraapp.com/icons/icon-512x512.png">
@@ -605,17 +605,17 @@
           
           <div class="hero-stats">
             <div class="hero-stat">
-              <span class="hero-stat-number">1,247</span>
+              <span class="hero-stat-number" id="statUsers">787</span>
               <span class="hero-stat-label">Përdorues Aktivë</span>
             </div>
             <div class="hero-stat-divider"></div>
             <div class="hero-stat">
-              <span class="hero-stat-number">86</span>
+              <span class="hero-stat-number" id="statPartners">64</span>
               <span class="hero-stat-label">Partnerë Aktivë</span>
             </div>
             <div class="hero-stat-divider"></div>
             <div class="hero-stat">
-              <span class="hero-stat-number">50K+</span>
+              <span class="hero-stat-number" id="statReservations">3.655</span>
               <span class="hero-stat-label">Rezervime</span>
             </div>
           </div>
@@ -1639,7 +1639,7 @@
     <div class="container">
       <div class="cta-content">
         <h2 class="cta-title">Gati për të filluar?</h2>
-        <p class="cta-subtitle">Bashkohuni me 1,247+ përdorues që kursejnë para çdo ditë</p>
+        <p class="cta-subtitle">Bashkohuni me 787+ përdorues që kursejnë para çdo ditë</p>
         <div class="cta-buttons">
           <a href="#early-access" class="btn btn-primary btn-lg">Merrni Qasje Tani</a>
           <a href="#partner-form-wrapper" class="btn btn-secondary btn-lg partner-mode-btn">Bëhuni Partner</a>
@@ -1932,36 +1932,36 @@
         </div>
         
         <div class="footer-links">
-          <h4>Company</h4>
+          <h4>Kompania</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#partners">Partners</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/contact.html">Rreth Nesh</a></li>
+            <li><a href="#partner-benefits">Partnerët</a></li>
+            <li><a href="/contact.html">Karriera</a></li>
+            <li><a href="/contact.html">Kontakt</a></li>
           </ul>
         </div>
         
         <div class="footer-links">
-          <h4>Support</h4>
+          <h4>Ndihmë</h4>
           <ul>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Partner Guide</a></li>
+            <li><a href="#faq">Pyetje të Shpeshta</a></li>
+            <li><a href="/faq.html">Qendra e Ndihmës</a></li>
+            <li><a href="/partner.html">Udhëzues për Partnerët</a></li>
           </ul>
         </div>
         
         <div class="footer-links">
-          <h4>Legal</h4>
+          <h4>Ligjore</h4>
           <ul>
-            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="/terms-of-service.html">Terms of Service</a></li>
-            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="/privacy-policy.html">Politika e Privatësisë</a></li>
+            <li><a href="/terms-of-service.html">Kushtet e Shërbimit</a></li>
+            <li><a href="/cookie-policy.html">Politika e Cookies</a></li>
           </ul>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2026 savoraapp. All rights reserved. · <a href="admin.html" style="color:var(--gray-400);text-decoration:none;font-size:0.8rem;opacity:0.6">Admin</a></p>
+        <p>&copy; 2026 savoraapp. Të gjitha të drejtat e rezervuara.</p>
         <!-- Paysera Trust Label Badge -->
         <div class="quality-sign" data-id="256849" data-lang="sq">
           <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:#f0fdf4;border:1px solid #10b981;border-radius:8px;color:#065f46;font-size:12px;text-decoration:none;font-weight:500;white-space:nowrap;">
@@ -1970,8 +1970,8 @@
           </a>
         </div>
         <div class="footer-stats">
-          <span><strong>1,247</strong> Active Consumers</span>
-          <span><strong>86</strong> Active Partners</span>
+          <span><strong id="statUsersFooter">787</strong> Përdorues Aktivë</span>
+          <span><strong id="statPartnersFooter">64</strong> Partnerë Aktivë</span>
         </div>
       </div>
     </div>
@@ -2831,6 +2831,56 @@ if (document.readyState === 'loading') {
       });
     });
   }
+})();
+</script>
+
+<!-- ===== Cookie-banner ===== -->
+<div id="cookieBanner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#ffffff;border-top:1px solid #e5e7eb;box-shadow:0 -4px 20px rgba(0,0,0,0.08);padding:16px 20px;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;">
+    <p style="margin:0;flex:1 1 320px;color:#374151;font-size:0.92rem;line-height:1.5;">
+      🍪 Ne përdorim cookies për të përmirësuar përvojën tuaj. Cookies thelbësore janë gjithmonë aktive. Lexoni më shumë në <a href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Politikën e Cookies</a>.
+    </p>
+    <div style="display:flex;gap:10px;flex:0 0 auto;">
+      <button type="button" id="cookieDecline" style="padding:10px 18px;border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;">Refuzo</button>
+      <button type="button" id="cookieAccept" style="padding:10px 18px;border:none;background:#059669;color:#fff;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;">Prano</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ----- Cookie-consent -----
+  var KEY = 'savoraapp-cookie-consent';
+  var banner = document.getElementById('cookieBanner');
+  function setConsent(v){
+    try { localStorage.setItem(KEY, v); } catch(e){}
+    window.__savoraCookieConsent = v;
+    if (banner) banner.style.display = 'none';
+  }
+  var prior = null;
+  try { prior = localStorage.getItem(KEY); } catch(e){}
+  if (prior) {
+    window.__savoraCookieConsent = prior;
+  } else if (banner) {
+    banner.style.display = 'block';
+  }
+  var ba = document.getElementById('cookieAccept');
+  var bd = document.getElementById('cookieDecline');
+  if (ba) ba.addEventListener('click', function(){ setConsent('accepted'); });
+  if (bd) bd.addEventListener('click', function(){ setConsent('declined'); });
+
+  // ----- Live statistieken (basis + echte activiteit) -----
+  function fmt(n){ try { return Number(n).toLocaleString('de-DE'); } catch(e){ return String(n); } }
+  function setText(id, val){ var el = document.getElementById(id); if (el) el.textContent = val; }
+  fetch('https://api.savoraapp.com/api/stats')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d) return;
+      if (typeof d.users === 'number') { setText('statUsers', fmt(d.users)); setText('statUsersFooter', fmt(d.users)); }
+      if (typeof d.partners === 'number') { setText('statPartners', fmt(d.partners)); setText('statPartnersFooter', fmt(d.partners)); }
+      if (typeof d.reservations === 'number') { setText('statReservations', fmt(d.reservations)); }
+    })
+    .catch(function(){ /* basisgetallen blijven staan */ });
 })();
 </script>
 

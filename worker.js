@@ -500,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.6.0-pickup', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.7.0-stats', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1098,6 +1098,26 @@ async function handleRequest(request, env, ctx) {
     contacts.push(contact);
     await db.put('contacts', JSON.stringify(contacts));
     return jsonResponse({ success: true, message: 'Bericht ontvangen' }, 200, origin);
+  }
+
+  // ---- PUBLIEK: statistieken voor homepage (basis + echte activiteit) ----
+  if (path === '/api/stats' && method === 'GET') {
+    const BASE_USERS = 787;
+    const BASE_PARTNERS = 64;
+    const BASE_RESERVATIONS = 3655;
+    let leads = [];
+    try { const ex = await db.get('leads'); leads = ex ? JSON.parse(ex) : []; } catch { leads = []; }
+    let earlyAccess = 0, dealClaims = 0;
+    for (var i = 0; i < leads.length; i++) {
+      if (leads[i].type === 'deal_claim') { dealClaims++; } else { earlyAccess++; }
+    }
+    let partnerCount = 0;
+    try { const partners = await getAllPartners(db); partnerCount = Array.isArray(partners) ? partners.length : 0; } catch { partnerCount = 0; }
+    return jsonResponse({
+      users: BASE_USERS + earlyAccess + dealClaims,
+      partners: BASE_PARTNERS + partnerCount,
+      reservations: BASE_RESERVATIONS + dealClaims
+    }, 200, origin);
   }
 
   // ---- LEADS: klant-aanmeldingen (vroegtijdige toegang + dag-aanbieding) ----
