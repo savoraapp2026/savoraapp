@@ -500,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.8.0-ads', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.9.0-billing', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1387,6 +1387,52 @@ async function handleRequest(request, env, ctx) {
       partners: safePartners.slice(-20).reverse(),
       contacts: contacts.slice(-20).reverse()
     }, 200, origin);
+  }
+
+  // ============================================
+  // ADMIN: FATURIM / TAKSAT — wat elke partner betaald heeft (per maand)
+  // ============================================
+  if (path === '/api/admin/billing' && method === 'GET') {
+    const decoded = await isAdminAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+
+    const partners = await getAllPartners(db);
+    const pMap = {};
+    partners.forEach(function(p){
+      pMap[p.id] = { id: p.id, business: p.business || '', contact: p.contact || '', nipt: p.nipt || p.nui || '', totalPaid: 0, byMonth: {} };
+    });
+
+    const payments = [];
+    const monthsSet = {};
+    let grandTotal = 0;
+    try {
+      const list = await db.list({ prefix: 'creditpkg_' });
+      for (const key of (list.keys || [])) {
+        let pkg;
+        try { pkg = JSON.parse(await db.get(key.name)); } catch (e) { continue; }
+        const price = Number(pkg.price) || 0;
+        if (price <= 0) continue; // gratis admin-toekenningen tellen niet als betaling
+        const when = pkg.purchasedAt ? new Date(pkg.purchasedAt) : null;
+        const month = when ? (when.getFullYear() + '-' + String(when.getMonth() + 1).padStart(2, '0')) : 'onbekend';
+        monthsSet[month] = true;
+        grandTotal += price;
+        let row = pMap[pkg.partnerId];
+        if (!row) { row = pMap[pkg.partnerId] = { id: pkg.partnerId, business: '(i panjohur)', contact: '', nipt: '', totalPaid: 0, byMonth: {} }; }
+        row.totalPaid += price;
+        row.byMonth[month] = (row.byMonth[month] || 0) + price;
+        payments.push({
+          partnerId: pkg.partnerId, business: row.business, contact: row.contact, nipt: row.nipt,
+          amount: price, date: when ? when.toISOString().split('T')[0] : '', month: month,
+          package: pkg.name || '', paymentRef: pkg.paymentRef || ''
+        });
+      }
+    } catch (e) { /* leeg */ }
+
+    const partnersArr = Object.keys(pMap).map(function(k){ return pMap[k]; }).sort(function(a,b){ return b.totalPaid - a.totalPaid; });
+    const months = Object.keys(monthsSet).sort().reverse();
+    payments.sort(function(a,b){ return (b.date || '').localeCompare(a.date || ''); });
+
+    return jsonResponse({ success: true, partners: partnersArr, payments: payments, months: months, totalPaid: grandTotal }, 200, origin);
   }
 
   // ============================================
