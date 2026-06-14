@@ -116,6 +116,11 @@
     <p>Produkte të freskëta nga bizneset pranë teje, me zbritje. Zgjidh një ofertë para se të mbarojë.</p>
   </section>
 
+  <section id="promoSection" style="display:none;max-width:1100px;margin:0 auto;padding:0 20px">
+    <h2 style="font-size:1.1rem;font-weight:800;color:#92400e;display:flex;align-items:center;gap:8px;margin:18px 0 12px">⭐ Oferta të Promovuara</h2>
+    <div id="promoGrid" class="grid"></div>
+  </section>
+
   <div id="cityFilter" class="city-filter"></div>
   <main id="dealsGrid" class="grid" aria-live="polite"></main>
 
@@ -270,7 +275,13 @@
   }
 
   var allDeals = [];
+  var allAds = [];
   var currentCity = '';
+
+  function refreshAll(){
+    buildCityFilter(allDeals.concat(allAds));
+    applyFilter();
+  }
 
   function loadDeals(){
     showLoading();
@@ -279,8 +290,7 @@
       .then(function(data){
         if(data && data.success){
           allDeals = data.deals || [];
-          buildCityFilter(allDeals);
-          applyFilter();
+          refreshAll();
         } else showError();
       })
       .catch(showError);
@@ -293,8 +303,8 @@
     deals.forEach(function(d){ if(d.city && cities.indexOf(d.city)===-1) cities.push(d.city); });
     cities.sort();
     if(cities.length===0){ bar.innerHTML=''; return; }
-    var html = '<button class="city-chip active" data-city="">Të gjitha</button>';
-    cities.forEach(function(c){ html += '<button class="city-chip" data-city="'+esc(c)+'">'+esc(c)+'</button>'; });
+    var html = '<button class="city-chip'+(currentCity===''?' active':'')+'" data-city="">Të gjitha</button>';
+    cities.forEach(function(c){ html += '<button class="city-chip'+(currentCity===c?' active':'')+'" data-city="'+esc(c)+'">'+esc(c)+'</button>'; });
     bar.innerHTML = html;
     bar.querySelectorAll('.city-chip').forEach(function(chip){
       chip.addEventListener('click', function(){
@@ -309,6 +319,8 @@
   function applyFilter(){
     var filtered = currentCity ? allDeals.filter(function(d){ return d.city === currentCity; }) : allDeals;
     render(filtered);
+    var filteredAds = currentCity ? allAds.filter(function(a){ return a.city === currentCity; }) : allAds;
+    renderAds(filteredAds);
   }
 
   // ---- Modal ----
@@ -381,6 +393,61 @@
     });
   }
 
+  // ---- Reklama të promovuara (premium ads, zichtbaar voor klanten) ----
+  var catEmojiAds = { food:'🍽️', bakery:'🥐', produce:'🍎', meat:'🥩', dairy:'🧀', other:'🍴' };
+  function adCard(a){
+    var media = a.imageUrl
+      ? '<img src="'+esc(a.imageUrl)+'" alt="'+esc(a.title)+'" style="width:100%;height:100%;object-fit:cover">'
+      : (catEmojiAds[a.category] || '⭐');
+    var html = '<article class="card" style="border:2px solid #F5C518;box-shadow:0 6px 16px rgba(245,197,24,.28)">';
+    html += '<div class="card-media">'+ media;
+    html += '<span class="badge-discount" style="background:#F5C518;color:#3a2d00">⭐ E Promovuar</span>';
+    html += '</div>';
+    html += '<div class="card-body">';
+    html += '<div class="card-title">'+esc(a.title)+'</div>';
+    var meta = [];
+    if(a.partnerName) meta.push(esc(a.partnerName));
+    if(a.city) meta.push(esc(a.city));
+    html += '<div class="card-meta">'+ meta.join(' <span class="sep">·</span> ') +'</div>';
+    if(a.description) html += '<div class="card-desc">'+esc(a.description)+'</div>';
+    if(a.price!=null && a.price!=='') html += '<div class="price-row"><span class="price-now">'+fmtPrice(a.price)+'</span></div>';
+    var mapQ = ((a.partnerName||'') + ' ' + (a.city||'')).trim();
+    html += '<div class="card-actions">';
+    if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="Shiko në hartë">📍 Hartë</button>';
+    html += '<button class="btn-claim" type="button" data-id="'+esc(a.id)+'">E dua këtë</button>';
+    html += '</div>';
+    html += '</div></article>';
+    return html;
+  }
+  function renderAds(ads){
+    var sec = document.getElementById('promoSection');
+    var grid = document.getElementById('promoGrid');
+    if(!sec || !grid) return;
+    if(!ads || ads.length===0){ sec.style.display='none'; grid.innerHTML=''; return; }
+    sec.style.display='block';
+    grid.innerHTML = ads.map(adCard).join('');
+    grid.querySelectorAll('.btn-claim').forEach(function(b){
+      b.addEventListener('click', function(){
+        var id = b.getAttribute('data-id');
+        var a = ads.filter(function(x){return x.id===id;})[0];
+        if(a) openModal(a);
+      });
+    });
+    grid.querySelectorAll('.btn-map').forEach(function(b){
+      b.addEventListener('click', function(){
+        var q = b.getAttribute('data-mapq');
+        if(q) window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q), '_blank', 'noopener');
+      });
+    });
+  }
+  function loadAds(){
+    fetch(API_BASE + '/api/ads')
+      .then(function(r){ return r.json(); })
+      .then(function(data){ if(data && data.success){ allAds = data.ads || []; refreshAll(); } })
+      .catch(function(){});
+  }
+
+  loadAds();
   loadDeals();
 </script>
 </body>

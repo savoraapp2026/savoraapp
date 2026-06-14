@@ -959,6 +959,11 @@
               <option value="other" data-i18n="catOther">Të tjera</option>
             </select>
           </div>
+          <div class="form-group">
+            <label data-i18n="adPriceLabel">Çmimi (LEK)</label>
+            <input type="number" id="adPrice" min="0" step="1" placeholder="p.sh. 500" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
+          </div>
+          <div id="adBalanceHint" style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px"></div>
           <div id="adError" style="margin-bottom:12px"></div>
           <div id="adSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
@@ -1030,7 +1035,19 @@
           </div>
           <div class="form-group">
             <label data-i18n="ofCityLabel">Qyteti</label>
-            <input type="text" id="dealCity" placeholder="p.sh. Tiranë" data-i18n-placeholder="ofCityPh">
+            <select id="dealCity">
+              <option value="">— Zgjidhni qytetin —</option>
+              <option value="Tiranë">Tiranë</option>
+              <option value="Durrës">Durrës</option>
+              <option value="Vlorë">Vlorë</option>
+              <option value="Shkodër">Shkodër</option>
+              <option value="Elbasan">Elbasan</option>
+              <option value="Fier">Fier</option>
+              <option value="Korçë">Korçë</option>
+              <option value="Berat">Berat</option>
+              <option value="Lushnjë">Lushnjë</option>
+              <option value="Sarandë">Sarandë</option>
+            </select>
           </div>
           <div class="form-group">
             <label><span data-i18n="ofAddrLabel">Adresa e plotë</span> <span style="color:#dc2626">*</span></label>
@@ -1042,6 +1059,7 @@
             <input type="file" id="dealImageFile" accept="image/*">
             <img id="dealImagePreview" alt="" style="display:none;margin-top:8px;max-height:130px;border-radius:8px;border:1px solid var(--gray-200)">
           </div>
+          <div id="dealBalanceHint" style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px"></div>
           <div id="dealError" style="margin-bottom:12px"></div>
           <div id="dealSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
@@ -2949,7 +2967,7 @@
     loadStats();
     renderCredits();
     renderMyBoxes();
-    renderMyAds();
+    loadMyAds();
     switchTab('overview');
   }
 
@@ -2998,8 +3016,37 @@
     if (nb) nb.classList.add('active');
     if (tab === 'invoices') loadInvoices();
     if (tab === 'boxes') renderMyBoxes();
-    if (tab === 'ads') renderMyAds();
-    if (tab === 'ofertat') { loadMyDeals(); loadMyClaims(); }
+    if (tab === 'ads') { loadMyAds(); syncFormBalance(); }
+    if (tab === 'ofertat') { loadMyDeals(); loadMyClaims(); syncFormBalance(); }
+  }
+
+  function syncFormBalance() {
+    var balEl = document.getElementById('creditBalance');
+    var bal = balEl ? (parseInt((balEl.textContent || '0').replace(/\D/g, ''), 10) || 0) : 0;
+    var t = T[currentLang] || {};
+    var lbl = t.ofKredit || 'kredite';
+    function set(id, need){
+      var el = document.getElementById(id);
+      if (!el) return;
+      var ok = bal >= need;
+      el.innerHTML = '<span style="color:' + (ok ? 'var(--primary)' : '#dc2626') + '">' +
+        (t.creditTitle || 'Kredite') + ': <strong>' + bal + '</strong> ' + lbl + '</span>';
+    }
+    set('dealBalanceHint', 1);
+    set('adBalanceHint', 3);
+  }
+
+  function creditAwareError(msg, need) {
+    var t = T[currentLang] || {};
+    var isCredit = /credit|kredit|genoeg|actieve/i.test(String(msg || ''));
+    var safe = String(msg || '').replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; });
+    var text = isCredit
+      ? ((t.insufficientCredits || 'Nuk keni kredite të mjaftueshme') + ' (' + need + ' ' + (t.ofKredit || 'kredite') + ').')
+      : safe;
+    var cta = isCredit
+      ? '<button type="button" onclick="switchTab(\'credits\')" style="margin-top:8px;display:block;width:100%;padding:8px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:0.8rem">' + (t.btnTopUp || 'Blej Kredite') + '</button>'
+      : '';
+    return '<div class="error-msg">' + text + cta + '</div>';
   }
 
   // Set tab data attributes
@@ -3053,19 +3100,7 @@
   // ========================================
   // ADVERTISEMENTS
   // ========================================
-  var myAds = JSON.parse(localStorage.getItem('savora_my_ads') || '[]');
-
-  // Herstel een advertentie die in de oude Paysera-flow bleef hangen
-  try {
-    var _pend = JSON.parse(localStorage.getItem('savora_pending_ad') || 'null');
-    if (_pend && _pend.id && !myAds.some(function(a){ return a.id === _pend.id; })) {
-      _pend.status = 'active';
-      myAds.push(_pend);
-      localStorage.setItem('savora_my_ads', JSON.stringify(myAds));
-    }
-    localStorage.removeItem('savora_pending_ad');
-  } catch(e) {}
-
+  var myAds = [];
   var AD_PRICE_LEK = 200;
 
   function handleAdSubmit(e) {
@@ -3077,6 +3112,8 @@
     var title = document.getElementById('adTitle').value.trim();
     var desc = document.getElementById('adDescription').value.trim();
     var category = document.getElementById('adCategory').value;
+    var priceEl = document.getElementById('adPrice');
+    var price = priceEl ? priceEl.value.trim() : '';
 
     if (errDiv) errDiv.innerHTML = '';
     if (succDiv) succDiv.innerHTML = '';
@@ -3086,94 +3123,81 @@
       return;
     }
 
-    var adData = {
-      id: 'ad_' + Date.now(),
-      title: title,
-      description: desc,
-      price: AD_PRICE_LEK,
-      category: category,
-      status: 'active',
-      createdAt: new Date().toISOString().split('T')[0]
-    };
+    if (btn) btn.disabled = true;
+    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : '';
 
-    function saveAndShow() {
-      myAds.push(adData);
-      localStorage.setItem('savora_my_ads', JSON.stringify(myAds));
-      localStorage.removeItem('savora_pending_ad');
-      var f = document.getElementById('adForm'); if (f) f.reset();
-      renderMyAds();
-      if (succDiv) succDiv.innerHTML = '<div class="success-msg">' + (t.adPublished || 'Reklama u publikua!') + '</div>';
-    }
     function resetBtn() {
       if (btn) { btn.disabled = false; btn.textContent = t.btnPublishAd || 'Publiko Reklamën (3 Kredite)'; }
     }
 
-    if (btn) btn.disabled = true;
-    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : '';
-
-    // Schrijf 3 credits af; toon de advertentie alleen als dat lukt
-    fetch(API_BASE + '/api/credits/use', {
+    // Plaats de advertentie op de server (3 credits) — wordt zichtbaar voor klanten
+    fetch(API_BASE + '/api/ads', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
-      body: JSON.stringify({ adId: adData.id, adType: 'premium_ad' })
+      body: JSON.stringify({ title: title, description: desc, price: price, category: category })
     })
     .then(function(r){ return r.json(); })
     .then(function(d){
       if (d && d.success) {
-        saveAndShow();
+        var f = document.getElementById('adForm'); if (f) f.reset();
+        if (succDiv) succDiv.innerHTML = '<div class="success-msg">' + (t.adPublished || 'Reklama u publikua!') + '</div>';
+        loadMyAds();
         if (partnerId && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(partnerId);
       } else if (errDiv) {
-        errDiv.innerHTML = '<div class="error-msg">' + ((d && d.error) || 'Kredite të pamjaftueshme. Blini një paketë krediti.') + '</div>';
+        errDiv.innerHTML = creditAwareError((d && d.error) || 'Kredite të pamjaftueshme', 3);
       }
       resetBtn();
     })
     .catch(function(){
-      // Netwerkfout: bewaar de advertentie toch zodat je werk niet verloren gaat
-      saveAndShow();
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + (t.loginError || 'Gabim lidhjeje') + '</div>';
       resetBtn();
     });
   }
 
-  function createPayseraPayment(amountLEK, orderRef, callback) {
-    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : '';
-    fetch(API_BASE + '/api/paysera/create-payment', {
+  function loadMyAds() {
+    if (!partnerToken) { renderMyAds(); return; }
+    fetch(API_BASE + '/api/ads/mine', { headers: { 'Authorization': 'Bearer ' + partnerToken } })
+      .then(function(r){ return r.json(); })
+      .then(function(d){ myAds = (d && d.ads) || []; renderMyAds(); })
+      .catch(function(){ renderMyAds(); });
+  }
+
+  function deleteAd(adId) {
+    var t = T[currentLang] || {};
+    if (!confirm(t.confirmDeleteAd || 'Të fshihet kjo reklamë?')) return;
+    fetch(API_BASE + '/api/ads/delete', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
-      body: JSON.stringify({partnerId: partnerId, amount: amountLEK, orderId: orderRef, currency: 'LEK'})
+      body: JSON.stringify({ adId: adId })
     })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.success && data.url) {
-        callback(true, data.url);
-      } else {
-        callback(false);
-      }
-    })
-    .catch(function() {
-      callback(false);
-    });
+    .then(function(r){ return r.json(); })
+    .then(function(){ loadMyAds(); })
+    .catch(function(){});
   }
 
   function renderMyAds() {
     var t = T[currentLang] || {};
     var list = document.getElementById('myAdsList');
     if (!list) return;
-    if (myAds.length === 0) {
+    if (!myAds.length) {
       list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noAds || 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!') + '</p>';
       return;
     }
     var catLabels = {food: 'Ushqim', bakery: 'Bukë', produce: 'Fruta', meat: 'Mish', dairy: 'Bulmet', other: 'Të tjera'};
-    list.innerHTML = myAds.slice().reverse().map(function(ad) {
-      return '<div class="ad-card" style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px">' +
-        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">' +
-          '<strong style="font-size:0.9rem">' + escapeHtml(ad.title) + '</strong>' +
-          '<span style="font-size:0.8rem;font-weight:700;color:var(--primary)">' + ad.price + ' LEK</span>' +
+    list.innerHTML = myAds.map(function(ad) {
+      var when = ad.createdAt ? String(ad.createdAt).split('T')[0] : '';
+      var priceHtml = (ad.price != null && ad.price !== '') ? ('<span style="font-size:0.8rem;font-weight:700;color:var(--primary)">' + escapeHtml(String(ad.price)) + ' LEK</span>') : '';
+      return '<div class="ad-card" style="border:1px solid #F5C518;background:#FFFDF5;border-radius:10px;padding:12px;margin-bottom:8px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px">' +
+          '<strong style="font-size:0.9rem">⭐ ' + escapeHtml(ad.title) + '</strong>' +
+          priceHtml +
         '</div>' +
-        '<div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:4px">' + escapeHtml(ad.description || '') + '</div>' +
+        '<div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:6px">' + escapeHtml(ad.description || '') + '</div>' +
         '<div style="display:flex;justify-content:space-between;align-items:center">' +
-          '<span style="font-size:0.7rem;background:var(--gray-100);padding:2px 8px;border-radius:8px">' + (catLabels[ad.category] || ad.category) + '</span>' +
-          '<span style="font-size:0.7rem;color:var(--gray-400)">' + ad.createdAt + '</span>' +
+          '<span style="font-size:0.7rem;background:var(--gray-100);padding:2px 8px;border-radius:8px">' + (catLabels[ad.category] || ad.category || '') + '</span>' +
+          '<span style="font-size:0.7rem;color:var(--gray-400)">' + when + '</span>' +
         '</div>' +
+        '<button onclick="deleteAd(\'' + ad.id + '\')" style="margin-top:8px;width:100%;padding:6px;border:1px solid var(--gray-200);background:#fff;border-radius:8px;font-size:0.75rem;color:var(--danger);cursor:pointer">' + (t.btnDelete || 'Hiq reklamën') + '</button>' +
       '</div>';
     }).join('');
   }
@@ -3479,6 +3503,7 @@
       var history = data.transactions || data.history || [];
 
       document.getElementById('creditBalance').textContent = balance.toLocaleString();
+      if (typeof syncFormBalance === 'function') syncFormBalance();
       document.getElementById('creditMonthly').textContent = '1 kredit = 1 postim';
       var postimeText = {
         sq: 'postime të mbetura', en: 'posts remaining', nl: 'posts resterend',
@@ -3792,8 +3817,8 @@
     var address = document.getElementById('dealAddress').value.trim();
     var image = window.__savoraDealImage || '';
 
-    if (!title || !dealPrice || !address) {
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin, çmimin dhe adresën e ofertës.</div>';
+    if (!title || !dealPrice || !address || !city) {
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin, çmimin, qytetin dhe adresën e ofertës.</div>';
       return;
     }
     if (!partnerToken) {
@@ -3830,7 +3855,9 @@
         var pid = localStorage.getItem('savora_partner_id');
         if (pid && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(pid);
       } else {
-        if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + ((data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.') + '</div>';
+        var emsg = (data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.';
+        if (errDiv) errDiv.innerHTML = creditAwareError(emsg, 1);
+        if (typeof syncFormBalance === 'function') syncFormBalance();
       }
     })
     .catch(function(){
@@ -3942,7 +3969,7 @@
     showLogin, showRegister, showForgotPassword, logout,
     verifyRegistrationCode, resendVerifyCodeWithTimer,
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
-    handleAdSubmit, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
+    handleAdSubmit, deleteAd, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
     handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims,
     validateNuiRealtime
   });

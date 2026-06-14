@@ -500,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.7.0-stats', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.8.0-ads', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1074,11 +1074,101 @@ async function handleRequest(request, env, ctx) {
     let deals = [];
     try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
     const myDealIds = deals.filter(function(d) { return d.partnerId === decoded.partnerId; }).map(function(d) { return d.id; });
+    let adsForClaims = [];
+    try { const exa = await db.get('ads'); adsForClaims = exa ? JSON.parse(exa) : []; } catch { adsForClaims = []; }
+    const myAdIds = adsForClaims.filter(function(a) { return a.partnerId === decoded.partnerId; }).map(function(a) { return a.id; });
+    const myIds = myDealIds.concat(myAdIds);
     let leads = [];
     try { const ex = await db.get('leads'); leads = ex ? JSON.parse(ex) : []; } catch { leads = []; }
-    const claims = leads.filter(function(l) { return l.type === 'deal_claim' && myDealIds.indexOf(l.dealId) !== -1; })
+    const claims = leads.filter(function(l) { return l.type === 'deal_claim' && myIds.indexOf(l.dealId) !== -1; })
       .sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
     return jsonResponse({ success: true, count: claims.length, claims: claims }, 200, origin);
+  }
+
+  // ============================================
+  // REKLAMA TË PROMOVUARA (PREMIUM ADS) — zichtbaar voor klanten
+  // ============================================
+  // Partner plaatst een promotie — kost 3 credits, 7 dagen zichtbaar
+  if (path === '/api/ads' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+
+    const { title, description, price, category, imageUrl } = body;
+    if (!title || !String(title).trim()) {
+      return jsonResponse({ error: 'Titel is verplicht' }, 400, origin);
+    }
+
+    const adId = 'ad_' + Date.now() + Math.random().toString(36).slice(2, 6);
+
+    // 3 credits afschrijven voor een premium advertentie
+    const credit = await deductCredit(db, decoded.partnerId, adId, 'premium_ad', 3);
+    if (!credit.success) return jsonResponse({ error: credit.error || 'Onvoldoende credits' }, 400, origin);
+
+    const partner = await getPartnerById(db, decoded.partnerId);
+    const now = Date.now();
+    const ad = {
+      id: adId,
+      partnerId: decoded.partnerId,
+      partnerName: partner ? (partner.business || partner.name || '') : '',
+      city: partner ? (partner.city || '') : '',
+      title: String(title).trim(),
+      description: description || '',
+      price: (price !== undefined && price !== null && price !== '') ? price : null,
+      category: category || 'other',
+      imageUrl: imageUrl || '',
+      featured: true,
+      createdAt: new Date(now).toISOString(),
+      expiresAt: new Date(now + 7 * 24 * 60 * 60 * 1000).toISOString(),
+      active: true
+    };
+
+    let ads = [];
+    try { const ex = await db.get('ads'); ads = ex ? JSON.parse(ex) : []; } catch { ads = []; }
+    ads.push(ad);
+    await db.put('ads', JSON.stringify(ads));
+    return jsonResponse({ success: true, ad: ad }, 200, origin);
+  }
+
+  // Publiek: actieve advertenties voor klanten
+  if (path === '/api/ads' && method === 'GET') {
+    let ads = [];
+    try { const ex = await db.get('ads'); ads = ex ? JSON.parse(ex) : []; } catch { ads = []; }
+    const now = Date.now();
+    const active = ads.filter(function(a) {
+      if (a.active === false) return false;
+      if (a.expiresAt && new Date(a.expiresAt).getTime() < now) return false;
+      return true;
+    }).sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: active.length, ads: active }, 200, origin);
+  }
+
+  // Partner: eigen advertenties
+  if (path === '/api/ads/mine' && method === 'GET') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    let ads = [];
+    try { const ex = await db.get('ads'); ads = ex ? JSON.parse(ex) : []; } catch { ads = []; }
+    const mine = ads.filter(function(a) { return a.partnerId === decoded.partnerId; })
+      .sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+    return jsonResponse({ success: true, count: mine.length, ads: mine }, 200, origin);
+  }
+
+  // Partner: advertentie stoppen (alleen eigen)
+  if (path === '/api/ads/delete' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    const adId = body.adId || body.id;
+    if (!adId) return jsonResponse({ error: 'adId is verplicht' }, 400, origin);
+    let ads = [];
+    try { const ex = await db.get('ads'); ads = ex ? JSON.parse(ex) : []; } catch { ads = []; }
+    let found = false;
+    ads = ads.map(function(a) {
+      if (a.id === adId && a.partnerId === decoded.partnerId) { found = true; a.active = false; a.stoppedAt = new Date().toISOString(); }
+      return a;
+    });
+    if (!found) return jsonResponse({ error: 'Advertentie niet gevonden' }, 404, origin);
+    await db.put('ads', JSON.stringify(ads));
+    return jsonResponse({ success: true }, 200, origin);
   }
 
   // ============================================

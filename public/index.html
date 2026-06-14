@@ -390,6 +390,13 @@
         right: -30px; 
       } 
     }
+  /* Bewegende (scrollende) kaarten in het telefoon-mockup */
+  #appContent { max-height: 280px; overflow: hidden; }
+  #appContent .app-scroller { display: block; animation: appScroll 16s linear infinite; will-change: transform; }
+  #appContent .app-scroller:hover { animation-play-state: paused; }
+  #appContent .app-scroller .app-card { margin-bottom: var(--space-3); }
+  @keyframes appScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @media (prefers-reduced-motion: reduce) { #appContent .app-scroller { animation: none; } }
   </style>
   
   <!-- Preload critical assets -->
@@ -2660,32 +2667,48 @@ if (document.readyState === 'loading') {
 </script>
 
 <script>
-// Toon echte Ofertat-aanbiedingen in het telefoon-mockup; val terug op de voorbeelden als er nog geen zijn
+// Toon promotie-advertenties (⭐) eerst, dan gewone aanbiedingen, in een scrollende strip; val terug op voorbeelden als er nog niets is
 (function(){
   var el = document.getElementById('appContent');
   if (!el) return;
   var catEmoji = { food: '🍽️', bakery: '🥐', produce: '🍎', meat: '🥩', dairy: '🧀', other: '🍴' };
+  var fallback = [
+    { category:'bakery', title:'Bukë e Freskët', dealPrice:'350', originalPrice:'700' },
+    { category:'produce', title:'Fruta Mix', dealPrice:'500', originalPrice:'1,200' },
+    { category:'food', title:'Menu Fast Food', dealPrice:'400', originalPrice:'900' }
+  ];
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
-  fetch('https://api.savoraapp.com/api/deals')
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(data){
-      var deals = (data && data.deals) || [];
-      if (!deals.length) return; // behoud de voorbeeldkaarten
-      el.innerHTML = deals.slice(0, 3).map(function(d){
-        var emoji = catEmoji[d.category] || '🍴';
-        var oldPrice = (d.originalPrice != null && d.originalPrice !== '')
-          ? '<span class="app-card-old">' + esc(d.originalPrice) + ' ALL</span>' : '';
-        return '<div class="app-card">' +
-            '<div class="app-card-image">' + emoji + '</div>' +
-            '<div class="app-card-info">' +
-              '<span class="app-card-title">' + esc(d.title) + '</span>' +
-              '<span class="app-card-price">' + esc(d.dealPrice) + ' ALL</span>' +
-              oldPrice +
-            '</div>' +
-          '</div>';
-      }).join('');
-    })
-    .catch(function(){ /* voorbeeldkaarten blijven staan */ });
+  function card(item, isAd){
+    var emoji = catEmoji[item.category] || '🍴';
+    var price = isAd ? item.price : item.dealPrice;
+    var oldP = (!isAd && item.originalPrice != null && item.originalPrice !== '')
+      ? '<span class="app-card-old">' + esc(item.originalPrice) + ' ALL</span>' : '';
+    var priceHtml = (price != null && price !== '') ? ('<span class="app-card-price">' + esc(price) + ' ALL</span>') : '';
+    return '<div class="app-card">' +
+        '<div class="app-card-image">' + emoji + '</div>' +
+        '<div class="app-card-info">' +
+          '<span class="app-card-title">' + (isAd ? '⭐ ' : '') + esc(item.title) + '</span>' +
+          priceHtml + oldP +
+        '</div>' +
+      '</div>';
+  }
+  function renderScroller(cards){
+    var n = cards.length;
+    if (!n) return;
+    var html = cards.join('');
+    var animate = n >= 3;
+    var dur = Math.max(12, n * 5);
+    el.innerHTML = '<div class="app-scroller" style="' + (animate ? ('animation-duration:' + dur + 's') : 'animation:none') + '">' + html + (animate ? html : '') + '</div>';
+  }
+  function getJSON(url){ return fetch(url).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
+  Promise.all([ getJSON('https://api.savoraapp.com/api/ads'), getJSON('https://api.savoraapp.com/api/deals') ])
+    .then(function(res){
+      var ads = (res[0] && res[0].ads) || [];
+      var deals = (res[1] && res[1].deals) || [];
+      var arr = ads.map(function(a){ return card(a, true); }).concat(deals.map(function(d){ return card(d, false); }));
+      if (!arr.length) arr = fallback.map(function(d){ return card(d, false); });
+      renderScroller(arr.slice(0, 8));
+    });
 })();
 </script>
 
