@@ -500,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.9.0-billing', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.11.0-adplans', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1093,15 +1093,16 @@ async function handleRequest(request, env, ctx) {
     const decoded = await isPartnerAuthorized(request, env);
     if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
 
-    const { title, description, price, category, imageUrl } = body;
+    const { title, description, price, category, imageUrl, plan } = body;
     if (!title || !String(title).trim()) {
       return jsonResponse({ error: 'Titel is verplicht' }, 400, origin);
     }
 
     const adId = 'ad_' + Date.now() + Math.random().toString(36).slice(2, 6);
 
-    // 3 credits afschrijven voor een premium advertentie
-    const credit = await deductCredit(db, decoded.partnerId, adId, 'premium_ad', 3);
+    // Plan: 48 uur = 3 credits, 7 dagen = 5 credits
+    const planCfg = (plan === '7d') ? { credits: 5, days: 7, key: '7d' } : { credits: 3, days: 2, key: '48h' };
+    const credit = await deductCredit(db, decoded.partnerId, adId, 'premium_ad', planCfg.credits);
     if (!credit.success) return jsonResponse({ error: credit.error || 'Onvoldoende credits' }, 400, origin);
 
     const partner = await getPartnerById(db, decoded.partnerId);
@@ -1117,8 +1118,10 @@ async function handleRequest(request, env, ctx) {
       category: category || 'other',
       imageUrl: imageUrl || '',
       featured: true,
+      plan: planCfg.key,
+      creditsUsed: planCfg.credits,
       createdAt: new Date(now).toISOString(),
-      expiresAt: new Date(now + 7 * 24 * 60 * 60 * 1000).toISOString(),
+      expiresAt: new Date(now + planCfg.days * 24 * 60 * 60 * 1000).toISOString(),
       active: true
     };
 

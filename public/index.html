@@ -841,7 +841,7 @@
       </div>
       
       <div class="spotlight-cta">
-        <a href="#partners" class="btn btn-secondary btn-sm">Bëhuni Partner Premium</a>
+        <a href="/partner.html" class="btn btn-secondary btn-sm">Bëhuni Partner Premium</a>
       </div>
     </div>
     
@@ -985,8 +985,33 @@
         }
       }
       
+      // Laad echte premium-advertenties; val terug op voorbeelden als er nog geen zijn
+      function emojiForCat(cat){ return ({food:'🍽️',bakery:'🥐',produce:'🍎',meat:'🥩',dairy:'🧀',other:'🍴'})[cat] || '⭐'; }
+      function escAd(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+      function buildAdSlides(ads){
+        track.innerHTML = ads.map(function(a){
+          return '<div class="rotatie-slide" data-city="' + escAd(a.city||'') + '">' +
+            '<div class="rotatie-card">' +
+              '<div class="rotatie-emoji">' + emojiForCat(a.category) + '</div>' +
+              '<div class="rotatie-content">' +
+                '<div class="rotatie-badge">⭐ PREMIUM</div>' +
+                '<h3 class="rotatie-title">' + escAd(a.title) + '</h3>' +
+                '<p class="rotatie-desc">' + escAd(a.description||'') + '</p>' +
+                '<div class="rotatie-city">📍 ' + escAd(a.city||'') + '</div>' +
+                '<a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+        allSlides = document.querySelectorAll('.rotatie-slide');
+      }
+
       // Start
-      detectCity();
+      fetch('https://api.savoraapp.com/api/ads')
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(d){ var ads = (d && d.ads) || []; if (ads.length) buildAdSlides(ads); })
+        .catch(function(){})
+        .then(function(){ detectCity(); });
     })();
     </script>
   </section>

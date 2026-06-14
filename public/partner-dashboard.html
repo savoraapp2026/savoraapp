@@ -391,7 +391,7 @@
       .lang-switcher{display:none!important}
     }
   </style>
-  <meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+  <meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body data-mode="partner">
 
@@ -963,6 +963,13 @@
             <label data-i18n="adPriceLabel">Çmimi (LEK)</label>
             <input type="number" id="adPrice" min="0" step="1" placeholder="p.sh. 500" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
           </div>
+          <div class="form-group">
+            <label>⭐ Plani i dukshmërisë</label>
+            <select id="adPlan" onchange="onAdPlanChange()" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
+              <option value="48h">3 kredite — 48 orë</option>
+              <option value="7d">5 kredite — 7 ditë</option>
+            </select>
+          </div>
           <div id="adBalanceHint" style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px"></div>
           <div id="adError" style="margin-bottom:12px"></div>
           <div id="adSuccess" style="margin-bottom:12px"></div>
@@ -1051,8 +1058,14 @@
           </div>
           <div class="form-group">
             <label><span data-i18n="ofAddrLabel">Adresa e plotë</span> <span style="color:#dc2626">*</span></label>
-            <input type="text" id="dealAddress" placeholder="p.sh. Rruga Dëshmorët e Kombit 5" data-i18n-placeholder="ofAddrPh" required>
-            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px" data-i18n="ofAddrHint">Rrugë dhe numër — që klientët të të gjejnë në Google Maps</small>
+            <div style="position:relative">
+              <input type="text" id="addrSearch" placeholder="🔍 Kërko adresën në hartë..." autocomplete="off" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
+              <div id="addrResults" style="display:none;position:absolute;z-index:2000;left:0;right:0;background:#fff;border:1px solid var(--gray-200);border-radius:8px;margin-top:2px;max-height:200px;overflow:auto;box-shadow:0 4px 12px rgba(0,0,0,.12)"></div>
+            </div>
+            <div id="addrMap" style="height:200px;border-radius:8px;margin-top:8px;display:none"></div>
+            <input type="text" id="dealAddress" placeholder="Adresa plotësohet nga harta" readonly required style="margin-top:8px;background:var(--gray-50)">
+            <input type="hidden" id="dealLat"><input type="hidden" id="dealLng">
+            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px">Kërko dhe zgjidh adresën reale nga harta — ose kliko në hartë. Kështu klientët të gjejnë saktë.</small>
           </div>
           <div class="form-group">
             <label><span data-i18n="ofPhotoLabel">Foto</span> <span style="color:var(--gray-500);font-weight:400;font-size:0.8rem" data-i18n="ofPhotoOptional">— opsionale</span></label>
@@ -1181,6 +1194,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js?v=2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js?v=2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 (function() {
   'use strict';
@@ -3017,7 +3031,7 @@
     if (tab === 'invoices') loadInvoices();
     if (tab === 'boxes') renderMyBoxes();
     if (tab === 'ads') { loadMyAds(); syncFormBalance(); }
-    if (tab === 'ofertat') { loadMyDeals(); loadMyClaims(); syncFormBalance(); }
+    if (tab === 'ofertat') { loadMyDeals(); loadMyClaims(); syncFormBalance(); initAddressMap(); }
   }
 
   function syncFormBalance() {
@@ -3033,7 +3047,17 @@
         (t.creditTitle || 'Kredite') + ': <strong>' + bal + '</strong> ' + lbl + '</span>';
     }
     set('dealBalanceHint', 1);
-    set('adBalanceHint', 3);
+    var adPlanEl = document.getElementById('adPlan');
+    set('adBalanceHint', (adPlanEl && adPlanEl.value === '7d') ? 5 : 3);
+  }
+
+  function onAdPlanChange() {
+    var sel = document.getElementById('adPlan');
+    var btn = document.getElementById('adSubmitBtn');
+    var t = T[currentLang] || {};
+    var cr = (sel && sel.value === '7d') ? 5 : 3;
+    if (btn) btn.textContent = 'Publiko Reklamën (' + cr + ' ' + (t.ofKredit || 'Kredite') + ')';
+    if (typeof syncFormBalance === 'function') syncFormBalance();
   }
 
   function creditAwareError(msg, need) {
@@ -3114,6 +3138,8 @@
     var category = document.getElementById('adCategory').value;
     var priceEl = document.getElementById('adPrice');
     var price = priceEl ? priceEl.value.trim() : '';
+    var planEl = document.getElementById('adPlan');
+    var plan = planEl ? planEl.value : '48h';
 
     if (errDiv) errDiv.innerHTML = '';
     if (succDiv) succDiv.innerHTML = '';
@@ -3134,7 +3160,7 @@
     fetch(API_BASE + '/api/ads', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
-      body: JSON.stringify({ title: title, description: desc, price: price, category: category })
+      body: JSON.stringify({ title: title, description: desc, price: price, category: category, plan: plan })
     })
     .then(function(r){ return r.json(); })
     .then(function(d){
@@ -3799,6 +3825,85 @@
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach); else attach();
   })();
 
+  // ===== OpenStreetMap adres-kiezer (gratis, geen API-sleutel) =====
+  var _addrMap=null, _addrMarker=null, _addrTimer=null, _addrSearchBound=false, _addrMapTries=0;
+  function setupAddrSearchOnce(){
+    if (_addrSearchBound) return;
+    var search = document.getElementById('addrSearch');
+    if (!search) return;
+    _addrSearchBound = true;
+    search.addEventListener('input', function(){
+      clearTimeout(_addrTimer);
+      var q = search.value.trim();
+      var r = document.getElementById('addrResults');
+      if (q.length < 3){ if (r) r.style.display='none'; return; }
+      _addrTimer = setTimeout(function(){ doAddrSearch(q); }, 500);
+    });
+    document.addEventListener('click', function(e){
+      var box = document.getElementById('addrResults');
+      if (box && e.target !== search && !box.contains(e.target)) box.style.display='none';
+    });
+  }
+  function initAddressMap(){
+    setupAddrSearchOnce();
+    var el = document.getElementById('addrMap');
+    if (!el) return;
+    if (!window.L){ if (_addrMapTries++ < 15) setTimeout(initAddressMap, 400); return; }
+    el.style.display='block';
+    if (_addrMap){ setTimeout(function(){ _addrMap.invalidateSize(); }, 150); return; }
+    _addrMap = L.map('addrMap').setView([41.3275, 19.8187], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(_addrMap);
+    setTimeout(function(){ _addrMap.invalidateSize(); }, 200);
+    _addrMap.on('click', function(e){ reverseGeocode(e.latlng.lat, e.latlng.lng); });
+  }
+  function doAddrSearch(q){
+    fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&countrycodes=al&limit=5&q=' + encodeURIComponent(q), { headers: { 'Accept-Language': 'sq' } })
+      .then(function(r){ return r.json(); })
+      .then(function(list){
+        var box = document.getElementById('addrResults');
+        if (!box) return;
+        if (!list || !list.length){ box.innerHTML = '<div style="padding:10px;color:#888;font-size:0.8rem">Asnjë rezultat</div>'; box.style.display='block'; return; }
+        box.innerHTML = list.map(function(it, i){
+          return '<div class="addr-opt" data-i="' + i + '" style="padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--gray-100);font-size:0.8rem">📍 ' + escapeHtml(it.display_name) + '</div>';
+        }).join('');
+        box.style.display='block';
+        box.querySelectorAll('.addr-opt').forEach(function(opt){
+          opt.addEventListener('click', function(){ selectAddr(list[parseInt(opt.getAttribute('data-i'), 10)]); });
+        });
+      })
+      .catch(function(){});
+  }
+  function reverseGeocode(lat, lng){
+    fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&lat=' + lat + '&lon=' + lng, { headers: { 'Accept-Language': 'sq' } })
+      .then(function(r){ return r.json(); })
+      .then(function(it){ if (it && it.display_name) selectAddr(it); })
+      .catch(function(){});
+  }
+  function selectAddr(it){
+    if (!it) return;
+    var addrEl = document.getElementById('dealAddress');
+    var a = it.address || {};
+    var line = '';
+    if (a.road) line += a.road + (a.house_number ? ' ' + a.house_number : '');
+    var cityName = a.city || a.town || a.village || a.municipality || a.county || '';
+    if (line && cityName) line += ', ' + cityName;
+    if (!line) line = it.display_name;
+    if (addrEl) addrEl.value = line;
+    var latEl = document.getElementById('dealLat'); if (latEl) latEl.value = it.lat;
+    var lngEl = document.getElementById('dealLng'); if (lngEl) lngEl.value = it.lon;
+    var box = document.getElementById('addrResults'); if (box) box.style.display='none';
+    var searchEl = document.getElementById('addrSearch'); if (searchEl) searchEl.value = line;
+    if (cityName){
+      var sel = document.getElementById('dealCity');
+      if (sel){ for (var i=0;i<sel.options.length;i++){ if (sel.options[i].value && sel.options[i].value.toLowerCase() === cityName.toLowerCase()){ sel.value = sel.options[i].value; break; } } }
+    }
+    if (_addrMap){
+      var ll = [parseFloat(it.lat), parseFloat(it.lon)];
+      _addrMap.setView(ll, 16);
+      if (_addrMarker) _addrMarker.setLatLng(ll); else _addrMarker = L.marker(ll).addTo(_addrMap);
+    }
+  }
+
   function handleDealSubmit(e) {
     e.preventDefault();
     var btn = document.getElementById('dealSubmitBtn');
@@ -3969,7 +4074,7 @@
     showLogin, showRegister, showForgotPassword, logout,
     verifyRegistrationCode, resendVerifyCodeWithTimer,
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
-    handleAdSubmit, deleteAd, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
+    handleAdSubmit, deleteAd, onAdPlanChange, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
     handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims,
     validateNuiRealtime
   });
