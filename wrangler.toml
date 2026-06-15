@@ -1,4 +1,4 @@
-﻿name = "savoraapp"
+name = "savoraapp"
 main = "worker.js"
 compatibility_date = "2025-01-01"
 
@@ -8,6 +8,8 @@ account_id = "de262f98ef47a3a6c986661d98a0c217"
 ENVIRONMENT = "productie"
 FRONTEND_URL = "https://savoraapp.com"
 ADMIN_USER = "admin"
+# ADMIN_PASS= AlfaRamy1604#  
+
 PAYSERA_PROJECT_ID = "256849"
 PAYSERA_CURRENCY = "ALL"
 

@@ -500,7 +500,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.12.0-marketing', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.12.1-payverify', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -510,6 +510,11 @@ async function handleRequest(request, env, ctx) {
       '<!DOCTYPE html><html><head><meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704"><title>Savoraapp API</title></head><body>Savoraapp API</body></html>',
       { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }
     );
+  }
+
+  // ---- PAYSERA: bestand-verificatie (alternatieve methode) ----
+  if (path === '/paysera_39ffaa4a0a96b7334c68bf29f1f24704.html') {
+    return new Response('39ffaa4a0a96b7334c68bf29f1f24704', { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
   }
 
   // ---- API INFO ----
