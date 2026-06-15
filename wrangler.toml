@@ -10,8 +10,10 @@ FRONTEND_URL = "https://savoraapp.com"
 ADMIN_USER = "admin"
 # ADMIN_PASS= AlfaRamy1604#  
 
+
 PAYSERA_PROJECT_ID = "256849"
 PAYSERA_CURRENCY = "ALL"
+PAYSERA_PASSWORD_ID =  "df515135e9486ce557118e00bc99d7a3"
 
 [[kv_namespaces]]
 binding = "VERIFICATION_KV"
