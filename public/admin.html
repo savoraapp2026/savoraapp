@@ -650,6 +650,12 @@
                 <a onclick="showSection('credits')">
                     <span class="icon">🪙</span> Credits
                 </a>
+                <a onclick="showSection('billing')">
+                    <span class="icon">🧾</span> Faturim/Taksat
+                </a>
+                <a onclick="showSection('marketing')">
+                    <span class="icon">📣</span> Marketing
+                </a>
                 <a onclick="showSection('settings')">
                     <span class="icon">⚙️</span> Instellingen
                 </a>
@@ -1158,6 +1164,106 @@
                 </div>
             </div>
             
+            <!-- FATURIM / TAKSAT SECTION -->
+            <div class="section-page" id="sec-billing">
+                <header class="topbar">
+                    <h1>🧾 Faturim / Taksat</h1>
+                    <button class="btn-secondary" onclick="loadBilling()">🔄 Vernieuwen</button>
+                </header>
+
+                <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0">
+                    <label style="font-weight:600">Jaar:</label>
+                    <select id="billingYear" onchange="renderBilling()" style="padding:8px;border:1px solid #ddd;border-radius:8px"></select>
+                    <label style="font-weight:600">Maand:</label>
+                    <select id="billingMonth" onchange="renderBilling()" style="padding:8px;border:1px solid #ddd;border-radius:8px">
+                        <option value="">Hele jaar</option>
+                    </select>
+                    <button class="btn-secondary" onclick="exportBillingCSV()">⬇️ Download dit jaar</button>
+                    <button class="btn-secondary" onclick="exportAllYearsCSV()">📂 Download alle jaren</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Inkomsten (selectie)</span></div>
+                        <div class="stat-value" id="billingTotal">0 LEK</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Jaartotaal</span></div>
+                        <div class="stat-value" id="billingYearTotal">0 LEK</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Betalende Partners</span></div>
+                        <div class="stat-value" id="billingPayers">0</div>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <h3>📅 Maandoverzicht — <span id="billingYearLabel"></span></h3>
+                    <table>
+                        <thead><tr><th>Maand</th><th>Inkomsten</th></tr></thead>
+                        <tbody id="billingMonthsBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="table-card">
+                    <h3>💶 Wat elke partner betaald heeft</h3>
+                    <table>
+                        <thead>
+                            <tr><th>ID</th><th>Bedrijf</th><th>Eigenaar</th><th>NIPT</th><th>Betaald</th></tr>
+                        </thead>
+                        <tbody id="billingBody"></tbody>
+                    </table>
+                    <p style="color:#888;font-size:0.85rem;margin-top:12px">Betalingen verschijnen hier automatisch zodra een partner credits koopt via Paysera. Gratis credit-toekenningen door de admin tellen niet als betaling.</p>
+                </div>
+            </div>
+
+            <!-- MARKETING SECTION -->
+            <div class="section-page" id="sec-marketing">
+                <header class="topbar">
+                    <h1>📣 Marketing — Contactlijst</h1>
+                    <button class="btn-secondary" onclick="loadMarketing()">🔄 Vernieuwen</button>
+                </header>
+
+                <p style="color:#666;margin:12px 0">Alle aangemelde partners en consumenten, apart vermeld — om later te gebruiken voor nieuwsbrieven of aanbiedingen.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Partners</span></div>
+                        <div class="stat-value" id="mktPartnerCount">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header"><span class="label">Consumenten</span></div>
+                        <div class="stat-value" id="mktConsumerCount">0</div>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+                        <h3>🏪 Partners</h3>
+                        <button class="btn-secondary" onclick="exportPartnersCSV()">⬇️ Download partners</button>
+                    </div>
+                    <div style="overflow-x:auto">
+                        <table class="data-table">
+                            <thead><tr><th>Bedrijf</th><th>Contact</th><th>E-mail</th><th>Telefoon</th><th>Stad</th></tr></thead>
+                            <tbody id="mktPartnersBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+                        <h3>🛒 Consumenten</h3>
+                        <button class="btn-secondary" onclick="exportConsumersCSV()">⬇️ Download consumenten</button>
+                    </div>
+                    <div style="overflow-x:auto">
+                        <table class="data-table">
+                            <thead><tr><th>Naam</th><th>E-mail</th><th>Telefoon</th><th>Stad</th><th>Type</th></tr></thead>
+                            <tbody id="mktConsumersBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- PARTNERS SECTION -->
             <div class="section-page" id="sec-partners">
                 <header class="topbar">
@@ -1553,8 +1659,198 @@
         if (name === 'credits') loadCreditData();
         if (name === 'health') loadHealthCheck();
         if (name === 'leads') loadLeads();
+        if (name === 'billing') loadBilling();
+        if (name === 'marketing') loadMarketing();
     }
     
+    // ===== FATURIM / TAKSAT (wat partners betaald hebben) =====
+    var billingData = null;
+    async function loadBilling() {
+        var tbody = document.getElementById('billingBody');
+        if (tbody) tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px">Laden...</td></tr>';
+        var result = await adminApi('/api/admin/billing', { method: 'GET' });
+        if (!result || !result.success) {
+            if (tbody) tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:#c00">Kon gegevens niet laden</td></tr>';
+            return;
+        }
+        billingData = result;
+        var years = {};
+        (result.months || []).forEach(function(m){ years[String(m).slice(0,4)] = true; });
+        var yearList = Object.keys(years).sort().reverse();
+        if (yearList.length === 0) yearList = [String(new Date().getFullYear())];
+        var ySel = document.getElementById('billingYear');
+        if (ySel) {
+            var curY = ySel.value;
+            ySel.innerHTML = yearList.map(function(y){ return '<option value="' + y + '">' + y + '</option>'; }).join('');
+            ySel.value = (curY && years[curY]) ? curY : yearList[0];
+        }
+        renderBilling();
+    }
+
+    function billingMonthsForYear(year) {
+        return (billingData && billingData.months ? billingData.months : []).filter(function(m){ return String(m).slice(0,4) === year; }).sort();
+    }
+
+    function refreshBillingMonths(year) {
+        var mSel = document.getElementById('billingMonth');
+        if (!mSel) return;
+        var cur = mSel.value;
+        var months = billingMonthsForYear(year);
+        var opts = '<option value="">Hele jaar</option>';
+        months.forEach(function(m){ opts += '<option value="' + m + '">' + m + '</option>'; });
+        mSel.innerHTML = opts;
+        mSel.value = (months.indexOf(cur) >= 0) ? cur : '';
+    }
+
+    function renderBilling() {
+        if (!billingData) return;
+        var ySel = document.getElementById('billingYear');
+        var year = ySel ? ySel.value : String(new Date().getFullYear());
+        refreshBillingMonths(year);
+        var mSel = document.getElementById('billingMonth');
+        var month = mSel ? mSel.value : '';
+        var lbl = document.getElementById('billingYearLabel'); if (lbl) lbl.textContent = year;
+
+        var monthsOfYear = billingMonthsForYear(year);
+        var yearTotal = 0, mRows = [];
+        monthsOfYear.forEach(function(m){
+            var mTot = 0;
+            (billingData.partners || []).forEach(function(p){ if (p.byMonth && p.byMonth[m]) mTot += p.byMonth[m]; });
+            yearTotal += mTot;
+            mRows.push('<tr><td>' + m + '</td><td><strong>' + mTot.toLocaleString() + ' LEK</strong></td></tr>');
+        });
+        var mBody = document.getElementById('billingMonthsBody');
+        if (mBody) mBody.innerHTML = mRows.length ? mRows.join('') : '<tr><td colspan="2" style="text-align:center;padding:16px;color:#888">Nog geen betalingen in ' + year + '</td></tr>';
+
+        var rows = [], total = 0, payers = 0;
+        (billingData.partners || []).forEach(function(p){
+            var amt = 0;
+            if (month) { amt = (p.byMonth && p.byMonth[month]) ? p.byMonth[month] : 0; }
+            else { monthsOfYear.forEach(function(m){ if (p.byMonth && p.byMonth[m]) amt += p.byMonth[m]; }); }
+            if (amt === 0) return;
+            payers++; total += amt;
+            rows.push('<tr>' +
+                '<td>' + escapeHtml(p.id) + '</td>' +
+                '<td>' + escapeHtml(p.business) + '</td>' +
+                '<td>' + escapeHtml(p.contact) + '</td>' +
+                '<td>' + escapeHtml(p.nipt) + '</td>' +
+                '<td><strong>' + amt.toLocaleString() + ' LEK</strong></td>' +
+            '</tr>');
+        });
+        var tbody = document.getElementById('billingBody');
+        if (tbody) tbody.innerHTML = rows.length ? rows.join('') : '<tr><td colspan="5" style="text-align:center;padding:20px;color:#888">Nog geen betalingen ' + (month ? 'in ' + month : 'in ' + year) + '</td></tr>';
+        var totEl = document.getElementById('billingTotal'); if (totEl) totEl.textContent = total.toLocaleString() + ' LEK';
+        var ytEl = document.getElementById('billingYearTotal'); if (ytEl) ytEl.textContent = yearTotal.toLocaleString() + ' LEK';
+        var payEl = document.getElementById('billingPayers'); if (payEl) payEl.textContent = payers;
+    }
+
+    function csvQ(v){ return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; }
+    function csvDownload(filename, lines) {
+        var blob = new Blob(['\ufeff' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url; a.download = filename;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function exportBillingCSV() {
+        if (!billingData) { alert('Geen gegevens om te exporteren'); return; }
+        var ySel = document.getElementById('billingYear');
+        var year = ySel ? ySel.value : String(new Date().getFullYear());
+        var monthsOfYear = billingMonthsForYear(year);
+        var lines = ['Jaar,Maand,ID,Bedrijf,Eigenaar,NIPT,Inkomsten (LEK)'];
+        var yearTotal = 0;
+        monthsOfYear.forEach(function(m){
+            (billingData.partners || []).forEach(function(p){
+                var amt = (p.byMonth && p.byMonth[m]) ? p.byMonth[m] : 0;
+                if (amt === 0) return;
+                yearTotal += amt;
+                lines.push([csvQ(year), csvQ(m), csvQ(p.id), csvQ(p.business), csvQ(p.contact), csvQ(p.nipt), amt].join(','));
+            });
+        });
+        lines.push(['', '', '', '', '', csvQ('JAARTOTAAL ' + year), yearTotal].join(','));
+        csvDownload('savora-inkomsten-' + year + '.csv', lines);
+    }
+
+    function exportAllYearsCSV() {
+        if (!billingData) { alert('Geen gegevens om te exporteren'); return; }
+        var allMonths = (billingData.months || []).slice().sort();
+        var years = {};
+        allMonths.forEach(function(m){ years[String(m).slice(0,4)] = true; });
+        var yearList = Object.keys(years).sort();
+        if (yearList.length === 0) { alert('Nog geen betalingen'); return; }
+        var lines = ['Jaar,Maand,ID,Bedrijf,Eigenaar,NIPT,Inkomsten (LEK)'];
+        var grand = 0;
+        yearList.forEach(function(year){
+            var monthsOfYear = allMonths.filter(function(m){ return String(m).slice(0,4) === year; });
+            var yearTotal = 0;
+            monthsOfYear.forEach(function(m){
+                (billingData.partners || []).forEach(function(p){
+                    var amt = (p.byMonth && p.byMonth[m]) ? p.byMonth[m] : 0;
+                    if (amt === 0) return;
+                    yearTotal += amt; grand += amt;
+                    lines.push([csvQ(year), csvQ(m), csvQ(p.id), csvQ(p.business), csvQ(p.contact), csvQ(p.nipt), amt].join(','));
+                });
+            });
+            lines.push(['', '', '', '', '', csvQ('JAARTOTAAL ' + year), yearTotal].join(','));
+        });
+        lines.push(['', '', '', '', '', csvQ('TOTAAL ALLE JAREN'), grand].join(','));
+        csvDownload('savora-inkomsten-alle-jaren.csv', lines);
+    }
+
+    // ===== MARKETING (partners + consumenten apart) =====
+    var marketingData = null;
+    async function loadMarketing() {
+        var pBody = document.getElementById('mktPartnersBody');
+        var cBody = document.getElementById('mktConsumersBody');
+        if (pBody) pBody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px">Laden...</td></tr>';
+        if (cBody) cBody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px">Laden...</td></tr>';
+        var result = await adminApi('/api/admin/marketing', { method: 'GET' });
+        if (!result || !result.success) {
+            if (pBody) pBody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:#c00">Kon gegevens niet laden</td></tr>';
+            if (cBody) cBody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:#c00">—</td></tr>';
+            return;
+        }
+        marketingData = result;
+        renderMarketing();
+    }
+
+    function renderMarketing() {
+        if (!marketingData) return;
+        var partners = marketingData.partners || [];
+        var consumers = marketingData.consumers || [];
+        var pc = document.getElementById('mktPartnerCount'); if (pc) pc.textContent = partners.length;
+        var cc = document.getElementById('mktConsumerCount'); if (cc) cc.textContent = consumers.length;
+        var pBody = document.getElementById('mktPartnersBody');
+        if (pBody) pBody.innerHTML = partners.length ? partners.map(function(p){
+            return '<tr><td>' + escapeHtml(p.business) + '</td><td>' + escapeHtml(p.contact) + '</td><td>' + escapeHtml(p.email) + '</td><td>' + escapeHtml(p.phone) + '</td><td>' + escapeHtml(p.city) + '</td></tr>';
+        }).join('') : '<tr><td colspan="5" style="text-align:center;padding:20px;color:#888">Nog geen partners</td></tr>';
+        var cBody = document.getElementById('mktConsumersBody');
+        if (cBody) cBody.innerHTML = consumers.length ? consumers.map(function(c){
+            var typeLbl = c.type === 'deal_claim' ? 'Klant (aanbieding)' : (c.type === 'early_access' ? 'Vroege toegang' : (c.type || ''));
+            return '<tr><td>' + escapeHtml(c.name) + '</td><td>' + escapeHtml(c.email) + '</td><td>' + escapeHtml(c.phone) + '</td><td>' + escapeHtml(c.city) + '</td><td>' + escapeHtml(typeLbl) + '</td></tr>';
+        }).join('') : '<tr><td colspan="5" style="text-align:center;padding:20px;color:#888">Nog geen consumenten</td></tr>';
+    }
+
+    function exportPartnersCSV() {
+        if (!marketingData) { alert('Geen gegevens'); return; }
+        var lines = ['Bedrijf,Contact,E-mail,Telefoon,Stad,Aangemeld'];
+        (marketingData.partners || []).forEach(function(p){
+            lines.push([csvQ(p.business), csvQ(p.contact), csvQ(p.email), csvQ(p.phone), csvQ(p.city), csvQ(p.createdAt)].join(','));
+        });
+        csvDownload('savora-marketing-partners.csv', lines);
+    }
+
+    function exportConsumersCSV() {
+        if (!marketingData) { alert('Geen gegevens'); return; }
+        var lines = ['Naam,E-mail,Telefoon,Stad,Type,Aangemeld'];
+        (marketingData.consumers || []).forEach(function(c){
+            lines.push([csvQ(c.name), csvQ(c.email), csvQ(c.phone), csvQ(c.city), csvQ(c.type), csvQ(c.createdAt)].join(','));
+        });
+        csvDownload('savora-marketing-consumenten.csv', lines);
+    }
+
     // ===== LEADS (klant-aanmeldingen) =====
     async function loadLeads() {
         var tbody = document.getElementById('leadsBody');
@@ -2528,6 +2824,13 @@
     window.viewPartnerDetails = viewPartnerDetails;
     window.verifyPartner = verifyPartner;
     window.loadPartnersData = loadPartnersData;
+    window.loadBilling = loadBilling;
+    window.renderBilling = renderBilling;
+    window.exportBillingCSV = exportBillingCSV;
+    window.exportAllYearsCSV = exportAllYearsCSV;
+    window.loadMarketing = loadMarketing;
+    window.exportPartnersCSV = exportPartnersCSV;
+    window.exportConsumersCSV = exportConsumersCSV;
     window.loadContactData = loadContactData;
     window.loadCreditData = loadCreditData;
     window.runHealthCheck = runHealthCheck;

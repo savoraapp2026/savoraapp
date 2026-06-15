@@ -193,6 +193,9 @@
   }
 
   function mapQuery(d){
+    if(d && d.lat!=null && d.lng!=null && String(d.lat)!=='' && String(d.lng)!==''){
+      return String(d.lat) + ',' + String(d.lng);
+    }
     if(d && d.address && String(d.address).trim()){
       var parts = [String(d.address).trim()];
       if(d.city) parts.push(d.city);

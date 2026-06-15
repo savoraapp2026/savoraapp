@@ -447,38 +447,6 @@
               <img src="https://flagcdn.com/w20/gb.png" alt="EN" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
               <span>English (EN)</span>
             </button>
-            <button class="lang-option" data-lang="nl">
-              <img src="https://flagcdn.com/w20/nl.png" alt="NL" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Nederlands (NL)</span>
-            </button>
-            <button class="lang-option" data-lang="de">
-              <img src="https://flagcdn.com/w20/de.png" alt="DE" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Deutsch (DE)</span>
-            </button>
-            <button class="lang-option" data-lang="it">
-              <img src="https://flagcdn.com/w20/it.png" alt="IT" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Italiano (IT)</span>
-            </button>
-            <button class="lang-option" data-lang="gr">
-              <img src="https://flagcdn.com/w20/gr.png" alt="GR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Ελληνικά (GR)</span>
-            </button>
-            <button class="lang-option" data-lang="fr">
-              <img src="https://flagcdn.com/w20/fr.png" alt="FR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Français (FR)</span>
-            </button>
-            <button class="lang-option" data-lang="es">
-              <img src="https://flagcdn.com/w20/es.png" alt="ES" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Español (ES)</span>
-            </button>
-            <button class="lang-option" data-lang="tr">
-              <img src="https://flagcdn.com/w20/tr.png" alt="TR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Türkçe (TR)</span>
-            </button>
-            <button class="lang-option" data-lang="ar">
-              <img src="https://flagcdn.com/w20/sa.png" alt="AR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>العربية (AR)</span>
-            </button>
           </div>
         </div>
       </div>
@@ -506,38 +474,6 @@
             <button class="lang-option" data-lang="en">
               <img src="https://flagcdn.com/w20/gb.png" alt="EN" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
               <span>English (EN)</span>
-            </button>
-            <button class="lang-option" data-lang="nl">
-              <img src="https://flagcdn.com/w20/nl.png" alt="NL" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Nederlands (NL)</span>
-            </button>
-            <button class="lang-option" data-lang="de">
-              <img src="https://flagcdn.com/w20/de.png" alt="DE" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Deutsch (DE)</span>
-            </button>
-            <button class="lang-option" data-lang="it">
-              <img src="https://flagcdn.com/w20/it.png" alt="IT" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Italiano (IT)</span>
-            </button>
-            <button class="lang-option" data-lang="gr">
-              <img src="https://flagcdn.com/w20/gr.png" alt="GR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Ελληνικά (GR)</span>
-            </button>
-            <button class="lang-option" data-lang="fr">
-              <img src="https://flagcdn.com/w20/fr.png" alt="FR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Français (FR)</span>
-            </button>
-            <button class="lang-option" data-lang="es">
-              <img src="https://flagcdn.com/w20/es.png" alt="ES" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Español (ES)</span>
-            </button>
-            <button class="lang-option" data-lang="tr">
-              <img src="https://flagcdn.com/w20/tr.png" alt="TR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>Türkçe (TR)</span>
-            </button>
-            <button class="lang-option" data-lang="ar">
-              <img src="https://flagcdn.com/w20/sa.png" alt="AR" style="width:20px;height:14px;border-radius:2px;object-fit:cover;">
-              <span>العربية (AR)</span>
             </button>
           </div>
         </div>
@@ -2390,8 +2326,7 @@ var T = {
 
 // Fallback chain: try requested lang → English → Albanian
 function resolveLang(lang) {
-  if (T[lang]) return lang;
-  if (T['en']) return 'en';
+  if (lang === 'en') return 'en';
   return 'sq';
 }
 
