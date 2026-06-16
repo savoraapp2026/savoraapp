@@ -154,7 +154,7 @@
         
         /* SIDEBAR */
         .sidebar {
-            width: 260px;
+            width: 210px;
             background: var(--sidebar-bg);
             border-right: 1px solid var(--border);
             display: flex;
@@ -165,7 +165,7 @@
         }
         
         .logo {
-            padding: 24px;
+            padding: 18px 16px;
             border-bottom: 1px solid var(--border);
         }
         
@@ -178,19 +178,21 @@
         
         .sidebar nav {
             flex: 1;
-            padding: 16px 12px;
+            padding: 14px 8px;
         }
         
         .sidebar nav a {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
+            gap: 8px;
+            padding: 9px 10px;
             border-radius: 8px;
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
-            margin-bottom: 4px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            margin-bottom: 3px;
             transition: all 0.2s;
             cursor: pointer;
         }
@@ -201,15 +203,15 @@
         }
         
         .sidebar nav a .icon {
-            font-size: 1.25rem;
+            font-size: 1.05rem;
         }
         
         .sidebar nav a .badge {
             margin-left: auto;
             background: var(--danger);
             color: white;
-            font-size: 0.75rem;
-            padding: 2px 8px;
+            font-size: 0.7rem;
+            padding: 1px 6px;
             border-radius: 10px;
         }
         
@@ -293,7 +295,7 @@
         /* MAIN CONTENT */
         .content {
             flex: 1;
-            margin-left: 260px;
+            margin-left: 210px;
             padding: 24px 32px;
         }
         
@@ -1244,7 +1246,7 @@
                     </div>
                     <div style="overflow-x:auto">
                         <table class="data-table">
-                            <thead><tr><th>Bedrijf</th><th>Contact</th><th>E-mail</th><th>Telefoon</th><th>Stad</th></tr></thead>
+                            <thead><tr><th>Bedrijfsnaam</th><th>NIPT</th><th>Contactpersoon</th><th>E-mail</th><th>Telefoon</th><th>Stad</th></tr></thead>
                             <tbody id="mktPartnersBody"></tbody>
                         </table>
                     </div>
@@ -1257,7 +1259,7 @@
                     </div>
                     <div style="overflow-x:auto">
                         <table class="data-table">
-                            <thead><tr><th>Naam</th><th>E-mail</th><th>Telefoon</th><th>Stad</th><th>Type</th></tr></thead>
+                            <thead><tr><th>Naam</th><th>E-mail</th><th>Telefoon</th><th>Stad</th><th>Reserveringen</th></tr></thead>
                             <tbody id="mktConsumersBody"></tbody>
                         </table>
                     </div>
@@ -1824,29 +1826,28 @@
         var cc = document.getElementById('mktConsumerCount'); if (cc) cc.textContent = consumers.length;
         var pBody = document.getElementById('mktPartnersBody');
         if (pBody) pBody.innerHTML = partners.length ? partners.map(function(p){
-            return '<tr><td>' + escapeHtml(p.business) + '</td><td>' + escapeHtml(p.contact) + '</td><td>' + escapeHtml(p.email) + '</td><td>' + escapeHtml(p.phone) + '</td><td>' + escapeHtml(p.city) + '</td></tr>';
-        }).join('') : '<tr><td colspan="5" style="text-align:center;padding:20px;color:#888">Nog geen partners</td></tr>';
+            return '<tr><td>' + escapeHtml(p.business) + '</td><td>' + escapeHtml(p.nipt) + '</td><td>' + escapeHtml(p.contact) + '</td><td>' + escapeHtml(p.email) + '</td><td>' + escapeHtml(p.phone) + '</td><td>' + escapeHtml(p.city) + '</td></tr>';
+        }).join('') : '<tr><td colspan="6" style="text-align:center;padding:20px;color:#888">Nog geen partners</td></tr>';
         var cBody = document.getElementById('mktConsumersBody');
         if (cBody) cBody.innerHTML = consumers.length ? consumers.map(function(c){
-            var typeLbl = c.type === 'deal_claim' ? 'Klant (aanbieding)' : (c.type === 'early_access' ? 'Vroege toegang' : (c.type || ''));
-            return '<tr><td>' + escapeHtml(c.name) + '</td><td>' + escapeHtml(c.email) + '</td><td>' + escapeHtml(c.phone) + '</td><td>' + escapeHtml(c.city) + '</td><td>' + escapeHtml(typeLbl) + '</td></tr>';
+            return '<tr><td>' + escapeHtml(c.name) + '</td><td>' + escapeHtml(c.email) + '</td><td>' + escapeHtml(c.phone) + '</td><td>' + escapeHtml(c.city) + '</td><td style="text-align:center"><strong>' + (c.reservations || 0) + '</strong></td></tr>';
         }).join('') : '<tr><td colspan="5" style="text-align:center;padding:20px;color:#888">Nog geen consumenten</td></tr>';
     }
 
     function exportPartnersCSV() {
         if (!marketingData) { alert('Geen gegevens'); return; }
-        var lines = ['Bedrijf,Contact,E-mail,Telefoon,Stad,Aangemeld'];
+        var lines = ['Bedrijfsnaam,NIPT,Contactpersoon,E-mail,Telefoon,Stad'];
         (marketingData.partners || []).forEach(function(p){
-            lines.push([csvQ(p.business), csvQ(p.contact), csvQ(p.email), csvQ(p.phone), csvQ(p.city), csvQ(p.createdAt)].join(','));
+            lines.push([csvQ(p.business), csvQ(p.nipt), csvQ(p.contact), csvQ(p.email), csvQ(p.phone), csvQ(p.city)].join(','));
         });
         csvDownload('savora-marketing-partners.csv', lines);
     }
 
     function exportConsumersCSV() {
         if (!marketingData) { alert('Geen gegevens'); return; }
-        var lines = ['Naam,E-mail,Telefoon,Stad,Type,Aangemeld'];
+        var lines = ['Naam,E-mail,Telefoon,Stad,Reserveringen'];
         (marketingData.consumers || []).forEach(function(c){
-            lines.push([csvQ(c.name), csvQ(c.email), csvQ(c.phone), csvQ(c.city), csvQ(c.type), csvQ(c.createdAt)].join(','));
+            lines.push([csvQ(c.name), csvQ(c.email), csvQ(c.phone), csvQ(c.city), (c.reservations || 0)].join(','));
         });
         csvDownload('savora-marketing-consumenten.csv', lines);
     }

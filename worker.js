@@ -71,6 +71,8 @@ async function jwtVerify(token, secret) {
 
 // ----- CORS -----
 function corsHeaders(origin) {
+  // Sommige browsers sturen een punt achter het domein (bv. savoraapp.com.) — die negeren we bij de check.
+  const normOrigin = (origin || '').replace(/\.(:\d+)?$/, '$1');
   const allowed = [
     'https://savoraapp.com',
     'https://www.savoraapp.com',
@@ -84,7 +86,8 @@ function corsHeaders(origin) {
     /^https:\/\/[^.]+\.savoraapp\.pages\.dev$/,
     /^https:\/\/[^.]+\.savoraapp\.workers\.dev$/
   ];
-  const isAllowed = allowed.includes(origin) || allowedPatterns.some(p => p.test(origin));
+  const isAllowed = allowed.includes(normOrigin) || allowedPatterns.some(p => p.test(normOrigin));
+  // Geef de ORIGINELE origin terug (met punt), zodat de browser-match klopt.
   const allowedOrigin = isAllowed ? origin : 'https://savoraapp.com';
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
@@ -517,7 +520,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.13.0-paypal', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.14.0-mkt2', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1471,7 +1474,7 @@ async function handleRequest(request, env, ctx) {
 
     const partners = await getAllPartners(db);
     const partnerList = partners.map(function(p){
-      return { id: p.id, business: p.business || '', contact: p.contact || '', email: p.email || '', phone: p.phone || '', city: p.city || '', createdAt: p.createdAt || '' };
+      return { id: p.id, business: p.business || '', nipt: p.nipt || p.nui || '', contact: p.contact || '', email: p.email || '', phone: p.phone || '', city: p.city || '', createdAt: p.createdAt || '' };
     });
 
     let leads = [];
@@ -1481,9 +1484,15 @@ async function handleRequest(request, env, ctx) {
     leads.forEach(function(l){
       var key = (l.email || '').toLowerCase() + '|' + (l.phone || '');
       if (key === '|') return;
-      if (seen[key]) return;
-      seen[key] = true;
-      consumers.push({ name: l.name || '', email: l.email || '', phone: l.phone || '', city: l.city || '', type: l.type || '', createdAt: l.createdAt || '' });
+      var isRes = (l.type === 'deal_claim') ? 1 : 0;
+      if (seen[key] !== undefined) {
+        consumers[seen[key]].reservations += isRes;
+        if (!consumers[seen[key]].name && l.name) consumers[seen[key]].name = l.name;
+        if (!consumers[seen[key]].city && l.city) consumers[seen[key]].city = l.city;
+      } else {
+        seen[key] = consumers.length;
+        consumers.push({ name: l.name || '', email: l.email || '', phone: l.phone || '', city: l.city || '', reservations: isRes, createdAt: l.createdAt || '' });
+      }
     });
 
     return jsonResponse({ success: true, partners: partnerList, consumers: consumers, partnerCount: partnerList.length, consumerCount: consumers.length }, 200, origin);
