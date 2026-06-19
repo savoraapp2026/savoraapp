@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partner — Savoraapp</title>
-  <meta name="description" content="Verdien extra omzet met eten dat je anders weggooit. Vul lege capaciteit en trek nieuwe klanten — zonder risico.">
+  <meta name="description" content="Fitoni të ardhura shtesë nga ushqimi që do ta hidhnit. Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik.">
   <meta name="theme-color" content="#10b981">
   <meta name="verify-Paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
   <link rel="manifest" href="manifest.json">
@@ -50,12 +50,13 @@
           <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">Savora<span class="text-emerald-300">app</span></span>
         </a>
         <div class="flex items-center gap-2 sm:gap-3">
-          <a href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn">Hyr</a>
+          <button type="button" onclick="toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors">EN</button>
+          <a href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn"><span data-en='Log in'>Hyr</span></a>
           <div class="hidden items-center gap-2" id="userLoggedIn">
             <span class="text-sm font-semibold text-sav-green" id="userDisplayName"></span>
-            <button onclick="logoutUser()" class="text-xs text-sav-gray hover:text-sav-rose underline">Dil</button>
+            <button onclick="logoutUser()" class="text-xs text-sav-gray hover:text-sav-rose underline"><span data-en='Log out'>Dil</span></button>
           </div>
-          <a href="partner-dashboard.html?tab=register" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl">Word partner</a>
+          <a href="partner-dashboard.html?tab=register" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl"><span data-en='Become a partner'>Bëhu partner</span></a>
           <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-sav-green hover:text-sav-greenD">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
@@ -70,8 +71,8 @@
     <div class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full" id="mobP">
       <button onclick="toggleMobileMenu()" class="absolute top-4 right-4 p-2 text-sav-gray hover:text-sav-dark"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
       <nav class="flex flex-col gap-1">
-        <a href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayS rounded-xl">Kreu</a>
-        <a href="partner-dashboard.html?tab=register" class="btn-p text-center px-4 py-3 text-white font-semibold rounded-xl mt-2">Word partner</a>
+        <a href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayS rounded-xl"><span data-en='Home'>Kreu</span></a>
+        <a href="partner-dashboard.html?tab=register" class="btn-p text-center px-4 py-3 text-white font-semibold rounded-xl mt-2"><span data-en='Become a partner'>Bëhu partner</span></a>
       </nav>
     </div>
   </div>
@@ -85,14 +86,14 @@
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div class="text-center lg:text-left">
           <h1 class="an-f text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-5">
-            Verdien extra omzet<br><span class="text-sav-green">met eten dat je<br>anders weggooit</span>
+            <span data-en='Earn extra revenue<br><span class="text-sav-green">from food you would<br>otherwise throw away</span>'>Fitoni të ardhura shtesë<br><span class="text-sav-green">nga ushqimi që<br>do ta hidhnit</span></span>
           </h1>
           <p class="an-f delay-1 text-lg sm:text-xl text-sav-grayL/80 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-            Vul lege capaciteit en trek nieuwe klanten — zonder risico
+            <span data-en='Fill empty capacity and attract new customers — risk-free'>Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik</span>
           </p>
           <div class="an-f delay-2 mb-10">
             <a href="#register" class="btn-p px-8 sm:px-10 py-4 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base sm:text-lg">
-              Word partner
+              <span data-en='Become a partner'>Bëhu partner</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
           </div>
@@ -103,19 +104,19 @@
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
               </div>
-              <span class="font-semibold text-white">86+</span> <span>partners actief</span>
+              <span class="font-semibold text-white">86+</span> <span><span data-en='active partners'>partnerë aktivë</span></span>
             </div>
             <div class="flex items-center gap-2 text-sav-grayL/90 text-sm">
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
-              <span class="font-semibold text-white">€150–€500</span> <span>extra/week</span>
+              <span class="font-semibold text-white">€150–€500</span> <span><span data-en='extra/week'>ekstra/javë</span></span>
             </div>
             <div class="flex items-center gap-2 text-sav-grayL/90 text-sm">
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
-              <span class="font-semibold text-white">5 min</span> <span>en je bent live</span>
+              <span class="font-semibold text-white">5 min</span> <span><span data-en='and you are live'>dhe je live</span></span>
             </div>
           </div>
         </div>
@@ -132,14 +133,14 @@
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sav-green to-emerald-300 flex items-center justify-center text-white shrink-0 text-lg">💰</div>
                 <div>
                   <p class="text-sm font-semibold text-white">+€350/week</p>
-                  <p class="text-xs text-sav-grayL/70">gem. partner</p>
+                  <p class="text-xs text-sav-grayL/70"><span data-en='avg. partner'>mes. partneri</span></p>
                 </div>
               </div>
             </div>
             <div class="glass-card absolute -top-3 -right-3 xl:-right-6 rounded-2xl p-3" style="animation:fl2 7s ease-in-out infinite 0.5s;">
               <div class="flex items-center gap-2">
                 <div class="w-7 h-7 rounded-full bg-sav-rose flex items-center justify-center text-white text-xs font-bold">+</div>
-                <span class="text-xs text-sav-grayL font-medium">86+ partners</span>
+                <span class="text-xs text-sav-grayL font-medium"><span data-en='86+ partners'>86+ partnerë</span></span>
               </div>
             </div>
           </div>
@@ -153,37 +154,37 @@
   <section class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-12">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4">Përfitimet</span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3">Waarom jij dit wilt</h2>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Benefits'>Përfitimet</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Why you will want this'>Pse ta zgjedhni</span></h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2">Extra omzet</h3>
-          <p class="text-sm text-sav-gray">Verkoop wat je anders weggooit. €150–€500 extra per week.</p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Extra revenue'>Të ardhura shtesë</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Sell what you would otherwise throw away. €150–€500 extra per week.'>Shisni atë që do ta hidhnit. €150–€500 ekstra në javë.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2">Nieuwe klanten</h3>
-          <p class="text-sm text-sav-gray">Trek nieuwe klanten naar je winkel. Elke week weer.</p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='New customers'>Klientë të rinj</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Bring new customers to your shop. Every week.'>Tërhiqni klientë të rinj në dyqanin tuaj. Çdo javë.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2">Geen vaste kosten</h3>
-          <p class="text-sm text-sav-gray">Jij bepaalt prijzen en beschikbaarheid. Geen abonnement.</p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='No fixed costs'>Pa kosto fikse</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='You set prices and availability. No subscription.'>Ju vendosni çmimet dhe disponueshmërinë. Pa abonim.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2">Minder verspilling</h3>
-          <p class="text-sm text-sav-gray">Draag bij aan een duurzamere wereld. Goed voor jouw imago.</p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Less waste'>Më pak mbetje</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Contribute to a more sustainable world. Good for your image.'>Kontribuoni për një botë më të qëndrueshme. Mirë për imazhin tuaj.</span></p>
         </div>
       </div>
     </div>
@@ -193,31 +194,31 @@
   <section class="py-14 sm:py-20 bg-sav-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-12">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4">Si funksionon</span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3">Hoe het werkt</h2>
-        <p class="text-sav-gray max-w-md mx-auto">Snel, simpel, zonder gedoe</p>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='How it works'>Si funksionon</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='How it works'>Si funksionon</span></h2>
+        <p class="text-sav-gray max-w-md mx-auto"><span data-en='Fast, simple, hassle-free'>Shpejt, thjesht, pa siklet</span></p>
       </div>
       <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
           <div class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
-          <h3 class="font-bold text-lg text-sav-dark mb-2">Plaats je deals <span class="text-sav-green">(2 min)</span></h3>
-          <p class="text-sm text-sav-gray">Maak in 2 minuten een verrassingsbox aan met je overschot.</p>
+          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='Post your deals <span class="text-sav-green">(2 min)</span>'>Publikoni ofertat <span class="text-sav-green">(2 min)</span></span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Create a surprise box with your surplus in 2 minutes.'>Krijoni në 2 minuta një kuti surprizë me tepricën tuaj.</span></p>
         </div>
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
           <div class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
-          <h3 class="font-bold text-lg text-sav-dark mb-2">Klanten reserveren <span class="text-sav-green">direct</span></h3>
-          <p class="text-sm text-sav-gray">Klanten zien je deal en reserveren direct via de app.</p>
+          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='Customers reserve <span class="text-sav-green">instantly</span>'>Klientët rezervojnë <span class="text-sav-green">menjëherë</span></span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Customers see your deal and reserve instantly via the app.'>Klientët shohin ofertën dhe rezervojnë menjëherë përmes aplikacionit.</span></p>
         </div>
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
           <div class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
-          <h3 class="font-bold text-lg text-sav-dark mb-2">Zij halen op & <span class="text-sav-green">betalen</span></h3>
-          <p class="text-sm text-sav-gray">Klanten halen op het afgesproken tijdstip op — jij ontvangt de omzet.</p>
+          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='They pick up & <span class="text-sav-green">pay</span>'>Ata e marrin & <span class="text-sav-green">paguajnë</span></span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Customers pick up at the agreed time — you get the revenue.'>Klientët e marrin në kohën e caktuar — ju merrni të ardhurat.</span></p>
         </div>
       </div>
       <!-- CTA -->
       <div class="text-center mt-10">
         <a href="#register" class="btn-p px-8 py-3.5 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base">
-          Word partner
+          <span data-en='Become a partner'>Bëhu partner</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
@@ -228,9 +229,9 @@
   <section class="py-14 sm:py-20 bg-sav-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-10">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4">Harta</span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3">Waar we actief zijn</h2>
-        <p class="text-sav-gray max-w-md mx-auto">Bekijk onze partners op de kaart. Klik op een marker voor meer informatie.</p>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Map'>Harta</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Where we are active'>Ku jemi aktivë</span></h2>
+        <p class="text-sav-gray max-w-md mx-auto"><span data-en='See our partners on the map. Click a marker for more information.'>Shikoni partnerët tanë në hartë. Klikoni një shënues për më shumë informacion.</span></p>
       </div>
       <div class="rounded-2xl overflow-hidden border border-sav-grayB/50 shadow-lg" style="height: 400px;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23970.5!2d19.456!3d41.323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda3e6c02e9c3%3A0x5e2e2c0f2e0e0e0e!2sDurr%C3%ABs%2C%20Albani%C3%AB!5e0!3m2!1snl!2snl!4v1699900000000!5m2!1snl!2snl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -238,11 +239,11 @@
       <div class="flex flex-wrap justify-center gap-3 mt-6">
         <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-greenL rounded-full text-xs font-semibold text-sav-greenD">
           <span class="w-2 h-2 rounded-full bg-sav-green"></span>
-          Actief: Durrës
+          <span data-en='Active: Durrës'>Aktiv: Durrës</span>
         </span>
         <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-grayS rounded-full text-xs font-semibold text-sav-gray">
           <span class="w-2 h-2 rounded-full bg-sav-gray"></span>
-          Binnenkort: Tiranë, Vlorë, Shkodër
+          <span data-en='Coming soon: Tiranë, Vlorë, Shkodër'>Së shpejti: Tiranë, Vlorë, Shkodër</span>
         </span>
       </div>
     </div>
@@ -256,38 +257,38 @@
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
         <div class="text-center">
           <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">86+</p>
-          <p class="text-sm text-sav-grayL mt-1">partners actief</p>
+          <p class="text-sm text-sav-grayL mt-1"><span data-en='active partners'>partnerë aktivë</span></p>
         </div>
         <div class="text-center">
           <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">€150–€500</p>
-          <p class="text-sm text-sav-grayL mt-1">extra omzet per week</p>
+          <p class="text-sm text-sav-grayL mt-1"><span data-en='extra revenue per week'>të ardhura shtesë në javë</span></p>
         </div>
         <div class="text-center">
           <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">5 min</p>
-          <p class="text-sm text-sav-grayL mt-1">en je bent live</p>
+          <p class="text-sm text-sav-grayL mt-1"><span data-en='and you are live'>dhe je live</span></p>
         </div>
       </div>
-      <h3 class="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-10">Çfarë thonë partnerët tanë</h3>
+      <h3 class="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-10"><span data-en='What our partners say'>Çfarë thonë partnerët tanë</span></h3>
       <div class="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
         <div class="glass-card rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-full bg-sav-green flex items-center justify-center text-white font-bold text-sm">AB</div>
             <div>
               <p class="font-semibold text-sm text-white">Ana B.</p>
-              <p class="text-xs text-sav-grayL">Bakkerij "Ana"</p>
+              <p class="text-xs text-sav-grayL"><span data-en='Bakery "Ana"'>Furrë "Ana"</span></p>
             </div>
           </div>
-          <p class="text-sm text-sav-grayL italic leading-relaxed">"Savoraapp hielp ons om ons overschot aan brood elke avond te verkopen. We verspillen nu veel minder eten."</p>
+          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Savoraapp helped us sell our surplus bread every evening. We waste far less food now."'>"Savoraapp na ndihmoi të shesim tepricën e bukës çdo mbrëmje. Tani hedhim shumë më pak ushqim."</span></p>
         </div>
         <div class="glass-card rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-full bg-sav-sky flex items-center justify-center text-white font-bold text-sm">MK</div>
             <div>
               <p class="font-semibold text-sm text-white">Mark K.</p>
-              <p class="text-xs text-sav-grayL">Supermarkt "Kruja"</p>
+              <p class="text-xs text-sav-grayL"><span data-en='Supermarket "Kruja"'>Supermarket "Kruja"</span></p>
             </div>
           </div>
-          <p class="text-sm text-sav-grayL italic leading-relaxed">"De aanmelding was snel en we kregen de eerste dag al bestellingen. Ik beveel het aan."</p>
+          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Sign-up was quick and we got our first orders on day one. I recommend it."'>"Regjistrimi ishte i shpejtë dhe morëm porositë e para që ditën e parë. E rekomandoj."</span></p>
         </div>
       </div>
     </div>
@@ -296,47 +297,47 @@
   <!-- ========== CTA + FORM ========== -->
   <section id="register" class="py-14 sm:py-20" style="background:linear-gradient(135deg,#10B981,#059669);">
     <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Word nu partner</h2>
-      <p class="text-white/75 mb-6 sm:mb-8 text-sm sm:text-base">Direct toegang tot je dashboard na verificatie</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2"><span data-en='Become a partner now'>Bëhu partner tani</span></h2>
+      <p class="text-white/75 mb-6 sm:mb-8 text-sm sm:text-base"><span data-en='Instant access to your dashboard after verification'>Qasje e menjëhershme në panelin tuaj pas verifikimit</span></p>
 
       <!-- Urgency -->
       <div class="flex flex-wrap justify-center gap-3 mb-8">
         <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
           <span class="w-1.5 h-1.5 rounded-full bg-sav-yellow animate-pulse"></span>
-          Beperkt aantal partners per stad
+          <span data-en='Limited number of partners per city'>Numër i kufizuar partnerësh për qytet</span>
         </span>
         <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
-          Early partners krijgen voordeel
+          <span data-en='Early partners get an advantage'>Partnerët e hershëm përfitojnë</span>
         </span>
       </div>
 
       <!-- Stap 1: Aanmeldformulier -->
       <form id="partnerForm" class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left" onsubmit="handlePartnerForm(event)" novalidate>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5">Bedrijfsnaam</label>
-          <input type="text" id="pfBusiness" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Bijv. Bakkerij Ana">
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Business name'>Emri i biznesit</span></label>
+          <input type="text" id="pfBusiness" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. Furra Ana" data-en-ph='e.g. Bakery Ana'>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5">Telefoon of email</label>
-          <input type="text" id="pfContact" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="+355 69 123 4567 of info@bedrijf.com">
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Phone or email'>Telefon ose email</span></label>
+          <input type="text" id="pfContact" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="+355 69 123 4567 ose info@biznes.com" data-en-ph='+355 69 123 4567 or info@business.com'>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5">Wachtwoord <span class="text-sav-rose">*</span></label>
-          <input type="password" id="pfPassword" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Minimaal 6 tekens">
-          <p class="text-xs text-sav-gray mt-1">Minimaal 6 tekens. Dit wachtwoord gebruik je om in te loggen op je dashboard.</p>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Password <span class="text-sav-rose">*</span>'>Fjalëkalimi <span class="text-sav-rose">*</span></span></label>
+          <input type="password" id="pfPassword" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Të paktën 6 karaktere" data-en-ph='At least 6 characters'>
+          <p class="text-xs text-sav-gray mt-1"><span data-en='At least 6 characters. You will use this password to log in to your dashboard.'>Të paktën 6 karaktere. Këtë fjalëkalim e përdorni për t'u kyçur në panelin tuaj.</span></p>
         </div>
         <div class="mb-4">
           <label class="block text-sm font-medium text-sav-dark mb-1.5">
-            Numri i Dhomës së Tregtisë (NIPT)
+            <span data-en='Chamber of Commerce Number (NIPT)'>Numri i Dhomës së Tregtisë (NIPT)</span>
             <span class="text-sav-rose">*</span>
           </label>
-          <input type="text" id="pfNipt" maxlength="20" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Bijv. L 12345678 A">
-          <p class="text-xs text-sav-gray mt-1">Verplicht — je handelskamer registratienummer.</p>
+          <input type="text" id="pfNipt" maxlength="20" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. L 12345678 A" data-en-ph='e.g. L 12345678 A'>
+          <p class="text-xs text-sav-gray mt-1"><span data-en='Required — your chamber of commerce registration number.'>I detyrueshëm — numri i regjistrimit në dhomën e tregtisë.</span></p>
         </div>
         <div class="mb-6">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5">Stad</label>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='City'>Qyteti</span></label>
           <select id="pfCity" required class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white">
-            <option value="">Kies een stad</option>
+            <option value="" data-en-opt='Choose a city'>Zgjidhni një qytet</option>
             <option value="Berat">Berat</option>
             <option value="Durrës">Durrës</option>
             <option value="Elbasan">Elbasan</option>
@@ -353,8 +354,8 @@
             <option value="Vlorë">Vlorë</option>
           </select>
         </div>
-        <button type="submit" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base">Word partner</button>
-        <p class="text-xs text-sav-green text-center mt-4 font-medium">Direct toegang — geen wachttijd.</p>
+        <button type="submit" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base"><span data-en='Become a partner'>Bëhu partner</span></button>
+        <p class="text-xs text-sav-green text-center mt-4 font-medium"><span data-en='Instant access — no waiting.'>Qasje e menjëhershme — pa pritje.</span></p>
       </form>
 
       <!-- Stap 2: Verificatiecode invoeren -->
@@ -363,17 +364,17 @@
           <div class="w-14 h-14 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
             <svg class="w-7 h-7 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-sav-dark mb-2">Controleer je e-mail</h3>
-          <p class="text-sm text-sav-gray mb-4">We hebben een 6-cijferige verificatiecode naar je e-mailadres gestuurd. Voer deze hieronder in.</p>
-          <button onclick="sendEmailWithCode()" id="resendEmailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4">Code opnieuw versturen</button>
+          <h3 class="text-lg font-bold text-sav-dark mb-2"><span data-en='Check your email'>Kontrolloni emailin tuaj</span></h3>
+          <p class="text-sm text-sav-gray mb-4"><span data-en='We have sent a 6-digit verification code to your email. Enter it below.'>Ju dërguam një kod verifikimi 6-shifror në emailin tuaj. Vendoseni më poshtë.</span></p>
+          <button onclick="sendEmailWithCode()" id="resendEmailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4"><span data-en='Resend code'>Dërgo kodin sërish</span></button>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5">Voer de 6-cijferige code in</label>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Enter the 6-digit code'>Vendosni kodin 6-shifror</span></label>
           <input type="text" id="verifyCodeInput" maxlength="6" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm text-center tracking-[0.5em] font-bold focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="000000">
         </div>
-        <button onclick="verifyCode()" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base mb-3">Verifiëren</button>
-        <button onclick="resendCode()" class="w-full text-sav-gray text-sm hover:text-sav-green transition">Nieuwe code genereren</button>
-        <p id="verifyError" class="hidden mt-3 text-center text-sm text-sav-rose">Ongeldige code. Probeer opnieuw.</p>
+        <button onclick="verifyCode()" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base mb-3"><span data-en='Verify'>Verifiko</span></button>
+        <button onclick="resendCode()" class="w-full text-sav-gray text-sm hover:text-sav-green transition"><span data-en='Generate new code'>Gjenero kod të ri</span></button>
+        <p id="verifyError" class="hidden mt-3 text-center text-sm text-sav-rose"><span data-en='Invalid code. Try again.'>Kod i pavlefshëm. Provoni sërish.</span></p>
       </div>
 
       <!-- Stap 3: Succes → Partner Portaal -->
@@ -382,46 +383,46 @@
           <div class="w-16 h-16 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-sav-dark mb-2">Welkom partner!</h3>
-          <p class="text-sm text-sav-gray">Je account is actief. Kies hieronder wat je wilt doen.</p>
+          <h3 class="text-xl font-bold text-sav-dark mb-2"><span data-en='Welcome, partner!'>Mirë se vini, partner!</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Your account is active. Choose below what you would like to do.'>Llogaria juaj është aktive. Zgjidhni më poshtë çfarë doni të bëni.</span></p>
         </div>
 
         <!-- Direct naar dashboard -->
         <a href="partner-dashboard.html" class="block w-full text-center bg-sav-green hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl transition-all mb-6 shadow-lg shadow-emerald-200">
-          Ga naar Partner Dashboard &rarr;
+          <span data-en='Go to Partner Dashboard &rarr;'>Shko te paneli i partnerit &rarr;</span>
         </a>
 
         <!-- Credits pakketten -->
-        <h4 class="text-sm font-semibold text-sav-dark mb-3">1. Koop credits</h4>
+        <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='1. Buy credits'>1. Blej kredite</span></h4>
         <div class="grid grid-cols-3 gap-3 mb-6">
           <div class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="selectCredits('basic')">
             <p class="text-lg font-bold text-sav-green">500 Lek</p>
-            <p class="text-xs text-sav-gray">25 credits</p>
+            <p class="text-xs text-sav-gray"><span data-en='25 credits'>25 kredite</span></p>
             <p class="text-xs text-sav-grayL">€0,33/spot</p>
           </div>
           <div class="border-2 border-sav-green rounded-xl p-3 text-center ch relative" style="cursor:pointer" onclick="selectCredits('popular')">
-            <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-sav-green text-white text-[10px] font-bold px-2 py-0.5 rounded-full">Populair</span>
+            <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-sav-green text-white text-[10px] font-bold px-2 py-0.5 rounded-full"><span data-en='Popular'>Popullor</span></span>
             <p class="text-lg font-bold text-sav-green">1.000 Lek</p>
-            <p class="text-xs text-sav-gray">60 credits</p>
+            <p class="text-xs text-sav-gray"><span data-en='60 credits'>60 kredite</span></p>
             <p class="text-xs text-sav-grayL">€0,28/spot</p>
           </div>
           <div class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="selectCredits('pro')">
             <p class="text-lg font-bold text-sav-green">2.000 Lek</p>
-            <p class="text-xs text-sav-gray">140 credits</p>
+            <p class="text-xs text-sav-gray"><span data-en='140 credits'>140 kredite</span></p>
             <p class="text-xs text-sav-grayL">€0,24/spot</p>
           </div>
         </div>
 
         <!-- Snelle acties -->
-        <h4 class="text-sm font-semibold text-sav-dark mb-3">2. Plaats advertentie</h4>
+        <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='2. Place an ad'>2. Vendos reklamë</span></h4>
         <div class="space-y-3 mb-6">
           <a href="partner-dashboard.html" class="flex items-center gap-4 p-4 bg-sav-light rounded-xl border border-sav-grayB hover:border-sav-green transition ch">
             <div class="w-10 h-10 rounded-lg bg-sav-greenL flex items-center justify-center text-sav-green shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
             </div>
             <div class="flex-1">
-              <p class="text-sm font-semibold text-sav-dark">Nieuwe deal aanmaken</p>
-              <p class="text-xs text-sav-gray">Maak een verrassingsbox met je overschot</p>
+              <p class="text-sm font-semibold text-sav-dark"><span data-en='Create a new deal'>Krijo ofertë të re</span></p>
+              <p class="text-xs text-sav-gray"><span data-en='Create a surprise box with your surplus'>Krijo një kuti surprizë me tepricën tënde</span></p>
             </div>
             <svg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
@@ -430,14 +431,14 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             </div>
             <div class="flex-1">
-              <p class="text-sm font-semibold text-sav-dark">Mijn overzicht</p>
-              <p class="text-xs text-sav-gray">Bekijk statistieken en actieve deals</p>
+              <p class="text-sm font-semibold text-sav-dark"><span data-en='My overview'>Përmbledhja ime</span></p>
+              <p class="text-xs text-sav-gray"><span data-en='View stats and active deals'>Shiko statistikat dhe ofertat aktive</span></p>
             </div>
             <svg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
         </div>
 
-        <a href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block">Ga naar volledig partner portaal</a>
+        <a href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block"><span data-en='Go to full partner portal'>Shko te portali i plotë i partnerit</span></a>
       </div>
     </div>
   </section>
@@ -451,33 +452,33 @@
             <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
             <span class="text-lg font-bold text-sav-green">Savora<span class="text-emerald-300">app</span></span>
           </div>
-          <p class="text-sm text-sav-gray leading-relaxed mb-5">Red voedsel, bespaar geld. Het #1 platform in Albanie voor resterende voedselpakketten.</p>
+          <p class="text-sm text-sav-gray leading-relaxed mb-5"><span data-en='Save food, save money. The #1 platform in Albania for surplus food boxes.'>Shpëto ushqimin, kurse para. Platforma #1 në Shqipëri për paketat e ushqimit të mbetur.</span></p>
         </div>
         <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Product</h4>
+          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Product'>Produkti</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="index.html" class="hover:text-sav-green transition">Kreu</a></li>
-            <li><a href="partner.html" class="hover:text-sav-green transition">Word partner</a></li>
+            <li><a href="index.html" class="hover:text-sav-green transition"><span data-en='Home'>Kreu</span></a></li>
+            <li><a href="partner.html" class="hover:text-sav-green transition"><span data-en='Become a partner'>Bëhu partner</span></a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Bedrijf</h4>
+          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Company'>Kompania</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
             <li><a href="index.html#faq" class="hover:text-sav-green transition">FAQ</a></li>
-            <li><a href="index.html#flow" class="hover:text-sav-green transition">Hoe het werkt</a></li>
+            <li><a href="index.html#flow" class="hover:text-sav-green transition"><span data-en='How it works'>Si funksionon</span></a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Juridisch</h4>
+          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Legal'>Ligjore</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="privacy-policy.html" class="hover:text-sav-green transition">Privacy</a></li>
-            <li><a href="terms-of-service.html" class="hover:text-sav-green transition">Voorwaarden</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-sav-green transition"><span data-en='Privacy'>Privatësia</span></a></li>
+            <li><a href="terms-of-service.html" class="hover:text-sav-green transition"><span data-en='Terms'>Kushtet</span></a></li>
           </ul>
         </div>
       </div>
       <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-sav-gray">&copy; 2025 Savoraapp. Alle rechten voorbehouden.</p>
-        <p class="text-xs text-sav-gray/60">support@savoraapp.com | We reageren binnen 5 werkdagen.</p>
+        <p class="text-xs text-sav-gray"><span data-en='&copy; 2026 Savoraapp. All rights reserved.'>&copy; 2026 Savoraapp. Të gjitha të drejtat e rezervuara.</span></p>
+        <p class="text-xs text-sav-gray/60">support@savoraapp.com | <span data-en='We reply within 5 business days.'>Përgjigjemi brenda 5 ditësh pune.</span></p>
       </div>
     </div>
   </footer>
@@ -580,23 +581,23 @@
 
       // Validatie
       if (!password || password.length < 6) {
-        showToast('Wachtwoord moet minimaal 6 tekens zijn');
+        showToast('Fjalëkalimi duhet të jetë të paktën 6 karaktere');
         document.getElementById('pfPassword').focus();
         return;
       }
       if (!nipt) {
-        showToast('NIPT nummer is verplicht');
+        showToast('Numri NIPT është i detyrueshëm');
         document.getElementById('pfNipt').focus();
         return;
       }
       if (!city) {
-        showToast('Selecteer een stad');
+        showToast('Zgjidhni një qytet');
         return;
       }
 
       var btn = e.target.querySelector('button[type="submit"]');
       var originalText = btn.textContent;
-      btn.textContent = 'Bezig...';
+      btn.textContent = 'Duke u procesuar...';
       btn.disabled = true;
 
       partnerFormData = {
@@ -626,15 +627,15 @@
           setTimeout(function() {
             document.getElementById('verifyCodeInput').focus();
           }, 100);
-          showToast('Check je e-mail voor de verificatiecode!');
+          showToast('Kontrolloni emailin për kodin e verifikimit!');
         } else {
-          showToast(data.error || 'Er is iets misgegaan');
+          showToast(data.error || 'Diçka shkoi keq');
         }
       })
       .catch(function() {
         btn.textContent = originalText;
         btn.disabled = false;
-        showToast('Netwerkfout. Controleer je verbinding.');
+        showToast('Gabim rrjeti. Kontrolloni lidhjen tuaj.');
       });
     }
 
@@ -644,12 +645,12 @@
       var partnerId = localStorage.getItem('savora_partner_id');
 
       if (!inputCode || inputCode.length !== 6) {
-        showToast('Voer een geldige 6-cijferige code in');
+        showToast('Vendosni një kod të vlefshëm 6-shifror');
         return;
       }
 
       if (!partnerId) {
-        showToast('Sessie verlopen. Herlaad de pagina en registreer opnieuw.');
+        showToast('Sesioni skadoi. Rifreskoni faqen dhe regjistrohuni sërish.');
         return;
       }
 
@@ -671,14 +672,14 @@
         } else {
           // VERIFICATIE MISLUKT
           document.getElementById('verifyError').classList.remove('hidden');
-          showToast(data.error || 'Ongeldige code. Probeer opnieuw.');
+          showToast(data.error || 'Kod i pavlefshëm. Provoni sërish.');
           document.getElementById('verifyCodeInput').value = '';
           document.getElementById('verifyCodeInput').focus();
         }
       })
       .catch(function(err) {
         console.error('Verify error:', err);
-        showToast('Kan geen verbinding maken met de server.');
+        showToast('Nuk mund të lidhemi me serverin.');
       });
     }
 
@@ -703,7 +704,7 @@
       // 3. Toon success UI
       document.getElementById('verifyStep').classList.add('hidden');
       document.getElementById('successStep').classList.remove('hidden');
-      showToast('Verificatie succesvol!');
+      showToast('Verifikimi u krye me sukses!');
 
       // 4. Redirect naar dashboard na 1 seconde
       // (timeout zodat localStorage writes afgerond zijn)
@@ -716,7 +717,7 @@
     function resendCode() {
       var partnerId = localStorage.getItem('savora_partner_id');
       if (!partnerId) {
-        showToast('Sessie verlopen. Herlaad de pagina.');
+        showToast('Sesioni skadoi. Rifreskoni faqen.');
         return;
       }
 
@@ -729,10 +730,10 @@
       .then(function(data) {
         document.getElementById('verifyCodeInput').value = '';
         document.getElementById('verifyError').classList.add('hidden');
-        showToast('Nieuwe code verstuurd! Check je e-mail.');
+        showToast('Kodi i ri u dërgua! Kontrolloni emailin.');
       })
       .catch(function() {
-        showToast('Kan code niet versturen. Probeer opnieuw.');
+        showToast('Nuk mund të dërgohet kodi. Provoni sërish.');
       });
     }
 
@@ -743,8 +744,8 @@
     // ===== CREDITS SELECTEREN =====
     function selectCredits(plan) {
       var plans = {
-        basic:   { name: 'Basis',    amount: 500,  credits: 25  },
-        popular: { name: 'Populair', amount: 1000, credits: 60  },
+        basic:   { name: 'Bazë',    amount: 500,  credits: 25  },
+        popular: { name: 'Popullor', amount: 1000, credits: 60  },
         pro:     { name: 'Pro',      amount: 2000, credits: 140 },
       };
 
@@ -752,7 +753,7 @@
       if (!selected) return;
 
       localStorage.setItem('selected_plan', JSON.stringify(selected));
-      showToast('Betaling wordt gestart voor ' + selected.name + ' pakket...');
+      showToast('Po fillon pagesa për paketën ' + selected.name + '...');
 
       fetch(API_URL + '/paysera/create', {
         method: 'POST',
@@ -768,11 +769,11 @@
         if (data.paymentUrl) {
           window.location.href = data.paymentUrl;
         } else {
-          showToast('Kan betaling niet starten.');
+          showToast('Nuk mund të fillojë pagesa.');
         }
       })
       .catch(function() {
-        showToast('Netwerkfout bij betaling.');
+        showToast('Gabim rrjeti gjatë pagesës.');
       });
     }
 
@@ -803,6 +804,41 @@
           this.value = this.value.replace(/[^0-9]/g, '');
         });
       }
+    });
+
+    // ===== TAAL / LANGUAGE TOGGLE (SQ <-> EN) =====
+    function applyLang(lang){
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('savora_lang', lang); } catch(e){}
+      var els = document.querySelectorAll('[data-en]');
+      for (var i=0;i<els.length;i++){
+        var el = els[i];
+        if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+        el.innerHTML = (lang==='en') ? el.getAttribute('data-en') : el.getAttribute('data-sq');
+      }
+      var phs = document.querySelectorAll('[data-en-ph]');
+      for (var j=0;j<phs.length;j++){
+        var pe = phs[j];
+        if (pe.getAttribute('data-sq-ph') === null) pe.setAttribute('data-sq-ph', pe.getAttribute('placeholder')||'');
+        pe.setAttribute('placeholder', (lang==='en') ? pe.getAttribute('data-en-ph') : pe.getAttribute('data-sq-ph'));
+      }
+      var ops = document.querySelectorAll('[data-en-opt]');
+      for (var k=0;k<ops.length;k++){
+        var oe = ops[k];
+        if (oe.getAttribute('data-sq-opt') === null) oe.setAttribute('data-sq-opt', oe.textContent);
+        oe.textContent = (lang==='en') ? oe.getAttribute('data-en-opt') : oe.getAttribute('data-sq-opt');
+      }
+      var lb = document.getElementById('langBtn');
+      if (lb) lb.textContent = (lang==='en') ? 'SQ' : 'EN';
+    }
+    function toggleLang(){
+      var cur = (document.documentElement.lang==='en') ? 'en' : 'sq';
+      applyLang(cur==='en' ? 'sq' : 'en');
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      var saved = 'sq';
+      try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+      applyLang(saved==='en' ? 'en' : 'sq');
     });
   </script>
 </body>
