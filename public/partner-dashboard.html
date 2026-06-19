@@ -1183,7 +1183,6 @@
     <h3 style="margin:0 0 4px;font-size:1.1rem">Zgjidhni mënyrën e pagesës</h3>
     <p style="margin:0 0 16px;color:var(--gray-500);font-size:0.85rem">Shuma: <strong id="payMethodAmount">500 LEK</strong></p>
     <button onclick="payWith('paysera')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 Paysera <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, direkt)</span></button>
-    <button onclick="payWith('paypal')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid #003087;border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center;color:#003087">🅿️ PayPal <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(USD)</span></button>
     <button onclick="payWith('bank')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">🏦 Transfertë bankare</button>
     <button onclick="closePayMethod()" style="width:100%;padding:10px;margin-top:4px;border:none;background:none;color:var(--gray-500);cursor:pointer;font-size:0.85rem">Anulo</button>
   </div>
@@ -2477,7 +2476,7 @@
     }
   }
 
-  // ===== Betaalmethode-keuze (Paysera / PayPal / bank) =====
+  // ===== Betaalmethode-keuze (Paysera / bank) =====
   var _payPkg = { id: 'basic', amt: 500 };
   function choosePayment(packageId, amountLEK) {
     _payPkg = { id: packageId, amt: amountLEK };
@@ -2493,68 +2492,12 @@
   function payWith(method) {
     closePayMethod();
     if (method === 'paysera') buyCreditsViaPaysera(_payPkg.id, _payPkg.amt);
-    else if (method === 'paypal') buyCreditsViaPayPal(_payPkg.id);
     else if (method === 'bank') showBankTransfer(_payPkg.id, _payPkg.amt);
   }
   function showBankTransfer(packageId, amountLEK) {
     var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
     var orderId = 'credit_' + (packageMap[packageId]||'basic') + '_' + Date.now();
     alert('🏦 Transfertë Bankare\n\nIBAN: AL57902127674521230229786655\nNë emër të: William Al Farhat\nReferenca: ' + orderId + '\nShuma: ' + amountLEK + ' LEK\n\nKreditet shtohen brenda 1 dite pune pas pagesës.');
-  }
-
-  async function buyCreditsViaPayPal(packageId) {
-    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
-    if (!partnerId) { alert('❌ Ju lutem identifikohuni / Please login first'); return; }
-    var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
-    var packageKey = packageMap[packageId] || 'basic';
-    try {
-      var res = await fetch(API_BASE + '/api/paypal/create-order', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json', 'Authorization':'Bearer ' + partnerToken },
-        body: JSON.stringify({ package: packageKey })
-      });
-      var data = await res.json();
-      if (data.success && data.url) {
-        window.location.href = data.url;
-      } else {
-        alert('❌ PayPal: ' + (data.error || 'Nuk u nis dot pagesa'));
-      }
-    } catch (e) {
-      alert('❌ PayPal: ' + e.message);
-    }
-  }
-
-  var _ppTries = 0;
-  async function capturePayPal(orderId) {
-    if (!partnerToken) { if (_ppTries++ < 20) setTimeout(function(){ capturePayPal(orderId); }, 600); return; }
-    try {
-      var res = await fetch(API_BASE + '/api/paypal/capture', {
-        method: 'POST',
-        headers: { 'Content-Type':'application/json', 'Authorization':'Bearer ' + partnerToken },
-        body: JSON.stringify({ orderId: orderId })
-      });
-      var data = await res.json();
-      if (data.success) {
-        alert('✅ Pagesa me PayPal u krye!' + (data.credits ? ' +' + data.credits + ' kredite u shtuan.' : ''));
-        if (window.history && window.history.replaceState) window.history.replaceState({}, '', '/partner-dashboard');
-        var pid = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
-        if (pid && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(pid);
-      } else {
-        alert('❌ PayPal: ' + (data.error || 'Pagesa nuk u krye'));
-      }
-    } catch (e) {
-      alert('❌ PayPal: ' + e.message);
-    }
-  }
-
-  function handlePayPalReturn() {
-    try {
-      var params = new URLSearchParams(window.location.search);
-      if (params.get('paypal_return') === '1') {
-        var orderId = params.get('token');
-        if (orderId) capturePayPal(orderId);
-      }
-    } catch (e) {}
   }
 
   async function buyCreditsViaPaysera(packageId, amountLEK) {
@@ -2785,7 +2728,6 @@
             partnerInfo = { name: data.name, business: data.business, email: data.email };
             console.log('[INIT] Sessie OK, toon dashboard');
             showDashboard();
-            handlePayPalReturn();
             return;
           }
         }
@@ -3199,7 +3141,7 @@
     showLogin, showRegister, showForgotPassword, logout,
     verifyRegistrationCode, resendVerifyCodeWithTimer,
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
-    choosePayment, closePayMethod, payWith, buyCreditsViaPayPal,
+    choosePayment, closePayMethod, payWith,
     handleAdSubmit, deleteAd, onAdPlanChange, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
     handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims,
     validateNuiRealtime
