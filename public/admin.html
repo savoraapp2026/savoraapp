@@ -2468,6 +2468,7 @@
                 '<td style="white-space:nowrap">' +
                     '<button class="btn-primary-small" onclick="viewPartnerDetails(\'' + p.id + '\')" title="Bekijken" style="padding:8px 12px;font-size:1rem;margin-right:4px">👁️</button>' +
                     (isExplicitlyPending ? '<button class="btn-secondary" style="padding:8px 14px;font-size:0.8rem;background:#D1FAE5;color:#065F46;border-color:#10B981;font-weight:600;" onclick="verifyPartner(\'' + p.id + '\', this)" title="Activeren">✅ Activeer</button>' : '<span style="color:var(--success);font-size:1.2rem">✓</span>') +
+                    '<button class="btn-secondary" style="padding:8px 12px;font-size:1rem;margin-left:6px;background:#FEE2E2;color:#991B1B;border-color:#EF4444;font-weight:600;" onclick="deletePartner(\'' + p.id + '\', this)" title="Verwijderen">🗑️</button>' +
                 '</td>' +
             '</tr>';
         }).join('');
@@ -2584,6 +2585,35 @@
                 btn.innerHTML = '✅ Activeer';
                 btn.style.opacity = '1';
             }
+        }
+    }
+    
+    async function deletePartner(partnerId, btn) {
+        var partner = cachedPartnersData ? cachedPartnersData.find(function(p){ return p.id === partnerId; }) : null;
+        var label = partner ? (partner.business || partner.contact || partnerId) : partnerId;
+        if (!confirm('Partner "' + label + '" definitief verwijderen?\n\nDit verwijdert het account en de gegevens. Deze actie kan niet ongedaan worden gemaakt.')) return;
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '⏳';
+            btn.style.opacity = '0.7';
+        }
+        try {
+            var result = await adminApi('/api/admin/delete-partner', {
+                method: 'POST',
+                body: JSON.stringify({ partnerId: partnerId })
+            });
+            if (result && result.success) {
+                alert('🗑️ Partner verwijderd.');
+                await loadPartnersData();
+            } else {
+                var errorMsg = (result && result.error) ? result.error : 'Kon partner niet verwijderen';
+                alert('❌ Fout: ' + errorMsg);
+                if (btn) { btn.disabled = false; btn.innerHTML = '🗑️'; btn.style.opacity = '1'; }
+            }
+        } catch (err) {
+            console.error('deletePartner error:', err);
+            alert('❌ Netwerkfout. Probeer opnieuw.');
+            if (btn) { btn.disabled = false; btn.innerHTML = '🗑️'; btn.style.opacity = '1'; }
         }
     }
     
@@ -2824,6 +2854,7 @@
     window.spendPartnerCredits = spendPartnerCredits;
     window.viewPartnerDetails = viewPartnerDetails;
     window.verifyPartner = verifyPartner;
+    window.deletePartner = deletePartner;
     window.loadPartnersData = loadPartnersData;
     window.loadBilling = loadBilling;
     window.renderBilling = renderBilling;
