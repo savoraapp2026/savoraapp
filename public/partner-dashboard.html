@@ -415,7 +415,7 @@
     <!-- LOGIN FORM -->
     <div class="form-section active" id="loginFormSection">
       <h1 data-i18n="loginTitle">Partner Login</h1>
-      <p class="subtitle" data-i18n="loginSubtitle">Qasja ne panelin e partnerit</p>
+      <p class="subtitle" data-i18n="loginSubtitle">Qasja në panelin e partnerit</p>
       <div id="loginError"></div>
       <form id="loginForm" novalidate>
         <div class="form-group">
@@ -430,7 +430,7 @@
           </div>
         </div>
         <div class="forgot-pw">
-          <a onclick="showForgotPassword()" data-i18n="linkForgotPw">Keni harruar fjalekalimin?</a>
+          <a onclick="showForgotPassword()" data-i18n="linkForgotPw">Keni harruar fjalëkalimin?</a>
         </div>
         <button type="submit" class="btn btn-primary" id="loginBtn" data-i18n="btnLogin" style="margin-top:16px">Hyr</button>
       </form>
@@ -442,7 +442,7 @@
 
     <!-- FORGOT PASSWORD FORM -->
     <div class="form-section" id="forgotPwSection">
-      <h1 data-i18n="forgotPwTitle">Rivendos Fjalekalimin</h1>
+      <h1 data-i18n="forgotPwTitle">Rivendos Fjalëkalimin</h1>
       <p class="subtitle" data-i18n="forgotPwSubtitle">Shkruani email-in tuaj per te rivendosur fjalekalimin.</p>
       <div id="forgotPwError"></div>
       <div id="forgotPwSuccess"></div>
@@ -458,7 +458,7 @@
 
     <!-- RESET PASSWORD FORM -->
     <div class="form-section" id="resetPwSection">
-      <h1 data-i18n="resetPwTitle">Vendos Fjalekalim te Ri</h1>
+      <h1 data-i18n="resetPwTitle">Vendos Fjalëkalim të Ri</h1>
       <p class="subtitle" data-i18n="resetPwSubtitle">Shkruani token-in nga email-i dhe fjalekalimin e ri.</p>
       <div id="resetPwError"></div>
       <div id="resetPwSuccess"></div>
@@ -468,13 +468,13 @@
           <input type="text" id="resetToken" placeholder="ABC123..." autocomplete="one-time-code">
         </div>
         <div class="form-group">
-          <label data-i18n="labelPassword">Fjalekalimi i Ri</label>
+          <label data-i18n="labelPassword">Fjalëkalimi i Ri</label>
           <div class="pw-wrap">
             <input type="password" id="resetNewPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('resetNewPassword',this)">&#128065;</button>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="resetPwBtn" data-i18n="btnUpdatePw">Përditëso Fjalekalimin</button>
+        <button type="submit" class="btn btn-primary" id="resetPwBtn" data-i18n="btnUpdatePw">Përditëso Fjalëkalimin</button>
       </form>
       <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
     </div>
@@ -482,7 +482,7 @@
     <!-- REGISTER FORM -->
     <div class="form-section" id="registerFormSection">
       <h1 data-i18n="registerTitle">Regjistrohu si Partner</h1>
-      <p class="subtitle" data-i18n="registerSubtitle">Plotesoni te dhenat e biznesit tuaj</p>
+      <p class="subtitle" data-i18n="registerSubtitle">Plotësoni të dhënat e biznesit tuaj</p>
       <div id="registerError"></div>
       <div id="registerSuccess"></div>
       <form id="registerForm" novalidate>
@@ -509,7 +509,7 @@
           <div style="position:relative">
             <input type="text" id="regNui" data-i18n-placeholder="placeholderNui" placeholder="M12345678O"
                    pattern="[A-Za-z0-9]{10}" maxlength="10" minlength="10"
-                   title="NUI duhet te kete saktesisht 10 karaktere"
+                   title="NUI duhet të ketë saktësisht 10 karaktere"
                    oninput="validateNuiRealtime(this)"
                    style="text-transform:uppercase;padding-right:45px;width:100%">
             <span id="nuiStatus" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:1.2rem;transition:all 0.3s"></span>
@@ -529,14 +529,14 @@
           <input type="tel" id="regPhone" data-i18n-placeholder="placeholderPhone" placeholder="+355 67 XXX XXXX" autocomplete="tel">
         </div>
         <div class="form-group">
-          <label data-i18n="labelPassword">Fjalekalimi *</label>
+          <label data-i18n="labelPassword">Fjalëkalimi *</label>
           <div class="pw-wrap">
             <input type="password" id="regPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('regPassword',this)" aria-label="Show password">&#128065;</button>
           </div>
         </div>
         <div class="form-group">
-          <label data-i18n="labelConfirmPassword">Konfirmo Fjalekalimin *</label>
+          <label data-i18n="labelConfirmPassword">Konfirmo Fjalëkalimin *</label>
           <div class="pw-wrap">
             <input type="password" id="regConfirmPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('regConfirmPassword',this)" aria-label="Show password">&#128065;</button>
@@ -555,7 +555,7 @@
         <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:8px" data-i18n="verifyTitle">Verifiko Email-in</h3>
         <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:8px" data-i18n="verifySubtitle">Ne kemi derguar nje kod verifikimi ne email-in tuaj.</p>
         <p id="verifyEmailDisplay" style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:16px"></p>
-        <div id="verifyCodeError" class="hidden" style="color:var(--danger);font-size:0.85rem;margin-bottom:12px">Kodi i verifikimit eshte i pasakte.</div>
+        <div id="verifyCodeError" class="hidden" style="color:var(--danger);font-size:0.85rem;margin-bottom:12px">Kodi i verifikimit është i pasaktë.</div>
         <div id="verifyCodeSuccess" style="margin-bottom:12px"></div>
         <div class="form-group" style="max-width:200px;margin:0 auto 16px">
           <input type="text" id="verifyCodeInput" maxlength="6" placeholder="123456" style="text-align:center;font-size:1.5rem;font-weight:600;letter-spacing:8px" oninput="this.value=this.value.replace(/[^0-9]/g,'')" onkeydown="if(event.key==='Enter')verifyRegistrationCode()">
@@ -585,18 +585,18 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8l5-7v4h3l-5 7z"/></svg>
         <span data-i18n="payseraTitle">Pagesa me Paysera</span>
       </div>
-      <p data-i18n="payseraDesc">Pagesat kryhen ne menyre te sigurt permes Paysera Albania SH.P.K.</p>
+      <p data-i18n="payseraDesc">Pagesat kryhen në mënyrë të sigurt përmes Paysera Albania SH.P.K.</p>
     </div>
 
     <div class="pricing-header">
       <h1 data-i18n="pricingTitle">Cmimet</h1>
-      <p data-i18n="pricingSubtitle">Zgjidhni paketen qe ju pershtatet me mire.</p>
+      <p data-i18n="pricingSubtitle">Zgjidhni paketën që ju përshtatet më mirë.</p>
     </div>
     <div class="pricing-grid">
       <!-- Package 1 -->
       <div class="pricing-card">
         <h3 data-i18n="pkg1Name">Paketa 1</h3>
-        <p class="subtitle" data-i18n="pkg1Desc">Per biznese te vogla</p>
+        <p class="subtitle" data-i18n="pkg1Desc">Për biznese të vogla</p>
         <div class="pricing-price">500 <span>LEK</span></div>
         <ul class="pricing-features">
           <li><span class="check"></span> <span data-i18n="pkgFeature1">20 Kredite</span></li>
@@ -614,14 +614,14 @@
       <div class="pricing-card featured">
         <div class="pricing-badge" data-i18n="pkgPopular">Me e Popullarizuara</div>
         <h3 data-i18n="pkg2Name">Paketa 2</h3>
-        <p class="subtitle" data-i18n="pkg2Desc">Per biznese ne rritje</p>
+        <p class="subtitle" data-i18n="pkg2Desc">Për biznese në rritje</p>
         <div class="pricing-price">1,000 <span>LEK</span></div>
         <ul class="pricing-features">
           <li><span class="check"></span> <span data-i18n="pkgFeature5">50 Kredite</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature2">1 Kredit = 1 Postim</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature3">Vlefshmeri 3 muaj</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature4b">Support prioritet</span></li>
-          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika te detajuara</span></li>
+          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika të detajuara</span></li>
         </ul>
         <button class="btn" onclick="selectPackage(2)" data-i18n="btnSelect">Zgjidh</button>
         <button class="btn-paysera" onclick="choosePayment(2, 1000)" data-i18n="btnPayPaysera">
@@ -632,14 +632,14 @@
       <!-- Package 3 -->
       <div class="pricing-card">
         <h3 data-i18n="pkg3Name">Paketa 3</h3>
-        <p class="subtitle" data-i18n="pkg3Desc">Per biznese te medha</p>
+        <p class="subtitle" data-i18n="pkg3Desc">Për biznese të mëdha</p>
         <div class="pricing-price">1,800 <span>LEK</span></div>
         <ul class="pricing-features">
           <li><span class="check"></span> <span data-i18n="pkgFeature7">100 Kredite</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature2">1 Kredit = 1 Postim</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature3">Vlefshmeri 3 muaj</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature4b">Support prioritet</span></li>
-          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika te detajuara</span></li>
+          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika të detajuara</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature8">Reklama premium</span></li>
         </ul>
         <button class="btn outline" onclick="selectPackage(3)" data-i18n="btnSelect">Zgjidh</button>
@@ -650,7 +650,7 @@
       </div>
     </div>
     <div class="skip-pricing">
-      <a onclick="skipPricing()" data-i18n="linkSkip">Kalo per tani </a>
+      <a onclick="skipPricing()" data-i18n="linkSkip">Kalo për tani </a>
     </div>
   </div>
 </div>
@@ -705,18 +705,18 @@
           <div style="font-size:0.9rem;color:var(--gray-500);line-height:1.6">
             <p><strong id="welcomeName">Partner</strong></p>
             <p id="welcomeBusiness" style="margin-top:4px"></p>
-            <p style="margin-top:12px" data-i18n="welcomeDesc">Krijoni dhe menaxhoni faturat tua tatimore ketu.</p>
+            <p style="margin-top:12px" data-i18n="welcomeDesc">Krijoni dhe menaxhoni faturat tuaja tatimore këtu.</p>
           </div>
         </div>
         <div class="dash-card">
           <h3><span class="icon"> </span> <span data-i18n="statInvoices">Total Faturat</span></h3>
           <div class="stat-value" id="totalInvoices">0</div>
-          <div class="stat-label" data-i18n="statInvoicesLabel">Fatura te krijuara</div>
+          <div class="stat-label" data-i18n="statInvoicesLabel">Fatura të krijuara</div>
         </div>
         <div class="dash-card">
           <h3><span class="icon"> </span> <span data-i18n="statValue">Vlera Totale</span></h3>
           <div class="stat-value" id="totalValue">0 EUR</div>
-          <div class="stat-label" data-i18n="statValueLabel">Vlera e te gjitha faturave</div>
+          <div class="stat-label" data-i18n="statValueLabel">Vlera e të gjitha faturave</div>
         </div>
         <div class="dash-card">
           <h3><span class="icon"> </span> NUI</h3>
@@ -748,11 +748,11 @@
     <!-- INVOICE TAB -->
     <div id="tab-invoice" class="tab-content" style="display:none">
       <div class="dash-card">
-        <h3> <span data-i18n="invoiceNewTitle">Fature Tatimore e Re</span></h3>
+        <h3> <span data-i18n="invoiceNewTitle">Faturë Tatimore e Re</span></h3>
         <div id="invoiceError"></div>
         <div id="invoiceSuccess"></div>
 
-        <div class="invoice-section-title" data-i18n="sectionBuyer">Te dhenat e Bleresit</div>
+        <div class="invoice-section-title" data-i18n="sectionBuyer">Të dhënat e Blerësit</div>
         <div class="invoice-form">
           <div class="form-group half-width">
             <label data-i18n="labelBuyerName">Emri i Bleresit *</label>
@@ -816,7 +816,7 @@
           <div class="form-group">
             <label data-i18n="labelPaymentMethod">Menyra e Pageses</label>
             <select id="paymentMethod">
-              <option value="cash" data-i18n="optCash">Para ne dore</option>
+              <option value="cash" data-i18n="optCash">Para në dorë</option>
               <option value="bank" data-i18n="optBank">Bankare</option>
               <option value="invoice" data-i18n="optInvoice">Fature pa para</option>
             </select>
@@ -898,7 +898,7 @@
         </div>
         <div style="background:#FFF7ED;border:1px solid #FDBA74;border-radius:10px;padding:12px;margin-bottom:16px;text-align:center">
           <strong style="color:#9A3412;font-size:0.9rem">1 Kredit = 1 Postim = 24 Ore</strong>
-          <p style="font-size:0.8rem;color:#9A3412;margin:4px 0 0">Çdo postim konsumon 1 kredit dhe eshte i dukshëm për 24 ore.</p>
+          <p style="font-size:0.8rem;color:#9A3412;margin:4px 0 0">Çdo postim konsumon 1 kredit dhe është i dukshëm për 24 orë.</p>
         </div>
         <div class="paysera-info" style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px;margin-top:12px">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
@@ -1148,7 +1148,7 @@
       </div>
 
       <div class="instructions" data-i18n="payInstructions">
-        <strong>Instruksionet per Transferte Bankare:</strong><br>
+        <strong>Instruksionet për Transfertë Bankare:</strong><br>
         1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>
         2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>
         3. Shkruani IBAN-in: <strong>AL57902127674521230229786655</strong><br>
@@ -1183,7 +1183,8 @@
     <h3 style="margin:0 0 4px;font-size:1.1rem">Zgjidhni mënyrën e pagesës</h3>
     <p style="margin:0 0 16px;color:var(--gray-500);font-size:0.85rem">Shuma: <strong id="payMethodAmount">500 LEK</strong></p>
     <button onclick="payWith('paysera')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 Paysera <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, direkt)</span></button>
-    <button onclick="payWith('bank')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">🏦 Transfertë bankare</button>
+    <button onclick="payWith('pok')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 POK <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, kartë)</span></button>
+    <button onclick="payWith('paypal')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">🅿️ PayPal <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(USD)</span></button>
     <button onclick="closePayMethod()" style="width:100%;padding:10px;margin-top:4px;border:none;background:none;color:var(--gray-500);cursor:pointer;font-size:0.85rem">Anulo</button>
   </div>
 </div>
@@ -1200,22 +1201,22 @@
   // ========================================
   var T = {
     sq: {
-      loginTitle: 'Partner Login', loginSubtitle: 'Qasja ne panelin e partnerit',
-      registerTitle: 'Regjistrohu si Partner', registerSubtitle: 'Plotesoni te dhenat e biznesit tuaj',
+      loginTitle: 'Partner Login', loginSubtitle: 'Qasja në panelin e partnerit',
+      registerTitle: 'Regjistrohu si Partner', registerSubtitle: 'Plotësoni të dhënat e biznesit tuaj',
       noAccount: 'Nuk keni llogari?', hasAccount: 'Keni llogari?',
-      linkRegister: 'Regjistrohu si Partner →', linkLogin: 'Hyr ketu →',
+      linkRegister: 'Regjistrohu si Partner →', linkLogin: 'Hyr këtu →',
       btnRegister: 'Regjistrohu', registerLoading: 'Duke u regjistruar...',
-      registerSuccess: 'Regjistrimi u krye me sukses! Mund te hyni tani.',
+      registerSuccess: 'Regjistrimi u krye me sukses! Mund të hyni tani.',
       registerError: 'Gabim gjate regjistrimit',
-      fillRequired: 'Ju lutem plotesoni te gjitha fushat e detyrueshme',
-      passwordMismatch: 'Fjalekalimet nuk perputhen',
-      passwordShort: 'Fjalekalimi duhet te kete te pakten 6 karaktere',
-      nuiInvalid: 'NUI duhet te kete saktesisht 10 karaktere',
+      fillRequired: 'Ju lutem plotësoni të gjitha fushat e detyrueshme',
+      passwordMismatch: 'Fjalëkalimet nuk përputhen',
+      passwordShort: 'Fjalëkalimi duhet të ketë të paktën 6 karaktere',
+      nuiInvalid: 'NUI duhet të ketë saktësisht 10 karaktere',
       nuiValid: 'NUI valide!',
-      nuiCharsLeft: 'karaktere te mbetura',
-      resetPwTitle: 'Rivendos Fjalekalimin',
-      resetPwSubtitle: 'Shkruani kodin verifikues dhe fjalekalimin e ri.',
-      btnUpdatePw: 'Perditso Fjalekalimin',
+      nuiCharsLeft: 'karaktere të mbetura',
+      resetPwTitle: 'Rivendos Fjalëkalimin',
+      resetPwSubtitle: 'Shkruani kodin verifikues dhe fjalëkalimin e ri.',
+      btnUpdatePw: 'Përditëso Fjalëkalimin',
       nuiHelp: 'Format: M + 8 numra + shkronje (10 karaktere)',
       labelBusinessName: 'Emri i Biznesit', labelBusinessType: 'Lloji i Biznesit',
       labelOwnerName: 'Emri i Pronarit', labelNui: 'NUI *', labelConfirmPassword: 'Konfirmo Fjalekalimin',
@@ -1224,8 +1225,8 @@
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Tjetër',
       labelEmail: 'Email', labelPassword: 'Fjalekalimi', placeholderEmail: 'partner@savoraapp.com',
       btnLogin: 'Hyr', linkBack: '\u2190 Kthehu ne faqen kryesore',
-      linkForgotPw: 'Keni harruar fjalekalimin?',
-      forgotPwTitle: 'Rivendos Fjalekalimin',
+      linkForgotPw: 'Keni harruar fjalëkalimin?',
+      forgotPwTitle: 'Rivendos Fjalëkalimin',
       forgotPwSubtitle: 'Shkruani email-in tuaj dhe do ju dergojme udhëzime per rivendosjen.',
       btnSendReset: 'Dërgo Udhëzimet',
       btnSending: 'Duke u derguar...',
@@ -1234,15 +1235,15 @@
       linkBackLogin: '← Kthehu tek Hyrja',
       loginLoading: 'Duke u kyqur...', loginError: 'Gabim ne lidhje',
       invalidCredentials: 'Kredencialet e pasakta',
-      pricingTitle: 'Cmimet', pricingSubtitle: 'Zgjidhni paketen qe ju pershtatet me mire.',
-      pkg1Name: 'Paketa 1', pkg1Desc: 'Per biznese te vogla',
-      pkg2Name: 'Paketa 2', pkg2Desc: 'Per biznese ne rritje',
-      pkg3Name: 'Paketa 3', pkg3Desc: 'Per biznese te medha',
-      pkgPopular: 'Me e Popullarizuara', btnSelect: 'Zgjidh', linkSkip: 'Kalo per tani →',
+      pricingTitle: 'Cmimet', pricingSubtitle: 'Zgjidhni paketën që ju përshtatet më mirë.',
+      pkg1Name: 'Paketa 1', pkg1Desc: 'Për biznese të vogla',
+      pkg2Name: 'Paketa 2', pkg2Desc: 'Për biznese në rritje',
+      pkg3Name: 'Paketa 3', pkg3Desc: 'Për biznese të mëdha',
+      pkgPopular: 'Me e Popullarizuara', btnSelect: 'Zgjidh', linkSkip: 'Kalo për tani →',
       pkgFeature1: '20 Kredite', pkgFeature2: '1 Kredit = 1 Postim',
       pkgFeature3: 'Vlefshmeri 3 muaj', pkgFeature4a: 'Support baze',
       pkgFeature4b: 'Support prioritet', pkgFeature5: '50 Kredite',
-      pkgFeature6: 'Statistika te detajuara', pkgFeature7: '100 Kredite',
+      pkgFeature6: 'Statistika të detajuara', pkgFeature7: '100 Kredite',
       pkgFeature8: 'Reklama premium',
       tabOverview: 'Përmbledhje', tabBoxes: 'Kutitë Surprizë', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
       boxesTitle: 'Kutitë Surprizë', boxesSubtitle: 'Krijoni kutitë surprizë me produkte ushqimore dhe shitini me zbritje.',
@@ -1259,12 +1260,12 @@
       adPublished: 'Reklama u publikua me sukses!', myAdsTitle: 'Reklamat e Mia', noAds: 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!',
       btnLogout: 'Dil', btnBackSite: '← Faqja kryesore', welcomeTitle: 'Miresevini',
       ofTitle: 'Ofertat ditore', ofSubtitle: 'Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.', ofKredit: 'Kredit', ofBadge: 'çdo ofertë · 24 orë e dukshme · shfaqet te klientët', ofTitleLabel: 'Titulli i ofertës', ofTitlePh: 'p.sh. Bukë e freskët -50%', ofOldPriceLabel: 'Çmimi i vjetër (L)', ofNewPriceLabel: 'Çmimi i ofertës (L)', ofCatLabel: 'Kategoria', ofQtyLabel: 'Sasia (opsionale)', ofQtyPh: 'p.sh. 10', ofQtyHint: 'Numri i artikujve — bie automatikisht kur klientët i marrin', ofCityLabel: 'Qyteti', ofCityPh: 'p.sh. Tiranë', ofAddrLabel: 'Adresa e plotë', ofAddrPh: 'p.sh. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Rrugë dhe numër — që klientët të të gjejnë në Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: '— opsionale', ofSubmitBtn: 'Publiko ofertën (1 Kredit)', ofMyDeals: 'Ofertat e mia', ofMyClaims: 'Kush i ka kërkuar ofertat e tua', ofLoading: 'Po ngarkohet...',
-      welcomeDesc: 'Krijoni dhe menaxhoni faturat tua tatimore ketu.',
-      statInvoices: 'Total Faturat', statInvoicesLabel: 'Fatura te krijuara',
-      statValue: 'Vlera Totale', statValueLabel: 'Vlera e te gjitha faturave',
+      welcomeDesc: 'Krijoni dhe menaxhoni faturat tuaja tatimore këtu.',
+      statInvoices: 'Total Faturat', statInvoicesLabel: 'Fatura të krijuara',
+      statValue: 'Vlera Totale', statValueLabel: 'Vlera e të gjitha faturave',
       statNuiLabel: 'Numri juaj i identifikimit',
-      invoiceNewTitle: 'Fature Tatimore e Re',
-      sectionBuyer: 'Te dhenat e Bleresit', labelBuyerName: 'Emri i Bleresit *',
+      invoiceNewTitle: 'Faturë Tatimore e Re',
+      sectionBuyer: 'Të dhënat e Blerësit', labelBuyerName: 'Emri i Bleresit *',
       placeholderBuyerName: 'Emri i kompanise', labelNipt: 'NIPT / Tax ID',
       labelAddress: 'Adresa', placeholderAddress: 'Rruga, Qyteti',
       labelPhone: 'Telefon', labelPaymentDue: 'Afati i Pageses',
@@ -1275,7 +1276,7 @@
       placeholderCode: 'A001', placeholderItemDesc: 'Pershkrimi i artikullit',
       btnAddItem: '+ Shto Artikull',
       sectionSummary: 'Permbledhje', labelPaymentMethod: 'Menyra e Pageses',
-      labelCurrency: 'Valuta', optCash: 'Para ne dore', optBank: 'Bankare', optInvoice: 'Fature pa para',
+      labelCurrency: 'Valuta', optCash: 'Para në dorë', optBank: 'Bankare', optInvoice: 'Fature pa para',
       totalSub: 'Subtotal pa TVSH', totalVat: 'TVSH (20%)', totalGrand: 'TOTAL',
       btnSave: '>> Ruaj Faturen', btnPreview: '>> Preview & Print', btnClear: '>> Pastro',
       myInvoicesTitle: 'Faturat e Mia', noInvoices: 'Nuk ka fatura ende',
@@ -1300,7 +1301,7 @@
       trustSubtitle: 'Licencuar nga Banka e Shqiperise (Nr. 47) | Marrveshje zyrtare: AL-WILLIAM-2026 | NUI: M51921505O',
       trustBadge: 'Verified',
       payseraTitle: 'Pagesa me Paysera',
-      payseraDesc: 'Pagesat kryhen ne menyre te sigurt permes Paysera Albania SH.P.K.',
+      payseraDesc: 'Pagesat kryhen në mënyrë të sigurt përmes Paysera Albania SH.P.K.',
       payseraVerified: 'William Al Farhat | NUI: M51921505O | IBAN verifikuar',
       modalPayTitle: 'Pagesa me Paysera',
       modalPaySubtitle: 'Transfer bankar i sigurt | Paysera Albania SH.P.K.',
@@ -1310,7 +1311,7 @@
       btnOpenPaysera: 'Hap Paysera.com',
       modalFooterSecure: '>> Pagesa e Sigurt - Paysera Albania SH.P.K.',
       modalFooterDetail: 'NUI: M51921505O | Marrveshja: AL-WILLIAM-2026 | E licencuar nga Banka e Shqiperise',
-      payInstructions: '<strong>Instruksionet per Transferte Bankare:</strong><br>1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>3. Shkruani IBAN-in: <strong>AL57902127674521230229786655</strong><br>4. Shkruani shum&euml;n: <strong id="paymentAmount2">500 LEK</strong><br>5. N&euml; p&euml;rshkrim: <strong>"Savoraapp - [Email]"</strong><br>6. Klikoni "D&euml;rgo"<br><br><small style="color:var(--success)">&#10003; Llogaria e verifikuar nga Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Marr&euml;veshja: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Kreditet aktivizohen brenda 15-30 minutave.',
+      payInstructions: '<strong>Instruksionet për Transfertë Bankare:</strong><br>1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>3. Shkruani IBAN-in: <strong>AL57902127674521230229786655</strong><br>4. Shkruani shum&euml;n: <strong id="paymentAmount2">500 LEK</strong><br>5. N&euml; p&euml;rshkrim: <strong>"Savoraapp - [Email]"</strong><br>6. Klikoni "D&euml;rgo"<br><br><small style="color:var(--success)">&#10003; Llogaria e verifikuar nga Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Marr&euml;veshja: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Kreditet aktivizohen brenda 15-30 minutave.',
       creditTitle: 'Kredite Aktuale',
       btnTopUp: 'Bëj Kredi',
       creditHistoryTitle: 'Kredite Historiku',
@@ -1595,7 +1596,7 @@
     var succDiv = document.getElementById('verifyCodeSuccess');
 
     if (!inputCode || inputCode.length !== 6) {
-      if (errDiv) { errDiv.textContent = 'Kodi duhet te kete 6 shifra'; errDiv.classList.remove('hidden'); }
+      if (errDiv) { errDiv.textContent = 'Kodi duhet të ketë 6 shifra'; errDiv.classList.remove('hidden'); }
       return;
     }
 
@@ -1615,7 +1616,7 @@
         localStorage.setItem('partnerToken', data.token);
         localStorage.setItem('partner_id', data.partnerId || partnerId);
         localStorage.setItem('savora_partner_verified', 'true');
-        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Verifikimi me sukses! Po te ridrejtojme...</div>';
+        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Verifikimi me sukses! Po të ridrejtojmë...</div>';
         setTimeout(function(){
           window.location.href = 'partner-dashboard.html';
         }, 1500);
@@ -1895,7 +1896,7 @@
         return r.json().then(function(data) {
           btn.disabled = false;
           btn.textContent = t.btnRegister;
-          errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(data.error) + '<br><a href="#" onclick="showLogin();return false;" style="color:var(--primary);text-decoration:underline;">' + (t.alreadyRegisteredLink || 'Klik hier om in te loggen') + '</a></div>';
+          errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(data.error) + '<br><a href="#" onclick="showLogin();return false;" style="color:var(--primary);text-decoration:underline;">' + (t.alreadyRegisteredLink || 'Klikoni këtu për të hyrë') + '</a></div>';
           return {alreadyRegistered: true}; // Marker voor volgende .then()
         });
       }
@@ -2186,7 +2187,7 @@
     if (succDiv) succDiv.innerHTML = '';
 
     if (!title) {
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + (t.fillRequired || 'Plotesoni te gjitha fushat') + '</div>';
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + (t.fillRequired || 'Plotësoni të gjitha fushat') + '</div>';
       return;
     }
 
@@ -2492,7 +2493,87 @@
   function payWith(method) {
     closePayMethod();
     if (method === 'paysera') buyCreditsViaPaysera(_payPkg.id, _payPkg.amt);
+    else if (method === 'pok') buyCreditsViaPok(_payPkg.id, _payPkg.amt);
+    else if (method === 'paypal') buyCreditsViaPaypal(_payPkg.id);
     else if (method === 'bank') showBankTransfer(_payPkg.id, _payPkg.amt);
+  }
+  async function buyCreditsViaPaypal(packageId) {
+    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
+    if (!partnerId) {
+      alert('❌ Ju lutem identifikohuni fillimisht / Please login first');
+      return;
+    }
+    var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
+    var packageKey = packageMap[packageId] || 'basic';
+    try {
+      var res = await fetch(API_BASE + '/api/paypal/create-order', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
+        body: JSON.stringify({ package: packageKey })
+      });
+      var data = await res.json();
+      if (data.success && data.url) {
+        try { localStorage.setItem('savora_paypal_order', data.orderId); } catch(e){}
+        window.location.href = data.url;
+      } else {
+        alert('❌ ' + (data.error || 'PayPal pagesa dështoi / PayPal payment failed'));
+      }
+    } catch (e) {
+      alert('❌ Gabim rrjeti / Network error: ' + e.message);
+    }
+  }
+  async function handlePaypalReturn() {
+    try {
+      var qs = new URLSearchParams(window.location.search);
+      if (qs.get('paypal_cancel') === '1') {
+        try { localStorage.removeItem('savora_paypal_order'); } catch(e){}
+        window.history.replaceState({}, '', '/partner-dashboard');
+        return;
+      }
+      if (qs.get('paypal_return') !== '1') return;
+      var orderId = qs.get('token') || localStorage.getItem('savora_paypal_order');
+      window.history.replaceState({}, '', '/partner-dashboard');
+      if (!orderId || !partnerToken) return;
+      var res = await fetch(API_BASE + '/api/paypal/capture', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
+        body: JSON.stringify({ orderId: orderId })
+      });
+      var data = await res.json();
+      try { localStorage.removeItem('savora_paypal_order'); } catch(e){}
+      if (data.success) {
+        alert('✅ Pagesa u krye me sukses!' + (data.credits != null ? (' ' + data.credits + ' kredite u shtuan.') : ''));
+        location.reload();
+      } else {
+        alert('❌ ' + (data.error || 'PayPal capture failed'));
+      }
+    } catch (e) {
+      console.error('[PAYPAL] return fout:', e && e.message);
+    }
+  }
+  async function buyCreditsViaPok(packageId, amountLEK) {
+    var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
+    if (!partnerId) {
+      alert('❌ Ju lutem identifikohuni fillimisht / Please login first');
+      return;
+    }
+    var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
+    var packageKey = packageMap[packageId] || 'basic';
+    try {
+      var res = await fetch(API_BASE + '/api/pok/create-payment', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
+        body: JSON.stringify({ package: packageKey })
+      });
+      var data = await res.json();
+      if (data.success && data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('❌ ' + (data.error || 'POK pagesa dështoi / POK payment failed'));
+      }
+    } catch (e) {
+      alert('❌ Gabim rrjeti / Network error: ' + e.message);
+    }
   }
   function showBankTransfer(packageId, amountLEK) {
     var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
@@ -2728,6 +2809,7 @@
             partnerInfo = { name: data.name, business: data.business, email: data.email };
             console.log('[INIT] Sessie OK, toon dashboard');
             showDashboard();
+            handlePaypalReturn();
             return;
           }
         }

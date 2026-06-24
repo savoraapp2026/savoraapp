@@ -704,16 +704,8 @@
       localStorage.removeItem('savora_partner_code');
       localStorage.removeItem('savora_partner_id');
 
-      // 3. Toon success UI
-      document.getElementById('verifyStep').classList.add('hidden');
-      document.getElementById('successStep').classList.remove('hidden');
-      showToast('Verifikimi u krye me sukses!');
-
-      // 4. Redirect naar dashboard na 1 seconde
-      // (timeout zodat localStorage writes afgerond zijn)
-      setTimeout(function() {
-        window.location.href = 'partner-dashboard.html';
-      }, 1000);
+      // 3. Direct door naar het dashboard (geen flits van het successcherm)
+      window.location.href = 'partner-dashboard.html';
     }
 
     // ===== RESEND CODE =====

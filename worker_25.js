@@ -520,7 +520,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.18.1-poklog', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.18.0-pok', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -1960,7 +1960,6 @@ async function handleRequest(request, env, ctx) {
         body: JSON.stringify({ keyId: env.POK_KEY_ID, keySecret: env.POK_KEY_SECRET })
       });
       const loginText = await loginRes.text();
-      console.log('[POK] login response HTTP', loginRes.status, ':', loginText.slice(0, 500));
       if (!loginRes.ok) {
         console.error('[POK] login mislukt HTTP', loginRes.status, loginText.slice(0, 300));
         return jsonResponse({ error: 'POK-login mislukt' }, 502, origin);
@@ -1991,7 +1990,6 @@ async function handleRequest(request, env, ctx) {
         body: JSON.stringify(orderPayload)
       });
       const orderText = await orderRes.text();
-      console.log('[POK] order response HTTP', orderRes.status, ':', orderText.slice(0, 1000));
       if (!orderRes.ok) {
         console.error('[POK] order aanmaken mislukt HTTP', orderRes.status, orderText.slice(0, 400));
         return jsonResponse({ error: 'POK-order aanmaken mislukt' }, 502, origin);
@@ -2008,7 +2006,6 @@ async function handleRequest(request, env, ctx) {
       // Checkout-URL: uit het antwoord halen, anders construeren
       const payBase = env.POK_PAY_BASE || 'https://pay.pokpay.io';
       const checkoutUrl = (sdkOrder?.self && (sdkOrder.self.url || sdkOrder.self.href)) || sdkOrder?.redirectUrl || (payBase + '/' + pokOrderId);
-      console.log('[POK] gekozen checkoutUrl:', checkoutUrl);
 
       // POK-order-id koppelen aan onze pending-order
       try {
