@@ -1182,6 +1182,13 @@
   <div style="background:#fff;border-radius:16px;max-width:380px;width:100%;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.3)">
     <h3 style="margin:0 0 4px;font-size:1.1rem">Zgjidhni mënyrën e pagesës</h3>
     <p style="margin:0 0 16px;color:var(--gray-500);font-size:0.85rem">Shuma: <strong id="payMethodAmount">500 LEK</strong></p>
+    <div style="margin:0 0 14px">
+      <div style="display:flex;gap:8px">
+        <input id="promoInput" type="text" placeholder="Kod zbritjeje (opsional)" style="flex:1;padding:10px;border:1px solid var(--gray-200);border-radius:10px;font-size:0.85rem;text-transform:uppercase" oninput="this.value=this.value.toUpperCase()">
+        <button onclick="applyPromoCode()" type="button" style="padding:10px 14px;border:1px solid #16a34a;border-radius:10px;background:#f0fdf4;color:#16a34a;cursor:pointer;font-size:0.82rem;font-weight:600">Apliko</button>
+      </div>
+      <p id="promoMsg" style="margin:6px 0 0;font-size:0.78rem;display:none"></p>
+    </div>
     <button onclick="payWith('paysera')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 Paysera <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, direkt)</span></button>
     <button onclick="payWith('pok')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 POK <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, kartë)</span></button>
     <button onclick="payWith('paypal')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">🅿️ PayPal <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(USD)</span></button>
@@ -2490,6 +2497,30 @@
     var m = document.getElementById('payMethodModal');
     if (m) m.style.display = 'none';
   }
+  function _getPromo() {
+    var el = document.getElementById('promoInput');
+    return el && el.value ? el.value.trim().toUpperCase() : null;
+  }
+  async function applyPromoCode() {
+    var code = _getPromo();
+    var msg = document.getElementById('promoMsg');
+    if (!code) { if (msg) msg.style.display = 'none'; return; }
+    try {
+      var res = await fetch(API_BASE + '/api/promo/validate', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
+        body: JSON.stringify({ code: code })
+      });
+      var data = await res.json();
+      if (msg) {
+        msg.style.display = 'block';
+        if (data.valid) { msg.style.color = '#16a34a'; msg.textContent = (currentLang === 'en' ? 'Code valid: -' : 'Kod i vlefshëm: -') + data.percent + '%'; }
+        else { msg.style.color = '#dc2626'; msg.textContent = (currentLang === 'en' ? 'Invalid code' : 'Kod i pavlefshëm'); }
+      }
+    } catch (e) {
+      if (msg) { msg.style.display = 'block'; msg.style.color = '#dc2626'; msg.textContent = 'Error: ' + e.message; }
+    }
+  }
   function payWith(method) {
     closePayMethod();
     if (method === 'paysera') buyCreditsViaPaysera(_payPkg.id, _payPkg.amt);
@@ -2509,7 +2540,7 @@
       var res = await fetch(API_BASE + '/api/paypal/create-order', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
-        body: JSON.stringify({ package: packageKey })
+        body: JSON.stringify({ package: packageKey, discountCode: _getPromo() })
       });
       var data = await res.json();
       if (data.success && data.url) {
@@ -2590,7 +2621,7 @@
       var res = await fetch(API_BASE + '/api/pok/create-payment', {
         method: 'POST',
         headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
-        body: JSON.stringify({ package: packageKey })
+        body: JSON.stringify({ package: packageKey, discountCode: _getPromo() })
       });
       var data = await res.json();
       if (data.success && data.url) {
@@ -2632,6 +2663,7 @@
         body: JSON.stringify({
           partnerId: partnerId,
           package: packageKey,
+          discountCode: _getPromo(),
           amount: amountLEK,
           orderId: orderId,
           currency: 'EUR'
@@ -2702,7 +2734,7 @@
       // Welkomstcadeau-melding boven de credits-kaart (zolang beschikbaar)
       var wgHost = document.getElementById('creditCard');
       var wgBanner = document.getElementById('welcomeGiftBanner');
-      if (data.welcomeGift && wgHost) {
+      if (data.welcomeBonusRemaining > 0 && wgHost) {
         if (!wgBanner) {
           wgBanner = document.createElement('div');
           wgBanner.id = 'welcomeGiftBanner';
@@ -2710,8 +2742,8 @@
           wgHost.parentNode.insertBefore(wgBanner, wgHost);
         }
         wgBanner.innerHTML = '🎁 <span>' + (currentLang === 'en'
-          ? 'Welcome gift: your <strong>first offer is free</strong> and stays visible for <strong>48 hours</strong>!'
-          : 'Dhuratë mirëseardhjeje: <strong>oferta juaj e parë është falas</strong> dhe qëndron e dukshme për <strong>48 orë</strong>!') + '</span>';
+          ? 'Welcome bonus: you have <strong>' + data.welcomeBonusRemaining + ' free credits</strong>!'
+          : 'Bonus mirëseardhjeje: keni <strong>' + data.welcomeBonusRemaining + ' kredite falas</strong>!') + '</span>';
       } else if (wgBanner) {
         wgBanner.remove();
       }
@@ -3267,7 +3299,7 @@
     showLogin, showRegister, showForgotPassword, logout,
     verifyRegistrationCode, resendVerifyCodeWithTimer,
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
-    choosePayment, closePayMethod, payWith,
+    choosePayment, closePayMethod, payWith, applyPromoCode,
     handleAdSubmit, deleteAd, onAdPlanChange, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
     handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims,
     validateNuiRealtime

@@ -432,6 +432,35 @@ async function purchaseCreditPackage(db, partnerId, packageKey, paymentRef) {
   return { success: true, package: pkgDef, purchaseId, credits: pkgDef.credits, expiresAt };
 }
 
+// ----- Promocode Helpers -----
+async function validatePromo(db, code) {
+  if (!code) return { valid: false };
+  const key = 'promo_' + String(code).trim().toUpperCase();
+  let p;
+  try { const raw = await db.get(key); p = raw ? JSON.parse(raw) : null; } catch { p = null; }
+  if (!p || p.active === false) return { valid: false };
+  if (p.expiresAt && Date.now() > p.expiresAt) return { valid: false };
+  if (p.maxUses && (p.usedCount || 0) >= p.maxUses) return { valid: false };
+  return { valid: true, percent: p.percent, code: p.code || String(code).trim().toUpperCase() };
+}
+async function incrementPromoUse(db, code) {
+  if (!code) return;
+  const key = 'promo_' + String(code).trim().toUpperCase();
+  try {
+    const raw = await db.get(key);
+    const p = raw ? JSON.parse(raw) : null;
+    if (p) { p.usedCount = (p.usedCount || 0) + 1; await db.put(key, JSON.stringify(p)); }
+  } catch { /* negeer */ }
+}
+// Past korting toe op een basisprijs; geeft {amount, percent, code} terug (ruw, afronden per kanaal)
+async function applyPromo(db, basePrice, code) {
+  if (!code) return { amount: basePrice, percent: 0, code: null };
+  const pr = await validatePromo(db, code);
+  if (!pr.valid) return { amount: basePrice, percent: 0, code: null };
+  const amount = basePrice * (1 - pr.percent / 100);
+  return { amount, percent: pr.percent, code: pr.code };
+}
+
 // ----- PayPal Helpers -----
 function paypalBase(env) {
   return (env.PAYPAL_ENV === 'live') ? 'https://api-m.paypal.com' : 'https://api-m.sandbox.paypal.com';
@@ -520,7 +549,7 @@ async function handleRequest(request, env, ctx) {
 
   // ---- HEALTH ----
   if (path === '/api/health') {
-    return jsonResponse({ status: 'ok', version: '2.20.0-welcomegift', time: new Date().toISOString() }, 200, origin);
+    return jsonResponse({ status: 'ok', version: '2.22.0-promo', time: new Date().toISOString() }, 200, origin);
   }
 
   // ---- PAYSERA DOMEINVERIFICATIE ----
@@ -602,11 +631,24 @@ async function handleRequest(request, env, ctx) {
       codeExpires: Date.now() + (35 * 24 * 60 * 60 * 1000),
       status: 'pending',
       verified: false,
-      credits: 0,
+      credits: 5,
       creditHistory: [],
-      welcomeGiftAvailable: true,
+      welcomeBonusGiven: true,
       createdAt: new Date().toISOString()
     };
+
+    // Welkomstbonus: 5 gratis credits als eerste (gratis) creditpakket
+    try {
+      const wbId = 'welcome_' + Date.now();
+      await db.put('creditpkg_' + partner.id + '_' + wbId, JSON.stringify({
+        id: 'welcome', purchaseId: wbId, partnerId: partner.id,
+        name: 'Welcome Bonus', totalCredits: 5, remainingCredits: 5, usedCredits: 0,
+        price: 0, purchasedAt: Date.now(),
+        expiresAt: Date.now() + (CREDIT_EXPIRY_DAYS * 24 * 60 * 60 * 1000),
+        paymentRef: 'welcome_bonus', status: 'active', isWelcomeBonus: true
+      }));
+      console.log('[REGISTER] 5 welkomstcredits toegekend aan', partner.id);
+    } catch (e) { console.error('[REGISTER] welkomstbonus fout:', e.message); }
 
     // Stuur de verificatiecode via Resend en WACHT op het resultaat,
     // zodat fouten zichtbaar zijn (geen stille .catch meer).
@@ -990,10 +1032,14 @@ async function handleRequest(request, env, ctx) {
 
     // Saldo uit de pakketten zelf — zo loopt het nooit uit de pas met een los veld
     const liveCredits = activePackages.reduce((sum, pkg) => sum + (pkg.remainingCredits || 0), 0);
+    const welcomeBonusRemaining = activePackages
+      .filter(pkg => pkg.isWelcomeBonus === true)
+      .reduce((sum, pkg) => sum + (pkg.remainingCredits || 0), 0);
 
     return jsonResponse({
       success: true,
       credits: liveCredits,
+      welcomeBonusRemaining,
       activePackages,
       transactions: transactions.slice(0, 50),
       postCost: POST_COST,
@@ -1056,24 +1102,11 @@ async function handleRequest(request, env, ctx) {
 
     const dealId = 'deal_' + Date.now() + Math.random().toString(36).slice(2, 6);
 
+    // 1 credit per plaatsing (de 5 welkomstcredits dekken de eerste 5 gratis)
+    const credit = await deductCredit(db, decoded.partnerId, dealId, 'daily_deal', 1);
+    if (!credit.success) return jsonResponse({ error: credit.error || 'Onvoldoende credits' }, 400, origin);
     const partner = await getPartnerById(db, decoded.partnerId);
-    const giftAvailable = partner && partner.welcomeGiftAvailable === true && partner.welcomeGiftUsed !== true;
-
-    let expiry;
-    let isWelcomeGift = false;
-    if (giftAvailable) {
-      // Welkomstcadeau: eerste aanbieding GRATIS + 48 uur zichtbaar (eenmalig)
-      isWelcomeGift = true;
-      expiry = expiresAt || new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString();
-      partner.welcomeGiftUsed = true;
-      partner.welcomeGiftAvailable = false;
-      await savePartner(db, partner);
-    } else {
-      // 1 credit afschrijven voor plaatsing (standaard 24 uur zichtbaar)
-      const credit = await deductCredit(db, decoded.partnerId, dealId, 'daily_deal', 1);
-      if (!credit.success) return jsonResponse({ error: credit.error || 'Onvoldoende credits' }, 400, origin);
-      expiry = expiresAt || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
-    }
+    const expiry = expiresAt || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
     const deal = {
       id: dealId,
@@ -1092,7 +1125,6 @@ async function handleRequest(request, env, ctx) {
       lng: (lng !== undefined && lng !== null && lng !== '') ? lng : null,
       createdAt: new Date().toISOString(),
       expiresAt: expiry,
-      isWelcomeGift: isWelcomeGift,
       active: true
     };
 
@@ -1339,6 +1371,53 @@ async function handleRequest(request, env, ctx) {
     }
 
     return jsonResponse({ success: true, message: 'Bedankt! We hebben je gegevens ontvangen.' }, 200, origin);
+  }
+
+  // ---- PROMOCODE: valideren (partner, bij afrekenen) ----
+  if (path === '/api/promo/validate' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    const pr = await validatePromo(db, body.code);
+    return jsonResponse({ success: true, valid: pr.valid, percent: pr.valid ? pr.percent : 0 }, 200, origin);
+  }
+
+  // ---- ADMIN: promocode aanmaken ----
+  if (path === '/api/admin/promo/create' && method === 'POST') {
+    const decoded = await isAdminAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    const code = String(body.code || '').trim().toUpperCase();
+    const percent = Number(body.percent);
+    if (!code || !(percent > 0 && percent <= 100)) {
+      return jsonResponse({ error: 'Ongeldige code of percentage (1-100)' }, 400, origin);
+    }
+    const promo = {
+      code, percent, active: true, usedCount: 0,
+      maxUses: (body.maxUses !== undefined && body.maxUses !== null && body.maxUses !== '') ? Number(body.maxUses) : null,
+      expiresAt: (body.expiresAt !== undefined && body.expiresAt !== null && body.expiresAt !== '') ? Number(body.expiresAt) : null,
+      createdAt: Date.now()
+    };
+    await db.put('promo_' + code, JSON.stringify(promo));
+    return jsonResponse({ success: true, promo }, 200, origin);
+  }
+
+  // ---- ADMIN: promocodes lijst ----
+  if (path === '/api/admin/promo/list' && method === 'GET') {
+    const decoded = await isAdminAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    const keys = await db.list({ prefix: 'promo_' });
+    const promos = [];
+    for (const k of (keys.keys || [])) { try { promos.push(JSON.parse(await db.get(k.name))); } catch {} }
+    return jsonResponse({ success: true, promos }, 200, origin);
+  }
+
+  // ---- ADMIN: promocode verwijderen ----
+  if (path === '/api/admin/promo/delete' && method === 'POST') {
+    const decoded = await isAdminAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+    const code = String(body.code || '').trim().toUpperCase();
+    if (!code) return jsonResponse({ error: 'Code ontbreekt' }, 400, origin);
+    await db.delete('promo_' + code);
+    return jsonResponse({ success: true }, 200, origin);
   }
 
   // ---- ADMIN: leads bekijken ----
@@ -1733,7 +1812,9 @@ async function handleRequest(request, env, ctx) {
       // Bedrag + valuta komen van de SERVER (pakketprijs), niet van de client — anti-fraude.
       // Prijzen staan in Lek, dus valuta = ALL (ISO-code Albanese Lek). Override mogelijk via env.
       const currency = (env.PAYSERA_CURRENCY || 'ALL').toUpperCase();
-      const amountCents = pkgDef.price * 100;
+      const psPromo = await applyPromo(db, pkgDef.price, body.discountCode);
+      if (psPromo.code) { await incrementPromoUse(db, psPromo.code); }
+      const amountCents = Math.round(psPromo.amount * 100);
 
       // Uniek ordernummer + pending-order in KV zodat de callback weet wie/wat
       const orderId = 'SAV' + Date.now() + Math.floor(Math.random() * 1000);
@@ -1786,7 +1867,9 @@ async function handleRequest(request, env, ctx) {
       const token = await getPayPalAccessToken(env);
       if (!token) return jsonResponse({ error: 'PayPal authenticatie mislukt' }, 502, origin);
 
-      const usd = (pkgDef.usd != null ? pkgDef.usd : 10).toFixed(2);
+      const ppPromo = await applyPromo(db, (pkgDef.usd != null ? pkgDef.usd : 10), body.discountCode);
+      if (ppPromo.code) { await incrementPromoUse(db, ppPromo.code); }
+      const usd = Math.max(0.01, ppPromo.amount).toFixed(2);
       const frontend = env.FRONTEND_URL || 'https://savoraapp.com';
 
       const orderRes = await fetch(paypalBase(env) + '/v2/checkout/orders', {
@@ -1949,7 +2032,9 @@ async function handleRequest(request, env, ctx) {
       if (!pkgDef) return jsonResponse({ error: 'Ongeldig pakket' }, 400, origin);
 
       // Bedrag server-side (anti-fraude). POK gebruikt ALL, hele Lek als string.
-      const amount = String(pkgDef.price);
+      const pokPromo = await applyPromo(db, pkgDef.price, body.discountCode);
+      if (pokPromo.code) { await incrementPromoUse(db, pokPromo.code); }
+      const amount = String(Math.max(1, Math.round(pokPromo.amount)));
       const currency = 'ALL';
 
       // Pending-order in KV zodat de webhook weet wie/wat
