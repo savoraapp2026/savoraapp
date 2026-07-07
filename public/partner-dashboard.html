@@ -2522,6 +2522,33 @@
       alert('❌ Gabim rrjeti / Network error: ' + e.message);
     }
   }
+  async function handlePokReturn() {
+    try {
+      var qs = new URLSearchParams(window.location.search);
+      if (qs.get('payment') === 'cancel') {
+        window.history.replaceState({}, '', '/partner-dashboard');
+        return;
+      }
+      if (qs.get('payment') !== 'success') return;
+      var ref = qs.get('ref');
+      window.history.replaceState({}, '', '/partner-dashboard');
+      if (!ref || !partnerToken) return;
+      var res = await fetch(API_BASE + '/api/pok/verify', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Authorization':'Bearer ' + partnerToken},
+        body: JSON.stringify({ ref: ref })
+      });
+      var data = await res.json();
+      if (data.success) {
+        alert('✅ Pagesa u krye me sukses!' + (data.credits != null ? (' ' + data.credits + ' kredite u shtuan.') : ''));
+        location.reload();
+      } else {
+        alert('ℹ️ ' + (data.error || 'Pagesa nuk u konfirmua ende.'));
+      }
+    } catch (e) {
+      console.error('[POK] return fout:', e && e.message);
+    }
+  }
   async function handlePaypalReturn() {
     try {
       var qs = new URLSearchParams(window.location.search);
@@ -2672,6 +2699,22 @@
     .then(function(r){ return r.json(); })
     .then(function(data){
       var balance = data.credits || 0;
+      // Welkomstcadeau-melding boven de credits-kaart (zolang beschikbaar)
+      var wgHost = document.getElementById('creditCard');
+      var wgBanner = document.getElementById('welcomeGiftBanner');
+      if (data.welcomeGift && wgHost) {
+        if (!wgBanner) {
+          wgBanner = document.createElement('div');
+          wgBanner.id = 'welcomeGiftBanner';
+          wgBanner.style.cssText = 'background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #16a34a;border-radius:14px;padding:16px 20px;margin-bottom:16px;color:#166534;font-weight:600;font-size:0.95rem;display:flex;align-items:center;gap:12px';
+          wgHost.parentNode.insertBefore(wgBanner, wgHost);
+        }
+        wgBanner.innerHTML = '🎁 <span>' + (currentLang === 'en'
+          ? 'Welcome gift: your <strong>first offer is free</strong> and stays visible for <strong>48 hours</strong>!'
+          : 'Dhuratë mirëseardhjeje: <strong>oferta juaj e parë është falas</strong> dhe qëndron e dukshme për <strong>48 orë</strong>!') + '</span>';
+      } else if (wgBanner) {
+        wgBanner.remove();
+      }
       var history = data.transactions || data.history || [];
 
       document.getElementById('creditBalance').textContent = balance.toLocaleString();
@@ -2810,6 +2853,7 @@
             console.log('[INIT] Sessie OK, toon dashboard');
             showDashboard();
             handlePaypalReturn();
+            handlePokReturn();
             return;
           }
         }
