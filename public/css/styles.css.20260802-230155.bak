@@ -2275,13 +2275,3 @@ html, body {
     display: block;
   }
 }
-
-/* ============================================================
-   MOBIEL NAV FIX (toegevoegd via script)
-   ============================================================ */
-@media (max-width: 767px) {
-  body[data-mode="consumer"] .nav-consumer,
-  body[data-mode="partner"] .nav-partner {
-    display: none;
-  }
-}
