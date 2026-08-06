@@ -1,274 +1,150 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ — Savoraapp</title>
-  <meta name="description" content="Veelgestelde vragen over Savoraapp. Antwoorden op al je vragen.">
-  <meta name="theme-color" content="#10b981">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/favicon.ico">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tailwind-built.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="landing.css">
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-    .hero-grad { background: linear-gradient(145deg, #0F172A 0%, #1E293B 40%, #064E3B 100%); }
-    .btn-p { background: linear-gradient(135deg, #10B981, #34D399); transition: all 0.25s ease; box-shadow: 0 4px 18px rgba(16,185,129,0.35); }
-    .btn-p:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(16,185,129,0.45); }
-    .faq-item { border-bottom: 1px solid #E2E8F0; }
-    .faq-answer { display: none; }
-    .faq-answer.active { display: block; }
-    .faq-icon { transition: transform 0.3s ease; }
-    .faq-icon.active { transform: rotate(180deg); }
-  </style>
-  <meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pyetje te Shpeshta - Savoraapp</title>
+<meta name="description" content="Pergjigje per pyetjet me te shpeshta rreth Savoraapp - per konsumatore dhe per partnere.">
+<meta name="theme-color" content="#10b981">
+<meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<link rel="icon" href="icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/config.js"></script>
+<style>
+  :root{--primary:#10b981;--primary-d:#059669;--dark:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1f2937;line-height:1.6;}
+  a{color:var(--primary);text-decoration:none;}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);}
+  .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);}
+  main{max-width:800px;margin:0 auto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
+  h1{font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:10px;}
+  .sub{color:var(--gray);margin-bottom:36px;font-size:1.05rem;}
+  .section-label{font-size:1.3rem;font-weight:800;color:var(--dark);margin:36px 0 16px;}
+  .faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:10px;overflow:hidden;}
+  .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;font-weight:600;font-size:1rem;color:var(--dark);text-align:left;background:none;border:none;cursor:pointer;}
+  .faq-question:hover{color:var(--primary-d);}
+  .faq-icon{width:20px;height:20px;flex-shrink:0;transition:transform .2s;color:var(--gray);}
+  .faq-item.active .faq-icon{transform:rotate(180deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-item.active .faq-answer{max-height:400px;}
+  .faq-answer p{padding:0 20px 18px;color:var(--gray);font-size:0.95rem;}
+  footer{background:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;}
+  footer a{color:#a7f3d0;}
+</style>
 </head>
-<body class="bg-sav-light text-sav-dark antialiased">
+<body>
 
-  <!-- ========== HEADER ========== -->
-  <header id="hdr" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
-        <a href="index.html" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-          <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">Savora<span class="text-emerald-300">app</span></span>
-        </a>
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="index.html" class="hidden sm:block px-4 py-2 text-sm font-medium text-sav-dark hover:text-sav-green transition">Kreu</a>
-          <a href="partner.html" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl">Word partner</a>
-        </div>
-      </div>
-    </div>
-  </header>
+<header>
+  <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
+  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+</header>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero-grad relative pt-28 pb-16 sm:pb-20">
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-green/15 text-emerald-300 border border-sav-green/20 mb-6">Pyetje të Shpeshta</span>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">Veelgestelde vragen</h1>
-      <p class="text-lg text-sav-grayL/80 max-w-xl mx-auto">Antwoorden op de meest gestelde vragen</p>
-    </div>
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sav-light to-transparent"></div>
-  </section>
+<main>
+  <div class="badge">Pyetje te Shpeshta</div>
+  <h1>Pyetje te Shpeshta</h1>
+  <p class="sub">Pergjigje per pyetjet me te shpeshta rreth Savoraapp.</p>
 
-  <!-- ========== FAQ CONTENT ========== -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="section-label">Per konsumatore</div>
 
-      <div class="mb-10">
-        <h2 class="text-xl font-bold text-sav-dark mb-6 flex items-center gap-2">
-          <span class="w-8 h-8 rounded-lg bg-sav-greenL flex items-center justify-center text-sav-green text-sm">🛒</span>
-          Voor consumenten
-        </h2>
+  <div class="faq-item">
+    <button class="faq-question">Cfare eshte Savoraapp?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Savoraapp eshte nje platforme ku mund te blesh kuti surprize me ushqim te freskete nga dyqane, restorante dhe furra lokale - me ulje deri ne 70%. Ti shpeton ushqim qe perndryshe do te hidhej.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Wat is Savoraapp?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Savoraapp is een platform waar je verrassingsboxen met vers eten kunt kopen van lokale winkels, restaurants en bakkerijen — met korting tot 70%. Je redt eten dat anders weggegooid zou worden.
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">Si funksionon?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>1. Shfleto ofertat e disponueshme te dyqanet prane teje. 2. Rezervo kutine tende ne 10 sekonda. 3. Merre nga dyqani ne kohen e caktuar. 4. Shijo ushqim te freskete me nje pjese te vogel te cmimit!</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Hoe werkt het?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            1. Blader door beschikbare deals bij winkels in jouw buurt.<br>
-            2. Reserveer je box in 10 seconden.<br>
-            3. Haal op bij de winkel op het afgesproken tijdstip.<br>
-            4. Geniet van vers eten tegen een fractie van de prijs!
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">Cfare perfshin nje kuti surprize?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Cdo kuti permban ushqim te freskete qe dyqanit i ka tepruar - buke, perime, fruta, gjelle ose produkte te tjera. Permbajtja eshte surprize, por vlera eshte gjithmone me e larte se cmimi qe paguan.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Wat zit er in een verrassingsbox?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Elke box bevat vers voedsel dat de winkel over heeft — brood, groente, fruit, maaltijden of andere producten. De inhoud is een verrassing, maar de waarde is altijd hoger dan wat je betaalt.
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">Si paguaj?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Paguan me para ne dore kur merr kutine ne vendndodhjen e biznesit. Nuk kerkohet asnje pagese online per rezervim.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Hoe betaal ik?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Je betaalt veilig via de app met creditcard, iDEAL of andere betaalmethoden. De betaling wordt pas definitief nadat je de box ophaalt.
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">A mund ta anuloj rezervimin?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Po, mund te anulosh falas deri 2 ore para kohes se marrjes. Pas kesaj, dyqani e ka pergatitur tashme kutine, keshtu qe anulimet e vonshme ose mungesat mund te ndikojne ne rezervimet e ardhshme.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Kan ik mijn bestelling annuleren?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Ja, je kunt tot 2 uur voor het ophaaltijdstip gratis annuleren. Daarna wordt het bedrag niet teruggestort omdat de winkel het eten al voor je heeft klaargelegd.
-          </div>
-        </div>
-      </div>
+  <div class="section-label">Per partnere</div>
 
-      <div class="mb-10">
-        <h2 class="text-xl font-bold text-sav-dark mb-6 flex items-center gap-2">
-          <span class="w-8 h-8 rounded-lg bg-sav-greenL flex items-center justify-center text-sav-green text-sm">🏪</span>
-          Voor partners
-        </h2>
+  <div class="faq-item">
+    <button class="faq-question">Sa kushton te behesh partner?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Regjistrimi eshte falas. Blen kredite per te postuar oferta - cdo oferte kushton 1 kredit. Nuk ka kosto fikse apo abonim mujor.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Wat kost het om partner te worden?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Registreren is gratis. Je koopt credits om advertenties te plaatsen. Per advertentie verbruik je 1 credit. Er zijn geen vaste kosten of abonnementen.
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">Sa shpejt mund te jem aktiv?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Brenda 5 minutash! Pas verifikimit te regjistrimit tend, mund te postosh menjehere oferta dhe te fillosh te marresh kliente.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Hoe snel kan ik live?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Binnen 5 minuten! Na goedkeuring van je aanmelding kun je direct deals plaatsen en klanten ontvangen.
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">Si funksionon sistemi i kredive?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Blen paketa kredish: 25 kredite per 500 Lek, 60 kredite per 1.000 Lek, ose 140 kredite per 2.000 Lek. Cdo oferte e postuar kushton 1 kredit. Kreditet jane te vlefshme per 3 muaj nga blerja. Pagesat behen ne menyre te sigurte permes Paysera.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Hoe werkt het creditsysteem?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Je koopt credits pakketten: 25 credits voor 500 Lek, 60 credits voor 1.000 Lek, of 140 credits voor 2.000 Lek. Elke advertentie kost 1 credit. Credits zijn geldig voor 35 dagen tot 3 maanden.
-          </div>
-        </div>
+  <div class="faq-item">
+    <button class="faq-question">Cilat biznese mund te marrin pjese?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Te gjitha bizneset e regjistruara te ushqimit: furra, restorante, kafene, supermarkete, hotele dhe kateringje. Nevojitet nje Numer Identifikimi Biznesi (NIPT/NUI) i vlefshem.</p></div>
+  </div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Hoe krijg ik mijn geld?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Je ontvangt wekelijks uitbetaling op je bankrekening. Transparant en zonder verborgen kosten.
-          </div>
-        </div>
+  <div class="section-label">Pergjithshme</div>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Welke bedrijven kunnen meedoen?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Alle geregistreerde voedselbedrijven: bakkerijen, restaurants, cafés, supermarkten, hotels en cateraars. Je moet een geldig BTW-nummer hebben.
-          </div>
-        </div>
-      </div>
+  <div class="faq-item">
+    <button class="faq-question">Ne cilat qytete eshte i disponueshem Savoraapp?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Aktualisht jemi aktive ne Durres dhe po zgjerohemi shpejt ne Tirane, Vlore, Shkoder dhe qytete te tjera ne Shqiperi.</p></div>
+  </div>
 
-      <div class="mb-10">
-        <h2 class="text-xl font-bold text-sav-dark mb-6 flex items-center gap-2">
-          <span class="w-8 h-8 rounded-lg bg-sav-greenL flex items-center justify-center text-sav-green text-sm">⚙️</span>
-            Algemeen
-        </h2>
+  <div class="faq-item">
+    <button class="faq-question">Si mund te kontaktoj?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p>Dergo email ne info@savoraapp.com ose perdor <a href="contact.html">formularin e kontaktit</a>. Pergjigjemi brenda 24 oreve.</p></div>
+  </div>
+</main>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">In welke steden is Savoraapp beschikbaar?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            We zijn momenteel actief in Durrës en breiden snel uit naar Tirana, Vlorë, Shkodër en andere steden in Albanië.
-          </div>
-        </div>
+<footer>
+  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;">Pagesa te Sigurta nga Paysera</a><br>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+</footer>
 
-        <div class="faq-item py-4">
-          <button class="flex items-center justify-between w-full text-left" onclick="toggleFaq(this)">
-            <span class="font-semibold text-sav-dark text-sm sm:text-base">Hoe neem ik contact op?</span>
-            <svg class="faq-icon w-5 h-5 text-sav-gray flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer mt-3 text-sm text-sav-gray leading-relaxed">
-            Stuur een e-mail naar <a href="mailto:info@savoraapp.com" class="text-sav-green hover:underline">info@savoraapp.com</a> of gebruik ons <a href="contact.html" class="text-sav-green hover:underline">contactformulier</a>. We reageren binnen 24 uur.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========== CTA ========== -->
-  <section class="py-14 sm:py-20" style="background:linear-gradient(135deg,#10B981,#059669);">
-    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Nog vragen?</h2>
-      <p class="text-white/75 mb-8">Neem contact met ons op, we helpen je graag.</p>
-      <a href="contact.html" class="btn-p px-8 py-3.5 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base">Contact opnemen</a>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="bg-sav-dark text-white pt-16 sm:pt-20 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12">
-        <div class="sm:col-span-2 lg:col-span-1">
-          <div class="flex items-center gap-2.5 mb-4">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-            <span class="text-lg font-bold text-sav-green">Savora<span class="text-emerald-300">app</span></span>
-          </div>
-          <p class="text-sm text-sav-gray leading-relaxed">Red voedsel, bespaar geld. Het #1 platform in Albanie voor resterende voedselpakketten.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Product</h4>
-          <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="index.html" class="hover:text-sav-green transition">Deals</a></li>
-            <li><a href="partner.html" class="hover:text-sav-green transition">Word partner</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Bedrijf</h4>
-          <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="faq.html" class="hover:text-sav-green transition">FAQ</a></li>
-            <li><a href="contact.html" class="hover:text-sav-green transition">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Juridisch</h4>
-          <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="privacy-policy.html" class="hover:text-sav-green transition">Privacy</a></li>
-            <li><a href="terms-of-service.html" class="hover:text-sav-green transition">Voorwaarden</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-sav-gray">&copy; 2025 Savoraapp. Alle rechten voorbehouden.</p>
-        <p class="text-xs text-sav-gray/60">info@savoraapp.com</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Header scroll
-    var hdr = document.getElementById('hdr');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) { hdr.classList.add('bg-white/90','backdrop-blur-xl','shadow-sm','border-b','border-sav-grayB/50'); }
-      else { hdr.classList.remove('bg-white/90','backdrop-blur-xl','shadow-sm','border-b','border-sav-grayB/50'); }
-    }, { passive: true });
-
-    // FAQ toggle
-    function toggleFaq(btn) {
-      var answer = btn.nextElementSibling;
-      var icon = btn.querySelector('.faq-icon');
-      answer.classList.toggle('active');
-      icon.classList.toggle('active');
-    }
-  </script>
+<script>
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    item.querySelector('.faq-question').addEventListener('click', function () {
+      var isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item.active').forEach(function (el) { el.classList.remove('active'); });
+      if (!isActive) item.classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>

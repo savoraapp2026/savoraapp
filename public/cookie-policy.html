@@ -1,194 +1,92 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="sq">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Policy - Savora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #10B981;
-            --text: #1F2937;
-            --text-light: #6B7280;
-            --bg: #FFFFFF;
-            --bg-light: #F9FAFB;
-            --border: #E5E7EB;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg-light);
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-        
-        .header {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        
-        .last-updated {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-        
-        .content {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        p {
-            margin-bottom: 16px;
-        }
-        
-        ul {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        .cookie-type {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-        
-        .cookie-type h3 {
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--text-light);
-        }
-        
-        @media (max-width: 768px) {
-            .header, .content {
-                padding: 24px;
-            }
-        }
-    </style>
-  <meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politika e Cookies - Savoraapp</title>
+<meta name="description" content="Si i perdor Savoraapp cookies dhe si mund t'i menaxhoni.">
+<meta name="theme-color" content="#10b981">
+<meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<link rel="icon" href="icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/config.js"></script>
+<style>
+  :root{--primary:#10b981;--primary-d:#059669;--dark:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;}
+  a{color:var(--primary);}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);text-decoration:none;}
+  .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);text-decoration:none;}
+  main{max-width:760px;margin:0 auto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
+  h1{font-size:2.1rem;font-weight:800;color:var(--dark);margin-bottom:6px;}
+  .updated{color:var(--gray);font-size:0.9rem;margin-bottom:32px;}
+  h2{font-size:1.25rem;font-weight:800;color:var(--dark);margin:32px 0 12px;}
+  p,li{color:#374151;margin-bottom:10px;}
+  ul{padding-left:22px;margin-bottom:14px;}
+  strong{color:var(--dark);}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;font-size:0.9rem;color:#92400e;margin:16px 0;}
+  footer{background:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;margin-top:24px;}
+  footer a{color:#a7f3d0;}
+</style>
 </head>
 <body>
-    <div class="container">
-        <a href="/" class="back-link">← Terug naar website</a>
-        
-        <div class="header">
-            <a href="/" class="logo">Savora</a>
-            <h1>Cookie Policy</h1>
-            <p class="last-updated">Laatst bijgewerkt: 15 april 2026</p>
-        </div>
-        
-        <div class="content">
-            <h2>1. Wat zijn cookies?</h2>
-            <p>Cookies zijn kleine tekstbestanden die worden opgeslagen op je apparaat wanneer je een website bezoekt. Ze helpen ons om de website goed te laten functioneren en je gebruikerservaring te verbeteren.</p>
-            
-            <h2>2. Welke cookies gebruiken we?</h2>
-            
-            <div class="cookie-type">
-                <h3>🔧 Functionele cookies (verplicht)</h3>
-                <p>Deze cookies zijn noodzakelijk voor het functioneren van de website. Zonder deze cookies werken bepaalde functies niet.</p>
-                <ul>
-                    <li><strong>Sessie-cookie:</strong> Houdt je login-status bij</li>
-                    <li><strong>Taalvoorkeur:</strong> Onthoudt je gekozen taal</li>
-                    <li><strong>CSRF-token:</strong> Beveiliging tegen aanvallen</li>
-                </ul>
-            </div>
-            
-            <div class="cookie-type">
-                <h3>📊 Analytische cookies (optioneel)</h3>
-                <p>Deze cookies helpen ons begrijpen hoe bezoekers onze website gebruiken. We gebruiken deze gegevens alleen om de website te verbeteren.</p>
-                <ul>
-                    <li><strong>Google Analytics:</strong> Anonieme bezoekersstatistieken</li>
-                </ul>
-            </div>
-            
-            <h2>3. Cookies van derden</h2>
-            <p>We gebruiken diensten van derden die mogelijk cookies plaatsen:</p>
-            <ul>
-                <li><strong>Cloudflare:</strong> Beveiliging en performance</li>
-                <li><strong>Google Fonts:</strong> Lettertypen laden</li>
-            </ul>
-            
-            <h2>4. Hoe beheer je cookies?</h2>
-            <p>Je kunt cookies beheren via je browserinstellingen:</p>
-            <ul>
-                <li><strong>Chrome:</strong> Instellingen → Privacy en beveiliging → Cookies</li>
-                <li><strong>Firefox:</strong> Instellingen → Privacy & Beveiliging → Cookies</li>
-                <li><strong>Safari:</strong> Voorkeuren → Privacy → Cookies</li>
-                <li><strong>Edge:</strong> Instellingen → Cookies en sitemachtigingen</li>
-            </ul>
-            <p><strong>Let op:</strong> Als je functionele cookies uitschakelt, werkt de website mogelijk niet correct.</p>
-            
-            <h2>5. Cookie-instellingen wijzigen</h2>
-            <p>Je kunt je cookie-voorkeuren op elk moment wijzigen door je browserinstellingen aan te passen.</p>
-            
-            <h2>6. Contact</h2>
-            <p>Vragen over onze Cookie Policy? Mail naar <a href="mailto:support@savoraapp.com">support@savoraapp.com</a></p>
-        </div>
-        
-        <div class="footer">
-            <p>© 2026 Savora. Alle rechten voorbehouden.</p>
-        </div>
-    </div>
+
+<header>
+  <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
+  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+</header>
+
+<main>
+  <div class="badge">Cookies</div>
+  <h1>Politika e Cookies</h1>
+  <p class="updated">Perditesuar se fundi: 6 gusht 2026</p>
+
+  <h2>1. Cfare jane cookies?</h2>
+  <p>Cookies jane skedare te vegjel teksti qe ruhen ne pajisjen tuaj kur vizitoni nje faqe interneti. Ato na ndihmojne te bejme faqen te funksionoje si duhet dhe te permiresojme pervojen tuaj si perdorues.</p>
+
+  <h2>2. Cilat cookies perdorim?</h2>
+  <p><strong>Cookies funksionale (te nevojshme)</strong><br>Keto cookies jane te domosdoshme per funksionimin e faqes. Pa to, disa funksione nuk punojne.</p>
+  <ul>
+    <li><strong>Cookie sesioni:</strong> mban gjendjen tuaj te identifikimit</li>
+    <li><strong>Preferenca e gjuhes:</strong> mban mend gjuhen e zgjedhur (shqip/anglisht)</li>
+    <li><strong>Token CSRF:</strong> mbrojtje kunder sulmeve</li>
+  </ul>
+  <p><strong>Cookies analitike (opsionale)</strong><br>Keto cookies na ndihmojne te kuptojme si e perdorin vizitoret faqen. I perdorim vetem per te permiresuar faqen.</p>
+  <ul>
+    <li><strong>Google Analytics:</strong> statistika anonime vizitoresh</li>
+  </ul>
+
+  <h2>3. Cookies te paleve te treta</h2>
+  <p>Perdorim sherbime te paleve te treta qe mund te vendosin cookies:</p>
+  <ul>
+    <li><strong>Cloudflare:</strong> siguri dhe performance</li>
+    <li><strong>Google Fonts:</strong> ngarkimi i fonteve</li>
+    <li><strong>Paysera:</strong> perpunimi i sigurt i pagesave per partneret</li>
+  </ul>
+
+  <h2>4. Si t'i menaxhoni cookies?</h2>
+  <p>Mund t'i menaxhoni cookies permes cilesimeve te shfletuesit tuaj:</p>
+  <ul>
+    <li><strong>Chrome:</strong> Cilesimet &rarr; Privatesia dhe siguria &rarr; Cookies</li>
+    <li><strong>Firefox:</strong> Cilesimet &rarr; Privatesia &amp; Siguria &rarr; Cookies</li>
+    <li><strong>Safari:</strong> Preferencat &rarr; Privatesia &rarr; Cookies</li>
+    <li><strong>Edge:</strong> Cilesimet &rarr; Cookies dhe lejet e faqeve</li>
+  </ul>
+  <div class="note">Nese caktivizoni cookies funksionale, faqja mund te mos funksionoje si duhet.</div>
+
+  <h2>5. Ndryshimi i preferencave</h2>
+  <p>Mund t'i ndryshoni preferencat e cookies ne cdo moment duke perditesuar cilesimet e shfletuesit tuaj.</p>
+
+  <h2>6. Kontakt</h2>
+  <p>Pyetje rreth Politikes se Cookies? Na shkruani ne <a href="mailto:info@savoraapp.com">info@savoraapp.com</a>.</p>
+</main>
+
+<footer>
+  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;">Pagesa te Sigurta nga Paysera</a><br>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+</footer>
 </body>
 </html>

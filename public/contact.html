@@ -1,214 +1,174 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Savoraapp</title>
-  <meta name="description" content="Neem contact op met Savoraapp. Vragen, opmerkingen of samenwerken? We staan voor je klaar.">
-  <meta name="theme-color" content="#10b981">
-  <meta name="verify-Paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/favicon.ico">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tailwind-built.css">
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-    .hero-grad { background: linear-gradient(145deg, #0F172A 0%, #1E293B 40%, #064E3B 100%); }
-    .btn-p { background: linear-gradient(135deg, #10B981, #34D399); transition: all 0.25s ease; box-shadow: 0 4px 18px rgba(16,185,129,0.35); }
-    .btn-p:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(16,185,129,0.45); }
-  </style>
-  <script src="js/config.js"></script>
-  <meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt - Savoraapp</title>
+<meta name="description" content="Na kontaktoni. Pyetje, komente ose deshironi te bashkepunojme? Jemi ketu per ju.">
+<meta name="theme-color" content="#10b981">
+<meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<link rel="icon" href="icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/config.js"></script>
+<style>
+  :root{--primary:#10b981;--primary-d:#059669;--dark:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1f2937;line-height:1.6;}
+  a{color:var(--primary);text-decoration:none;}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);}
+  .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);}
+  main{max-width:900px;margin:0 auto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
+  h1{font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:10px;}
+  .sub{color:var(--gray);margin-bottom:36px;font-size:1.05rem;}
+  .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;}
+  @media (max-width:760px){.grid{grid-template-columns:1fr;}}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;}
+  .form-group{margin-bottom:18px;}
+  label{display:block;font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  input,textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-size:0.95rem;font-family:inherit;transition:border-color .2s;}
+  input:focus,textarea:focus{outline:none;border-color:var(--primary);}
+  textarea{resize:vertical;min-height:100px;}
+  .char-count{font-size:0.75rem;color:var(--gray);text-align:right;margin-top:4px;}
+  button[type=submit]{width:100%;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:background .2s;}
+  button[type=submit]:hover{background:var(--primary-d);}
+  button[type=submit]:disabled{opacity:.6;cursor:not-allowed;}
+  .success-msg{display:none;background:#ecfdf5;color:var(--primary-d);padding:14px 16px;border-radius:10px;font-weight:600;margin-top:16px;}
+  .success-msg.show{display:block;}
+  .info-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px;}
+  .info-icon{width:40px;height:40px;border-radius:10px;background:#ecfdf5;color:var(--primary-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;}
+  .info-item h4{font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--gray);margin-bottom:2px;}
+  .info-item p{font-weight:600;color:var(--dark);}
+  footer{background:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;}
+  footer a{color:#a7f3d0;}
+  .paysera-badge{margin-bottom:16px;display:inline-block;}
+</style>
 </head>
-<body class="bg-sav-light text-sav-dark antialiased">
+<body>
 
-  <!-- ========== HEADER ========== -->
-  <header id="hdr" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
-        <a href="index.html" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-          <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">Savora<span class="text-emerald-300">app</span></span>
-        </a>
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="index.html" class="hidden sm:block px-4 py-2 text-sm font-medium text-sav-dark hover:text-sav-green transition">Kreu</a>
-          <a href="partner.html" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl">Word partner</a>
+<header>
+  <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
+  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+</header>
+
+<main>
+  <div class="badge">Kontakt</div>
+  <h1>Na kontaktoni</h1>
+  <p class="sub">Pyetje, komente ose deshironi te bashkepunojme? Jemi ketu per ju.</p>
+
+  <div class="grid">
+    <div class="card">
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="cName">Emri</label>
+          <input type="text" id="cName" placeholder="P.sh. Ana Krasniqi" required>
+        </div>
+        <div class="form-group">
+          <label for="cPhone">Numri i telefonit</label>
+          <input type="tel" id="cPhone" placeholder="+355 69 123 4567">
+        </div>
+        <div class="form-group">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" placeholder="ju@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="cCity">Qyteti</label>
+          <input type="text" id="cCity" placeholder="P.sh. Durres">
+        </div>
+        <div class="form-group">
+          <label for="cMessage">Mesazhi (maksimumi 300 karaktere)</label>
+          <textarea id="cMessage" maxlength="300" required></textarea>
+          <div class="char-count"><span id="charCount">0</span> / 300</div>
+        </div>
+        <button type="submit" id="submitBtn">Dergo</button>
+        <div class="success-msg" id="successMsg">Mesazhi u dergua! Do t'ju kontaktojme se shpejti.</div>
+      </form>
+    </div>
+
+    <div>
+      <div class="info-item">
+        <div class="info-icon">@</div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:info@savoraapp.com">info@savoraapp.com</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">#</div>
+        <div>
+          <h4>Telefon</h4>
+          <p><a href="tel:+355696080926">+355 69 608 0926</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">*</div>
+        <div>
+          <h4>Adresa</h4>
+          <p>Durres, Shqiperi</p>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</main>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero-grad relative pt-28 pb-16 sm:pb-20">
-    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-green/15 text-emerald-300 border border-sav-green/20 mb-6">Kontakt</span>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">Neem contact op</h1>
-      <p class="text-lg text-sav-grayL/80 max-w-xl mx-auto">Vragen, opmerkingen of wil je samenwerken? We staan voor je klaar.</p>
-    </div>
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sav-light to-transparent"></div>
-  </section>
+<footer>
+  <a class="paysera-badge" href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer">Pagesa te Sigurta nga Paysera</a><br>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+</footer>
 
-  <!-- ========== CONTACT FORM ========== -->
-  <section class="py-12 sm:py-16 bg-white">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-sav-light rounded-2xl p-6 sm:p-8 border border-sav-grayB/50">
-        <form id="contactForm" onsubmit="handleContact(event)">
-          <div class="mb-4">
-            <label class="block text-sm font-medium text-sav-dark mb-1.5">Naam</label>
-            <input type="text" name="name" required class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white" placeholder="Je naam">
-          </div>
-          <div class="mb-4">
-            <label class="block text-sm font-medium text-sav-dark mb-1.5">Telefoonnummer</label>
-            <input type="tel" name="phone" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white" placeholder="+355 69 123 4567">
-          </div>
-          <div class="mb-4">
-            <label class="block text-sm font-medium text-sav-dark mb-1.5">Emailadres</label>
-            <input type="email" name="email" required class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white" placeholder="info@voorbeeld.com">
-          </div>
-          <div class="mb-4">
-            <label class="block text-sm font-medium text-sav-dark mb-1.5">Plaats van klacht (stad)</label>
-            <input type="text" name="city" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white" placeholder="Durrës">
-          </div>
-          <div class="mb-6">
-            <label class="block text-sm font-medium text-sav-dark mb-1.5">Bericht (max 300 tekens)</label>
-            <textarea name="message" required maxlength="300" rows="4" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white resize-none" placeholder="Typ hier je bericht..."></textarea>
-            <p class="text-xs text-sav-gray mt-1" id="charCount">0 / 300</p>
-          </div>
-          <button type="submit" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base">Verzenden</button>
-          <p id="contactSuccess" class="hidden mt-4 text-center text-sm text-sav-green font-medium">✓ Bericht verzonden! We nemen snel contact op.</p>
-        </form>
-      </div>
+<script>
+  var API_BASE = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp.sparkling-scene-16e3.workers.dev';
+  var API_URL = API_BASE.replace(/\/$/, '') + '/api';
 
-      <!-- Contact info -->
-      <div class="mt-10 grid sm:grid-cols-3 gap-6 text-center">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-3 mx-auto">
-            <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <p class="text-sm font-medium text-sav-dark">Email</p>
-          <a href="mailto:info@savoraapp.com" class="text-sm text-sav-green hover:underline">info@savoraapp.com</a>
-        </div>
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-3 mx-auto">
-            <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          </div>
-          <p class="text-sm font-medium text-sav-dark">Telefoon</p>
-          <p class="text-sm text-sav-gray">+355 69 123 4567</p>
-        </div>
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-3 mx-auto">
-            <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <p class="text-sm font-medium text-sav-dark">Adres</p>
-          <p class="text-sm text-sav-gray">Rruga e Durrësit, Tiranë</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  var msgEl = document.getElementById('cMessage');
+  var countEl = document.getElementById('charCount');
+  msgEl.addEventListener('input', function () {
+    countEl.textContent = msgEl.value.length;
+  });
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="bg-sav-dark text-white pt-16 sm:pt-20 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12">
-        <div class="sm:col-span-2 lg:col-span-1">
-          <div class="flex items-center gap-2.5 mb-4">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-            <span class="text-lg font-bold text-sav-green">Savora<span class="text-emerald-300">app</span></span>
-          </div>
-          <p class="text-sm text-sav-gray leading-relaxed">Red voedsel, bespaar geld. Het #1 platform in Albanie voor resterende voedselpakketten.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Product</h4>
-          <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="index.html" class="hover:text-sav-green transition">Deals</a></li>
-            <li><a href="partner.html" class="hover:text-sav-green transition">Word partner</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Bedrijf</h4>
-          <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="faq.html" class="hover:text-sav-green transition">FAQ</a></li>
-            <li><a href="contact.html" class="hover:text-sav-green transition">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90">Juridisch</h4>
-          <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="privacy-policy.html" class="hover:text-sav-green transition">Privacy</a></li>
-            <li><a href="terms-of-service.html" class="hover:text-sav-green transition">Voorwaarden</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-sav-gray">&copy; 2025 Savoraapp. Alle rechten voorbehouden.</p>
-        <p class="text-xs text-sav-gray/60">info@savoraapp.com</p>
-      </div>
-    </div>
-  </footer>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('cName').value.trim();
+    var phone = document.getElementById('cPhone').value.trim();
+    var email = document.getElementById('cEmail').value.trim();
+    var city = document.getElementById('cCity').value.trim();
+    var message = document.getElementById('cMessage').value.trim();
 
-  <script>
-    // Header scroll
-    var hdr = document.getElementById('hdr');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) { hdr.classList.add('bg-white/90','backdrop-blur-xl','shadow-sm','border-b','border-sav-grayB/50'); }
-      else { hdr.classList.remove('bg-white/90','backdrop-blur-xl','shadow-sm','border-b','border-sav-grayB/50'); }
-    }, { passive: true });
-
-    // Character count
-    document.querySelector('textarea[name="message"]').addEventListener('input', function() {
-      document.getElementById('charCount').textContent = this.value.length + ' / 300';
-    });
-
-    // Backend API URL
-    var API_BASE = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || '';
-    if (!API_BASE) API_BASE = 'https://savoraapp.sparkling-scene-16e3.workers.dev';
-    var API_URL = API_BASE.replace(/\/$/, '') + '/api';
-
-    // Contact form - verstuurt naar backend API
-    function handleContact(e) {
-      e.preventDefault();
-      var name = e.target.name.value;
-      var phone = e.target.phone.value;
-      var email = e.target.email.value;
-      var city = e.target.city.value;
-      var message = e.target.message.value;
-
-      var btn = e.target.querySelector('button[type="submit"]');
-      var originalText = btn.textContent;
-      btn.textContent = 'Bezig...';
-      btn.disabled = true;
-      
-      // Verstuur naar backend API
-      fetch(API_URL + '/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: phone, email: email, city: city, message: message })
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        document.getElementById('contactSuccess').classList.remove('hidden');
-        e.target.reset();
-        document.getElementById('charCount').textContent = '0 / 300';
-      })
-      .catch(function(err) {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        // Fallback: open email client
-        var subject = 'Contactformulier Savoraapp van ' + name;
-        var body = 'Naam: ' + name + '%0D%0A' +
-                   'Telefoon: ' + phone + '%0D%0A' +
-                   'Email: ' + email + '%0D%0A' +
-                   'Stad: ' + city + '%0D%0A' +
-                   'Bericht: ' + message;
-        window.location.href = 'mailto:info@savoraapp.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
-        document.getElementById('contactSuccess').classList.remove('hidden');
-        e.target.reset();
-        document.getElementById('charCount').textContent = '0 / 300';
-      });
+    if (!name || !email || !message) {
+      alert('Ju lutem plotesoni emrin, email-in dhe mesazhin.');
+      return;
     }
-  </script>
+
+    var btn = document.getElementById('submitBtn');
+    var originalText = btn.textContent;
+    btn.textContent = 'Duke derguar...';
+    btn.disabled = true;
+
+    fetch(API_URL + '/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, phone: phone, email: email, city: city, message: message }),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        if (data && data.success !== false) {
+          document.getElementById('successMsg').classList.add('show');
+          document.getElementById('contactForm').reset();
+          countEl.textContent = '0';
+        } else {
+          alert((data && data.error) || 'Dicka shkoi keq. Provoni serish.');
+        }
+      })
+      .catch(function () {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Nuk mund te lidhemi me serverin. Provoni serish me vone.');
+      });
+  });
+</script>
 </body>
 </html>

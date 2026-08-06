@@ -1,4 +1,4 @@
-?<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="sq">
 <head>
   <meta charset="UTF-8">
@@ -415,7 +415,7 @@
     <!-- LOGIN FORM -->
     <div class="form-section active" id="loginFormSection">
       <h1 data-i18n="loginTitle">Partner Login</h1>
-      <p class="subtitle" data-i18n="loginSubtitle">Qasja në panelin e partnerit</p>
+      <p class="subtitle" data-i18n="loginSubtitle">Qasja nÃ« panelin e partnerit</p>
       <div id="loginError"></div>
       <form id="loginForm" novalidate>
         <div class="form-group">
@@ -430,7 +430,7 @@
           </div>
         </div>
         <div class="forgot-pw">
-          <a onclick="showForgotPassword()" data-i18n="linkForgotPw">Keni harruar fjalëkalimin?</a>
+          <a onclick="showForgotPassword()" data-i18n="linkForgotPw">Keni harruar fjalÃ«kalimin?</a>
         </div>
         <button type="submit" class="btn btn-primary" id="loginBtn" data-i18n="btnLogin" style="margin-top:16px">Hyr</button>
       </form>
@@ -442,7 +442,7 @@
 
     <!-- FORGOT PASSWORD FORM -->
     <div class="form-section" id="forgotPwSection">
-      <h1 data-i18n="forgotPwTitle">Rivendos Fjalëkalimin</h1>
+      <h1 data-i18n="forgotPwTitle">Rivendos FjalÃ«kalimin</h1>
       <p class="subtitle" data-i18n="forgotPwSubtitle">Shkruani email-in tuaj per te rivendosur fjalekalimin.</p>
       <div id="forgotPwError"></div>
       <div id="forgotPwSuccess"></div>
@@ -451,14 +451,14 @@
           <label data-i18n="labelEmail">Email</label>
           <input type="email" id="forgotPwEmail" data-i18n-placeholder="placeholderEmail" placeholder="partner@savoraapp.com">
         </div>
-        <button type="submit" class="btn btn-primary" id="forgotPwBtn" data-i18n="btnSendReset">Dërgo Udhëzimet</button>
+        <button type="submit" class="btn btn-primary" id="forgotPwBtn" data-i18n="btnSendReset">DÃ«rgo UdhÃ«zimet</button>
       </form>
       <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
     </div>
 
     <!-- RESET PASSWORD FORM -->
     <div class="form-section" id="resetPwSection">
-      <h1 data-i18n="resetPwTitle">Vendos Fjalëkalim të Ri</h1>
+      <h1 data-i18n="resetPwTitle">Vendos FjalÃ«kalim tÃ« Ri</h1>
       <p class="subtitle" data-i18n="resetPwSubtitle">Shkruani token-in nga email-i dhe fjalekalimin e ri.</p>
       <div id="resetPwError"></div>
       <div id="resetPwSuccess"></div>
@@ -468,13 +468,13 @@
           <input type="text" id="resetToken" placeholder="ABC123..." autocomplete="one-time-code">
         </div>
         <div class="form-group">
-          <label data-i18n="labelPassword">Fjalëkalimi i Ri</label>
+          <label data-i18n="labelPassword">FjalÃ«kalimi i Ri</label>
           <div class="pw-wrap">
             <input type="password" id="resetNewPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('resetNewPassword',this)">&#128065;</button>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="resetPwBtn" data-i18n="btnUpdatePw">Përditëso Fjalëkalimin</button>
+        <button type="submit" class="btn btn-primary" id="resetPwBtn" data-i18n="btnUpdatePw">PÃ«rditÃ«so FjalÃ«kalimin</button>
       </form>
       <a onclick="showLogin()" class="back-to-login" data-i18n="linkBackLogin">&larr; Kthehu tek Hyrja</a>
     </div>
@@ -482,7 +482,7 @@
     <!-- REGISTER FORM -->
     <div class="form-section" id="registerFormSection">
       <h1 data-i18n="registerTitle">Regjistrohu si Partner</h1>
-      <p class="subtitle" data-i18n="registerSubtitle">Plotësoni të dhënat e biznesit tuaj</p>
+      <p class="subtitle" data-i18n="registerSubtitle">PlotÃ«soni tÃ« dhÃ«nat e biznesit tuaj</p>
       <div id="registerError"></div>
       <div id="registerSuccess"></div>
       <form id="registerForm" novalidate>
@@ -509,7 +509,7 @@
           <div style="position:relative">
             <input type="text" id="regNui" data-i18n-placeholder="placeholderNui" placeholder="M12345678O"
                    pattern="[A-Za-z0-9]{10}" maxlength="10" minlength="10"
-                   title="NUI duhet të ketë saktësisht 10 karaktere"
+                   title="NUI duhet tÃ« ketÃ« saktÃ«sisht 10 karaktere"
                    oninput="validateNuiRealtime(this)"
                    style="text-transform:uppercase;padding-right:45px;width:100%">
             <span id="nuiStatus" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:1.2rem;transition:all 0.3s"></span>
@@ -529,14 +529,14 @@
           <input type="tel" id="regPhone" data-i18n-placeholder="placeholderPhone" placeholder="+355 67 XXX XXXX" autocomplete="tel">
         </div>
         <div class="form-group">
-          <label data-i18n="labelPassword">Fjalëkalimi *</label>
+          <label data-i18n="labelPassword">FjalÃ«kalimi *</label>
           <div class="pw-wrap">
             <input type="password" id="regPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('regPassword',this)" aria-label="Show password">&#128065;</button>
           </div>
         </div>
         <div class="form-group">
-          <label data-i18n="labelConfirmPassword">Konfirmo Fjalëkalimin *</label>
+          <label data-i18n="labelConfirmPassword">Konfirmo FjalÃ«kalimin *</label>
           <div class="pw-wrap">
             <input type="password" id="regConfirmPassword" placeholder="" autocomplete="new-password">
             <button type="button" class="pw-toggle" onclick="togglePw('regConfirmPassword',this)" aria-label="Show password">&#128065;</button>
@@ -555,7 +555,7 @@
         <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:8px" data-i18n="verifyTitle">Verifiko Email-in</h3>
         <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:8px" data-i18n="verifySubtitle">Ne kemi derguar nje kod verifikimi ne email-in tuaj.</p>
         <p id="verifyEmailDisplay" style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:16px"></p>
-        <div id="verifyCodeError" class="hidden" style="color:var(--danger);font-size:0.85rem;margin-bottom:12px">Kodi i verifikimit është i pasaktë.</div>
+        <div id="verifyCodeError" class="hidden" style="color:var(--danger);font-size:0.85rem;margin-bottom:12px">Kodi i verifikimit Ã«shtÃ« i pasaktÃ«.</div>
         <div id="verifyCodeSuccess" style="margin-bottom:12px"></div>
         <div class="form-group" style="max-width:200px;margin:0 auto 16px">
           <input type="text" id="verifyCodeInput" maxlength="6" placeholder="123456" style="text-align:center;font-size:1.5rem;font-weight:600;letter-spacing:8px" oninput="this.value=this.value.replace(/[^0-9]/g,'')" onkeydown="if(event.key==='Enter')verifyRegistrationCode()">
@@ -563,7 +563,7 @@
         <button onclick="verifyRegistrationCode()" class="btn btn-primary" id="verifyCodeBtn" data-i18n="btnVerify" style="width:100%;max-width:200px;margin-bottom:12px">Verifiko</button>
         <div style="margin-top:12px">
           <button onclick="resendVerifyCodeWithTimer(this)" id="resendCodeBtn" class="btn btn-secondary" style="width:100%;max-width:200px;font-size:0.85rem">
-            <span id="resendCodeText">&#128232; Ridërgo kodin</span>
+            <span id="resendCodeText">&#128232; RidÃ«rgo kodin</span>
             <span id="resendCodeTimer" style="display:none"></span>
           </button>
         </div>
@@ -585,18 +585,18 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H8l5-7v4h3l-5 7z"/></svg>
         <span data-i18n="payseraTitle">Pagesa me Paysera</span>
       </div>
-      <p data-i18n="payseraDesc">Pagesat kryhen në mënyrë të sigurt përmes Paysera Albania SH.P.K.</p>
+      <p data-i18n="payseraDesc">Pagesat kryhen nÃ« mÃ«nyrÃ« tÃ« sigurt pÃ«rmes Paysera Albania SH.P.K.</p>
     </div>
 
     <div class="pricing-header">
       <h1 data-i18n="pricingTitle">Cmimet</h1>
-      <p data-i18n="pricingSubtitle">Zgjidhni paketën që ju përshtatet më mirë.</p>
+      <p data-i18n="pricingSubtitle">Zgjidhni paketÃ«n qÃ« ju pÃ«rshtatet mÃ« mirÃ«.</p>
     </div>
     <div class="pricing-grid">
       <!-- Package 1 -->
       <div class="pricing-card">
         <h3 data-i18n="pkg1Name">Paketa 1</h3>
-        <p class="subtitle" data-i18n="pkg1Desc">Për biznese të vogla</p>
+        <p class="subtitle" data-i18n="pkg1Desc">PÃ«r biznese tÃ« vogla</p>
         <div class="pricing-price">500 <span>LEK</span></div>
         <ul class="pricing-features">
           <li><span class="check"></span> <span data-i18n="pkgFeature1">20 Kredite</span></li>
@@ -614,14 +614,14 @@
       <div class="pricing-card featured">
         <div class="pricing-badge" data-i18n="pkgPopular">Me e Popullarizuara</div>
         <h3 data-i18n="pkg2Name">Paketa 2</h3>
-        <p class="subtitle" data-i18n="pkg2Desc">Për biznese në rritje</p>
+        <p class="subtitle" data-i18n="pkg2Desc">PÃ«r biznese nÃ« rritje</p>
         <div class="pricing-price">1,000 <span>LEK</span></div>
         <ul class="pricing-features">
           <li><span class="check"></span> <span data-i18n="pkgFeature5">50 Kredite</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature2">1 Kredit = 1 Postim</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature3">Vlefshmeri 3 muaj</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature4b">Support prioritet</span></li>
-          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika të detajuara</span></li>
+          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika tÃ« detajuara</span></li>
         </ul>
         <button class="btn" onclick="selectPackage(2)" data-i18n="btnSelect">Zgjidh</button>
         <button class="btn-paysera" onclick="choosePayment(2, 1000)" data-i18n="btnPayPaysera">
@@ -632,14 +632,14 @@
       <!-- Package 3 -->
       <div class="pricing-card">
         <h3 data-i18n="pkg3Name">Paketa 3</h3>
-        <p class="subtitle" data-i18n="pkg3Desc">Për biznese të mëdha</p>
+        <p class="subtitle" data-i18n="pkg3Desc">PÃ«r biznese tÃ« mÃ«dha</p>
         <div class="pricing-price">1,800 <span>LEK</span></div>
         <ul class="pricing-features">
           <li><span class="check"></span> <span data-i18n="pkgFeature7">100 Kredite</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature2">1 Kredit = 1 Postim</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature3">Vlefshmeri 3 muaj</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature4b">Support prioritet</span></li>
-          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika të detajuara</span></li>
+          <li><span class="check"></span> <span data-i18n="pkgFeature6">Statistika tÃ« detajuara</span></li>
           <li><span class="check"></span> <span data-i18n="pkgFeature8">Reklama premium</span></li>
         </ul>
         <button class="btn outline" onclick="selectPackage(3)" data-i18n="btnSelect">Zgjidh</button>
@@ -650,7 +650,7 @@
       </div>
     </div>
     <div class="skip-pricing">
-      <a onclick="skipPricing()" data-i18n="linkSkip">Kalo për tani </a>
+      <a onclick="skipPricing()" data-i18n="linkSkip">Kalo pÃ«r tani </a>
     </div>
   </div>
 </div>
@@ -659,7 +659,7 @@
 <div class="dashboard" id="dashboard">
   <div class="mobile-nav-overlay no-print" id="mobileNavOverlay" onclick="toggleMobileNav()"></div>
   <div class="dash-header no-print">
-    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">☰</button>
+    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">â˜°</button>
     <h2> Savoraapp Partner</h2>
     <div class="dash-nav" id="dashNav">
       <button class="active" data-tab="overview" onclick="switchTab('overview')" data-i18n="tabOverview">Overview</button>
@@ -669,7 +669,7 @@
     </div>
     <div class="user-info">
       <span id="userName">Partner</span>
-      <a href="/" class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;text-decoration:none" data-i18n="btnBackSite">← Faqja kryesore</a>
+      <a href="/" class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;text-decoration:none" data-i18n="btnBackSite">â† Faqja kryesore</a>
       <button class="btn btn-secondary" onclick="logout()" style="padding:6px 12px;font-size:0.8rem" data-i18n="btnLogout">Logout</button>
     </div>
   </div>
@@ -690,14 +690,14 @@
           <div class="credit-progress-bar green" id="creditProgressBar" style="width:0%"></div>
         </div>
         <div class="credit-meta">
-          <span id="creditUsed">0 postime të mbetura</span>
+          <span id="creditUsed">0 postime tÃ« mbetura</span>
           <span id="creditMonthly" style="opacity:0.8">1 kredit = 1 postim</span>
         </div>
       </div>
       <!-- CREDIT TOOLTIP -->
       <div class="credit-tooltip" id="creditTooltip">
-        <span class="info-icon">ℹ️</span>
-        <span id="creditTooltipText">Bleni paketa kreditësh për të postuar ofertat tuaja. 1 kredit = 1 postim. Nuk ka komisione platforme.</span>
+        <span class="info-icon">â„¹ï¸</span>
+        <span id="creditTooltipText">Bleni paketa kreditÃ«sh pÃ«r tÃ« postuar ofertat tuaja. 1 kredit = 1 postim. Nuk ka komisione platforme.</span>
       </div>
       <div class="dash-grid">
         <div class="dash-card">
@@ -705,18 +705,18 @@
           <div style="font-size:0.9rem;color:var(--gray-500);line-height:1.6">
             <p><strong id="welcomeName">Partner</strong></p>
             <p id="welcomeBusiness" style="margin-top:4px"></p>
-            <p style="margin-top:12px" data-i18n="welcomeDesc">Krijoni dhe menaxhoni faturat tuaja tatimore këtu.</p>
+            <p style="margin-top:12px" data-i18n="welcomeDesc">Krijoni dhe menaxhoni faturat tuaja tatimore kÃ«tu.</p>
           </div>
         </div>
         <div class="dash-card">
           <h3><span class="icon"> </span> <span data-i18n="statInvoices">Total Faturat</span></h3>
           <div class="stat-value" id="totalInvoices">0</div>
-          <div class="stat-label" data-i18n="statInvoicesLabel">Fatura të krijuara</div>
+          <div class="stat-label" data-i18n="statInvoicesLabel">Fatura tÃ« krijuara</div>
         </div>
         <div class="dash-card">
           <h3><span class="icon"> </span> <span data-i18n="statValue">Vlera Totale</span></h3>
           <div class="stat-value" id="totalValue">0 EUR</div>
-          <div class="stat-label" data-i18n="statValueLabel">Vlera e të gjitha faturave</div>
+          <div class="stat-label" data-i18n="statValueLabel">Vlera e tÃ« gjitha faturave</div>
         </div>
         <div class="dash-card">
           <h3><span class="icon"> </span> NUI</h3>
@@ -726,7 +726,7 @@
       </div>
       <!-- CREDIT HISTORY -->
       <div class="credit-history" id="creditHistory">
-        <h3><span class="icon">🕐</span> <span id="creditHistoryTitle">Kredite Historiku</span></h3>
+        <h3><span class="icon">ðŸ•</span> <span id="creditHistoryTitle">Kredite Historiku</span></h3>
         <div class="table-scroll">
           <table class="history-table" id="historyTable">
             <thead>
@@ -748,11 +748,11 @@
     <!-- INVOICE TAB -->
     <div id="tab-invoice" class="tab-content" style="display:none">
       <div class="dash-card">
-        <h3> <span data-i18n="invoiceNewTitle">Faturë Tatimore e Re</span></h3>
+        <h3> <span data-i18n="invoiceNewTitle">FaturÃ« Tatimore e Re</span></h3>
         <div id="invoiceError"></div>
         <div id="invoiceSuccess"></div>
 
-        <div class="invoice-section-title" data-i18n="sectionBuyer">Të dhënat e Blerësit</div>
+        <div class="invoice-section-title" data-i18n="sectionBuyer">TÃ« dhÃ«nat e BlerÃ«sit</div>
         <div class="invoice-form">
           <div class="form-group half-width">
             <label data-i18n="labelBuyerName">Emri i Bleresit *</label>
@@ -816,7 +816,7 @@
           <div class="form-group">
             <label data-i18n="labelPaymentMethod">Menyra e Pageses</label>
             <select id="paymentMethod">
-              <option value="cash" data-i18n="optCash">Para në dorë</option>
+              <option value="cash" data-i18n="optCash">Para nÃ« dorÃ«</option>
               <option value="bank" data-i18n="optBank">Bankare</option>
               <option value="invoice" data-i18n="optInvoice">Fature pa para</option>
             </select>
@@ -858,54 +858,54 @@
     <div id="tab-credits" class="tab-content" style="display:none">
       <div class="dash-card">
         <h3 data-i18n="creditsTitle">Blej Kredite</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="creditsSubtitle">Zgjidh një pako kreditesh dhe paguaj online me Paysera.</p>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="creditsSubtitle">Zgjidh njÃ« pako kreditesh dhe paguaj online me Paysera.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:20px">
           <div class="pkg-card" style="border:2px solid var(--gray-200);border-radius:12px;padding:16px;text-align:center">
             <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgBasic">Pako Baze</h4>
-            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgBasicDesc">20 postime · 500 LEK</p>
+            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgBasicDesc">20 postime Â· 500 LEK</p>
             <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:12px">500 <span style="font-size:0.8rem">LEK</span></div>
             <ul style="list-style:none;padding:0;margin:0 0 12px;font-size:0.8rem;color:var(--gray-500);text-align:left;display:inline-block">
-              <li>✓ 20 kredite</li>
-              <li>✓ 20 postime</li>
-              <li>✓ Vlefshme 90 dite</li>
+              <li>âœ“ 20 kredite</li>
+              <li>âœ“ 20 postime</li>
+              <li>âœ“ Vlefshme 90 dite</li>
             </ul>
             <button class="btn btn-primary" onclick="choosePayment('basic', 500)" data-i18n="btnBuyCredits">Blej me Paysera</button>
           </div>
           <div class="pkg-card" style="border:2px solid var(--gray-200);border-radius:12px;padding:16px;text-align:center">
             <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgStandard">Pako Standarte</h4>
-            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgStandardDesc">50 postime · 1,000 LEK</p>
+            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgStandardDesc">50 postime Â· 1,000 LEK</p>
             <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:12px">1,000 <span style="font-size:0.8rem">LEK</span></div>
             <ul style="list-style:none;padding:0;margin:0 0 12px;font-size:0.8rem;color:var(--gray-500);text-align:left;display:inline-block">
-              <li>✓ 50 kredite</li>
-              <li>✓ 50 postime</li>
-              <li>✓ Vlefshme 90 dite</li>
+              <li>âœ“ 50 kredite</li>
+              <li>âœ“ 50 postime</li>
+              <li>âœ“ Vlefshme 90 dite</li>
             </ul>
             <button class="btn btn-primary" onclick="choosePayment('standard', 1000)" data-i18n="btnBuyCredits">Blej me Paysera</button>
           </div>
           <div class="pkg-card" style="border:2px solid var(--primary);border-radius:12px;padding:16px;text-align:center;position:relative">
             <span style="position:absolute;top:-8px;right:12px;background:var(--primary);color:#fff;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px" data-i18n="popularLabel">Me e Mira</span>
             <h4 style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px" data-i18n="pkgPremium">Pako Premium</h4>
-            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgPremiumDesc">120 postime · 1,800 LEK</p>
+            <p style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px" data-i18n="pkgPremiumDesc">120 postime Â· 1,800 LEK</p>
             <div style="font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:12px">1,800 <span style="font-size:0.8rem">LEK</span></div>
             <ul style="list-style:none;padding:0;margin:0 0 12px;font-size:0.8rem;color:var(--gray-500);text-align:left;display:inline-block">
-              <li>✓ 120 kredite</li>
-              <li>✓ 120 postime</li>
-              <li>✓ Vlefshme 90 dite</li>
-              <li style="color:var(--success);font-weight:600">✓ Me ekonomike</li>
+              <li>âœ“ 120 kredite</li>
+              <li>âœ“ 120 postime</li>
+              <li>âœ“ Vlefshme 90 dite</li>
+              <li style="color:var(--success);font-weight:600">âœ“ Me ekonomike</li>
             </ul>
             <button class="btn btn-primary" onclick="choosePayment('premium', 1800)" data-i18n="btnBuyCredits">Blej me Paysera</button>
           </div>
         </div>
         <div style="background:#FFF7ED;border:1px solid #FDBA74;border-radius:10px;padding:12px;margin-bottom:16px;text-align:center">
           <strong style="color:#9A3412;font-size:0.9rem">1 Kredit = 1 Postim = 24 Ore</strong>
-          <p style="font-size:0.8rem;color:#9A3412;margin:4px 0 0">Çdo postim konsumon 1 kredit dhe është i dukshëm për 24 orë.</p>
+          <p style="font-size:0.8rem;color:#9A3412;margin:4px 0 0">Ã‡do postim konsumon 1 kredit dhe Ã«shtÃ« i dukshÃ«m pÃ«r 24 orÃ«.</p>
         </div>
         <div class="paysera-info" style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px;margin-top:12px">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
             <div style="background:#00A651;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem">&#10003;</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">Pagesë e sigurt me Paysera</div>
-              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpërdrejtë. Kreditet shtohen brenda 15-30 minutave.</div>
+              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">PagesÃ« e sigurt me Paysera</div>
+              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpÃ«rdrejtÃ«. Kreditet shtohen brenda 15-30 minutave.</div>
             </div>
           </div>
         </div>
@@ -916,58 +916,58 @@
     <div id="tab-ads" class="tab-content" style="display:none">
       <div class="dash-card">
         <h3 data-i18n="adsTitle">Reklamoni</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="adsSubtitle">Krijoni reklama premium për produktet tuaja. Çdo reklamë koston 3 kredite.</p>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="adsSubtitle">Krijoni reklama premium pÃ«r produktet tuaja. Ã‡do reklamÃ« koston 3 kredite.</p>
         <div style="background:#EDE9FE;border:1px solid #A78BFA;border-radius:10px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:12px">
           <div style="font-size:1.3rem;font-weight:800;color:#7C3AED">3 <span style="font-size:0.8rem">Kredite</span></div>
-          <div style="font-size:0.8rem;color:#6D28D9" data-i18n="adPriceInfo">çdo reklamë premium · 24 ore e dukshme · më e spikatur</div>
+          <div style="font-size:0.8rem;color:#6D28D9" data-i18n="adPriceInfo">Ã§do reklamÃ« premium Â· 24 ore e dukshme Â· mÃ« e spikatur</div>
         </div>
         <div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:8px;padding:8px 12px;margin-bottom:16px;font-size:0.8rem;color:#166534">
-          <strong>💡 Keni një ofertë ditore?</strong> Përdorni skedën <strong>"Ofertat"</strong> për 1 kredit vetëm.
+          <strong>ðŸ’¡ Keni njÃ« ofertÃ« ditore?</strong> PÃ«rdorni skedÃ«n <strong>"Ofertat"</strong> pÃ«r 1 kredit vetÃ«m.
         </div>
         <form id="adForm" onsubmit="handleAdSubmit(event)">
           <div class="form-group">
-            <label data-i18n="adTitleLabel">Titulli i Reklamës</label>
+            <label data-i18n="adTitleLabel">Titulli i ReklamÃ«s</label>
             <input type="text" id="adTitle" data-i18n="placeholderAdTitle" placeholder="Shkruani titullin" required>
           </div>
           <div class="form-group">
-            <label data-i18n="adDescLabel">Përshkrimi</label>
-            <textarea id="adDescription" rows="3" data-i18n="placeholderAdDesc" placeholder="Përshkruani ofertën tuaj" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
+            <label data-i18n="adDescLabel">PÃ«rshkrimi</label>
+            <textarea id="adDescription" rows="3" data-i18n="placeholderAdDesc" placeholder="PÃ«rshkruani ofertÃ«n tuaj" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
           </div>
           <div class="form-group">
             <label data-i18n="adCategoryLabel">Kategoria</label>
             <select id="adCategory" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
               <option value="food" data-i18n="catFood">Ushqim</option>
-              <option value="bakery" data-i18n="catBakery">Bukë/pasticeri</option>
+              <option value="bakery" data-i18n="catBakery">BukÃ«/pasticeri</option>
               <option value="produce" data-i18n="catProduce">Fruta/perime</option>
               <option value="meat" data-i18n="catMeat">Mish</option>
               <option value="dairy" data-i18n="catDairy">Bulmet</option>
-              <option value="other" data-i18n="catOther">Të tjera</option>
+              <option value="other" data-i18n="catOther">TÃ« tjera</option>
             </select>
           </div>
           <div class="form-group">
-            <label data-i18n="adPriceLabel">Çmimi (LEK)</label>
+            <label data-i18n="adPriceLabel">Ã‡mimi (LEK)</label>
             <input type="number" id="adPrice" min="0" step="1" placeholder="p.sh. 500" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
           </div>
           <div class="form-group">
-            <label>⭐ Plani i dukshmërisë</label>
+            <label>â­ Plani i dukshmÃ«risÃ«</label>
             <select id="adPlan" onchange="onAdPlanChange()" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
-              <option value="48h">3 kredite — 48 orë</option>
-              <option value="7d">5 kredite — 7 ditë</option>
+              <option value="48h">3 kredite â€” 48 orÃ«</option>
+              <option value="7d">5 kredite â€” 7 ditÃ«</option>
             </select>
           </div>
           <div id="adBalanceHint" style="font-size:0.8rem;color:var(--gray-500);margin-bottom:12px"></div>
           <div id="adError" style="margin-bottom:12px"></div>
           <div id="adSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="adSubmitBtn" data-i18n="btnPublishAd">Publiko Reklamën (3 Kredite)</button>
+            <button type="submit" class="btn btn-primary" id="adSubmitBtn" data-i18n="btnPublishAd">Publiko ReklamÃ«n (3 Kredite)</button>
           </div>
         </form>
         <div class="paysera-info" style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px;margin-top:16px">
           <div style="display:flex;align-items:center;gap:12px">
             <div style="background:#00A651;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem">&#10003;</div>
             <div>
-              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">Pagesë e sigurt me Paysera</div>
-              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpërdrejtë. Reklamat publikohen menjëherë pas pagesës.</div>
+              <div style="font-size:0.85rem;font-weight:600" data-i18n="payseraSecure">PagesÃ« e sigurt me Paysera</div>
+              <div style="font-size:0.75rem;color:var(--gray-500)" data-i18n="payseraDesc">Transferim bankar i drejtpÃ«rdrejtÃ«. Reklamat publikohen menjÃ«herÃ« pas pagesÃ«s.</div>
             </div>
           </div>
         </div>
@@ -975,7 +975,7 @@
       <div class="dash-card" style="margin-top:16px">
         <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="myAdsTitle">Reklamat e Mia</h4>
         <div class="ads-list" id="myAdsList">
-          <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="noAds">Nuk ka reklama ende. Krijoni reklamën tuaj të parë!</p>
+          <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="noAds">Nuk ka reklama ende. Krijoni reklamÃ«n tuaj tÃ« parÃ«!</p>
         </div>
       </div>
     </div>
@@ -983,27 +983,27 @@
     <div id="tab-ofertat" class="tab-content" style="display:none">
       <div class="dash-card">
         <h3 data-i18n="ofTitle">Ofertat ditore</h3>
-        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="ofSubtitle">Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.</p>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-bottom:16px" data-i18n="ofSubtitle">Publikoni njÃ« ofertÃ« ditore pÃ«r klientÃ«t. Ã‡do ofertÃ« kushton vetÃ«m 1 kredit dhe shfaqet 24 orÃ« te faqja e ofertave.</p>
         <div style="background:#F0FDF4;border:1px solid #86EFAC;border-radius:10px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:12px">
           <div style="font-size:1.3rem;font-weight:800;color:#059669">1 <span style="font-size:0.8rem" data-i18n="ofKredit">Kredit</span></div>
-          <div style="font-size:0.8rem;color:#166534" data-i18n="ofBadge">çdo ofertë · 24 orë e dukshme · shfaqet te klientët</div>
+          <div style="font-size:0.8rem;color:#166534" data-i18n="ofBadge">Ã§do ofertÃ« Â· 24 orÃ« e dukshme Â· shfaqet te klientÃ«t</div>
         </div>
         <form id="dealForm" onsubmit="handleDealSubmit(event)">
           <div class="form-group">
-            <label data-i18n="ofTitleLabel">Titulli i ofertës</label>
-            <input type="text" id="dealTitle" placeholder="p.sh. Bukë e freskët -50%" data-i18n-placeholder="ofTitlePh" required>
+            <label data-i18n="ofTitleLabel">Titulli i ofertÃ«s</label>
+            <input type="text" id="dealTitle" placeholder="p.sh. BukÃ« e freskÃ«t -50%" data-i18n-placeholder="ofTitlePh" required>
           </div>
           <div class="form-group">
-            <label data-i18n="adDescLabel">Përshkrimi</label>
-            <textarea id="dealDescription" rows="3" placeholder="Përshkruani ofertën tuaj" data-i18n-placeholder="placeholderAdDesc" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
+            <label data-i18n="adDescLabel">PÃ«rshkrimi</label>
+            <textarea id="dealDescription" rows="3" placeholder="PÃ«rshkruani ofertÃ«n tuaj" data-i18n-placeholder="placeholderAdDesc" style="resize:vertical;width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem"></textarea>
           </div>
           <div style="display:flex;gap:12px">
             <div class="form-group" style="flex:1">
-              <label data-i18n="ofOldPriceLabel">Çmimi i vjetër (L)</label>
+              <label data-i18n="ofOldPriceLabel">Ã‡mimi i vjetÃ«r (L)</label>
               <input type="number" id="dealOriginalPrice" placeholder="500" min="0" step="1">
             </div>
             <div class="form-group" style="flex:1">
-              <label data-i18n="ofNewPriceLabel">Çmimi i ofertës (L)</label>
+              <label data-i18n="ofNewPriceLabel">Ã‡mimi i ofertÃ«s (L)</label>
               <input type="number" id="dealPrice" placeholder="250" min="0" step="1" required>
             </div>
           </div>
@@ -1012,48 +1012,48 @@
               <label data-i18n="ofCatLabel">Kategoria</label>
               <select id="dealCategory" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
                 <option value="food" data-i18n="catFood">Ushqim</option>
-                <option value="bakery" data-i18n="catBakery">Bukë/pasticeri</option>
+                <option value="bakery" data-i18n="catBakery">BukÃ«/pasticeri</option>
                 <option value="produce" data-i18n="catProduce">Fruta/perime</option>
                 <option value="meat" data-i18n="catMeat">Mish</option>
                 <option value="dairy" data-i18n="catDairy">Bulmet</option>
-                <option value="other" data-i18n="catOther">Të tjera</option>
+                <option value="other" data-i18n="catOther">TÃ« tjera</option>
               </select>
             </div>
             <div class="form-group" style="flex:1">
               <label data-i18n="ofQtyLabel">Sasia (opsionale)</label>
               <input type="number" id="dealQuantity" placeholder="p.sh. 10" data-i18n-placeholder="ofQtyPh" min="1">
-              <small style="display:block;color:var(--gray-500);font-size:0.72rem;margin-top:4px" data-i18n="ofQtyHint">Numri i artikujve — bie automatikisht kur klientët i marrin</small>
+              <small style="display:block;color:var(--gray-500);font-size:0.72rem;margin-top:4px" data-i18n="ofQtyHint">Numri i artikujve â€” bie automatikisht kur klientÃ«t i marrin</small>
             </div>
           </div>
           <div class="form-group">
             <label data-i18n="ofCityLabel">Qyteti</label>
             <select id="dealCity">
-              <option value="">— Zgjidhni qytetin —</option>
-              <option value="Tiranë">Tiranë</option>
-              <option value="Durrës">Durrës</option>
-              <option value="Vlorë">Vlorë</option>
-              <option value="Shkodër">Shkodër</option>
+              <option value="">â€” Zgjidhni qytetin â€”</option>
+              <option value="TiranÃ«">TiranÃ«</option>
+              <option value="DurrÃ«s">DurrÃ«s</option>
+              <option value="VlorÃ«">VlorÃ«</option>
+              <option value="ShkodÃ«r">ShkodÃ«r</option>
               <option value="Elbasan">Elbasan</option>
               <option value="Fier">Fier</option>
-              <option value="Korçë">Korçë</option>
+              <option value="KorÃ§Ã«">KorÃ§Ã«</option>
               <option value="Berat">Berat</option>
-              <option value="Lushnjë">Lushnjë</option>
-              <option value="Sarandë">Sarandë</option>
+              <option value="LushnjÃ«">LushnjÃ«</option>
+              <option value="SarandÃ«">SarandÃ«</option>
             </select>
           </div>
           <div class="form-group">
-            <label><span data-i18n="ofAddrLabel">Adresa e plotë</span> <span style="color:#dc2626">*</span></label>
+            <label><span data-i18n="ofAddrLabel">Adresa e plotÃ«</span> <span style="color:#dc2626">*</span></label>
             <div style="position:relative">
-              <input type="text" id="addrSearch" placeholder="🔍 Kërko adresën në hartë..." autocomplete="off" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
+              <input type="text" id="addrSearch" placeholder="ðŸ” KÃ«rko adresÃ«n nÃ« hartÃ«..." autocomplete="off" style="width:100%;padding:10px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.85rem">
               <div id="addrResults" style="display:none;position:absolute;z-index:2000;left:0;right:0;background:#fff;border:1px solid var(--gray-200);border-radius:8px;margin-top:2px;max-height:200px;overflow:auto;box-shadow:0 4px 12px rgba(0,0,0,.12)"></div>
             </div>
             <div id="addrMap" style="height:200px;border-radius:8px;margin-top:8px;display:none"></div>
-            <input type="text" id="dealAddress" placeholder="Adresa plotësohet nga harta" readonly required style="margin-top:8px;background:var(--gray-50)">
+            <input type="text" id="dealAddress" placeholder="Adresa plotÃ«sohet nga harta" readonly required style="margin-top:8px;background:var(--gray-50)">
             <input type="hidden" id="dealLat"><input type="hidden" id="dealLng">
-            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px">Kërko dhe zgjidh adresën reale nga harta — ose kliko në hartë. Kështu klientët të gjejnë saktë.</small>
+            <small style="display:block;color:var(--gray-500);font-size:0.75rem;margin-top:4px">KÃ«rko dhe zgjidh adresÃ«n reale nga harta â€” ose kliko nÃ« hartÃ«. KÃ«shtu klientÃ«t tÃ« gjejnÃ« saktÃ«.</small>
           </div>
           <div class="form-group">
-            <label><span data-i18n="ofPhotoLabel">Foto</span> <span style="color:var(--gray-500);font-weight:400;font-size:0.8rem" data-i18n="ofPhotoOptional">— opsionale</span></label>
+            <label><span data-i18n="ofPhotoLabel">Foto</span> <span style="color:var(--gray-500);font-weight:400;font-size:0.8rem" data-i18n="ofPhotoOptional">â€” opsionale</span></label>
             <input type="file" id="dealImageFile" accept="image/*">
             <img id="dealImagePreview" alt="" style="display:none;margin-top:8px;max-height:130px;border-radius:8px;border:1px solid var(--gray-200)">
           </div>
@@ -1061,7 +1061,7 @@
           <div id="dealError" style="margin-bottom:12px"></div>
           <div id="dealSuccess" style="margin-bottom:12px"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="dealSubmitBtn" data-i18n="ofSubmitBtn">Publiko ofertën (1 Kredit)</button>
+            <button type="submit" class="btn btn-primary" id="dealSubmitBtn" data-i18n="ofSubmitBtn">Publiko ofertÃ«n (1 Kredit)</button>
           </div>
         </form>
       </div>
@@ -1072,7 +1072,7 @@
         </div>
       </div>
       <div class="dash-card" style="margin-top:16px">
-        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="ofMyClaims">Kush i ka kërkuar ofertat e tua</h4>
+        <h4 style="font-size:0.9rem;font-weight:600;margin-bottom:12px" data-i18n="ofMyClaims">Kush i ka kÃ«rkuar ofertat e tua</h4>
         <div class="ads-list" id="myClaimsList">
           <p style="text-align:center;color:var(--gray-400);padding:20px" data-i18n="ofLoading">Po ngarkohet...</p>
         </div>
@@ -1148,7 +1148,7 @@
       </div>
 
       <div class="instructions" data-i18n="payInstructions">
-        <strong>Instruksionet për Transfertë Bankare:</strong><br>
+        <strong>Instruksionet pÃ«r TransfertÃ« Bankare:</strong><br>
         1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>
         2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>
         3. Shkruani IBAN-in: <strong>AL57902127674521230229786655</strong><br>
@@ -1180,7 +1180,7 @@
 <!-- Betaalmethode-keuze -->
 <div id="payMethodModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.5);align-items:center;justify-content:center;padding:20px">
   <div style="background:#fff;border-radius:16px;max-width:380px;width:100%;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.3)">
-    <h3 style="margin:0 0 4px;font-size:1.1rem">Zgjidhni mënyrën e pagesës</h3>
+    <h3 style="margin:0 0 4px;font-size:1.1rem">Zgjidhni mÃ«nyrÃ«n e pagesÃ«s</h3>
     <p style="margin:0 0 16px;color:var(--gray-500);font-size:0.85rem">Shuma: <strong id="payMethodAmount">500 LEK</strong></p>
     <div style="margin:0 0 14px">
       <div style="display:flex;gap:8px">
@@ -1189,9 +1189,9 @@
       </div>
       <p id="promoMsg" style="margin:6px 0 0;font-size:0.78rem;display:none"></p>
     </div>
-    <button onclick="payWith('paysera')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 Paysera <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, direkt)</span></button>
-    <button onclick="payWith('pok')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">💳 POK <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, kartë)</span></button>
-    <button onclick="payWith('paypal')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">🅿️ PayPal <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(USD)</span></button>
+    <button onclick="payWith('paysera')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">ðŸ’³ Paysera <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, direkt)</span></button>
+    <button onclick="payWith('pok')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">ðŸ’³ POK <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(Lek, kartÃ«)</span></button>
+    <button onclick="payWith('paypal')" style="width:100%;padding:12px;margin-bottom:8px;border:1px solid var(--gray-200);border-radius:10px;background:#fff;cursor:pointer;font-size:0.9rem;font-weight:600;display:flex;align-items:center;gap:10px;justify-content:center">ðŸ…¿ï¸ PayPal <span style="color:var(--gray-400);font-weight:400;font-size:0.78rem">(USD)</span></button>
     <button onclick="closePayMethod()" style="width:100%;padding:10px;margin-top:4px;border:none;background:none;color:var(--gray-500);cursor:pointer;font-size:0.85rem">Anulo</button>
   </div>
 </div>
@@ -1208,71 +1208,71 @@
   // ========================================
   var T = {
     sq: {
-      loginTitle: 'Partner Login', loginSubtitle: 'Qasja në panelin e partnerit',
-      registerTitle: 'Regjistrohu si Partner', registerSubtitle: 'Plotësoni të dhënat e biznesit tuaj',
+      loginTitle: 'Partner Login', loginSubtitle: 'Qasja nÃ« panelin e partnerit',
+      registerTitle: 'Regjistrohu si Partner', registerSubtitle: 'PlotÃ«soni tÃ« dhÃ«nat e biznesit tuaj',
       noAccount: 'Nuk keni llogari?', hasAccount: 'Keni llogari?',
-      linkRegister: 'Regjistrohu si Partner →', linkLogin: 'Hyr këtu →',
+      linkRegister: 'Regjistrohu si Partner â†’', linkLogin: 'Hyr kÃ«tu â†’',
       btnRegister: 'Regjistrohu', registerLoading: 'Duke u regjistruar...',
-      registerSuccess: 'Regjistrimi u krye me sukses! Mund të hyni tani.',
+      registerSuccess: 'Regjistrimi u krye me sukses! Mund tÃ« hyni tani.',
       registerError: 'Gabim gjate regjistrimit',
-      fillRequired: 'Ju lutem plotësoni të gjitha fushat e detyrueshme',
-      passwordMismatch: 'Fjalëkalimet nuk përputhen',
-      passwordShort: 'Fjalëkalimi duhet të ketë të paktën 6 karaktere',
-      nuiInvalid: 'NUI duhet të ketë saktësisht 10 karaktere',
+      fillRequired: 'Ju lutem plotÃ«soni tÃ« gjitha fushat e detyrueshme',
+      passwordMismatch: 'FjalÃ«kalimet nuk pÃ«rputhen',
+      passwordShort: 'FjalÃ«kalimi duhet tÃ« ketÃ« tÃ« paktÃ«n 6 karaktere',
+      nuiInvalid: 'NUI duhet tÃ« ketÃ« saktÃ«sisht 10 karaktere',
       nuiValid: 'NUI valide!',
-      nuiCharsLeft: 'karaktere të mbetura',
-      resetPwTitle: 'Rivendos Fjalëkalimin',
-      resetPwSubtitle: 'Shkruani kodin verifikues dhe fjalëkalimin e ri.',
-      btnUpdatePw: 'Përditëso Fjalëkalimin',
+      nuiCharsLeft: 'karaktere tÃ« mbetura',
+      resetPwTitle: 'Rivendos FjalÃ«kalimin',
+      resetPwSubtitle: 'Shkruani kodin verifikues dhe fjalÃ«kalimin e ri.',
+      btnUpdatePw: 'PÃ«rditÃ«so FjalÃ«kalimin',
       nuiHelp: 'Format: M + 8 numra + shkronje (10 karaktere)',
       labelBusinessName: 'Emri i Biznesit', labelBusinessType: 'Lloji i Biznesit',
       labelOwnerName: 'Emri i Pronarit', labelNui: 'NUI *', labelConfirmPassword: 'Konfirmo Fjalekalimin',
       placeholderBusinessName: 'Emri i kompanise', placeholderOwnerName: 'William',
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
-      optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Tjetër',
+      optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'TjetÃ«r',
       labelEmail: 'Email', labelPassword: 'Fjalekalimi', placeholderEmail: 'partner@savoraapp.com',
       btnLogin: 'Hyr', linkBack: '\u2190 Kthehu ne faqen kryesore',
-      linkForgotPw: 'Keni harruar fjalëkalimin?',
-      forgotPwTitle: 'Rivendos Fjalëkalimin',
-      forgotPwSubtitle: 'Shkruani email-in tuaj dhe do ju dergojme udhëzime per rivendosjen.',
-      btnSendReset: 'Dërgo Udhëzimet',
+      linkForgotPw: 'Keni harruar fjalÃ«kalimin?',
+      forgotPwTitle: 'Rivendos FjalÃ«kalimin',
+      forgotPwSubtitle: 'Shkruani email-in tuaj dhe do ju dergojme udhÃ«zime per rivendosjen.',
+      btnSendReset: 'DÃ«rgo UdhÃ«zimet',
       btnSending: 'Duke u derguar...',
-      resetEmailSent: 'Udhëzimet per rivendosjen u derguan! Kontrolloni email-in tuaj.',
+      resetEmailSent: 'UdhÃ«zimet per rivendosjen u derguan! Kontrolloni email-in tuaj.',
       resetEmailError: 'Gabim ne dergim. Kontrolloni email-in dhe provoni perseri.',
-      linkBackLogin: '← Kthehu tek Hyrja',
+      linkBackLogin: 'â† Kthehu tek Hyrja',
       loginLoading: 'Duke u kyqur...', loginError: 'Gabim ne lidhje',
       invalidCredentials: 'Kredencialet e pasakta',
-      pricingTitle: 'Cmimet', pricingSubtitle: 'Zgjidhni paketën që ju përshtatet më mirë.',
-      pkg1Name: 'Paketa 1', pkg1Desc: 'Për biznese të vogla',
-      pkg2Name: 'Paketa 2', pkg2Desc: 'Për biznese në rritje',
-      pkg3Name: 'Paketa 3', pkg3Desc: 'Për biznese të mëdha',
-      pkgPopular: 'Me e Popullarizuara', btnSelect: 'Zgjidh', linkSkip: 'Kalo për tani →',
+      pricingTitle: 'Cmimet', pricingSubtitle: 'Zgjidhni paketÃ«n qÃ« ju pÃ«rshtatet mÃ« mirÃ«.',
+      pkg1Name: 'Paketa 1', pkg1Desc: 'PÃ«r biznese tÃ« vogla',
+      pkg2Name: 'Paketa 2', pkg2Desc: 'PÃ«r biznese nÃ« rritje',
+      pkg3Name: 'Paketa 3', pkg3Desc: 'PÃ«r biznese tÃ« mÃ«dha',
+      pkgPopular: 'Me e Popullarizuara', btnSelect: 'Zgjidh', linkSkip: 'Kalo pÃ«r tani â†’',
       pkgFeature1: '20 Kredite', pkgFeature2: '1 Kredit = 1 Postim',
       pkgFeature3: 'Vlefshmeri 3 muaj', pkgFeature4a: 'Support baze',
       pkgFeature4b: 'Support prioritet', pkgFeature5: '50 Kredite',
-      pkgFeature6: 'Statistika të detajuara', pkgFeature7: '100 Kredite',
+      pkgFeature6: 'Statistika tÃ« detajuara', pkgFeature7: '100 Kredite',
       pkgFeature8: 'Reklama premium',
-      tabOverview: 'Përmbledhje', tabBoxes: 'Kutitë Surprizë', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
-      boxesTitle: 'Kutitë Surprizë', boxesSubtitle: 'Krijoni kutitë surprizë me produkte ushqimore dhe shitini me zbritje.',
-      boxSmall: 'Kuti e Vogël', boxSmallDesc: '3-5 produkte, vlerë ~1000 LEK',
-      boxMedium: 'Kuti e Mesme', boxMediumDesc: '5-8 produkte, vlerë ~2000 LEK',
-      boxLarge: 'Kuti e Madhe', boxLargeDesc: '8-12 produkte, vlerë ~3500 LEK',
-      popularLabel: 'Popullore', btnCreateBox: 'Krijo Kuti', myBoxesTitle: 'Kutitë e Mia', noBoxes: 'Nuk ka kutitë ende. Krijoni një kuti surprizë!', boxCreated: 'Kuti u krijua me sukses!',
-      adsTitle: 'Reklamoni', adsSubtitle: 'Krijoni reklama premium për produktet tuaja. Çdo reklamë koston 3 kredite.',
-      adTitleLabel: 'Titulli i Reklamës', placeholderAdTitle: 'Shkruani titullin',
-      adDescLabel: 'Përshkrimi', placeholderAdDesc: 'Përshkruani ofertën tuaj',
-      adPriceLabel: 'Çmimi (LEK)', adCategoryLabel: 'Kategoria',
-      catFood: 'Ushqim', catBakery: 'Bukë/pasticeri', catProduce: 'Fruta/perime', catMeat: 'Mish', catDairy: 'Bulmet', catOther: 'Të tjera',
+      tabOverview: 'PÃ«rmbledhje', tabBoxes: 'KutitÃ« SurprizÃ«', tabAds: 'Reklamoni', tabInvoice: 'Fature e Re', tabInvoices: 'Faturat e Mia',
+      boxesTitle: 'KutitÃ« SurprizÃ«', boxesSubtitle: 'Krijoni kutitÃ« surprizÃ« me produkte ushqimore dhe shitini me zbritje.',
+      boxSmall: 'Kuti e VogÃ«l', boxSmallDesc: '3-5 produkte, vlerÃ« ~1000 LEK',
+      boxMedium: 'Kuti e Mesme', boxMediumDesc: '5-8 produkte, vlerÃ« ~2000 LEK',
+      boxLarge: 'Kuti e Madhe', boxLargeDesc: '8-12 produkte, vlerÃ« ~3500 LEK',
+      popularLabel: 'Popullore', btnCreateBox: 'Krijo Kuti', myBoxesTitle: 'KutitÃ« e Mia', noBoxes: 'Nuk ka kutitÃ« ende. Krijoni njÃ« kuti surprizÃ«!', boxCreated: 'Kuti u krijua me sukses!',
+      adsTitle: 'Reklamoni', adsSubtitle: 'Krijoni reklama premium pÃ«r produktet tuaja. Ã‡do reklamÃ« koston 3 kredite.',
+      adTitleLabel: 'Titulli i ReklamÃ«s', placeholderAdTitle: 'Shkruani titullin',
+      adDescLabel: 'PÃ«rshkrimi', placeholderAdDesc: 'PÃ«rshkruani ofertÃ«n tuaj',
+      adPriceLabel: 'Ã‡mimi (LEK)', adCategoryLabel: 'Kategoria',
+      catFood: 'Ushqim', catBakery: 'BukÃ«/pasticeri', catProduce: 'Fruta/perime', catMeat: 'Mish', catDairy: 'Bulmet', catOther: 'TÃ« tjera',
       btnPublishAd: 'Publiko (3 Kredite)', btnPublishing: 'Duke publikuar...', btnClear: 'Pastro',
-      adPublished: 'Reklama u publikua me sukses!', myAdsTitle: 'Reklamat e Mia', noAds: 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!',
-      btnLogout: 'Dil', btnBackSite: '← Faqja kryesore', welcomeTitle: 'Miresevini',
-      ofTitle: 'Ofertat ditore', ofSubtitle: 'Publikoni një ofertë ditore për klientët. Çdo ofertë kushton vetëm 1 kredit dhe shfaqet 24 orë te faqja e ofertave.', ofKredit: 'Kredit', ofBadge: 'çdo ofertë · 24 orë e dukshme · shfaqet te klientët', ofTitleLabel: 'Titulli i ofertës', ofTitlePh: 'p.sh. Bukë e freskët -50%', ofOldPriceLabel: 'Çmimi i vjetër (L)', ofNewPriceLabel: 'Çmimi i ofertës (L)', ofCatLabel: 'Kategoria', ofQtyLabel: 'Sasia (opsionale)', ofQtyPh: 'p.sh. 10', ofQtyHint: 'Numri i artikujve — bie automatikisht kur klientët i marrin', ofCityLabel: 'Qyteti', ofCityPh: 'p.sh. Tiranë', ofAddrLabel: 'Adresa e plotë', ofAddrPh: 'p.sh. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Rrugë dhe numër — që klientët të të gjejnë në Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: '— opsionale', ofSubmitBtn: 'Publiko ofertën (1 Kredit)', ofMyDeals: 'Ofertat e mia', ofMyClaims: 'Kush i ka kërkuar ofertat e tua', ofLoading: 'Po ngarkohet...',
-      welcomeDesc: 'Krijoni dhe menaxhoni faturat tuaja tatimore këtu.',
-      statInvoices: 'Total Faturat', statInvoicesLabel: 'Fatura të krijuara',
-      statValue: 'Vlera Totale', statValueLabel: 'Vlera e të gjitha faturave',
+      adPublished: 'Reklama u publikua me sukses!', myAdsTitle: 'Reklamat e Mia', noAds: 'Nuk ka reklama ende. Krijoni reklamÃ«n tuaj tÃ« parÃ«!',
+      btnLogout: 'Dil', btnBackSite: 'â† Faqja kryesore', welcomeTitle: 'Miresevini',
+      ofTitle: 'Ofertat ditore', ofSubtitle: 'Publikoni njÃ« ofertÃ« ditore pÃ«r klientÃ«t. Ã‡do ofertÃ« kushton vetÃ«m 1 kredit dhe shfaqet 24 orÃ« te faqja e ofertave.', ofKredit: 'Kredit', ofBadge: 'Ã§do ofertÃ« Â· 24 orÃ« e dukshme Â· shfaqet te klientÃ«t', ofTitleLabel: 'Titulli i ofertÃ«s', ofTitlePh: 'p.sh. BukÃ« e freskÃ«t -50%', ofOldPriceLabel: 'Ã‡mimi i vjetÃ«r (L)', ofNewPriceLabel: 'Ã‡mimi i ofertÃ«s (L)', ofCatLabel: 'Kategoria', ofQtyLabel: 'Sasia (opsionale)', ofQtyPh: 'p.sh. 10', ofQtyHint: 'Numri i artikujve â€” bie automatikisht kur klientÃ«t i marrin', ofCityLabel: 'Qyteti', ofCityPh: 'p.sh. TiranÃ«', ofAddrLabel: 'Adresa e plotÃ«', ofAddrPh: 'p.sh. Rruga DÃ«shmorÃ«t e Kombit 5', ofAddrHint: 'RrugÃ« dhe numÃ«r â€” qÃ« klientÃ«t tÃ« tÃ« gjejnÃ« nÃ« Google Maps', ofPhotoLabel: 'Foto', ofPhotoOptional: 'â€” opsionale', ofSubmitBtn: 'Publiko ofertÃ«n (1 Kredit)', ofMyDeals: 'Ofertat e mia', ofMyClaims: 'Kush i ka kÃ«rkuar ofertat e tua', ofLoading: 'Po ngarkohet...',
+      welcomeDesc: 'Krijoni dhe menaxhoni faturat tuaja tatimore kÃ«tu.',
+      statInvoices: 'Total Faturat', statInvoicesLabel: 'Fatura tÃ« krijuara',
+      statValue: 'Vlera Totale', statValueLabel: 'Vlera e tÃ« gjitha faturave',
       statNuiLabel: 'Numri juaj i identifikimit',
-      invoiceNewTitle: 'Faturë Tatimore e Re',
-      sectionBuyer: 'Të dhënat e Blerësit', labelBuyerName: 'Emri i Bleresit *',
+      invoiceNewTitle: 'FaturÃ« Tatimore e Re',
+      sectionBuyer: 'TÃ« dhÃ«nat e BlerÃ«sit', labelBuyerName: 'Emri i Bleresit *',
       placeholderBuyerName: 'Emri i kompanise', labelNipt: 'NIPT / Tax ID',
       labelAddress: 'Adresa', placeholderAddress: 'Rruga, Qyteti',
       labelPhone: 'Telefon', labelPaymentDue: 'Afati i Pageses',
@@ -1283,7 +1283,7 @@
       placeholderCode: 'A001', placeholderItemDesc: 'Pershkrimi i artikullit',
       btnAddItem: '+ Shto Artikull',
       sectionSummary: 'Permbledhje', labelPaymentMethod: 'Menyra e Pageses',
-      labelCurrency: 'Valuta', optCash: 'Para në dorë', optBank: 'Bankare', optInvoice: 'Fature pa para',
+      labelCurrency: 'Valuta', optCash: 'Para nÃ« dorÃ«', optBank: 'Bankare', optInvoice: 'Fature pa para',
       totalSub: 'Subtotal pa TVSH', totalVat: 'TVSH (20%)', totalGrand: 'TOTAL',
       btnSave: '>> Ruaj Faturen', btnPreview: '>> Preview & Print', btnClear: '>> Pastro',
       myInvoicesTitle: 'Faturat e Mia', noInvoices: 'Nuk ka fatura ende',
@@ -1298,7 +1298,7 @@
       serialLabel: 'Seriali: ', dateLabel: 'Data: ',
       invoiceTitle: 'FATURE TATIMORE SHITJE',
       buyerLabel: 'BLERESI', sellerLabel: 'SHITESI',
-      paymentDueLabel: 'Afati i Pageses: ', paymentMethodLabel: 'Mënyra e Pagesës: ',
+      paymentDueLabel: 'Afati i Pageses: ', paymentMethodLabel: 'MÃ«nyra e PagesÃ«s: ',
       webLabel: 'Web: ', totalExcl: 'Total pa TVSH:', vatLabel: 'TVSH (20%):',
       footerNote: 'Fature e gjeneruar nga Savoraapp | savoraapp.com',
       bankLabel: 'Banka:', noItems: 'Nuk ka artikuj',
@@ -1308,7 +1308,7 @@
       trustSubtitle: 'Licencuar nga Banka e Shqiperise (Nr. 47) | Marrveshje zyrtare: AL-WILLIAM-2026 | NUI: M51921505O',
       trustBadge: 'Verified',
       payseraTitle: 'Pagesa me Paysera',
-      payseraDesc: 'Pagesat kryhen në mënyrë të sigurt përmes Paysera Albania SH.P.K.',
+      payseraDesc: 'Pagesat kryhen nÃ« mÃ«nyrÃ« tÃ« sigurt pÃ«rmes Paysera Albania SH.P.K.',
       payseraVerified: 'William Al Farhat | NUI: M51921505O | IBAN verifikuar',
       modalPayTitle: 'Pagesa me Paysera',
       modalPaySubtitle: 'Transfer bankar i sigurt | Paysera Albania SH.P.K.',
@@ -1318,22 +1318,22 @@
       btnOpenPaysera: 'Hap Paysera.com',
       modalFooterSecure: '>> Pagesa e Sigurt - Paysera Albania SH.P.K.',
       modalFooterDetail: 'NUI: M51921505O | Marrveshja: AL-WILLIAM-2026 | E licencuar nga Banka e Shqiperise',
-      payInstructions: '<strong>Instruksionet për Transfertë Bankare:</strong><br>1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>3. Shkruani IBAN-in: <strong>AL57902127674521230229786655</strong><br>4. Shkruani shum&euml;n: <strong id="paymentAmount2">500 LEK</strong><br>5. N&euml; p&euml;rshkrim: <strong>"Savoraapp - [Email]"</strong><br>6. Klikoni "D&euml;rgo"<br><br><small style="color:var(--success)">&#10003; Llogaria e verifikuar nga Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Marr&euml;veshja: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Kreditet aktivizohen brenda 15-30 minutave.',
+      payInstructions: '<strong>Instruksionet pÃ«r TransfertÃ« Bankare:</strong><br>1. Hapni aplikacionin tuaj bankar (Paysera, BKT, Raiffeisen, Intesa etj.)<br>2. Zgjidhni "Transfero Para" ose "Pagesa e Re"<br>3. Shkruani IBAN-in: <strong>AL57902127674521230229786655</strong><br>4. Shkruani shum&euml;n: <strong id="paymentAmount2">500 LEK</strong><br>5. N&euml; p&euml;rshkrim: <strong>"Savoraapp - [Email]"</strong><br>6. Klikoni "D&euml;rgo"<br><br><small style="color:var(--success)">&#10003; Llogaria e verifikuar nga Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Marr&euml;veshja: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>Kreditet aktivizohen brenda 15-30 minutave.',
       creditTitle: 'Kredite Aktuale',
-      btnTopUp: 'Bëj Kredi',
+      btnTopUp: 'BÃ«j Kredi',
       creditHistoryTitle: 'Kredite Historiku',
       colDate: 'Data',
       colAmount: 'Shuma',
       colBalance: 'Bilanci',
-      creditUsed: 'postime të mbetura',
-      creditMonthly: 'Bleni një paketë',
-      payseraBtn: 'Kliko OK për të paguar me Paysera, ose Anulo për transfer bankar.',
-      bankTransfer: 'Transfer bankar për të:',
-      bankTransferNote: 'Pas pagesës, kreditet do të shtohen brenda 1 dite pune.',
+      creditUsed: 'postime tÃ« mbetura',
+      creditMonthly: 'Bleni njÃ« paketÃ«',
+      payseraBtn: 'Kliko OK pÃ«r tÃ« paguar me Paysera, ose Anulo pÃ«r transfer bankar.',
+      bankTransfer: 'Transfer bankar pÃ«r tÃ«:',
+      bankTransferNote: 'Pas pagesÃ«s, kreditet do tÃ« shtohen brenda 1 dite pune.',
       paymentSuccess: 'Pagesa u krye me sukses!',
-      paymentError: 'Pagesa dështoi. Provoni përsëri më vonë.',
-      paymentRedirect: 'Do të ridrejtoheni në faqen e pagesës. Pas pagesës, kreditet do të shtohen automatikisht.',
-      creditTooltipText: 'Bleni paketa kreditësh për të postuar ofertat tuaja. 1 kredit = 1 postim. Nuk ka komisione platforme.',
+      paymentError: 'Pagesa dÃ«shtoi. Provoni pÃ«rsÃ«ri mÃ« vonÃ«.',
+      paymentRedirect: 'Do tÃ« ridrejtoheni nÃ« faqen e pagesÃ«s. Pas pagesÃ«s, kreditet do tÃ« shtohen automatikisht.',
+      creditTooltipText: 'Bleni paketa kreditÃ«sh pÃ«r tÃ« postuar ofertat tuaja. 1 kredit = 1 postim. Nuk ka komisione platforme.',
       noHistory: 'Nuk ka transaksione',
       creditsAdded: 'Kreditet u shtuan',
       paymentNote: 'Kreditet do te shtohen ne llogarine tuaje menjehere.',
@@ -1343,7 +1343,7 @@
       loginTitle: 'Partner Login', loginSubtitle: 'Access your partner dashboard',
       registerTitle: 'Register as Partner', registerSubtitle: 'Fill in your business details',
       noAccount: 'No account?', hasAccount: 'Already have an account?',
-      linkRegister: 'Register as Partner →', linkLogin: 'Login here →',
+      linkRegister: 'Register as Partner â†’', linkLogin: 'Login here â†’',
       btnRegister: 'Register', registerLoading: 'Registering...',
       registerSuccess: 'Registration successful! You can now login.',
       registerError: 'Registration failed',
@@ -1363,7 +1363,7 @@
       placeholderNui: 'M12345678O', placeholderPhone: '+355 67 XXX XXXX',
       optFastfood: 'Fast Food', optRestaurant: 'Restaurant', optSupermarket: 'Supermarket', optCafe: 'Cafe', optOther: 'Other',
       labelEmail: 'Email', labelPassword: 'Password', placeholderEmail: 'partner@savoraapp.com',
-      btnLogin: 'Login', linkBack: '← Back to main site',
+      btnLogin: 'Login', linkBack: 'â† Back to main site',
       linkForgotPw: 'Forgot password?',
       forgotPwTitle: 'Reset Password',
       forgotPwSubtitle: 'Enter your email and we will send you instructions.',
@@ -1371,14 +1371,14 @@
       btnSending: 'Sending...',
       resetEmailSent: 'Instructions sent! Please check your email.',
       resetEmailError: 'Error sending. Check your email and try again.',
-      linkBackLogin: '← Back to login',
+      linkBackLogin: 'â† Back to login',
       loginLoading: 'Logging in...', loginError: 'Connection error',
       invalidCredentials: 'Invalid credentials',
       pricingTitle: 'Pricing', pricingSubtitle: 'Choose the package that suits you best.',
       pkg1Name: 'Package 1', pkg1Desc: 'For small businesses',
       pkg2Name: 'Package 2', pkg2Desc: 'For growing businesses',
       pkg3Name: 'Package 3', pkg3Desc: 'For large businesses',
-      pkgPopular: 'Most Popular', btnSelect: 'Select', linkSkip: 'Skip for now →',
+      pkgPopular: 'Most Popular', btnSelect: 'Select', linkSkip: 'Skip for now â†’',
       pkgFeature1: '20 Credits', pkgFeature2: '1 Credit = 1 Post',
       pkgFeature3: 'Valid 3 months', pkgFeature4a: 'Basic support',
       pkgFeature4b: 'Priority support', pkgFeature5: '50 Credits',
@@ -1397,8 +1397,8 @@
       catFood: 'Food', catBakery: 'Bakery', catProduce: 'Produce', catMeat: 'Meat', catDairy: 'Dairy', catOther: 'Other',
       btnPublishAd: 'Publish (3 Credits)', btnPublishing: 'Publishing...', btnClear: 'Clear',
       adPublished: 'Ad published successfully!', myAdsTitle: 'My Ads', noAds: 'No ads yet. Create your first ad!',
-      btnLogout: 'Logout', btnBackSite: '← Home page', welcomeTitle: 'Welcome',
-      ofTitle: 'Daily Deals', ofSubtitle: 'Publish a daily deal for customers. Each deal costs only 1 credit and shows for 24 hours on the deals page.', ofKredit: 'Credit', ofBadge: 'each deal · visible 24h · shown to customers', ofTitleLabel: 'Deal title', ofTitlePh: 'e.g. Fresh bread -50%', ofOldPriceLabel: 'Old price (L)', ofNewPriceLabel: 'Deal price (L)', ofCatLabel: 'Category', ofQtyLabel: 'Quantity (optional)', ofQtyPh: 'e.g. 10', ofQtyHint: 'Number of items — decreases automatically when customers claim them', ofCityLabel: 'City', ofCityPh: 'e.g. Tirana', ofAddrLabel: 'Full address', ofAddrPh: 'e.g. Rruga Dëshmorët e Kombit 5', ofAddrHint: 'Street and number — so customers find you on Google Maps', ofPhotoLabel: 'Photo', ofPhotoOptional: '— optional', ofSubmitBtn: 'Publish deal (1 Credit)', ofMyDeals: 'My deals', ofMyClaims: 'Who has claimed your deals', ofLoading: 'Loading...',
+      btnLogout: 'Logout', btnBackSite: 'â† Home page', welcomeTitle: 'Welcome',
+      ofTitle: 'Daily Deals', ofSubtitle: 'Publish a daily deal for customers. Each deal costs only 1 credit and shows for 24 hours on the deals page.', ofKredit: 'Credit', ofBadge: 'each deal Â· visible 24h Â· shown to customers', ofTitleLabel: 'Deal title', ofTitlePh: 'e.g. Fresh bread -50%', ofOldPriceLabel: 'Old price (L)', ofNewPriceLabel: 'Deal price (L)', ofCatLabel: 'Category', ofQtyLabel: 'Quantity (optional)', ofQtyPh: 'e.g. 10', ofQtyHint: 'Number of items â€” decreases automatically when customers claim them', ofCityLabel: 'City', ofCityPh: 'e.g. Tirana', ofAddrLabel: 'Full address', ofAddrPh: 'e.g. Rruga DÃ«shmorÃ«t e Kombit 5', ofAddrHint: 'Street and number â€” so customers find you on Google Maps', ofPhotoLabel: 'Photo', ofPhotoOptional: 'â€” optional', ofSubmitBtn: 'Publish deal (1 Credit)', ofMyDeals: 'My deals', ofMyClaims: 'Who has claimed your deals', ofLoading: 'Loading...',
       welcomeDesc: 'Create and manage your tax invoices here.',
       statInvoices: 'Total Invoices', statInvoicesLabel: 'Invoices created',
       statValue: 'Total Value', statValueLabel: 'Value of all invoices',
@@ -1603,7 +1603,7 @@
     var succDiv = document.getElementById('verifyCodeSuccess');
 
     if (!inputCode || inputCode.length !== 6) {
-      if (errDiv) { errDiv.textContent = 'Kodi duhet të ketë 6 shifra'; errDiv.classList.remove('hidden'); }
+      if (errDiv) { errDiv.textContent = 'Kodi duhet tÃ« ketÃ« 6 shifra'; errDiv.classList.remove('hidden'); }
       return;
     }
 
@@ -1623,7 +1623,7 @@
         localStorage.setItem('partnerToken', data.token);
         localStorage.setItem('partner_id', data.partnerId || partnerId);
         localStorage.setItem('savora_partner_verified', 'true');
-        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Verifikimi me sukses! Po të ridrejtojmë...</div>';
+        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Verifikimi me sukses! Po tÃ« ridrejtojmÃ«...</div>';
         setTimeout(function(){
           window.location.href = 'partner-dashboard.html';
         }, 1500);
@@ -1654,7 +1654,7 @@
     if (timerEl) timerEl.style.display = '';
     if (textEl) textEl.style.display = 'none';
     function updateTimer() {
-      if (timerEl) timerEl.textContent = 'Ridërgo (' + seconds + 's)';
+      if (timerEl) timerEl.textContent = 'RidÃ«rgo (' + seconds + 's)';
       seconds--;
       if (seconds < 0) {
         clearInterval(resendTimerInterval);
@@ -1673,10 +1673,10 @@
     })
     .then(function(r){ return r.json(); })
     .then(function(data){
-      showToast('&#128232; Kodi i ri u dërgua! Kontrollo email-in.');
+      showToast('&#128232; Kodi i ri u dÃ«rgua! Kontrollo email-in.');
     })
     .catch(function(){
-      showToast('&#9888; Gabim ne ridërgim. Provoni përsëri.');
+      showToast('&#9888; Gabim ne ridÃ«rgim. Provoni pÃ«rsÃ«ri.');
     });
   }
 
@@ -1835,7 +1835,7 @@
         }));
         showDashboard();
       } else if (data.needsVerification) {
-        // Nog niet geverifieerd — toon verificatie scherm
+        // Nog niet geverifieerd â€” toon verificatie scherm
         localStorage.setItem('savora_partner_id', data.partnerId);
         localStorage.setItem('savora_partner_email', data.contact || email);
         showVerificationScreen(data.partnerId);
@@ -1903,7 +1903,7 @@
         return r.json().then(function(data) {
           btn.disabled = false;
           btn.textContent = t.btnRegister;
-          errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(data.error) + '<br><a href="#" onclick="showLogin();return false;" style="color:var(--primary);text-decoration:underline;">' + (t.alreadyRegisteredLink || 'Klikoni këtu për të hyrë') + '</a></div>';
+          errDiv.innerHTML = '<div class="error-msg">' + escapeHtml(data.error) + '<br><a href="#" onclick="showLogin();return false;" style="color:var(--primary);text-decoration:underline;">' + (t.alreadyRegisteredLink || 'Klikoni kÃ«tu pÃ«r tÃ« hyrÃ«') + '</a></div>';
           return {alreadyRegistered: true}; // Marker voor volgende .then()
         });
       }
@@ -1943,7 +1943,7 @@
           });
         }, 300);
         succDiv.innerHTML = '<div class="success-msg">' + (t.registerSuccess || 'Registration successful! Check your email for the verification code.') + '</div>';
-        showToast('✅ ' + (t.registerSuccess || 'Registratie gelukt! Check je e-mail.'), 'success');
+        showToast('âœ… ' + (t.registerSuccess || 'Registratie gelukt! Check je e-mail.'), 'success');
         setTimeout(function() {
           document.getElementById('verifyCodeInput').value = '';
           document.getElementById('verifyCodeInput').focus();
@@ -1986,9 +1986,9 @@
   function renderCredits() {
     var t = T[currentLang];
     document.getElementById('creditLabel').textContent = t.creditTitle || 'Kredite Aktuale';
-    document.getElementById('btnTopUp').textContent = t.btnTopUp || 'Bëj Kredi';
+    document.getElementById('btnTopUp').textContent = t.btnTopUp || 'BÃ«j Kredi';
     document.getElementById('creditHistoryTitle').textContent = t.creditHistoryTitle || 'Kredite Historiku';
-    document.getElementById('creditTooltipText').textContent = t.creditTooltipText || 'Bleni paketa kreditësh për të postuar ofertat tuaja. 1 kredit = 1 postim. Nuk ka komisione platforme.';
+    document.getElementById('creditTooltipText').textContent = t.creditTooltipText || 'Bleni paketa kreditÃ«sh pÃ«r tÃ« postuar ofertat tuaja. 1 kredit = 1 postim. Nuk ka komisione platforme.';
 
     // Load from API
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
@@ -2000,9 +2000,9 @@
       document.getElementById('creditBalance').textContent = balance.toLocaleString();
       document.getElementById('creditMonthly').textContent = '1 kredit = 1 postim';
       var postimeText = {
-        sq: 'postime të mbetura', en: 'posts remaining', nl: 'posts resterend',
-        de: 'Beiträge verbleibend', it: 'post rimanenti', gr: 'υπολειπόμενες δημοσιεύσεις',
-        fr: 'publications restantes', es: 'publicaciones restantes', tr: 'kalan gönderi', ar: 'منشورات متبقية'
+        sq: 'postime tÃ« mbetura', en: 'posts remaining', nl: 'posts resterend',
+        de: 'BeitrÃ¤ge verbleibend', it: 'post rimanenti', gr: 'Ï…Ï€Î¿Î»ÎµÎ¹Ï€ÏŒÎ¼ÎµÎ½ÎµÏ‚ Î´Î·Î¼Î¿ÏƒÎ¹ÎµÏÏƒÎµÎ¹Ï‚',
+        fr: 'publications restantes', es: 'publicaciones restantes', tr: 'kalan gÃ¶nderi', ar: 'Ù…Ù†Ø´ÙˆØ±Ø§Øª Ù…ØªØ¨Ù‚ÙŠØ©'
       };
       document.getElementById('creditUsed').textContent = balance + ' ' + (postimeText[currentLang] || postimeText['sq']);
       var bar = document.getElementById('creditProgressBar');
@@ -2105,7 +2105,7 @@
     var btn = document.getElementById('adSubmitBtn');
     var t = T[currentLang] || {};
     var cr = (sel && sel.value === '7d') ? 5 : 3;
-    if (btn) btn.textContent = 'Publiko Reklamën (' + cr + ' ' + (t.ofKredit || 'Kredite') + ')';
+    if (btn) btn.textContent = 'Publiko ReklamÃ«n (' + cr + ' ' + (t.ofKredit || 'Kredite') + ')';
     if (typeof syncFormBalance === 'function') syncFormBalance();
   }
 
@@ -2114,7 +2114,7 @@
     var isCredit = /credit|kredit|genoeg|actieve/i.test(String(msg || ''));
     var safe = String(msg || '').replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; });
     var text = isCredit
-      ? ((t.insufficientCredits || 'Nuk keni kredite të mjaftueshme') + ' (' + need + ' ' + (t.ofKredit || 'kredite') + ').')
+      ? ((t.insufficientCredits || 'Nuk keni kredite tÃ« mjaftueshme') + ' (' + need + ' ' + (t.ofKredit || 'kredite') + ').')
       : safe;
     var cta = isCredit
       ? '<button type="button" onclick="switchTab(\'credits\')" style="margin-top:8px;display:block;width:100%;padding:8px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:0.8rem">' + (t.btnTopUp || 'Blej Kredite') + '</button>'
@@ -2134,7 +2134,7 @@
 
   function createBox(size) {
     var t = T[currentLang] || {};
-    var boxNames = {small: 'Kuti e Vogël', medium: 'Kuti e Mesme', large: 'Kuti e Madhe'};
+    var boxNames = {small: 'Kuti e VogÃ«l', medium: 'Kuti e Mesme', large: 'Kuti e Madhe'};
     var boxPrices = {small: 500, medium: 900, large: 1500};
     var boxData = {
       id: 'box_' + Date.now(),
@@ -2155,17 +2155,17 @@
     var list = document.getElementById('myBoxesList');
     if (!list) return;
     if (myBoxes.length === 0) {
-      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noBoxes || 'Nuk ka kutitë ende. Krijoni një kuti surprizë!') + '</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noBoxes || 'Nuk ka kutitÃ« ende. Krijoni njÃ« kuti surprizÃ«!') + '</p>';
       return;
     }
     list.innerHTML = myBoxes.slice().reverse().map(function(box) {
-      var sizeLabel = {small: 'e Vogël', medium: 'e Mesme', large: 'e Madhe'}[box.size] || box.size;
+      var sizeLabel = {small: 'e VogÃ«l', medium: 'e Mesme', large: 'e Madhe'}[box.size] || box.size;
       return '<div class="box-card" style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center">' +
         '<div>' +
           '<strong style="font-size:0.9rem">' + escapeHtml(box.name) + '</strong>' +
-          '<div style="font-size:0.75rem;color:var(--gray-500)">' + sizeLabel + ' · ' + box.price + ' LEK · ' + box.createdAt + '</div>' +
+          '<div style="font-size:0.75rem;color:var(--gray-500)">' + sizeLabel + ' Â· ' + box.price + ' LEK Â· ' + box.createdAt + '</div>' +
         '</div>' +
-        '<span class="badge" style="background:var(--success);color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:10px">' + (box.status === 'active' ? 'Aktive' : 'Përfunduar') + '</span>' +
+        '<span class="badge" style="background:var(--success);color:#fff;font-size:0.7rem;padding:2px 8px;border-radius:10px">' + (box.status === 'active' ? 'Aktive' : 'PÃ«rfunduar') + '</span>' +
       '</div>';
     }).join('');
   }
@@ -2194,7 +2194,7 @@
     if (succDiv) succDiv.innerHTML = '';
 
     if (!title) {
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + (t.fillRequired || 'Plotësoni të gjitha fushat') + '</div>';
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">' + (t.fillRequired || 'PlotÃ«soni tÃ« gjitha fushat') + '</div>';
       return;
     }
 
@@ -2202,10 +2202,10 @@
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : '';
 
     function resetBtn() {
-      if (btn) { btn.disabled = false; btn.textContent = t.btnPublishAd || 'Publiko Reklamën (3 Kredite)'; }
+      if (btn) { btn.disabled = false; btn.textContent = t.btnPublishAd || 'Publiko ReklamÃ«n (3 Kredite)'; }
     }
 
-    // Plaats de advertentie op de server (3 credits) — wordt zichtbaar voor klanten
+    // Plaats de advertentie op de server (3 credits) â€” wordt zichtbaar voor klanten
     fetch(API_BASE + '/api/ads', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
@@ -2219,7 +2219,7 @@
         loadMyAds();
         if (partnerId && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(partnerId);
       } else if (errDiv) {
-        errDiv.innerHTML = creditAwareError((d && d.error) || 'Kredite të pamjaftueshme', 3);
+        errDiv.innerHTML = creditAwareError((d && d.error) || 'Kredite tÃ« pamjaftueshme', 3);
       }
       resetBtn();
     })
@@ -2239,7 +2239,7 @@
 
   function deleteAd(adId) {
     var t = T[currentLang] || {};
-    if (!confirm(t.confirmDeleteAd || 'Të fshihet kjo reklamë?')) return;
+    if (!confirm(t.confirmDeleteAd || 'TÃ« fshihet kjo reklamÃ«?')) return;
     fetch(API_BASE + '/api/ads/delete', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken},
@@ -2255,16 +2255,16 @@
     var list = document.getElementById('myAdsList');
     if (!list) return;
     if (!myAds.length) {
-      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noAds || 'Nuk ka reklama ende. Krijoni reklamën tuaj të parë!') + '</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">' + (t.noAds || 'Nuk ka reklama ende. Krijoni reklamÃ«n tuaj tÃ« parÃ«!') + '</p>';
       return;
     }
-    var catLabels = {food: 'Ushqim', bakery: 'Bukë', produce: 'Fruta', meat: 'Mish', dairy: 'Bulmet', other: 'Të tjera'};
+    var catLabels = {food: 'Ushqim', bakery: 'BukÃ«', produce: 'Fruta', meat: 'Mish', dairy: 'Bulmet', other: 'TÃ« tjera'};
     list.innerHTML = myAds.map(function(ad) {
       var when = ad.createdAt ? String(ad.createdAt).split('T')[0] : '';
       var priceHtml = (ad.price != null && ad.price !== '') ? ('<span style="font-size:0.8rem;font-weight:700;color:var(--primary)">' + escapeHtml(String(ad.price)) + ' LEK</span>') : '';
       return '<div class="ad-card" style="border:1px solid #F5C518;background:#FFFDF5;border-radius:10px;padding:12px;margin-bottom:8px">' +
         '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px">' +
-          '<strong style="font-size:0.9rem">⭐ ' + escapeHtml(ad.title) + '</strong>' +
+          '<strong style="font-size:0.9rem">â­ ' + escapeHtml(ad.title) + '</strong>' +
           priceHtml +
         '</div>' +
         '<div style="font-size:0.8rem;color:var(--gray-500);margin-bottom:6px">' + escapeHtml(ad.description || '') + '</div>' +
@@ -2272,7 +2272,7 @@
           '<span style="font-size:0.7rem;background:var(--gray-100);padding:2px 8px;border-radius:8px">' + (catLabels[ad.category] || ad.category || '') + '</span>' +
           '<span style="font-size:0.7rem;color:var(--gray-400)">' + when + '</span>' +
         '</div>' +
-        '<button onclick="deleteAd(\'' + ad.id + '\')" style="margin-top:8px;width:100%;padding:6px;border:1px solid var(--gray-200);background:#fff;border-radius:8px;font-size:0.75rem;color:var(--danger);cursor:pointer">' + (t.btnDelete || 'Hiq reklamën') + '</button>' +
+        '<button onclick="deleteAd(\'' + ad.id + '\')" style="margin-top:8px;width:100%;padding:6px;border:1px solid var(--gray-200);background:#fff;border-radius:8px;font-size:0.75rem;color:var(--danger);cursor:pointer">' + (t.btnDelete || 'Hiq reklamÃ«n') + '</button>' +
       '</div>';
     }).join('');
   }
@@ -2461,7 +2461,7 @@
 
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
     if (!partnerId) {
-      alert('❌ Ju lutem identifikohuni fillimest / Please login first');
+      alert('âŒ Ju lutem identifikohuni fillimest / Please login first');
       return;
     }
 
@@ -2474,13 +2474,13 @@
       var data = await res.json();
       if (data.success) {
         loadCreditsFromAPI(partnerId);
-        alert('✅ ' + (t.creditsAdded || 'Credits toegevoegd!') + ' +' + (data.package ? data.package.credits : '') + ' kredite.');
+        alert('âœ… ' + (t.creditsAdded || 'Credits toegevoegd!') + ' +' + (data.package ? data.package.credits : '') + ' kredite.');
       } else {
-        alert('❌ ' + (data.error || 'Gabim'));
+        alert('âŒ ' + (data.error || 'Gabim'));
       }
     } catch(err) {
       console.error('Buy credits error:', err);
-      alert('❌ ' + (t.loginError || 'Verbindingsfout'));
+      alert('âŒ ' + (t.loginError || 'Verbindingsfout'));
     }
   }
 
@@ -2514,8 +2514,8 @@
       var data = await res.json();
       if (msg) {
         msg.style.display = 'block';
-        if (data.valid) { msg.style.color = '#16a34a'; msg.textContent = (currentLang === 'en' ? 'Code valid: -' : 'Kod i vlefshëm: -') + data.percent + '%'; }
-        else { msg.style.color = '#dc2626'; msg.textContent = (currentLang === 'en' ? 'Invalid code' : 'Kod i pavlefshëm'); }
+        if (data.valid) { msg.style.color = '#16a34a'; msg.textContent = (currentLang === 'en' ? 'Code valid: -' : 'Kod i vlefshÃ«m: -') + data.percent + '%'; }
+        else { msg.style.color = '#dc2626'; msg.textContent = (currentLang === 'en' ? 'Invalid code' : 'Kod i pavlefshÃ«m'); }
       }
     } catch (e) {
       if (msg) { msg.style.display = 'block'; msg.style.color = '#dc2626'; msg.textContent = 'Error: ' + e.message; }
@@ -2531,7 +2531,7 @@
   async function buyCreditsViaPaypal(packageId) {
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
     if (!partnerId) {
-      alert('❌ Ju lutem identifikohuni fillimisht / Please login first');
+      alert('âŒ Ju lutem identifikohuni fillimisht / Please login first');
       return;
     }
     var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
@@ -2547,10 +2547,10 @@
         try { localStorage.setItem('savora_paypal_order', data.orderId); } catch(e){}
         window.location.href = data.url;
       } else {
-        alert('❌ ' + (data.error || 'PayPal pagesa dështoi / PayPal payment failed'));
+        alert('âŒ ' + (data.error || 'PayPal pagesa dÃ«shtoi / PayPal payment failed'));
       }
     } catch (e) {
-      alert('❌ Gabim rrjeti / Network error: ' + e.message);
+      alert('âŒ Gabim rrjeti / Network error: ' + e.message);
     }
   }
   async function handlePokReturn() {
@@ -2571,10 +2571,10 @@
       });
       var data = await res.json();
       if (data.success) {
-        alert('✅ Pagesa u krye me sukses!' + (data.credits != null ? (' ' + data.credits + ' kredite u shtuan.') : ''));
+        alert('âœ… Pagesa u krye me sukses!' + (data.credits != null ? (' ' + data.credits + ' kredite u shtuan.') : ''));
         location.reload();
       } else {
-        alert('ℹ️ ' + (data.error || 'Pagesa nuk u konfirmua ende.'));
+        alert('â„¹ï¸ ' + (data.error || 'Pagesa nuk u konfirmua ende.'));
       }
     } catch (e) {
       console.error('[POK] return fout:', e && e.message);
@@ -2600,10 +2600,10 @@
       var data = await res.json();
       try { localStorage.removeItem('savora_paypal_order'); } catch(e){}
       if (data.success) {
-        alert('✅ Pagesa u krye me sukses!' + (data.credits != null ? (' ' + data.credits + ' kredite u shtuan.') : ''));
+        alert('âœ… Pagesa u krye me sukses!' + (data.credits != null ? (' ' + data.credits + ' kredite u shtuan.') : ''));
         location.reload();
       } else {
-        alert('❌ ' + (data.error || 'PayPal capture failed'));
+        alert('âŒ ' + (data.error || 'PayPal capture failed'));
       }
     } catch (e) {
       console.error('[PAYPAL] return fout:', e && e.message);
@@ -2612,7 +2612,7 @@
   async function buyCreditsViaPok(packageId, amountLEK) {
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
     if (!partnerId) {
-      alert('❌ Ju lutem identifikohuni fillimisht / Please login first');
+      alert('âŒ Ju lutem identifikohuni fillimisht / Please login first');
       return;
     }
     var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
@@ -2627,23 +2627,23 @@
       if (data.success && data.url) {
         window.location.href = data.url;
       } else {
-        alert('❌ ' + (data.error || 'POK pagesa dështoi / POK payment failed'));
+        alert('âŒ ' + (data.error || 'POK pagesa dÃ«shtoi / POK payment failed'));
       }
     } catch (e) {
-      alert('❌ Gabim rrjeti / Network error: ' + e.message);
+      alert('âŒ Gabim rrjeti / Network error: ' + e.message);
     }
   }
   function showBankTransfer(packageId, amountLEK) {
     var packageMap = { 1:'basic',2:'standard',3:'premium','basic':'basic','standard':'standard','premium':'premium' };
     var orderId = 'credit_' + (packageMap[packageId]||'basic') + '_' + Date.now();
-    alert('🏦 Transfertë Bankare\n\nIBAN: AL57902127674521230229786655\nNë emër të: William Al Farhat\nReferenca: ' + orderId + '\nShuma: ' + amountLEK + ' LEK\n\nKreditet shtohen brenda 1 dite pune pas pagesës.');
+    alert('ðŸ¦ TransfertÃ« Bankare\n\nIBAN: AL57902127674521230229786655\nNÃ« emÃ«r tÃ«: William Al Farhat\nReferenca: ' + orderId + '\nShuma: ' + amountLEK + ' LEK\n\nKreditet shtohen brenda 1 dite pune pas pagesÃ«s.');
   }
 
   async function buyCreditsViaPaysera(packageId, amountLEK) {
     var t = T[currentLang];
     var partnerId = partnerInfo ? (partnerInfo.id || partnerInfo.email) : null;
     if (!partnerId) {
-      alert('❌ Ju lutem identifikohuni fillimest / Please login first');
+      alert('âŒ Ju lutem identifikohuni fillimest / Please login first');
       return;
     }
 
@@ -2676,15 +2676,15 @@
           'Pako ' + packageKey + ' - ' + credits + ' kredite\n' +
           'Bedrag: ' + amountLEK + ' LEK\n\n' +
           'Kies uw betaalmethode:\n' +
-          '• OK = Betaal online via Paysera (direct)\n' +
-          '• Annuleer = Bankoverschrijving (1 werkdag)'
+          'â€¢ OK = Betaal online via Paysera (direct)\n' +
+          'â€¢ Annuleer = Bankoverschrijving (1 werkdag)'
         );
 
         if (choice) {
           window.open(data.url, '_blank');
         } else {
           alert(
-            '🏦 Bankoverschrijving\n\n' +
+            'ðŸ¦ Bankoverschrijving\n\n' +
             'IBAN: AL57902127674521230229786655\n' +
             'Ten name van: William Al Farhat (savoraapp.com)\n' +
             'Referentie: ' + orderId + '\n' +
@@ -2709,17 +2709,17 @@
               clearInterval(currentPollingInterval);
               currentPollingInterval = null;
               loadCreditsFromAPI(partnerId);
-              alert('✅ Betaling geslaagd! +' + checkData.credits + ' credits toegevoegd.');
+              alert('âœ… Betaling geslaagd! +' + checkData.credits + ' credits toegevoegd.');
             }
           } catch(e) {}
         }, 5000);
 
       } else {
-        alert('❌ ' + (data.error || 'Kon betaalpagina niet aanmaken'));
+        alert('âŒ ' + (data.error || 'Kon betaalpagina niet aanmaken'));
       }
     } catch(err) {
       console.error('Paysera error:', err);
-      alert('❌ Betaling mislukt. Probeer het later opnieuw.');
+      alert('âŒ Betaling mislukt. Probeer het later opnieuw.');
     }
   }
 
@@ -2741,9 +2741,9 @@
           wgBanner.style.cssText = 'background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #16a34a;border-radius:14px;padding:16px 20px;margin-bottom:16px;color:#166534;font-weight:600;font-size:0.95rem;display:flex;align-items:center;gap:12px';
           wgHost.parentNode.insertBefore(wgBanner, wgHost);
         }
-        wgBanner.innerHTML = '🎁 <span>' + (currentLang === 'en'
+        wgBanner.innerHTML = 'ðŸŽ <span>' + (currentLang === 'en'
           ? 'Welcome bonus: you have <strong>' + data.welcomeBonusRemaining + ' free credits</strong>!'
-          : 'Bonus mirëseardhjeje: keni <strong>' + data.welcomeBonusRemaining + ' kredite falas</strong>!') + '</span>';
+          : 'Bonus mirÃ«seardhjeje: keni <strong>' + data.welcomeBonusRemaining + ' kredite falas</strong>!') + '</span>';
       } else if (wgBanner) {
         wgBanner.remove();
       }
@@ -2753,9 +2753,9 @@
       if (typeof syncFormBalance === 'function') syncFormBalance();
       document.getElementById('creditMonthly').textContent = '1 kredit = 1 postim';
       var postimeText = {
-        sq: 'postime të mbetura', en: 'posts remaining', nl: 'posts resterend',
-        de: 'Beiträge verbleibend', it: 'post rimanenti', gr: 'υπολειπόμενες δημοσιεύσεις',
-        fr: 'publications restantes', es: 'publicaciones restantes', tr: 'kalan gönderi', ar: 'منشورات متبقية'
+        sq: 'postime tÃ« mbetura', en: 'posts remaining', nl: 'posts resterend',
+        de: 'BeitrÃ¤ge verbleibend', it: 'post rimanenti', gr: 'Ï…Ï€Î¿Î»ÎµÎ¹Ï€ÏŒÎ¼ÎµÎ½ÎµÏ‚ Î´Î·Î¼Î¿ÏƒÎ¹ÎµÏÏƒÎµÎ¹Ï‚',
+        fr: 'publications restantes', es: 'publicaciones restantes', tr: 'kalan gÃ¶nderi', ar: 'Ù…Ù†Ø´ÙˆØ±Ø§Øª Ù…ØªØ¨Ù‚ÙŠØ©'
       };
       document.getElementById('creditUsed').textContent = balance + ' ' + (postimeText[currentLang] || postimeText['sq']);
 
@@ -2770,11 +2770,11 @@
       var tbody = document.getElementById('historyTableBody');
       if (history.length > 0) {
         var txLabels = {
-          daily_deal: {sq:'Ofertë ditore', en:'Daily deal', nl:'Dagaanbieding', de:'Tagesangebot', it:'Offerta del giorno', gr:'Kathimerini prosfora', fr:'Offre du jour', es:'Oferta del día', tr:'Günlük fırsat', ar:'Daily deal'},
-          premium_ad: {sq:'Reklamë premium', en:'Premium ad', nl:'Premium advertentie', de:'Premium-Anzeige', it:'Annuncio premium', gr:'Premium diafimisi', fr:'Annonce premium', es:'Anuncio premium', tr:'Premium reklam', ar:'Premium ad'},
-          advertentie: {sq:'Reklamë', en:'Ad', nl:'Advertentie', de:'Anzeige', it:'Annuncio', gr:'Diafimisi', fr:'Annonce', es:'Anuncio', tr:'Reklam', ar:'Ad'},
-          purchase: {sq:'Blerje kreditesh', en:'Credit purchase', nl:'Credits gekocht', de:'Credit-Kauf', it:'Acquisto crediti', gr:'Agora credits', fr:'Achat de crédits', es:'Compra de créditos', tr:'Kredi alımı', ar:'Credit purchase'},
-          admin_adjustment: {sq:'Rregullim krediti', en:'Adjustment', nl:'Aanpassing', de:'Anpassung', it:'Rettifica', gr:'Prosarmogi', fr:'Ajustement', es:'Ajuste', tr:'Düzeltme', ar:'Adjustment'}
+          daily_deal: {sq:'OfertÃ« ditore', en:'Daily deal', nl:'Dagaanbieding', de:'Tagesangebot', it:'Offerta del giorno', gr:'Kathimerini prosfora', fr:'Offre du jour', es:'Oferta del dÃ­a', tr:'GÃ¼nlÃ¼k fÄ±rsat', ar:'Daily deal'},
+          premium_ad: {sq:'ReklamÃ« premium', en:'Premium ad', nl:'Premium advertentie', de:'Premium-Anzeige', it:'Annuncio premium', gr:'Premium diafimisi', fr:'Annonce premium', es:'Anuncio premium', tr:'Premium reklam', ar:'Premium ad'},
+          advertentie: {sq:'ReklamÃ«', en:'Ad', nl:'Advertentie', de:'Anzeige', it:'Annuncio', gr:'Diafimisi', fr:'Annonce', es:'Anuncio', tr:'Reklam', ar:'Ad'},
+          purchase: {sq:'Blerje kreditesh', en:'Credit purchase', nl:'Credits gekocht', de:'Credit-Kauf', it:'Acquisto crediti', gr:'Agora credits', fr:'Achat de crÃ©dits', es:'Compra de crÃ©ditos', tr:'Kredi alÄ±mÄ±', ar:'Credit purchase'},
+          admin_adjustment: {sq:'Rregullim krediti', en:'Adjustment', nl:'Aanpassing', de:'Anpassung', it:'Rettifica', gr:'Prosarmogi', fr:'Ajustement', es:'Ajuste', tr:'DÃ¼zeltme', ar:'Adjustment'}
         };
         tbody.innerHTML = history.map(function(tx) {
           var amt = (typeof tx.amount === 'number') ? tx.amount
@@ -2897,7 +2897,7 @@
       partnerToken = '';
     }
 
-    // Geen geldig token → toon login
+    // Geen geldig token â†’ toon login
     console.log('[INIT] Toon login scherm');
     showLoginScreen();
 
@@ -3075,7 +3075,7 @@
     el.style.display='block';
     if (_addrMap){ setTimeout(function(){ _addrMap.invalidateSize(); }, 150); return; }
     _addrMap = L.map('addrMap').setView([41.3275, 19.8187], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(_addrMap);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: 'Â© OpenStreetMap' }).addTo(_addrMap);
     setTimeout(function(){ _addrMap.invalidateSize(); }, 200);
     _addrMap.on('click', function(e){ reverseGeocode(e.latlng.lat, e.latlng.lng); });
   }
@@ -3085,9 +3085,9 @@
       .then(function(list){
         var box = document.getElementById('addrResults');
         if (!box) return;
-        if (!list || !list.length){ box.innerHTML = '<div style="padding:10px;color:#888;font-size:0.8rem">Asnjë rezultat</div>'; box.style.display='block'; return; }
+        if (!list || !list.length){ box.innerHTML = '<div style="padding:10px;color:#888;font-size:0.8rem">AsnjÃ« rezultat</div>'; box.style.display='block'; return; }
         box.innerHTML = list.map(function(it, i){
-          return '<div class="addr-opt" data-i="' + i + '" style="padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--gray-100);font-size:0.8rem">📍 ' + escapeHtml(it.display_name) + '</div>';
+          return '<div class="addr-opt" data-i="' + i + '" style="padding:8px 10px;cursor:pointer;border-bottom:1px solid var(--gray-100);font-size:0.8rem">ðŸ“ ' + escapeHtml(it.display_name) + '</div>';
         }).join('');
         box.style.display='block';
         box.querySelectorAll('.addr-opt').forEach(function(opt){
@@ -3146,11 +3146,11 @@
     var image = window.__savoraDealImage || '';
 
     if (!title || !dealPrice || !address || !city) {
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Plotësoni titullin, çmimin, qytetin dhe adresën e ofertës.</div>';
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">PlotÃ«soni titullin, Ã§mimin, qytetin dhe adresÃ«n e ofertÃ«s.</div>';
       return;
     }
     if (!partnerToken) {
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Identifikohuni përsëri për të vazhduar.</div>';
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Identifikohuni pÃ«rsÃ«ri pÃ«r tÃ« vazhduar.</div>';
       return;
     }
 
@@ -3175,9 +3175,9 @@
     })
     .then(function(r){ return r.json(); })
     .then(function(data){
-      if (btn) { btn.disabled = false; btn.textContent = 'Publiko ofertën (1 Kredit)'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Publiko ofertÃ«n (1 Kredit)'; }
       if (data && data.success) {
-        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Oferta u publikua! 1 kredit u përdor.</div>';
+        if (succDiv) succDiv.innerHTML = '<div class="success-msg">Oferta u publikua! 1 kredit u pÃ«rdor.</div>';
         var f = document.getElementById('dealForm'); if (f) f.reset();
         window.__savoraDealImage = '';
         var pv = document.getElementById('dealImagePreview'); if (pv) { pv.src = ''; pv.style.display = 'none'; }
@@ -3185,14 +3185,14 @@
         var pid = localStorage.getItem('savora_partner_id');
         if (pid && typeof loadCreditsFromAPI === 'function') loadCreditsFromAPI(pid);
       } else {
-        var emsg = (data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.';
+        var emsg = (data && data.error) ? data.error : 'DiÃ§ka shkoi keq. Provoni pÃ«rsÃ«ri.';
         if (errDiv) errDiv.innerHTML = creditAwareError(emsg, 1);
         if (typeof syncFormBalance === 'function') syncFormBalance();
       }
     })
     .catch(function(){
-      if (btn) { btn.disabled = false; btn.textContent = 'Publiko ofertën (1 Kredit)'; }
-      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Lidhja dështoi. Provoni përsëri.</div>';
+      if (btn) { btn.disabled = false; btn.textContent = 'Publiko ofertÃ«n (1 Kredit)'; }
+      if (errDiv) errDiv.innerHTML = '<div class="error-msg">Lidhja dÃ«shtoi. Provoni pÃ«rsÃ«ri.</div>';
     });
   }
 
@@ -3200,7 +3200,7 @@
     var list = document.getElementById('myDealsList');
     if (!list) return;
     if (!partnerToken) {
-      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Identifikohuni për të parë ofertat tuaja.</p>';
+      list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Identifikohuni pÃ«r tÃ« parÃ« ofertat tuaja.</p>';
       return;
     }
     list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Po ngarkohet...</p>';
@@ -3215,7 +3215,7 @@
       }
       var deals = data.deals || [];
       if (deals.length === 0) {
-        list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Nuk ka oferta ende. Krijoni të parën!</p>';
+        list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Nuk ka oferta ende. Krijoni tÃ« parÃ«n!</p>';
         return;
       }
       var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
@@ -3230,7 +3230,7 @@
         }
         var qtyTxt = '';
         var qn = parseInt(d.quantity, 10);
-        if (!isNaN(qn)) qtyTxt = ' · ' + qn + ' të mbetura';
+        if (!isNaN(qn)) qtyTxt = ' Â· ' + qn + ' tÃ« mbetura';
         var status, statusStyle;
         if (soldOut) { status = 'Shitur'; statusStyle = 'background:#FEF3C7;color:#92400E'; }
         else if (stopped) { status = 'Ndaluar'; statusStyle = 'background:#F3F4F6;color:#6B7280'; }
@@ -3239,7 +3239,7 @@
         var canStop = !soldOut && !stopped && !expired;
         return '<div style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:12px">' +
           '<div style="min-width:0"><div style="font-weight:600;font-size:0.9rem">' + esc(d.title) + '</div>' +
-          '<div style="font-size:0.8rem;color:var(--gray-500)">' + priceLine + (d.city ? ' · ' + esc(d.city) : '') + qtyTxt + '</div></div>' +
+          '<div style="font-size:0.8rem;color:var(--gray-500)">' + priceLine + (d.city ? ' Â· ' + esc(d.city) : '') + qtyTxt + '</div></div>' +
           '<div style="display:flex;align-items:center;gap:8px;white-space:nowrap">' +
           '<span style="font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:999px;' + statusStyle + '">' + status + '</span>' +
           (canStop ? '<button type="button" class="deal-stop-btn" data-id="' + esc(d.id) + '" style="border:1px solid #FCA5A5;background:#fff;color:#dc2626;font-size:0.72rem;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer">Ndalo</button>' : '') +
@@ -3257,7 +3257,7 @@
 
   function stopDeal(dealId) {
     if (!dealId || !partnerToken) return;
-    if (!confirm('Ndalo këtë ofertë? Nuk do të shfaqet më te klientët.')) return;
+    if (!confirm('Ndalo kÃ«tÃ« ofertÃ«? Nuk do tÃ« shfaqet mÃ« te klientÃ«t.')) return;
     fetch(API_BASE + '/api/deals/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken },
@@ -3265,7 +3265,7 @@
     })
     .then(function(r){ return r.json(); })
     .then(function(data){ if (data && data.success) loadMyDeals(); else alert((data && data.error) || 'Nuk u ndal dot.'); })
-    .catch(function(){ alert('Lidhja dështoi.'); });
+    .catch(function(){ alert('Lidhja dÃ«shtoi.'); });
   }
 
   function loadMyClaims() {
@@ -3278,14 +3278,14 @@
     .then(function(data){
       if (!data || !data.success) { list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">S\'u ngarkuan.</p>'; return; }
       var claims = data.claims || [];
-      if (claims.length === 0) { list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Ende askush nuk ka kërkuar një ofertë.</p>'; return; }
+      if (claims.length === 0) { list.innerHTML = '<p style="text-align:center;color:var(--gray-400);padding:20px">Ende askush nuk ka kÃ«rkuar njÃ« ofertÃ«.</p>'; return; }
       var esc = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
       list.innerHTML = claims.map(function(c){
         var dt = new Date(c.createdAt);
         var when = isNaN(dt.getTime()) ? '' : (dt.toLocaleDateString('sq-AL') + ' ' + dt.toLocaleTimeString('sq-AL', {hour:'2-digit',minute:'2-digit'}));
-        var contact = [c.phone, c.email].filter(Boolean).join(' · ');
+        var contact = [c.phone, c.email].filter(Boolean).join(' Â· ');
         return '<div style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px">' +
-          '<div style="font-weight:600;font-size:0.9rem">' + esc(c.name || 'Klient') + (c.dealTitle ? ' <span style="font-weight:400;color:var(--gray-500)">— ' + esc(c.dealTitle) + '</span>' : '') + '</div>' +
+          '<div style="font-weight:600;font-size:0.9rem">' + esc(c.name || 'Klient') + (c.dealTitle ? ' <span style="font-weight:400;color:var(--gray-500)">â€” ' + esc(c.dealTitle) + '</span>' : '') + '</div>' +
           '<div style="font-size:0.82rem;color:var(--gray-600)">' + esc(contact) + '</div>' +
           '<div style="font-size:0.72rem;color:var(--gray-400);margin-top:2px">' + esc(when) + '</div>' +
           '</div>';
