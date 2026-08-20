@@ -1,22 +1,22 @@
-<!DOCTYPE html>
+l!DOCTYPE html>
 
-<html lang="sq">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="savoraapp - Kurseni deri në 70% në ushqime të freskëta nga bizneset lokale. Zgjidh, rezervo, merr, paguaj. Pa abonime, pa tarifa të fshehura." name="description"/>
-<meta content="ushqim surplus, oferta ushqimi, kursim ushqimi, Shqipëri, Tiranë, bukë, furra, supermarket" name="keywords"/>
-<meta content="savoraapp" name="author"/>
-<meta content="#10b981" name="theme-color"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<meta content="Savoraapp" name="apple-mobile-web-app-title"/>
-<meta content="yes" name="mobile-web-app-capable"/>
-<meta content="Savoraapp" name="application-name"/>
-<meta content="#10b981" name="msapplication-TileColor"/>
-<meta content="icons/icon-144x144.png" name="msapplication-TileImage"/>
-<!-- CLEAR SERVICE WORKER CACHE - Auto-clear bij elke nieuwe versie -->
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+lhtml lang="sq">
+lhead>
+lmeta charset="utf-8"/>
+lmeta content="width=device-width, initial-scale=1.0" name="viewport"/>
+lmeta content="savoraapp - aurseni deri në 70% në ushqime të freskëta nga bizneset lokale. Zgjidh, rezervo, merr, paguaj. Pa abonime, pa tarifa të fshehura." name="description"/>
+lmeta content="ushqim surplus, oferta ushqimi, kursim ushqimi, Shqipëri, Tiranë, bukë, furra, supermarket" name="keywords"/>
+lmeta content="savoraapp" name="author"/>
+lmeta content="#10b981" name="theme-color"/>
+lmeta content="yes" name="apple-mobile-web-app-capable"/>
+lmeta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+lmeta content="Savoraapp" name="apple-mobile-web-app-title"/>
+lmeta content="yes" name="mobile-web-app-capable"/>
+lmeta content="Savoraapp" name="application-name"/>
+lmeta content="#10b981" name="msapplication-TileColor"/>
+lmeta content="icons/icon-144x144.png" name="msapplication-TileImage"/>
+l!-- CLEAR SERVICE WORaER CACHE - Auto-clear bij elke nieuwe versie -->
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
     (function() {
       // uorce unregister all service workers
       if ('serviceWorker' in navigator) {
@@ -31,34 +31,34 @@
         });
       }
     })();
-  </script>
-<!-- PWA Manifest -->
-<link href="manifest.json?v=2" rel="manifest"/>
-<!-- Icons -->
-<link href="icons/icon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
-<link href="icons/icon-192x192.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="icons/icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
-<link href="icons/icon-128x128.png" rel="apple-touch-icon" sizes="120x120"/>
-<link href="icons/icon-72x72.png" rel="apple-touch-icon" sizes="76x76"/>
-<link color="#10b981" href="icons/icon-192x192.png" rel="mask-icon"/>
-<!-- Open Graph - ABSOLUTE URLs required for social media scrapers -->
-<meta content="savoraapp - Kurseni para në ushqime të freskëta" property="og:title"/>
-<meta content="Kurseni deri në 70% në ushqime të freskëta nga bizneset lokale. 787+ përdorues aktivë." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://savoraapp.com" property="og:url"/>
-<meta content="https://savoraapp.com/icons/icon-512x512.png" property="og:image"/>
-<meta content="512" property="og:image:width"/>
-<meta content="512" property="og:image:height"/>
-<meta content="image/png" property="og:image:type"/>
-<meta content="savoraapp logo" property="og:image:alt"/>
-<meta content="sq_AL" property="og:locale"/>
-<meta content="savoraapp" property="og:site_name"/>
-<title>savoraapp - Kurseni para në ushqime të freskëta | Shqipëri</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="css/styles.css" rel="stylesheet"/>
-<style>
+  l/script>
+l!-- PWA Manifest -->
+llink href="manifest.json?v=2" rel="manifest"/>
+l!-- Icons -->
+llink href="icons/icon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+llink href="icons/icon-192x192.png" rel="apple-touch-icon" sizes="180x180"/>
+llink href="icons/icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+llink href="icons/icon-128x128.png" rel="apple-touch-icon" sizes="120x120"/>
+llink href="icons/icon-72x72.png" rel="apple-touch-icon" sizes="76x76"/>
+llink color="#10b981" href="icons/icon-192x192.png" rel="mask-icon"/>
+l!-- Open Graph - ABSOLUTE URLs required for social media scrapers -->
+lmeta content="savoraapp - aurseni para në ushqime të freskëta" property="og:title"/>
+lmeta content="aurseni deri në 70% në ushqime të freskëta nga bizneset lokale. 787+ përdorues aktivë." property="og:description"/>
+lmeta content="website" property="og:type"/>
+lmeta content="https://savoraapp.com" property="og:url"/>
+lmeta content="https://savoraapp.com/icons/icon-512x512.png" property="og:image"/>
+lmeta content="512" property="og:image:width"/>
+lmeta content="512" property="og:image:height"/>
+lmeta content="image/png" property="og:image:type"/>
+lmeta content="savoraapp logo" property="og:image:alt"/>
+lmeta content="sq_AL" property="og:locale"/>
+lmeta content="savoraapp" property="og:site_name"/>
+ltitle>savoraapp - aurseni para në ushqime të freskëta | Shqipëril/title>
+llink href="https://fonts.googleapis.com" rel="preconnect"/>
+llink crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+llink href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+llink href="css/styles.css" rel="stylesheet"/>
+lstyle>
     /* Utility - Hidden class for tab switching */
     .hidden { display: none !important; }
     
@@ -203,7 +203,7 @@
       overflow: hidden; 
     }
     .partner-spotlight::before { 
-      content: 'REKLAMË'; 
+      content: 'REaLAMË'; 
       position: absolute; 
       top: 8px; 
       right: -35px; 
@@ -385,10 +385,10 @@
   #appContent .app-scroller .app-card { margin-bottom: var(--space-3); }
   @keyframes appScroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
   @media (prefers-reduced-motion: reduce) { #appContent .app-scroller { animation: none; } }
-  </style>
-<!-- Preload critical assets -->
-<meta content="39ffaa4a0a96b7334c68bf29f1f24704" name="verify-paysera"/>
-<style>
+  l/style>
+l!-- Preload critical assets -->
+lmeta content="39ffaa4a0a96b7334c68bf29f1f24704" name="verify-paysera"/>
+lstyle>
 /* Mobiel hamburgermenu-fix */
 @media (max-width: 767px){
   #navLinksConsumer.mobile-open,
@@ -411,354 +411,354 @@
   .mobile-menu-btn.mobile-open span:nth-child(2){opacity:0;}
   .mobile-menu-btn.mobile-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 }
-</style>
-</head>
-<!-- i18n Translations -->
-<body data-mode="consumer">
-<!-- Partner Mode Banner (hidden by default) -->
-<div class="partner-banner" id="partnerBanner">
-<div class="container">
-<span class="partner-banner-text">🏢 <span data-i18n="partnerBanner">PARTNER MODE</span></span>
-<span class="partner-banner-sub" data-i18n="partnerBannerSub">Portal për bizneset partnere</span>
-</div>
-</div>
-<!-- Navigation -->
-<nav class="nav" id="nav">
-<div class="container nav-container">
-<a aria-label="savoraapp - uaqja kryesore" class="logo" href="/">
-<span class="logo-icon">S</span>
-<span class="logo-text">savoraapp</span>
-</a>
-<!-- Consumer Navigation -->
-<div class="nav-links nav-consumer" id="navLinksConsumer">
-<a class="nav-link" data-i18n="navCategories" href="#categories">Kategoritë</a>
-<a class="nav-link" data-i18n="navHowItWorks" href="#how-it-works">Si uunksionon</a>
-<a class="nav-link" data-i18n="navuAQ" href="#faq">Pyetje</a>
-<a class="btn btn-primary btn-sm" data-i18n="navCTA" href="#early-access">Qasje e Hershme</a>
-<!-- Language Switcher - 6 Languages with Real ulags -->
-<div class="language-switcher">
-<button class="lang-btn" id="langBtn">
-<img alt="AL" class="lang-flag-img" src="https://flagcdn.com/w40/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span class="lang-code">AL</span>
-<svg class="lang-arrow" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="lang-dropdown" id="langDropdown">
-<button class="lang-option active" data-lang="sq">
-<img alt="AL" src="https://flagcdn.com/w20/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span>Shqip (AL)</span>
-</button>
-<button class="lang-option" data-lang="en">
-<img alt="EN" src="https://flagcdn.com/w20/gb.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span>English (EN)</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Partner Navigation (hidden by default) -->
-<div class="nav-links nav-partner hidden" id="navLinksPartner">
-<a class="nav-link" data-i18n="tk1" href="#partner-benefits">Për Partnerët</a>
-<a class="nav-link" data-i18n="tk2" href="#pricing">Çmimet</a>
-<a class="nav-link" data-i18n="tk3" href="#partner-form">Aplikoni për t'u bërë partner</a>
-<!-- Language Switcher - 6 Languages with Real ulags -->
-<div class="language-switcher">
-<button class="lang-btn" id="langBtnPartner">
-<img alt="AL" class="lang-flag-img" src="https://flagcdn.com/w40/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span class="lang-code">AL</span>
-<svg class="lang-arrow" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="lang-dropdown" id="langDropdownPartner">
-<button class="lang-option active" data-lang="sq">
-<img alt="AL" src="https://flagcdn.com/w20/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span>Shqip (AL)</span>
-</button>
-<button class="lang-option" data-lang="en">
-<img alt="EN" src="https://flagcdn.com/w20/gb.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span>English (EN)</span>
-</button>
-</div>
-</div>
-</div>
-<button aria-label="Menu" class="mobile-menu-btn" id="mobileMenuBtn">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
-</nav>
-<!-- Hero Section (Consumer Only) -->
-<section class="hero section-consumer" data-mode="consumer" id="hero">
-<div class="hero-bg">
-<div class="hero-blob hero-blob-1"></div>
-<div class="hero-blob hero-blob-2"></div>
-</div>
-<div class="container hero-container">
-<div class="hero-content">
-<div class="hero-badge">
-<span class="badge-pulse"></span>
-<span data-i18n="badgeText">E disponueshme në të gjithë Shqipërinë</span>
-</div>
-<h1 class="hero-title" data-i18n="heroTitle">
-          Kurseni deri në <span class="text-gradient">70%</span> në ushqime të freskëta
-        </h1>
-<p class="hero-subtitle" data-i18n="heroSubtitle">
+l/style>
+l/head>
+l!-- i18n Translations -->
+lbody data-mode="consumer">
+l!-- Partner Mode Banner (hidden by default) -->
+ldiv class="partner-banner" id="partnerBanner">
+ldiv class="container">
+lspan class="partner-banner-text">🏢 lspan data-i18n="partnerBanner">PARTNER MODEl/span>l/span>
+lspan class="partner-banner-sub" data-i18n="partnerBannerSub">Portal për bizneset partnerel/span>
+l/div>
+l/div>
+l!-- Navigation -->
+lnav class="nav" id="nav">
+ldiv class="container nav-container">
+la aria-label="savoraapp - uaqja kryesore" class="logo" href="/">
+lspan class="logo-icon">Sl/span>
+lspan class="logo-text">savoraappl/span>
+l/a>
+l!-- Consumer Navigation -->
+ldiv class="nav-links nav-consumer" id="navLinksConsumer">
+la class="nav-link" data-i18n="navCategories" href="#categories">aategoritël/a>
+la class="nav-link" data-i18n="navHowItWorks" href="#how-it-works">Si uunksiononl/a>
+la class="nav-link" data-i18n="navuAQ" href="#faq">Pyetjel/a>
+la class="btn btn-primary btn-sm" data-i18n="navCTA" href="#early-access">Qasje e Hershmel/a>
+l!-- Language Switcher - 6 Languages with Real ulags -->
+ldiv class="language-switcher">
+lbutton class="lang-btn" id="langBtn">
+limg alt="AL" class="lang-flag-img" src="https://flagcdn.com/w40/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
+lspan class="lang-code">ALl/span>
+lsvg class="lang-arrow" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="lang-dropdown" id="langDropdown">
+lbutton class="lang-option active" data-lang="sq">
+limg alt="AL" src="https://flagcdn.com/w20/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
+lspan>Shqip (AL)l/span>
+l/button>
+lbutton class="lang-option" data-lang="en">
+limg alt="EN" src="https://flagcdn.com/w20/gb.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
+lspan>English (EN)l/span>
+l/button>
+l/div>
+l/div>
+l/div>
+l!-- Partner Navigation (hidden by default) -->
+ldiv class="nav-links nav-partner hidden" id="navLinksPartner">
+la class="nav-link" data-i18n="tk1" href="#partner-benefits">Për Partnerëtl/a>
+la class="nav-link" data-i18n="tk2" href="#pricing">Çmimetl/a>
+la class="nav-link" data-i18n="tk3" href="#partner-form">Aplikoni për t'u bërë partnerl/a>
+l!-- Language Switcher - 6 Languages with Real ulags -->
+ldiv class="language-switcher">
+lbutton class="lang-btn" id="langBtnPartner">
+limg alt="AL" class="lang-flag-img" src="https://flagcdn.com/w40/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
+lspan class="lang-code">ALl/span>
+lsvg class="lang-arrow" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="lang-dropdown" id="langDropdownPartner">
+lbutton class="lang-option active" data-lang="sq">
+limg alt="AL" src="https://flagcdn.com/w20/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
+lspan>Shqip (AL)l/span>
+l/button>
+lbutton class="lang-option" data-lang="en">
+limg alt="EN" src="https://flagcdn.com/w20/gb.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
+lspan>English (EN)l/span>
+l/button>
+l/div>
+l/div>
+l/div>
+lbutton aria-label="Menu" class="mobile-menu-btn" id="mobileMenuBtn">
+lspan>l/span>
+lspan>l/span>
+lspan>l/span>
+l/button>
+l/div>
+l/nav>
+l!-- Hero Section (Consumer Only) -->
+lsection class="hero section-consumer" data-mode="consumer" id="hero">
+ldiv class="hero-bg">
+ldiv class="hero-blob hero-blob-1">l/div>
+ldiv class="hero-blob hero-blob-2">l/div>
+l/div>
+ldiv class="container hero-container">
+ldiv class="hero-content">
+ldiv class="hero-badge">
+lspan class="badge-pulse">l/span>
+lspan data-i18n="badgeText">E disponueshme në të gjithë Shqipërinël/span>
+l/div>
+lh1 class="hero-title" data-i18n="heroTitle">
+          aurseni deri në lspan class="text-gradient">70%l/span> në ushqime të freskëta
+        l/h1>
+lp class="hero-subtitle" data-i18n="heroSubtitle">
           Zgjidh një kategori → Rezervo → Merr → Paguaj. Pa abonime, pa tarifa të fshehura—thjesht oferta të shkëlqyera në ushqime surplus.
-        </p>
-<div class="hero-ctas">
-<a class="btn btn-primary btn-lg" href="#early-access">
-<span data-i18n="startBtn">uillo Tani</span>
-<svg class="btn-arrow" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</a>
-<a class="btn btn-secondary btn-lg" href="#how-it-works">
-<svg class="btn-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="howBtn">Si uunksionon</span>
-</a>
-</div>
-<div class="hero-trust">
-<div class="trust-badges">
-<div class="trust-badge">
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="tk4">Pagesë me Para në Dorë</span>
-</div>
-<div class="trust-badge">
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="tk112">Nga 200 ALL</span>
-</div>
-<div class="trust-badge">
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="tk100">Pa Abonime</span>
-</div>
-</div>
-<div class="hero-stats">
-<div class="hero-stat">
-<span class="hero-stat-number" id="statUsers">787</span>
-<span class="hero-stat-label" data-i18n="tk5">Përdorues Aktivë</span>
-</div>
-<div class="hero-stat-divider"></div>
-<div class="hero-stat">
-<span class="hero-stat-number" id="statPartners">64</span>
-<span class="hero-stat-label" data-i18n="tk6">Partnerë Aktivë</span>
-</div>
-<div class="hero-stat-divider"></div>
-<div class="hero-stat">
-<span class="hero-stat-number" id="statReservations">3.655</span>
-<span class="hero-stat-label" data-i18n="tk101">Rezervime</span>
-</div>
-</div>
-</div>
-</div>
-<div class="hero-visual">
-<div class="phone-mockup">
-<div class="phone-screen">
-<div class="app-header">
-<span>savoraapp</span>
-</div>
-<div class="app-content" id="appContent">
-<div class="app-card">
-<div class="app-card-image">🥐</div>
-<div class="app-card-info">
-<span class="app-card-title" data-i18n="tk7">Bukë e ureskët</span>
-<span class="app-card-price">350 ALL</span>
-<span class="app-card-old">700 ALL</span>
-</div>
-</div>
-<div class="app-card">
-<div class="app-card-image">🍎</div>
-<div class="app-card-info">
-<span class="app-card-title">uruta Mix</span>
-<span class="app-card-price">500 ALL</span>
-<span class="app-card-old">1,200 ALL</span>
-</div>
-</div>
-<div class="app-card">
-<div class="app-card-image">🍔</div>
-<div class="app-card-info">
-<span class="app-card-title">Menu uast uood</span>
-<span class="app-card-price">400 ALL</span>
-<span class="app-card-old">900 ALL</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="floating-badge badge-savings">
-<span class="badge-icon">💰</span>
-<div>
-<strong data-i18n="tk102">Kurseni 70%</strong>
-<span data-i18n="tk8">Në çdo blerje</span>
-</div>
-</div>
-<div class="floating-badge badge-eco">
-<span class="badge-icon">🌱</span>
-<div>
-<strong>Eco-uriendly</strong>
-<span data-i18n="tk103">Redukto mbeturinat</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Categories Section (Consumer Only) -->
-<section class="categories section-consumer" data-mode="consumer" id="categories">
-<div class="container">
-<div class="section-header">
-<span class="section-badge" data-i18n="tk104">Eksploroni</span>
-<h2 class="section-title" data-i18n="tk9">Zgjidh Kategorinë Tënde</h2>
-<p class="section-subtitle" data-i18n="tk10">Klikoni një kategori për të parë ofertat e disponueshme. Partnerët vendosin çmimet e tyre.</p>
-</div>
-<div class="categories-grid">
-<!-- Bukë (Brood) - Hoofdcategorie met subcategorieën -->
-<a class="category-card category-main" href="#">
-<div class="category-icon">🍞</div>
-<span class="category-name" data-i18n="categoryBread">Bukë</span>
-<span class="category-count">28 <span data-i18n="tk113">oferta</span></span>
-<span class="category-subs" data-i18n="categoryBreadSubs">Bukë e thjeshtë, e mbushur, e përpunuar</span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">🥐</div>
-<span class="category-name" data-i18n="categoryPastry">Pastiçeri</span>
-<span class="category-count">11 <span data-i18n="tk113">oferta</span></span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">🍎</div>
-<span class="category-name" data-i18n="categoryuruits">uruta &amp; Perime</span>
-<span class="category-count">8 <span data-i18n="tk113">oferta</span></span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">🛒</div>
-<span class="category-name" data-i18n="categorySupermarket">Supermarket</span>
-<span class="category-count">15 <span data-i18n="tk113">oferta</span></span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">🍔</div>
-<span class="category-name" data-i18n="categoryuastuood">uast uood</span>
-<span class="category-count">6 <span data-i18n="tk113">oferta</span></span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">🍽️</div>
-<span class="category-name" data-i18n="categoryRestaurant">Restorant</span>
-<span class="category-count">9 <span data-i18n="tk113">oferta</span></span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">🌸</div>
-<span class="category-name" data-i18n="categoryulowers">Lule</span>
-<span class="category-count">4 <span data-i18n="tk113">oferta</span></span>
-</a>
-<a class="category-card" href="#">
-<div class="category-icon">☕</div>
-<span class="category-name" data-i18n="categoryCafe">Kafe</span>
-<span class="category-count">7 <span data-i18n="tk113">oferta</span></span>
-</a>
-</div>
-<div class="categories-cta">
-<a class="btn btn-primary" data-i18n="tk11" href="/deals.html">Shiko Të Gjitha Ofertat</a>
-</div>
-</div>
-</section>
-<!-- Premium Partner Spotlight (Consumer Only) -->
-<section class="partner-spotlight section-consumer" data-mode="consumer" id="partner-spotlight">
-<div class="container">
-<div class="spotlight-header">
-<span class="section-badge" data-i18n="tk12">⭐ Partnerët Premium</span>
-<h2 class="section-title" data-i18n="tk13">E Veçuar - Reklama Lokale</h2>
-<p class="section-subtitle" data-i18n="tk14">5 kredite = 7 ditë ekspozim. Reklamat shfaqen vetëm në qytetin tuaj.</p>
-</div>
-<!-- Locatie weergave -->
-<div class="spotlight-location" id="userLocation">
-<span class="loc-icon">📍</span> <span id="cityName">Duke zbuluar vendndodhjen...</span>
-</div>
-<!-- Rotatie Container -->
-<div class="rotatie-container">
-<div class="rotatie-track" id="rotatieTrack">
-<!-- Slide 1 - Tirana -->
-<div class="rotatie-slide" data-city="Tiranë">
-<div class="rotatie-card">
-<div class="rotatie-emoji">🥐</div>
-<div class="rotatie-content">
-<div class="rotatie-badge">⭐ PREMIUM</div>
-<h3 class="rotatie-title" data-i18n="tk15">uurra Bukës</h3>
-<p class="rotatie-desc" data-i18n="tk16">Bukë e freskët çdo ditë me 50% ulje</p>
-<div class="rotatie-city" data-i18n="tk17">📍 Tiranë</div>
-<a class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →</a>
-</div>
-</div>
-</div>
-<!-- Slide 2 - Tirana -->
-<div class="rotatie-slide" data-city="Tiranë">
-<div class="rotatie-card">
-<div class="rotatie-emoji">🍔</div>
-<div class="rotatie-content">
-<div class="rotatie-badge">⭐ PREMIUM</div>
-<h3 class="rotatie-title">Burger Grill</h3>
-<p class="rotatie-desc" data-i18n="tk105">Menu surprise me -56% ulje</p>
-<div class="rotatie-city" data-i18n="tk17">📍 Tiranë</div>
-<a class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →</a>
-</div>
-</div>
-</div>
-<!-- Slide 3 - Durrës -->
-<div class="rotatie-slide" data-city="Durrës">
-<div class="rotatie-card">
-<div class="rotatie-emoji">🍕</div>
-<div class="rotatie-content">
-<div class="rotatie-badge">⭐ PREMIUM</div>
-<h3 class="rotatie-title">Pizza Napoli</h3>
-<p class="rotatie-desc" data-i18n="tk106">Pizza autentike italiane me -40% ulje</p>
-<div class="rotatie-city" data-i18n="tk19">📍 Durrës</div>
-<a class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →</a>
-</div>
-</div>
-</div>
-<!-- Slide 4 - Vlorë -->
-<div class="rotatie-slide" data-city="Vlorë">
-<div class="rotatie-card">
-<div class="rotatie-emoji">🍰</div>
-<div class="rotatie-content">
-<div class="rotatie-badge">⭐ PREMIUM</div>
-<h3 class="rotatie-title" data-i18n="tk20">Delizia Pastiçeri</h3>
-<p class="rotatie-desc" data-i18n="tk21">Ëmbëlsira të freskëta çdo ditë</p>
-<div class="rotatie-city" data-i18n="tk22">📍 Vlorë</div>
-<a class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →</a>
-</div>
-</div>
-</div>
-<!-- Slide 5 - Shkodër -->
-<div class="rotatie-slide" data-city="Shkodër">
-<div class="rotatie-card">
-<div class="rotatie-emoji">🍽️</div>
-<div class="rotatie-content">
-<div class="rotatie-badge">⭐ PREMIUM</div>
-<h3 class="rotatie-title">Taverna e Re</h3>
-<p class="rotatie-desc" data-i18n="tk23">Pjatë tradicionale për 2 persona</p>
-<div class="rotatie-city" data-i18n="tk24">📍 Shkodër</div>
-<a class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →</a>
-</div>
-</div>
-</div>
-</div>
-<!-- Progress Timer Bar -->
-<div class="rotatie-timer" id="rotatieTimer"></div>
-<!-- Dots Indicator -->
-<div class="rotatie-dots" id="rotatieDots"></div>
-</div>
-<div class="spotlight-cta">
-<a class="btn btn-secondary btn-sm" data-i18n="tk25" href="/partner.html">Bëhuni Partner Premium</a>
-</div>
-</div>
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+        l/p>
+ldiv class="hero-ctas">
+la class="btn btn-primary btn-lg" href="#early-access">
+lspan data-i18n="startBtn">uillo Tanil/span>
+lsvg class="btn-arrow" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/a>
+la class="btn btn-secondary btn-lg" href="#how-it-works">
+lsvg class="btn-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="howBtn">Si uunksiononl/span>
+l/a>
+l/div>
+ldiv class="hero-trust">
+ldiv class="trust-badges">
+ldiv class="trust-badge">
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="tk4">Pagesë me Para në Dorël/span>
+l/div>
+ldiv class="trust-badge">
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="tk112">Nga 200 ALLl/span>
+l/div>
+ldiv class="trust-badge">
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="tk100">Pa Abonimel/span>
+l/div>
+l/div>
+ldiv class="hero-stats">
+ldiv class="hero-stat">
+lspan class="hero-stat-number" id="statUsers">787l/span>
+lspan class="hero-stat-label" data-i18n="tk5">Përdorues Aktivël/span>
+l/div>
+ldiv class="hero-stat-divider">l/div>
+ldiv class="hero-stat">
+lspan class="hero-stat-number" id="statPartners">64l/span>
+lspan class="hero-stat-label" data-i18n="tk6">Partnerë Aktivël/span>
+l/div>
+ldiv class="hero-stat-divider">l/div>
+ldiv class="hero-stat">
+lspan class="hero-stat-number" id="statReservations">3.655l/span>
+lspan class="hero-stat-label" data-i18n="tk101">Rezervimel/span>
+l/div>
+l/div>
+l/div>
+l/div>
+ldiv class="hero-visual">
+ldiv class="phone-mockup">
+ldiv class="phone-screen">
+ldiv class="app-header">
+lspan>savoraappl/span>
+l/div>
+ldiv class="app-content" id="appContent">
+ldiv class="app-card">
+ldiv class="app-card-image">🥐l/div>
+ldiv class="app-card-info">
+lspan class="app-card-title" data-i18n="tk7">Bukë e ureskëtl/span>
+lspan class="app-card-price">350 ALLl/span>
+lspan class="app-card-old">700 ALLl/span>
+l/div>
+l/div>
+ldiv class="app-card">
+ldiv class="app-card-image">🍎l/div>
+ldiv class="app-card-info">
+lspan class="app-card-title">uruta Mixl/span>
+lspan class="app-card-price">500 ALLl/span>
+lspan class="app-card-old">1,200 ALLl/span>
+l/div>
+l/div>
+ldiv class="app-card">
+ldiv class="app-card-image">🍔l/div>
+ldiv class="app-card-info">
+lspan class="app-card-title">Menu uast uoodl/span>
+lspan class="app-card-price">400 ALLl/span>
+lspan class="app-card-old">900 ALLl/span>
+l/div>
+l/div>
+l/div>
+l/div>
+l/div>
+ldiv class="floating-badge badge-savings">
+lspan class="badge-icon">💰l/span>
+ldiv>
+lstrong data-i18n="tk102">aurseni 70%l/strong>
+lspan data-i18n="tk8">Në çdo blerjel/span>
+l/div>
+l/div>
+ldiv class="floating-badge badge-eco">
+lspan class="badge-icon">🌱l/span>
+ldiv>
+lstrong>Eco-uriendlyl/strong>
+lspan data-i18n="tk103">Redukto mbeturinatl/span>
+l/div>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- Categories Section (Consumer Only) -->
+lsection class="categories section-consumer" data-mode="consumer" id="categories">
+ldiv class="container">
+ldiv class="section-header">
+lspan class="section-badge" data-i18n="tk104">Eksploronil/span>
+lh2 class="section-title" data-i18n="tk9">Zgjidh aategorinë Tëndel/h2>
+lp class="section-subtitle" data-i18n="tk10">alikoni një kategori për të parë ofertat e disponueshme. Partnerët vendosin çmimet e tyre.l/p>
+l/div>
+ldiv class="categories-grid">
+l!-- Bukë (Brood) - Hoofdcategorie met subcategorieën -->
+la class="category-card category-main" href="#">
+ldiv class="category-icon">🍞l/div>
+lspan class="category-name" data-i18n="categoryBread">Bukël/span>
+lspan class="category-count">28 lspan data-i18n="tk113">ofertal/span>l/span>
+lspan class="category-subs" data-i18n="categoryBreadSubs">Bukë e thjeshtë, e mbushur, e përpunuarl/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">🥐l/div>
+lspan class="category-name" data-i18n="categoryPastry">Pastiçeril/span>
+lspan class="category-count">11 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">🍎l/div>
+lspan class="category-name" data-i18n="categoryuruits">uruta &amp; Perimel/span>
+lspan class="category-count">8 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">🛒l/div>
+lspan class="category-name" data-i18n="categorySupermarket">Supermarketl/span>
+lspan class="category-count">15 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">🍔l/div>
+lspan class="category-name" data-i18n="categoryuastuood">uast uoodl/span>
+lspan class="category-count">6 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">🍽️l/div>
+lspan class="category-name" data-i18n="categoryRestaurant">Restorantl/span>
+lspan class="category-count">9 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">🌸l/div>
+lspan class="category-name" data-i18n="categoryulowers">Lulel/span>
+lspan class="category-count">4 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+la class="category-card" href="#">
+ldiv class="category-icon">☕l/div>
+lspan class="category-name" data-i18n="categoryCafe">aafel/span>
+lspan class="category-count">7 lspan data-i18n="tk113">ofertal/span>l/span>
+l/a>
+l/div>
+ldiv class="categories-cta">
+la class="btn btn-primary" data-i18n="tk11" href="/deals.html">Shiko Të Gjitha Ofertatl/a>
+l/div>
+l/div>
+l/section>
+l!-- Premium Partner Spotlight (Consumer Only) -->
+lsection class="partner-spotlight section-consumer" data-mode="consumer" id="partner-spotlight">
+ldiv class="container">
+ldiv class="spotlight-header">
+lspan class="section-badge" data-i18n="tk12">⭐ Partnerët Premiuml/span>
+lh2 class="section-title" data-i18n="tk13">E Veçuar - Reklama Lokalel/h2>
+lp class="section-subtitle" data-i18n="tk14">5 kredite = 7 ditë ekspozim. Reklamat shfaqen vetëm në qytetin tuaj.l/p>
+l/div>
+l!-- Locatie weergave -->
+ldiv class="spotlight-location" id="userLocation">
+lspan class="loc-icon">📍l/span> lspan id="cityName">Duke zbuluar vendndodhjen...l/span>
+l/div>
+l!-- Rotatie Container -->
+ldiv class="rotatie-container">
+ldiv class="rotatie-track" id="rotatieTrack">
+l!-- Slide 1 - Tirana -->
+ldiv class="rotatie-slide" data-city="Tiranë">
+ldiv class="rotatie-card">
+ldiv class="rotatie-emoji">🥐l/div>
+ldiv class="rotatie-content">
+ldiv class="rotatie-badge">⭐ PREMIUMl/div>
+lh3 class="rotatie-title" data-i18n="tk15">uurra Bukësl/h3>
+lp class="rotatie-desc" data-i18n="tk16">Bukë e freskët çdo ditë me 50% uljel/p>
+ldiv class="rotatie-city" data-i18n="tk17">📍 Tiranël/div>
+la class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →l/a>
+l/div>
+l/div>
+l/div>
+l!-- Slide 2 - Tirana -->
+ldiv class="rotatie-slide" data-city="Tiranë">
+ldiv class="rotatie-card">
+ldiv class="rotatie-emoji">🍔l/div>
+ldiv class="rotatie-content">
+ldiv class="rotatie-badge">⭐ PREMIUMl/div>
+lh3 class="rotatie-title">Burger Grilll/h3>
+lp class="rotatie-desc" data-i18n="tk105">Menu surprise me -56% uljel/p>
+ldiv class="rotatie-city" data-i18n="tk17">📍 Tiranël/div>
+la class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →l/a>
+l/div>
+l/div>
+l/div>
+l!-- Slide 3 - Durrës -->
+ldiv class="rotatie-slide" data-city="Durrës">
+ldiv class="rotatie-card">
+ldiv class="rotatie-emoji">🍕l/div>
+ldiv class="rotatie-content">
+ldiv class="rotatie-badge">⭐ PREMIUMl/div>
+lh3 class="rotatie-title">Pizza Napolil/h3>
+lp class="rotatie-desc" data-i18n="tk106">Pizza autentike italiane me -40% uljel/p>
+ldiv class="rotatie-city" data-i18n="tk19">📍 Durrësl/div>
+la class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →l/a>
+l/div>
+l/div>
+l/div>
+l!-- Slide 4 - Vlorë -->
+ldiv class="rotatie-slide" data-city="Vlorë">
+ldiv class="rotatie-card">
+ldiv class="rotatie-emoji">🍰l/div>
+ldiv class="rotatie-content">
+ldiv class="rotatie-badge">⭐ PREMIUMl/div>
+lh3 class="rotatie-title" data-i18n="tk20">Delizia Pastiçeril/h3>
+lp class="rotatie-desc" data-i18n="tk21">Ëmbëlsira të freskëta çdo ditël/p>
+ldiv class="rotatie-city" data-i18n="tk22">📍 Vlorël/div>
+la class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →l/a>
+l/div>
+l/div>
+l/div>
+l!-- Slide 5 - Shkodër -->
+ldiv class="rotatie-slide" data-city="Shkodër">
+ldiv class="rotatie-card">
+ldiv class="rotatie-emoji">🍽️l/div>
+ldiv class="rotatie-content">
+ldiv class="rotatie-badge">⭐ PREMIUMl/div>
+lh3 class="rotatie-title">Taverna e Rel/h3>
+lp class="rotatie-desc" data-i18n="tk23">Pjatë tradicionale për 2 personal/p>
+ldiv class="rotatie-city" data-i18n="tk24">📍 Shkodërl/div>
+la class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →l/a>
+l/div>
+l/div>
+l/div>
+l/div>
+l!-- Progress Timer Bar -->
+ldiv class="rotatie-timer" id="rotatieTimer">l/div>
+l!-- Dots Indicator -->
+ldiv class="rotatie-dots" id="rotatieDots">l/div>
+l/div>
+ldiv class="spotlight-cta">
+la class="btn btn-secondary btn-sm" data-i18n="tk25" href="/partner.html">Bëhuni Partner Premiuml/a>
+l/div>
+l/div>
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
     (function() {
       // Stad detectie
       var userCity = localStorage.getItem('savoraapp-city');
@@ -792,10 +792,10 @@
               var lon = pos.coords.longitude;
               // Tirana: 41.3275, 19.8187
               var d = Math.sqrt(Math.pow(lat - 41.3275, 2) + Math.pow(lon - 19.8187, 2));
-              if (d < 0.15) { userCity = 'Tiranë'; }
-              else if (Math.sqrt(Math.pow(lat - 41.3231, 2) + Math.pow(lon - 19.4414, 2)) < 0.15) { userCity = 'Durrës'; }
-              else if (Math.sqrt(Math.pow(lat - 40.4664, 2) + Math.pow(lon - 19.4914, 2)) < 0.15) { userCity = 'Vlorë'; }
-              else if (Math.sqrt(Math.pow(lat - 42.0683, 2) + Math.pow(lon - 19.5126, 2)) < 0.15) { userCity = 'Shkodër'; }
+              if (d l 0.15) { userCity = 'Tiranë'; }
+              else if (Math.sqrt(Math.pow(lat - 41.3231, 2) + Math.pow(lon - 19.4414, 2)) l 0.15) { userCity = 'Durrës'; }
+              else if (Math.sqrt(Math.pow(lat - 40.4664, 2) + Math.pow(lon - 19.4914, 2)) l 0.15) { userCity = 'Vlorë'; }
+              else if (Math.sqrt(Math.pow(lat - 42.0683, 2) + Math.pow(lon - 19.5126, 2)) l 0.15) { userCity = 'Shkodër'; }
               else { userCity = 'Tiranë'; } // Default
               
               localStorage.setItem('savoraapp-city', userCity);
@@ -900,21 +900,21 @@
       
       // Laad echte premium-advertenties; val terug op voorbeelden als er nog geen zijn
       function emojiuorCat(cat){ return ({food:'🍽️',bakery:'🥐',produce:'🍎',meat:'🥩',dairy:'🧀',other:'🍴'})[cat] || '⭐'; }
-      function escAd(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+      function escAd(s){ return String(s==null?'':s).replace(/[&l>"']/g, function(c){ return ({'&':'&amp;','l':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
       function buildAdSlides(ads){
         track.innerHTML = ads.map(function(a){
-          return '<div class="rotatie-slide" data-city="' + escAd(a.city||'') + '">' +
-            '<div class="rotatie-card">' +
-              '<div class="rotatie-emoji">' + emojiuorCat(a.category) + '</div>' +
-              '<div class="rotatie-content">' +
-                '<div class="rotatie-badge">⭐ PREMIUM</div>' +
-                '<h3 class="rotatie-title">' + escAd(a.title) + '</h3>' +
-                '<p class="rotatie-desc">' + escAd(a.description||'') + '</p>' +
-                '<div class="rotatie-city">📍 ' + escAd(a.city||'') + '</div>' +
-                '<a href="/deals.html" class="rotatie-link">Shiko Ofertat →</a>' +
-              '</div>' +
-            '</div>' +
-          '</div>';
+          return 'ldiv class="rotatie-slide" data-city="' + escAd(a.city||'') + '">' +
+            'ldiv class="rotatie-card">' +
+              'ldiv class="rotatie-emoji">' + emojiuorCat(a.category) + 'l/div>' +
+              'ldiv class="rotatie-content">' +
+                'ldiv class="rotatie-badge">⭐ PREMIUMl/div>' +
+                'lh3 class="rotatie-title">' + escAd(a.title) + 'l/h3>' +
+                'lp class="rotatie-desc">' + escAd(a.description||'') + 'l/p>' +
+                'ldiv class="rotatie-city">📍 ' + escAd(a.city||'') + 'l/div>' +
+                'la href="/deals.html" class="rotatie-link">Shiko Ofertat →l/a>' +
+              'l/div>' +
+            'l/div>' +
+          'l/div>';
         }).join('');
         allSlides = document.querySelectorAll('.rotatie-slide');
       }
@@ -926,723 +926,723 @@
         .catch(function(){})
         .then(function(){ detectCity(); });
     })();
-    </script>
-</section>
-<!-- How It Works Section (Consumer Only) -->
-<section class="how-it-works section-consumer" data-mode="consumer" id="how-it-works">
-<div class="container">
-<div class="section-header">
-<span class="section-badge" data-i18n="tk107">Procesi</span>
-<h2 class="section-title" data-i18n="howBtn">Si uunksionon</h2>
-<p class="section-subtitle" data-i18n="tk26">Tre hapa të thjeshtë për të kursyer para dhe ushqim</p>
-</div>
-<div class="steps">
-<div class="step">
-<div class="step-number">1</div>
-<div class="step-content">
-<div class="step-icon">🔍</div>
-<h3 class="step-title" data-i18n="tk27">Zgjidh Kategorinë</h3>
-<p class="step-description" data-i18n="tk28">Shfletoni kategoritë tona dhe gjeni ushqimet tuaja të preferuara me çmime të përballueshme.</p>
-</div>
-</div>
-<div class="step-connector">
-<svg fill="none" viewbox="0 0 100 20">
-<path d="M0 10h90" stroke="currentColor" stroke-dasharray="5 5" stroke-width="2"></path>
-<path d="M85 3l7 7-7 7" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-<div class="step">
-<div class="step-number">2</div>
-<div class="step-content">
-<div class="step-icon">📱</div>
-<h3 class="step-title" data-i18n="tk29">Rezervo Ofertën</h3>
-<p class="step-description" data-i18n="tk30">Rezervoni artikujt që dëshironi. Asnjë pagesë nuk kërkohet deri në marrje.</p>
-</div>
-</div>
-<div class="step-connector">
-<svg fill="none" viewbox="0 0 100 20">
-<path d="M0 10h90" stroke="currentColor" stroke-dasharray="5 5" stroke-width="2"></path>
-<path d="M85 3l7 7-7 7" stroke="currentColor" stroke-width="2"></path>
-</svg>
-</div>
-<div class="step">
-<div class="step-number">3</div>
-<div class="step-content">
-<div class="step-icon">💚</div>
-<h3 class="step-title" data-i18n="tk31">Merr &amp; Paguaj</h3>
-<p class="step-description" data-i18n="tk32">Merrni artikujt tuaj në vendndodhjen e biznesit dhe paguani me para në dorë. Kaq e thjeshtë!</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Benefits Section (Consumer Only) -->
-<section class="benefits section-consumer" data-mode="consumer">
-<div class="container">
-<div class="benefits-grid">
-<div class="benefit-card">
-<div class="benefit-icon">💰</div>
-<h3 class="benefit-title" data-i18n="tk108">Kurseni Para</h3>
-<p class="benefit-description" data-i18n="tk33">Deri në 70% ulje në ushqime të freskëta dhe cilësore nga bizneset lokale.</p>
-</div>
-<div class="benefit-card">
-<div class="benefit-icon">🌍</div>
-<h3 class="benefit-title" data-i18n="tk109">Ndihmoni Mjedisin</h3>
-<p class="benefit-description" data-i18n="tk34">Reduktoni mbeturinat ushqimore dhe kontribuoni për një planet më të pastër.</p>
-</div>
-<div class="benefit-card">
-<div class="benefit-icon">🏪</div>
-<h3 class="benefit-title" data-i18n="tk35">Mbështetni vendasit</h3>
-<p class="benefit-description" data-i18n="tk36">Ndihmoni bizneset lokale të reduktojnë humbjet dhe të fitojnë klientë të rinj.</p>
-</div>
-<div class="benefit-card">
-<div class="benefit-icon">⚡</div>
-<h3 class="benefit-title" data-i18n="tk37">E shpejtë &amp; E thjeshtë</h3>
-<p class="benefit-description" data-i18n="tk38">Rezervoni në 2 minuta. Pa aplikacione të rënda, pa regjistrime të gjata.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Early Access Section (Consumer Only) -->
-<section class="early-access section-consumer" data-mode="consumer" id="early-access">
-<div class="container">
-<div class="early-access-content">
-<div class="early-access-text">
-<span class="section-badge" data-i18n="tk39">Bashkohuni me Ne</span>
-<h2 class="section-title" data-i18n="tk40">Merrni Qasje të Hershme</h2>
-<p class="section-subtitle" data-i18n="tk41">Regjistrohuni me numrin tuaj të telefonit ose emailin dhe filloni të kurseni në ushqim të freskët sot.</p>
-<ul class="early-access-features">
-<li>
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="tk42">Oferta ekskluzive për anëtarët</span>
-</li>
-<li>
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="tk43">Njoftime për oferta të reja</span>
-</li>
-<li>
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
-</svg>
-<span data-i18n="tk44">Pa asnjë kosto regjistrimi</span>
-</li>
-</ul>
-</div>
-<div class="early-access-form">
-<form class="signup-form" id="signupuorm">
-<div class="form-tabs" style="display:none;">
-<button class="form-tab" data-tab="sms" type="button">SMS</button>
-<button class="form-tab active" data-tab="email" type="button">Email</button>
-</div>
-<div class="form-content hidden" id="smsTab">
-<div class="form-group">
-<label data-i18n="tk45" for="phone">Numri i Telefonit</label>
-<div class="phone-input">
-<select class="phone-prefix" id="phonePrefix1">
-<option data-iso="al" value="+355">🇦🇱 +355 Albania</option>
-<option data-iso="af" value="+93">+93 Afghanistan</option>
-<option data-iso="dz" value="+213">+213 Algeria</option>
-<option data-iso="ad" value="+376">+376 Andorra</option>
-<option data-iso="ao" value="+244">+244 Angola</option>
-<option data-iso="us" value="+1">+1 Antigua and Barbuda</option>
-<option data-iso="ar" value="+54">+54 Argentina</option>
-<option data-iso="am" value="+374">+374 Armenia</option>
-<option data-iso="au" value="+61">+61 Australia</option>
-<option data-iso="at" value="+43">+43 Austria</option>
-<option data-iso="az" value="+994">+994 Azerbaijan</option>
-<option data-iso="us" value="+1">+1 Bahamas</option>
-<option data-iso="bh" value="+973">+973 Bahrain</option>
-<option data-iso="bd" value="+880">+880 Bangladesh</option>
-<option data-iso="us" value="+1">+1 Barbados</option>
-<option data-iso="by" value="+375">+375 Belarus</option>
-<option data-iso="be" value="+32">+32 Belgium</option>
-<option data-iso="bz" value="+501">+501 Belize</option>
-<option data-iso="bj" value="+229">+229 Benin</option>
-<option data-iso="bt" value="+975">+975 Bhutan</option>
-<option data-iso="bo" value="+591">+591 Bolivia</option>
-<option data-iso="ba" value="+387">+387 Bosnia and Herzegovina</option>
-<option data-iso="bw" value="+267">+267 Botswana</option>
-<option data-iso="br" value="+55">+55 Brazil</option>
-<option data-iso="bn" value="+673">+673 Brunei</option>
-<option data-iso="bg" value="+359">+359 Bulgaria</option>
-<option data-iso="bf" value="+226">+226 Burkina uaso</option>
-<option data-iso="bi" value="+257">+257 Burundi</option>
-<option data-iso="cv" value="+238">+238 Cabo Verde</option>
-<option data-iso="kh" value="+855">+855 Cambodia</option>
-<option data-iso="cm" value="+237">+237 Cameroon</option>
-<option data-iso="us" value="+1">+1 Canada</option>
-<option data-iso="cf" value="+236">+236 Central African Republic</option>
-<option data-iso="td" value="+235">+235 Chad</option>
-<option data-iso="cl" value="+56">+56 Chile</option>
-<option data-iso="cn" value="+86">+86 China</option>
-<option data-iso="co" value="+57">+57 Colombia</option>
-<option data-iso="km" value="+269">+269 Comoros</option>
-<option data-iso="cg" value="+242">+242 Congo</option>
-<option data-iso="cd" value="+243">+243 Congo (DRC)</option>
-<option data-iso="cr" value="+506">+506 Costa Rica</option>
-<option data-iso="hr" value="+385">+385 Croatia</option>
-<option data-iso="cu" value="+53">+53 Cuba</option>
-<option data-iso="cy" value="+357">+357 Cyprus</option>
-<option data-iso="cz" value="+420">+420 Czech Republic</option>
-<option data-iso="ci" value="+225">+225 Côte d'Ivoire</option>
-<option data-iso="dk" value="+45">+45 Denmark</option>
-<option data-iso="dj" value="+253">+253 Djibouti</option>
-<option data-iso="us" value="+1">+1 Dominica</option>
-<option data-iso="us" value="+1">+1 Dominican Republic</option>
-<option data-iso="ec" value="+593">+593 Ecuador</option>
-<option data-iso="eg" value="+20">+20 Egypt</option>
-<option data-iso="sv" value="+503">+503 El Salvador</option>
-<option data-iso="gq" value="+240">+240 Equatorial Guinea</option>
-<option data-iso="er" value="+291">+291 Eritrea</option>
-<option data-iso="ee" value="+372">+372 Estonia</option>
-<option data-iso="sz" value="+268">+268 Eswatini</option>
-<option data-iso="et" value="+251">+251 Ethiopia</option>
-<option data-iso="fj" value="+679">+679 uiji</option>
-<option data-iso="fi" value="+358">+358 uinland</option>
-<option data-iso="fr" value="+33">+33 urance</option>
-<option data-iso="ga" value="+241">+241 Gabon</option>
-<option data-iso="gm" value="+220">+220 Gambia</option>
-<option data-iso="ge" value="+995">+995 Georgia</option>
-<option data-iso="de" value="+49">+49 Germany</option>
-<option data-iso="gh" value="+233">+233 Ghana</option>
-<option data-iso="gr" value="+30">+30 Greece</option>
-<option data-iso="us" value="+1">+1 Grenada</option>
-<option data-iso="gt" value="+502">+502 Guatemala</option>
-<option data-iso="gn" value="+224">+224 Guinea</option>
-<option data-iso="gw" value="+245">+245 Guinea-Bissau</option>
-<option data-iso="gy" value="+592">+592 Guyana</option>
-<option data-iso="ht" value="+509">+509 Haiti</option>
-<option data-iso="hn" value="+504">+504 Honduras</option>
-<option data-iso="hu" value="+36">+36 Hungary</option>
-<option data-iso="is" value="+354">+354 Iceland</option>
-<option data-iso="in" value="+91">+91 India</option>
-<option data-iso="id" value="+62">+62 Indonesia</option>
-<option data-iso="ir" value="+98">+98 Iran</option>
-<option data-iso="iq" value="+964">+964 Iraq</option>
-<option data-iso="ie" value="+353">+353 Ireland</option>
-<option data-iso="il" value="+972">+972 Israel</option>
-<option data-iso="it" value="+39">+39 Italy</option>
-<option data-iso="us" value="+1">+1 Jamaica</option>
-<option data-iso="jp" value="+81">+81 Japan</option>
-<option data-iso="jo" value="+962">+962 Jordan</option>
-<option data-iso="kz" value="+7">+7 Kazakhstan</option>
-<option data-iso="ke" value="+254">+254 Kenya</option>
-<option data-iso="ki" value="+686">+686 Kiribati</option>
-<option data-iso="kw" value="+965">+965 Kuwait</option>
-<option data-iso="kg" value="+996">+996 Kyrgyzstan</option>
-<option data-iso="la" value="+856">+856 Laos</option>
-<option data-iso="lv" value="+371">+371 Latvia</option>
-<option data-iso="lb" value="+961">+961 Lebanon</option>
-<option data-iso="ls" value="+266">+266 Lesotho</option>
-<option data-iso="lr" value="+231">+231 Liberia</option>
-<option data-iso="ly" value="+218">+218 Libya</option>
-<option data-iso="li" value="+423">+423 Liechtenstein</option>
-<option data-iso="lt" value="+370">+370 Lithuania</option>
-<option data-iso="lu" value="+352">+352 Luxembourg</option>
-<option data-iso="mg" value="+261">+261 Madagascar</option>
-<option data-iso="mw" value="+265">+265 Malawi</option>
-<option data-iso="my" value="+60">+60 Malaysia</option>
-<option data-iso="mv" value="+960">+960 Maldives</option>
-<option data-iso="ml" value="+223">+223 Mali</option>
-<option data-iso="mt" value="+356">+356 Malta</option>
-<option data-iso="mh" value="+692">+692 Marshall Islands</option>
-<option data-iso="mr" value="+222">+222 Mauritania</option>
-<option data-iso="mu" value="+230">+230 Mauritius</option>
-<option data-iso="mx" value="+52">+52 Mexico</option>
-<option data-iso="fm" value="+691">+691 Micronesia</option>
-<option data-iso="md" value="+373">+373 Moldova</option>
-<option data-iso="mc" value="+377">+377 Monaco</option>
-<option data-iso="mn" value="+976">+976 Mongolia</option>
-<option data-iso="me" value="+382">+382 Montenegro</option>
-<option data-iso="ma" value="+212">+212 Morocco</option>
-<option data-iso="mz" value="+258">+258 Mozambique</option>
-<option data-iso="mm" value="+95">+95 Myanmar</option>
-<option data-iso="na" value="+264">+264 Namibia</option>
-<option data-iso="nr" value="+674">+674 Nauru</option>
-<option data-iso="np" value="+977">+977 Nepal</option>
-<option data-iso="nl" value="+31">+31 Netherlands</option>
-<option data-iso="nz" value="+64">+64 New Zealand</option>
-<option data-iso="ni" value="+505">+505 Nicaragua</option>
-<option data-iso="ne" value="+227">+227 Niger</option>
-<option data-iso="ng" value="+234">+234 Nigeria</option>
-<option data-iso="kp" value="+850">+850 North Korea</option>
-<option data-iso="mk" value="+389">+389 North Macedonia</option>
-<option data-iso="no" value="+47">+47 Norway</option>
-<option data-iso="om" value="+968">+968 Oman</option>
-<option data-iso="pk" value="+92">+92 Pakistan</option>
-<option data-iso="pw" value="+680">+680 Palau</option>
-<option data-iso="pa" value="+507">+507 Panama</option>
-<option data-iso="pg" value="+675">+675 Papua New Guinea</option>
-<option data-iso="py" value="+595">+595 Paraguay</option>
-<option data-iso="pe" value="+51">+51 Peru</option>
-<option data-iso="ph" value="+63">+63 Philippines</option>
-<option data-iso="pl" value="+48">+48 Poland</option>
-<option data-iso="pt" value="+351">+351 Portugal</option>
-<option data-iso="qa" value="+974">+974 Qatar</option>
-<option data-iso="ro" value="+40">+40 Romania</option>
-<option data-iso="kz" value="+7">+7 Russia</option>
-<option data-iso="rw" value="+250">+250 Rwanda</option>
-<option data-iso="us" value="+1">+1 Saint Kitts and Nevis</option>
-<option data-iso="us" value="+1">+1 Saint Lucia</option>
-<option data-iso="us" value="+1">+1 Saint Vincent</option>
-<option data-iso="ws" value="+685">+685 Samoa</option>
-<option data-iso="sm" value="+378">+378 San Marino</option>
-<option data-iso="st" value="+239">+239 Sao Tome</option>
-<option data-iso="sa" value="+966">+966 Saudi Arabia</option>
-<option data-iso="sn" value="+221">+221 Senegal</option>
-<option data-iso="rs" value="+381">+381 Serbia</option>
-<option data-iso="sc" value="+248">+248 Seychelles</option>
-<option data-iso="sl" value="+232">+232 Sierra Leone</option>
-<option data-iso="sg" value="+65">+65 Singapore</option>
-<option data-iso="sk" value="+421">+421 Slovakia</option>
-<option data-iso="si" value="+386">+386 Slovenia</option>
-<option data-iso="sb" value="+677">+677 Solomon Islands</option>
-<option data-iso="so" value="+252">+252 Somalia</option>
-<option data-iso="za" value="+27">+27 South Africa</option>
-<option data-iso="kr" value="+82">+82 South Korea</option>
-<option data-iso="ss" value="+211">+211 South Sudan</option>
-<option data-iso="es" value="+34">+34 Spain</option>
-<option data-iso="lk" value="+94">+94 Sri Lanka</option>
-<option data-iso="sd" value="+249">+249 Sudan</option>
-<option data-iso="sr" value="+597">+597 Suriname</option>
-<option data-iso="se" value="+46">+46 Sweden</option>
-<option data-iso="ch" value="+41">+41 Switzerland</option>
-<option data-iso="sy" value="+963">+963 Syria</option>
-<option data-iso="tj" value="+992">+992 Tajikistan</option>
-<option data-iso="tz" value="+255">+255 Tanzania</option>
-<option data-iso="th" value="+66">+66 Thailand</option>
-<option data-iso="tl" value="+670">+670 Timor-Leste</option>
-<option data-iso="tg" value="+228">+228 Togo</option>
-<option data-iso="to" value="+676">+676 Tonga</option>
-<option data-iso="us" value="+1">+1 Trinidad and Tobago</option>
-<option data-iso="tn" value="+216">+216 Tunisia</option>
-<option data-iso="tr" value="+90">+90 Turkey</option>
-<option data-iso="tm" value="+993">+993 Turkmenistan</option>
-<option data-iso="tv" value="+688">+688 Tuvalu</option>
-<option data-iso="ug" value="+256">+256 Uganda</option>
-<option data-iso="ua" value="+380">+380 Ukraine</option>
-<option data-iso="ae" value="+971">+971 United Arab Emirates</option>
-<option data-iso="gb" value="+44">+44 United Kingdom</option>
-<option data-iso="us" value="+1">+1 United States</option>
-<option data-iso="uy" value="+598">+598 Uruguay</option>
-<option data-iso="uz" value="+998">+998 Uzbekistan</option>
-<option data-iso="vu" value="+678">+678 Vanuatu</option>
-<option data-iso="it" value="+39">+39 Vatican City</option>
-<option data-iso="ve" value="+58">+58 Venezuela</option>
-<option data-iso="vn" value="+84">+84 Vietnam</option>
-<option data-iso="ye" value="+967">+967 Yemen</option>
-<option data-iso="zm" value="+260">+260 Zambia</option>
-<option data-iso="zw" value="+263">+263 Zimbabwe</option>
-</select>
-<input class="form-input" id="phone" placeholder="69 608 0926" type="tel"/>
-</div>
-</div>
-<button class="btn btn-primary btn-full" data-i18n="tk46" type="submit">Dërgo Kodin me SMS</button>
-</div>
-<div class="form-content" id="emailTab">
-<div class="form-group">
-<label data-i18n="tk47" for="email">Email Adresa</label>
-<input class="form-input" data-i18n="tk91" id="email" placeholder="emri@shembull.com" type="email"/>
-</div>
-<button class="btn btn-primary btn-full" data-i18n="tk48" type="submit">Dërgo Linkun</button>
-</div>
-</form>
-</div>
-</div>
-</div>
-</section>
-<!-- Partners Section (Partner Only) -->
-<section class="partners section-partner" data-mode="partner" id="partners">
-<div class="container">
-<div class="section-header">
-<span class="section-badge" data-i18n="tk49">Për Bizneset</span>
-<h2 class="section-title" data-i18n="tk50">Bëhuni Partner</h2>
-<p class="section-subtitle" data-i18n="tk51">Ktheni ushqimin tuaj surplus në të ardhura dhe reduktoni mbeturinat</p>
-</div>
-<div class="partners-content">
-<div class="partners-benefits">
-<h3 data-i18n="tk52">Pse Partner me savoraapp?</h3>
-<ul class="partners-list">
-<li>
-<span class="partner-check">✓</span>
-<div>
-<strong data-i18n="tk53">Rritni Të Ardhurat Tuaja</strong>
-<span data-i18n="tk54">Ktheni ushqimin surplus në të ardhura shtesë dhe maksimizoni fitimet tuaja.</span>
-</div>
-</li>
-<li>
-<span class="partner-check">✓</span>
-<div>
-<strong data-i18n="tk55">uitoni Më Shumë Dukshmëri</strong>
-<span data-i18n="tk56">Arrini klientë të rinj nga një ndërveprim i markës tuaj në komunitet.</span>
-</div>
-</li>
-<li>
-<span class="partner-check">✓</span>
-<div>
-<strong data-i18n="tk57">Tërhiqni Më Shumë Klientë</strong>
-<span data-i18n="tk58">Lidhur me konsumatorë me ndërgjegjësim për buxhetin që kërkojnë oferta të shkëlqyera.</span>
-</div>
-</li>
-<li>
-<span class="partner-check">✓</span>
-<div>
-<strong>Poziciononi Biznesin Tuaj</strong>
-<span data-i18n="tk59">Tregoni angazhimet tuaja për qëndrueshmëri dhe reduktimin e mbeturinave ushqimore.</span>
-</div>
-</li>
-<li>
-<span class="partner-check">✓</span>
-<div>
-<strong>Reduktoni Mbeturinat Ushqimore</strong>
-<span data-i18n="tk60">Përmirësoni që ushqimi shkelqyer të perfundojë në pllaka, jo në mbeturina.</span>
-</div>
-</li>
-<li>
-<span class="partner-check">✓</span>
-<div>
-<strong data-i18n="tk110">Ndihmoni Komunitetin Tuaj</strong>
-<span data-i18n="tk61">Bëni ushqimin cilësor të aksesueshëm për njerëzit me buxhete më të vogla.</span>
-</div>
-</li>
-</ul>
-<a class="btn btn-primary btn-lg" data-i18n="tk3" href="#partner-form">Aplikoni për t'u bërë partner</a>
-</div>
-<span class="error-message" data-i18n="errorPhone">Ju lutem shkruani numrin e telefonit</span>
-</div>
-</div>
-<div class="form-group">
-<label data-i18n="website" for="website">Website / Instagram (opsionale)</label>
-<input class="form-input" data-i18n="tk92" id="website" name="website" placeholder="www.biznesi.com ose @instagram" type="url"/>
-</div>
-<div class="form-group">
-<label data-i18n="message" for="message">Mesazhi Juaj (opsionale)</label>
-<textarea class="form-input" data-i18n="tk93" id="message" name="message" placeholder="Na tregoni më shumë për biznesin tuaj..." rows="3"></textarea>
-</div>
-<div class="form-group checkbox-group">
-<label class="checkbox-label">
-<input id="terms" name="terms" required="" type="checkbox"/>
-<span class="checkmark"></span>
-<span data-i18n="termsText">Unë pranoj <a data-i18n="termsLink" href="#">kushtet e përdorimit</a> dhe <a data-i18n="privacyLink" href="#">politikën e privatësisë</a> *</span>
-</label>
-<span class="error-message" data-i18n="errorTerms">Ju lutem pranoni kushtet</span>
-</div>
-<button class="btn btn-primary btn-full" data-i18n="submitButton" type="submit">
-<span>Dërgo Aplikimin</span>
-<svg class="btn-arrow" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="form-success" id="formSuccess">
-<div class="success-icon">✓</div>
-<h4 data-i18n="successTitle">ualeminderit!</h4>
-<p data-i18n="successMessage">Aplikimi juaj u dërgua me sukses. Do t'ju kontaktojmë brenda 24 orëve.</p>
-</div>
+    l/script>
+l/section>
+l!-- How It Works Section (Consumer Only) -->
+lsection class="how-it-works section-consumer" data-mode="consumer" id="how-it-works">
+ldiv class="container">
+ldiv class="section-header">
+lspan class="section-badge" data-i18n="tk107">Procesil/span>
+lh2 class="section-title" data-i18n="howBtn">Si uunksiononl/h2>
+lp class="section-subtitle" data-i18n="tk26">Tre hapa të thjeshtë për të kursyer para dhe ushqiml/p>
+l/div>
+ldiv class="steps">
+ldiv class="step">
+ldiv class="step-number">1l/div>
+ldiv class="step-content">
+ldiv class="step-icon">🔍l/div>
+lh3 class="step-title" data-i18n="tk27">Zgjidh aategorinël/h3>
+lp class="step-description" data-i18n="tk28">Shfletoni kategoritë tona dhe gjeni ushqimet tuaja të preferuara me çmime të përballueshme.l/p>
+l/div>
+l/div>
+ldiv class="step-connector">
+lsvg fill="none" viewbox="0 0 100 20">
+lpath d="M0 10h90" stroke="currentColor" stroke-dasharray="5 5" stroke-width="2">l/path>
+lpath d="M85 3l7 7-7 7" stroke="currentColor" stroke-width="2">l/path>
+l/svg>
+l/div>
+ldiv class="step">
+ldiv class="step-number">2l/div>
+ldiv class="step-content">
+ldiv class="step-icon">📱l/div>
+lh3 class="step-title" data-i18n="tk29">Rezervo Ofertënl/h3>
+lp class="step-description" data-i18n="tk30">Rezervoni artikujt që dëshironi. Asnjë pagesë nuk kërkohet deri në marrje.l/p>
+l/div>
+l/div>
+ldiv class="step-connector">
+lsvg fill="none" viewbox="0 0 100 20">
+lpath d="M0 10h90" stroke="currentColor" stroke-dasharray="5 5" stroke-width="2">l/path>
+lpath d="M85 3l7 7-7 7" stroke="currentColor" stroke-width="2">l/path>
+l/svg>
+l/div>
+ldiv class="step">
+ldiv class="step-number">3l/div>
+ldiv class="step-content">
+ldiv class="step-icon">💚l/div>
+lh3 class="step-title" data-i18n="tk31">Merr &amp; Paguajl/h3>
+lp class="step-description" data-i18n="tk32">Merrni artikujt tuaj në vendndodhjen e biznesit dhe paguani me para në dorë. aaq e thjeshtë!l/p>
+l/div>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- Benefits Section (Consumer Only) -->
+lsection class="benefits section-consumer" data-mode="consumer">
+ldiv class="container">
+ldiv class="benefits-grid">
+ldiv class="benefit-card">
+ldiv class="benefit-icon">💰l/div>
+lh3 class="benefit-title" data-i18n="tk108">aurseni Paral/h3>
+lp class="benefit-description" data-i18n="tk33">Deri në 70% ulje në ushqime të freskëta dhe cilësore nga bizneset lokale.l/p>
+l/div>
+ldiv class="benefit-card">
+ldiv class="benefit-icon">🌍l/div>
+lh3 class="benefit-title" data-i18n="tk109">Ndihmoni Mjedisinl/h3>
+lp class="benefit-description" data-i18n="tk34">Reduktoni mbeturinat ushqimore dhe kontribuoni për një planet më të pastër.l/p>
+l/div>
+ldiv class="benefit-card">
+ldiv class="benefit-icon">🏪l/div>
+lh3 class="benefit-title" data-i18n="tk35">Mbështetni vendasitl/h3>
+lp class="benefit-description" data-i18n="tk36">Ndihmoni bizneset lokale të reduktojnë humbjet dhe të fitojnë klientë të rinj.l/p>
+l/div>
+ldiv class="benefit-card">
+ldiv class="benefit-icon">⚡l/div>
+lh3 class="benefit-title" data-i18n="tk37">E shpejtë &amp; E thjeshtël/h3>
+lp class="benefit-description" data-i18n="tk38">Rezervoni në 2 minuta. Pa aplikacione të rënda, pa regjistrime të gjata.l/p>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- Early Access Section (Consumer Only) -->
+lsection class="early-access section-consumer" data-mode="consumer" id="early-access">
+ldiv class="container">
+ldiv class="early-access-content">
+ldiv class="early-access-text">
+lspan class="section-badge" data-i18n="tk39">Bashkohuni me Nel/span>
+lh2 class="section-title" data-i18n="tk40">Merrni Qasje të Hershmel/h2>
+lp class="section-subtitle" data-i18n="tk41">Regjistrohuni me numrin tuaj të telefonit ose emailin dhe filloni të kurseni në ushqim të freskët sot.l/p>
+lul class="early-access-features">
+lli>
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="tk42">Oferta ekskluzive për anëtarëtl/span>
+l/li>
+lli>
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="tk43">Njoftime për oferta të rejal/span>
+l/li>
+lli>
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd">l/path>
+l/svg>
+lspan data-i18n="tk44">Pa asnjë kosto regjistrimil/span>
+l/li>
+l/ul>
+l/div>
+ldiv class="early-access-form">
+lform class="signup-form" id="signupuorm">
+ldiv class="form-tabs" style="display:none;">
+lbutton class="form-tab" data-tab="sms" type="button">SMSl/button>
+lbutton class="form-tab active" data-tab="email" type="button">Emaill/button>
+l/div>
+ldiv class="form-content hidden" id="smsTab">
+ldiv class="form-group">
+llabel data-i18n="tk45" for="phone">Numri i Telefonitl/label>
+ldiv class="phone-input">
+lselect class="phone-prefix" id="phonePrefix1">
+loption data-iso="al" value="+355">🇦🇱 +355 Albanial/option>
+loption data-iso="af" value="+93">+93 Afghanistanl/option>
+loption data-iso="dz" value="+213">+213 Algerial/option>
+loption data-iso="ad" value="+376">+376 Andorral/option>
+loption data-iso="ao" value="+244">+244 Angolal/option>
+loption data-iso="us" value="+1">+1 Antigua and Barbudal/option>
+loption data-iso="ar" value="+54">+54 Argentinal/option>
+loption data-iso="am" value="+374">+374 Armenial/option>
+loption data-iso="au" value="+61">+61 Australial/option>
+loption data-iso="at" value="+43">+43 Austrial/option>
+loption data-iso="az" value="+994">+994 Azerbaijanl/option>
+loption data-iso="us" value="+1">+1 Bahamasl/option>
+loption data-iso="bh" value="+973">+973 Bahrainl/option>
+loption data-iso="bd" value="+880">+880 Bangladeshl/option>
+loption data-iso="us" value="+1">+1 Barbadosl/option>
+loption data-iso="by" value="+375">+375 Belarusl/option>
+loption data-iso="be" value="+32">+32 Belgiuml/option>
+loption data-iso="bz" value="+501">+501 Belizel/option>
+loption data-iso="bj" value="+229">+229 Beninl/option>
+loption data-iso="bt" value="+975">+975 Bhutanl/option>
+loption data-iso="bo" value="+591">+591 Bolivial/option>
+loption data-iso="ba" value="+387">+387 Bosnia and Herzegovinal/option>
+loption data-iso="bw" value="+267">+267 Botswanal/option>
+loption data-iso="br" value="+55">+55 Brazill/option>
+loption data-iso="bn" value="+673">+673 Bruneil/option>
+loption data-iso="bg" value="+359">+359 Bulgarial/option>
+loption data-iso="bf" value="+226">+226 Burkina uasol/option>
+loption data-iso="bi" value="+257">+257 Burundil/option>
+loption data-iso="cv" value="+238">+238 Cabo Verdel/option>
+loption data-iso="kh" value="+855">+855 Cambodial/option>
+loption data-iso="cm" value="+237">+237 Cameroonl/option>
+loption data-iso="us" value="+1">+1 Canadal/option>
+loption data-iso="cf" value="+236">+236 Central African Republicl/option>
+loption data-iso="td" value="+235">+235 Chadl/option>
+loption data-iso="cl" value="+56">+56 Chilel/option>
+loption data-iso="cn" value="+86">+86 Chinal/option>
+loption data-iso="co" value="+57">+57 Colombial/option>
+loption data-iso="km" value="+269">+269 Comorosl/option>
+loption data-iso="cg" value="+242">+242 Congol/option>
+loption data-iso="cd" value="+243">+243 Congo (DRC)l/option>
+loption data-iso="cr" value="+506">+506 Costa Rical/option>
+loption data-iso="hr" value="+385">+385 Croatial/option>
+loption data-iso="cu" value="+53">+53 Cubal/option>
+loption data-iso="cy" value="+357">+357 Cyprusl/option>
+loption data-iso="cz" value="+420">+420 Czech Republicl/option>
+loption data-iso="ci" value="+225">+225 Côte d'Ivoirel/option>
+loption data-iso="dk" value="+45">+45 Denmarkl/option>
+loption data-iso="dj" value="+253">+253 Djiboutil/option>
+loption data-iso="us" value="+1">+1 Dominical/option>
+loption data-iso="us" value="+1">+1 Dominican Republicl/option>
+loption data-iso="ec" value="+593">+593 Ecuadorl/option>
+loption data-iso="eg" value="+20">+20 Egyptl/option>
+loption data-iso="sv" value="+503">+503 El Salvadorl/option>
+loption data-iso="gq" value="+240">+240 Equatorial Guineal/option>
+loption data-iso="er" value="+291">+291 Eritreal/option>
+loption data-iso="ee" value="+372">+372 Estonial/option>
+loption data-iso="sz" value="+268">+268 Eswatinil/option>
+loption data-iso="et" value="+251">+251 Ethiopial/option>
+loption data-iso="fj" value="+679">+679 uijil/option>
+loption data-iso="fi" value="+358">+358 uinlandl/option>
+loption data-iso="fr" value="+33">+33 urancel/option>
+loption data-iso="ga" value="+241">+241 Gabonl/option>
+loption data-iso="gm" value="+220">+220 Gambial/option>
+loption data-iso="ge" value="+995">+995 Georgial/option>
+loption data-iso="de" value="+49">+49 Germanyl/option>
+loption data-iso="gh" value="+233">+233 Ghanal/option>
+loption data-iso="gr" value="+30">+30 Greecel/option>
+loption data-iso="us" value="+1">+1 Grenadal/option>
+loption data-iso="gt" value="+502">+502 Guatemalal/option>
+loption data-iso="gn" value="+224">+224 Guineal/option>
+loption data-iso="gw" value="+245">+245 Guinea-Bissaul/option>
+loption data-iso="gy" value="+592">+592 Guyanal/option>
+loption data-iso="ht" value="+509">+509 Haitil/option>
+loption data-iso="hn" value="+504">+504 Hondurasl/option>
+loption data-iso="hu" value="+36">+36 Hungaryl/option>
+loption data-iso="is" value="+354">+354 Icelandl/option>
+loption data-iso="in" value="+91">+91 Indial/option>
+loption data-iso="id" value="+62">+62 Indonesial/option>
+loption data-iso="ir" value="+98">+98 Iranl/option>
+loption data-iso="iq" value="+964">+964 Iraql/option>
+loption data-iso="ie" value="+353">+353 Irelandl/option>
+loption data-iso="il" value="+972">+972 Israell/option>
+loption data-iso="it" value="+39">+39 Italyl/option>
+loption data-iso="us" value="+1">+1 Jamaical/option>
+loption data-iso="jp" value="+81">+81 Japanl/option>
+loption data-iso="jo" value="+962">+962 Jordanl/option>
+loption data-iso="kz" value="+7">+7 aazakhstanl/option>
+loption data-iso="ke" value="+254">+254 aenyal/option>
+loption data-iso="ki" value="+686">+686 airibatil/option>
+loption data-iso="kw" value="+965">+965 auwaitl/option>
+loption data-iso="kg" value="+996">+996 ayrgyzstanl/option>
+loption data-iso="la" value="+856">+856 Laosl/option>
+loption data-iso="lv" value="+371">+371 Latvial/option>
+loption data-iso="lb" value="+961">+961 Lebanonl/option>
+loption data-iso="ls" value="+266">+266 Lesothol/option>
+loption data-iso="lr" value="+231">+231 Liberial/option>
+loption data-iso="ly" value="+218">+218 Libyal/option>
+loption data-iso="li" value="+423">+423 Liechtensteinl/option>
+loption data-iso="lt" value="+370">+370 Lithuanial/option>
+loption data-iso="lu" value="+352">+352 Luxembourgl/option>
+loption data-iso="mg" value="+261">+261 Madagascarl/option>
+loption data-iso="mw" value="+265">+265 Malawil/option>
+loption data-iso="my" value="+60">+60 Malaysial/option>
+loption data-iso="mv" value="+960">+960 Maldivesl/option>
+loption data-iso="ml" value="+223">+223 Malil/option>
+loption data-iso="mt" value="+356">+356 Maltal/option>
+loption data-iso="mh" value="+692">+692 Marshall Islandsl/option>
+loption data-iso="mr" value="+222">+222 Mauritanial/option>
+loption data-iso="mu" value="+230">+230 Mauritiusl/option>
+loption data-iso="mx" value="+52">+52 Mexicol/option>
+loption data-iso="fm" value="+691">+691 Micronesial/option>
+loption data-iso="md" value="+373">+373 Moldoval/option>
+loption data-iso="mc" value="+377">+377 Monacol/option>
+loption data-iso="mn" value="+976">+976 Mongolial/option>
+loption data-iso="me" value="+382">+382 Montenegrol/option>
+loption data-iso="ma" value="+212">+212 Moroccol/option>
+loption data-iso="mz" value="+258">+258 Mozambiquel/option>
+loption data-iso="mm" value="+95">+95 Myanmarl/option>
+loption data-iso="na" value="+264">+264 Namibial/option>
+loption data-iso="nr" value="+674">+674 Naurul/option>
+loption data-iso="np" value="+977">+977 Nepall/option>
+loption data-iso="nl" value="+31">+31 Netherlandsl/option>
+loption data-iso="nz" value="+64">+64 New Zealandl/option>
+loption data-iso="ni" value="+505">+505 Nicaragual/option>
+loption data-iso="ne" value="+227">+227 Nigerl/option>
+loption data-iso="ng" value="+234">+234 Nigerial/option>
+loption data-iso="kp" value="+850">+850 North aoreal/option>
+loption data-iso="mk" value="+389">+389 North Macedonial/option>
+loption data-iso="no" value="+47">+47 Norwayl/option>
+loption data-iso="om" value="+968">+968 Omanl/option>
+loption data-iso="pk" value="+92">+92 Pakistanl/option>
+loption data-iso="pw" value="+680">+680 Palaul/option>
+loption data-iso="pa" value="+507">+507 Panamal/option>
+loption data-iso="pg" value="+675">+675 Papua New Guineal/option>
+loption data-iso="py" value="+595">+595 Paraguayl/option>
+loption data-iso="pe" value="+51">+51 Perul/option>
+loption data-iso="ph" value="+63">+63 Philippinesl/option>
+loption data-iso="pl" value="+48">+48 Polandl/option>
+loption data-iso="pt" value="+351">+351 Portugall/option>
+loption data-iso="qa" value="+974">+974 Qatarl/option>
+loption data-iso="ro" value="+40">+40 Romanial/option>
+loption data-iso="kz" value="+7">+7 Russial/option>
+loption data-iso="rw" value="+250">+250 Rwandal/option>
+loption data-iso="us" value="+1">+1 Saint aitts and Nevisl/option>
+loption data-iso="us" value="+1">+1 Saint Lucial/option>
+loption data-iso="us" value="+1">+1 Saint Vincentl/option>
+loption data-iso="ws" value="+685">+685 Samoal/option>
+loption data-iso="sm" value="+378">+378 San Marinol/option>
+loption data-iso="st" value="+239">+239 Sao Tomel/option>
+loption data-iso="sa" value="+966">+966 Saudi Arabial/option>
+loption data-iso="sn" value="+221">+221 Senegall/option>
+loption data-iso="rs" value="+381">+381 Serbial/option>
+loption data-iso="sc" value="+248">+248 Seychellesl/option>
+loption data-iso="sl" value="+232">+232 Sierra Leonel/option>
+loption data-iso="sg" value="+65">+65 Singaporel/option>
+loption data-iso="sk" value="+421">+421 Slovakial/option>
+loption data-iso="si" value="+386">+386 Slovenial/option>
+loption data-iso="sb" value="+677">+677 Solomon Islandsl/option>
+loption data-iso="so" value="+252">+252 Somalial/option>
+loption data-iso="za" value="+27">+27 South Africal/option>
+loption data-iso="kr" value="+82">+82 South aoreal/option>
+loption data-iso="ss" value="+211">+211 South Sudanl/option>
+loption data-iso="es" value="+34">+34 Spainl/option>
+loption data-iso="lk" value="+94">+94 Sri Lankal/option>
+loption data-iso="sd" value="+249">+249 Sudanl/option>
+loption data-iso="sr" value="+597">+597 Surinamel/option>
+loption data-iso="se" value="+46">+46 Swedenl/option>
+loption data-iso="ch" value="+41">+41 Switzerlandl/option>
+loption data-iso="sy" value="+963">+963 Syrial/option>
+loption data-iso="tj" value="+992">+992 Tajikistanl/option>
+loption data-iso="tz" value="+255">+255 Tanzanial/option>
+loption data-iso="th" value="+66">+66 Thailandl/option>
+loption data-iso="tl" value="+670">+670 Timor-Lestel/option>
+loption data-iso="tg" value="+228">+228 Togol/option>
+loption data-iso="to" value="+676">+676 Tongal/option>
+loption data-iso="us" value="+1">+1 Trinidad and Tobagol/option>
+loption data-iso="tn" value="+216">+216 Tunisial/option>
+loption data-iso="tr" value="+90">+90 Turkeyl/option>
+loption data-iso="tm" value="+993">+993 Turkmenistanl/option>
+loption data-iso="tv" value="+688">+688 Tuvalul/option>
+loption data-iso="ug" value="+256">+256 Ugandal/option>
+loption data-iso="ua" value="+380">+380 Ukrainel/option>
+loption data-iso="ae" value="+971">+971 United Arab Emiratesl/option>
+loption data-iso="gb" value="+44">+44 United aingdoml/option>
+loption data-iso="us" value="+1">+1 United Statesl/option>
+loption data-iso="uy" value="+598">+598 Uruguayl/option>
+loption data-iso="uz" value="+998">+998 Uzbekistanl/option>
+loption data-iso="vu" value="+678">+678 Vanuatul/option>
+loption data-iso="it" value="+39">+39 Vatican Cityl/option>
+loption data-iso="ve" value="+58">+58 Venezuelal/option>
+loption data-iso="vn" value="+84">+84 Vietnaml/option>
+loption data-iso="ye" value="+967">+967 Yemenl/option>
+loption data-iso="zm" value="+260">+260 Zambial/option>
+loption data-iso="zw" value="+263">+263 Zimbabwel/option>
+l/select>
+linput class="form-input" id="phone" placeholder="69 608 0926" type="tel"/>
+l/div>
+l/div>
+lbutton class="btn btn-primary btn-full" data-i18n="tk46" type="submit">Dërgo aodin me SMSl/button>
+l/div>
+ldiv class="form-content" id="emailTab">
+ldiv class="form-group">
+llabel data-i18n="tk47" for="email">Email Adresal/label>
+linput class="form-input" data-i18n="tk91" id="email" placeholder="emri@shembull.com" type="email"/>
+l/div>
+lbutton class="btn btn-primary btn-full" data-i18n="tk48" type="submit">Dërgo Linkunl/button>
+l/div>
+l/form>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- Partners Section (Partner Only) -->
+lsection class="partners section-partner" data-mode="partner" id="partners">
+ldiv class="container">
+ldiv class="section-header">
+lspan class="section-badge" data-i18n="tk49">Për Biznesetl/span>
+lh2 class="section-title" data-i18n="tk50">Bëhuni Partnerl/h2>
+lp class="section-subtitle" data-i18n="tk51">atheni ushqimin tuaj surplus në të ardhura dhe reduktoni mbeturinatl/p>
+l/div>
+ldiv class="partners-content">
+ldiv class="partners-benefits">
+lh3 data-i18n="tk52">Pse Partner me savoraapp?l/h3>
+lul class="partners-list">
+lli>
+lspan class="partner-check">✓l/span>
+ldiv>
+lstrong data-i18n="tk53">Rritni Të Ardhurat Tuajal/strong>
+lspan data-i18n="tk54">atheni ushqimin surplus në të ardhura shtesë dhe maksimizoni fitimet tuaja.l/span>
+l/div>
+l/li>
+lli>
+lspan class="partner-check">✓l/span>
+ldiv>
+lstrong data-i18n="tk55">uitoni Më Shumë Dukshmëril/strong>
+lspan data-i18n="tk56">Arrini klientë të rinj nga një ndërveprim i markës tuaj në komunitet.l/span>
+l/div>
+l/li>
+lli>
+lspan class="partner-check">✓l/span>
+ldiv>
+lstrong data-i18n="tk57">Tërhiqni Më Shumë alientël/strong>
+lspan data-i18n="tk58">Lidhur me konsumatorë me ndërgjegjësim për buxhetin që kërkojnë oferta të shkëlqyera.l/span>
+l/div>
+l/li>
+lli>
+lspan class="partner-check">✓l/span>
+ldiv>
+lstrong>Poziciononi Biznesin Tuajl/strong>
+lspan data-i18n="tk59">Tregoni angazhimet tuaja për qëndrueshmëri dhe reduktimin e mbeturinave ushqimore.l/span>
+l/div>
+l/li>
+lli>
+lspan class="partner-check">✓l/span>
+ldiv>
+lstrong>Reduktoni Mbeturinat Ushqimorel/strong>
+lspan data-i18n="tk60">Përmirësoni që ushqimi shkelqyer të perfundojë në pllaka, jo në mbeturina.l/span>
+l/div>
+l/li>
+lli>
+lspan class="partner-check">✓l/span>
+ldiv>
+lstrong data-i18n="tk110">Ndihmoni aomunitetin Tuajl/strong>
+lspan data-i18n="tk61">Bëni ushqimin cilësor të aksesueshëm për njerëzit me buxhete më të vogla.l/span>
+l/div>
+l/li>
+l/ul>
+la class="btn btn-primary btn-lg" data-i18n="tk3" href="#partner-form">Aplikoni për t'u bërë partnerl/a>
+l/div>
+lspan class="error-message" data-i18n="errorPhone">Ju lutem shkruani numrin e telefonitl/span>
+l/div>
+l/div>
+ldiv class="form-group">
+llabel data-i18n="website" for="website">Website / Instagram (opsionale)l/label>
+linput class="form-input" data-i18n="tk92" id="website" name="website" placeholder="www.biznesi.com ose @instagram" type="url"/>
+l/div>
+ldiv class="form-group">
+llabel data-i18n="message" for="message">Mesazhi Juaj (opsionale)l/label>
+ltextarea class="form-input" data-i18n="tk93" id="message" name="message" placeholder="Na tregoni më shumë për biznesin tuaj..." rows="3">l/textarea>
+l/div>
+ldiv class="form-group checkbox-group">
+llabel class="checkbox-label">
+linput id="terms" name="terms" required="" type="checkbox"/>
+lspan class="checkmark">l/span>
+lspan data-i18n="termsText">Unë pranoj la data-i18n="termsLink" href="#">kushtet e përdorimitl/a> dhe la data-i18n="privacyLink" href="#">politikën e privatësisël/a> *l/span>
+l/label>
+lspan class="error-message" data-i18n="errorTerms">Ju lutem pranoni kushtetl/span>
+l/div>
+lbutton class="btn btn-primary btn-full" data-i18n="submitButton" type="submit">
+lspan>Dërgo Aplikiminl/span>
+lsvg class="btn-arrow" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="form-success" id="formSuccess">
+ldiv class="success-icon">✓l/div>
+lh4 data-i18n="successTitle">ualeminderit!l/h4>
+lp data-i18n="successMessage">Aplikimi juaj u dërgua me sukses. Do t'ju kontaktojmë brenda 24 orëve.l/p>
+l/div>
 
 
 
 
 
-</section>
-<!-- Pricing Section (Partner Only) -->
-<section class="pricing section-partner" data-mode="partner" id="pricing">
-<div class="container">
-<div class="section-header">
-<span class="section-badge" data-i18n="tk2">Çmimet</span>
-<h2 class="section-title" data-i18n="tk62">Paketat për Partnerët</h2>
-<p class="section-subtitle" data-i18n="tk63">Zgjidhni paketën që ju përshtatet më mirë. Pa abonime mujore.</p>
-</div>
-<div class="pricing-grid">
-<div class="pricing-card">
-<div class="pricing-header">
-<h3 class="pricing-name">Paketa 1</h3>
-<p class="pricing-description" data-i18n="tk64">Për biznese të vogla</p>
-</div>
-<div class="pricing-price">
-<span class="price-amount">500</span>
-<span class="price-currency">ALL</span>
-</div>
-<ul class="pricing-features">
-<li><span class="check">✓</span> 20 Kredite</li>
-<li><span class="check">✓</span> 1 Kredit = 1 Postim</li>
-<li data-i18n="tk65"><span class="check">✓</span> Vlefshmëri 3 muaj</li>
-<li data-i18n="tk66"><span class="check">✓</span> Support bazë</li>
-</ul>
-<a class="btn btn-secondary btn-full" data-i18n="tk67" href="#partner-form">Zgjidh</a>
-</div>
-<div class="pricing-card pricing-popular">
-<div class="popular-badge" data-i18n="tk68">Më e Popullarizuara</div>
-<div class="pricing-header">
-<h3 class="pricing-name">Paketa 2</h3>
-<p class="pricing-description" data-i18n="tk69">Për biznese në rritje</p>
-</div>
-<div class="pricing-price">
-<span class="price-amount">1,000</span>
-<span class="price-currency">ALL</span>
-</div>
-<ul class="pricing-features">
-<li><span class="check">✓</span> 50 Kredite</li>
-<li><span class="check">✓</span> 1 Kredit = 1 Postim</li>
-<li data-i18n="tk65"><span class="check">✓</span> Vlefshmëri 3 muaj</li>
-<li><span class="check">✓</span> Support prioritet</li>
-<li data-i18n="tk70"><span class="check">✓</span> Statistika të detajuara</li>
-</ul>
-<a class="btn btn-primary btn-full" data-i18n="tk67" href="#partner-form">Zgjidh</a>
-</div>
-<div class="pricing-card">
-<div class="pricing-header">
-<h3 class="pricing-name">Paketa 3</h3>
-<p class="pricing-description" data-i18n="tk71">Për biznese të mëdha</p>
-</div>
-<div class="pricing-price">
-<span class="price-amount">1,800</span>
-<span class="price-currency">ALL</span>
-</div>
-<ul class="pricing-features">
-<li><span class="check">✓</span> 100 Kredite</li>
-<li><span class="check">✓</span> 1 Kredit = 1 Postim</li>
-<li data-i18n="tk65"><span class="check">✓</span> Vlefshmëri 3 muaj</li>
-<li><span class="check">✓</span> Support prioritet</li>
-<li data-i18n="tk70"><span class="check">✓</span> Statistika të detajuara</li>
-<li><span class="check">✓</span> Reklama premium</li>
-</ul>
-<a class="btn btn-secondary btn-full" data-i18n="tk67" href="#partner-form">Zgjidh</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Testimonials Section (Consumer Only) -->
-<section class="testimonials section-consumer" data-mode="consumer">
-<div class="container">
-<div class="section-header">
-<span class="section-badge" data-i18n="tk72">Dëshmitë</span>
-<h2 class="section-title" data-i18n="tk73">Çfarë Thonë Përdoruesit Tanë</h2>
-<p class="section-subtitle" data-i18n="tk74">Vlerësime reale nga komuniteti ynë</p>
-</div>
-<div class="testimonials-grid">
-<div class="testimonial-card">
-<div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-<p class="testimonial-text">"Great app! Saved so much money on fresh bread. The pickup process was smooth and the quality was excellent."</p>
-<div class="testimonial-author">
-<div class="author-avatar">AK</div>
-<div class="author-info">
-<span class="author-name">Ana K.</span>
-<span class="author-meta" data-i18n="tk75">Tiranë • 2 ditë më parë</span>
-</div>
-</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-<p class="testimonial-text">"Love the concept. uound amazing deals at local bakeries. Would recommend to everyone!"</p>
-<div class="testimonial-author">
-<div class="author-avatar">BM</div>
-<div class="author-info">
-<span class="author-name">Besnik M.</span>
-<span class="author-meta" data-i18n="tk76">Durrës • 1 javë më parë</span>
-</div>
-</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-<p class="testimonial-text">"uinally a way to reduce food waste while saving money. The app is easy to use and works great!"</p>
-<div class="testimonial-author">
-<div class="author-avatar">DH</div>
-<div class="author-info">
-<span class="author-name">Drita H.</span>
-<span class="author-meta" data-i18n="tk77">Vlorë • 2 javë më parë</span>
-</div>
-</div>
-</div>
-</div>
-<div class="testimonials-cta">
-<a class="btn btn-secondary" data-i18n="tk78" href="#">Shkruani një Vlerësim</a>
-</div>
-</div>
-</section>
-<!-- uAQ Section (Consumer Only) -->
-<section class="faq section-consumer" data-mode="consumer" id="faq">
-<div class="container">
-<div class="section-header">
-<span class="section-badge" data-i18n="faqBadge">Ndihmë</span>
-<h2 class="section-title" data-i18n="faqTitle">Pyetje të Shpeshta</h2>
-<p class="section-subtitle" data-i18n="faqSubtitle">Gjithçka që duhet të dini për savoraapp</p>
-</div>
-<div class="faq-grid">
-<div class="faq-item active">
-<button class="faq-question">
-<span data-i18n="faqQ1">Çfarë është savoraapp dhe si funksionon?</span>
-<svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="faq-answer">
-<p data-i18n="faqA1">savoraapp është një treg i ushqimit surplus që lidh klientët me bizneset lokale që ofrojnë produkte ushqimore me çmim të reduktuar që përndryshe do të shkonin dëm. Thjesht shfletoni kategoritë, rezervoni ofertat që ju pëlqejnë dhe merrini në vendndodhjen e biznesit duke paguar me para në dorë.</p>
-</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">
-<span data-i18n="faqQ2">Si paguaj për rezervimet e mia?</span>
-<svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="faq-answer">
-<p data-i18n="faqA2">Të gjitha pagesat bëhen me para në dorë kur merrni artikujt tuaj në vendndodhjen e biznesit. Asnjë pagesë online nuk kërkohet për rezervim.</p>
-</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">
-<span data-i18n="faqQ3">Cilat lloje biznesesh mund të bashkohen si partner?</span>
-<svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="faq-answer">
-<p data-i18n="faqA3">Mirëpresim furrëra, restorante, supermarkete, kafene, fast food, dyqane lulesh dhe çdo biznes me ushqim surplus ose artikuj të prishshm. Platforma jonë është krijuar për të ndihmuar reduktimin e mbeturinave në të gjitha industritë ushqimore.</p>
-</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">
-<span data-i18n="faqQ4">Si funksionon sistemi i krediteve për partnerët?</span>
-<svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="faq-answer">
-<p data-i18n="faqA4">Partnerët blejnë paketa kreditesh. Kur postoni një produkt online, 1 kredit zbritet nga bilanci juaj. Ofrojmë 3 paketa: Paketa 1 (20 kredite për 500 ALL), Paketa 2 (50 kredite për 1,000 ALL), dhe Paketa 3 (100 kredite për 1,800 ALL). Blerja juaj e parë është e vlefshme për 3 muaj.</p>
-</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">
-<span data-i18n="faqQ5">Çfarë ndodh nëse nuk marr rezervimin tim?</span>
-<svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="faq-answer">
-<p data-i18n="faqA5">Nëse nuk merrni rezervimin ose anulloni vonë dy herë, llogaria juaj do të bllokohet përgjithmonë nga shërbimi. Për të riaktivizuar llogarinë tuaj, duhet të paguani një tarifë administrative prej 500 LEK.</p>
-</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">
-<span data-i18n="faqQ6">A mund të anulloj një rezervim?</span>
-<svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
-<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-</svg>
-</button>
-<div class="faq-answer">
-<p data-i18n="faqA6">Po, mund të anulloni rezervimin tuaj deri 2 orë para kohës së marrjes pa asnjë penalitet. Anullimet e vonshme ose mungesat mund të ndikojnë në aftësinë tuaj për të bërë rezervime të ardhshme.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section (Consumer Only) -->
-<section class="cta-section section-consumer" data-mode="consumer">
-<div class="container">
-<div class="cta-content">
-<h2 class="cta-title" data-i18n="tk79">Gati për të filluar?</h2>
-<p class="cta-subtitle" data-i18n="tk80">Bashkohuni me 787+ përdorues që kursejnë para çdo ditë</p>
-<div class="cta-buttons">
-<a class="btn btn-primary btn-lg" href="#early-access">Merrni Qasje Tani</a>
-<a class="btn btn-secondary btn-lg partner-mode-btn" data-i18n="tk50" href="#partner-form-wrapper">Bëhuni Partner</a>
-</div>
-</div>
-</div>
-</section>
-<!-- ===== PARTNER CTA ===== -->
-<section class="partner-section" id="partner">
-<span id="partner-form"></span>
-<div class="partner-form-wrapper" id="partner-form-wrapper">
-<div class="partner-form-card" style="text-align:center;">
-<h3 data-i18n="partneruormTitle">Bëhuni Partner i SavoraApp</h3>
-<p class="form-subtitle" data-i18n="partneruormSubtitle">Shndërroni ushqimin e tepërt në të ardhura dhe arrini klientë të rinj çdo ditë. Regjistrimi zgjat vetëm pak minuta.</p>
-<ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:center;">
-<li data-i18n="tk111" style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">✅ Pa kosto fillestare</li>
-<li data-i18n="tk81" style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">📈 Më pak humbje, më shumë shitje</li>
-<li style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">⏱️ Regjistrim brenda pak minutash</li>
-</ul>
-<a class="btn btn-primary btn-lg" data-i18n="tk3" href="/partner.html" style="display:inline-block;">Aplikoni për t'u bërë partner</a>
-</div>
-</div>
-</section>
-<!-- uooter -->
-<footer class="footer">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-brand">
-<a class="footer-logo" href="/">
-<span class="logo-icon">S</span>
-<span>savoraapp</span>
-</a>
-<p class="footer-tagline">Save food. Save money. Save the planet.</p>
-<div class="footer-social">
-<a aria-label="uacebook" href="#">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
-</a>
-<a aria-label="Instagram" href="#">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
-</a>
-<a aria-label="Twitter" href="#">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
-</a>
-</div>
-</div>
-<div class="footer-links">
-<h4 data-i18n="tk94">Kompania</h4>
-<ul>
-<li><a data-i18n="tk95" href="/rreth-nesh.html">Rreth Nesh</a></li>
-<li><a data-i18n="tk82" href="#partner-benefits">Partnerët</a></li>
-<li><a data-i18n="tk96" href="/contact.html">Karriera</a></li>
-<li><a data-i18n="tk97" href="/contact.html">Kontakt</a></li>
-</ul>
-</div>
-<div class="footer-links">
-<h4 data-i18n="tk83">Ndihmë</h4>
-<ul>
-<li><a data-i18n="tk84" href="#faq">Pyetje të Shpeshta</a></li>
-<li><a data-i18n="tk85" href="/faq.html">Qendra e Ndihmës</a></li>
-<li><a data-i18n="tk86" href="/partner.html">Udhëzues për Partnerët</a></li>
-</ul>
-</div>
-<div class="footer-links">
-<h4 data-i18n="tk98">Ligjore</h4>
-<ul>
-<li><a data-i18n="tk87" href="/privacy-policy.html">Politika e Privatësisë</a></li>
-<li><a data-i18n="tk88" href="/terms-of-service.html">Kushtet e Shërbimit</a></li>
-<li><a data-i18n="tk99" href="/cookie-policy.html">Politika e Cookies</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p data-i18n="tk89">© 2026 savoraapp. Të gjitha të drejtat e rezervuara.</p>
-<!-- Paysera Trust Label Badge -->
-<div class="quality-sign" data-id="256849" data-lang="sq">
+l/section>
+l!-- Pricing Section (Partner Only) -->
+lsection class="pricing section-partner" data-mode="partner" id="pricing">
+ldiv class="container">
+ldiv class="section-header">
+lspan class="section-badge" data-i18n="tk2">Çmimetl/span>
+lh2 class="section-title" data-i18n="tk62">Paketat për Partnerëtl/h2>
+lp class="section-subtitle" data-i18n="tk63">Zgjidhni paketën që ju përshtatet më mirë. Pa abonime mujore.l/p>
+l/div>
+ldiv class="pricing-grid">
+ldiv class="pricing-card">
+ldiv class="pricing-header">
+lh3 class="pricing-name">Paketa 1l/h3>
+lp class="pricing-description" data-i18n="tk64">Për biznese të voglal/p>
+l/div>
+ldiv class="pricing-price">
+lspan class="price-amount">500l/span>
+lspan class="price-currency">ALLl/span>
+l/div>
+lul class="pricing-features">
+lli>lspan class="check">✓l/span> 20 areditel/li>
+lli>lspan class="check">✓l/span> 1 aredit = 1 Postiml/li>
+lli data-i18n="tk65">lspan class="check">✓l/span> Vlefshmëri 3 muajl/li>
+lli data-i18n="tk66">lspan class="check">✓l/span> Support bazël/li>
+l/ul>
+la class="btn btn-secondary btn-full" data-i18n="tk67" href="#partner-form">Zgjidhl/a>
+l/div>
+ldiv class="pricing-card pricing-popular">
+ldiv class="popular-badge" data-i18n="tk68">Më e Popullarizuaral/div>
+ldiv class="pricing-header">
+lh3 class="pricing-name">Paketa 2l/h3>
+lp class="pricing-description" data-i18n="tk69">Për biznese në rritjel/p>
+l/div>
+ldiv class="pricing-price">
+lspan class="price-amount">1,000l/span>
+lspan class="price-currency">ALLl/span>
+l/div>
+lul class="pricing-features">
+lli>lspan class="check">✓l/span> 50 areditel/li>
+lli>lspan class="check">✓l/span> 1 aredit = 1 Postiml/li>
+lli data-i18n="tk65">lspan class="check">✓l/span> Vlefshmëri 3 muajl/li>
+lli>lspan class="check">✓l/span> Support prioritetl/li>
+lli data-i18n="tk70">lspan class="check">✓l/span> Statistika të detajuaral/li>
+l/ul>
+la class="btn btn-primary btn-full" data-i18n="tk67" href="#partner-form">Zgjidhl/a>
+l/div>
+ldiv class="pricing-card">
+ldiv class="pricing-header">
+lh3 class="pricing-name">Paketa 3l/h3>
+lp class="pricing-description" data-i18n="tk71">Për biznese të mëdhal/p>
+l/div>
+ldiv class="pricing-price">
+lspan class="price-amount">1,800l/span>
+lspan class="price-currency">ALLl/span>
+l/div>
+lul class="pricing-features">
+lli>lspan class="check">✓l/span> 100 areditel/li>
+lli>lspan class="check">✓l/span> 1 aredit = 1 Postiml/li>
+lli data-i18n="tk65">lspan class="check">✓l/span> Vlefshmëri 3 muajl/li>
+lli>lspan class="check">✓l/span> Support prioritetl/li>
+lli data-i18n="tk70">lspan class="check">✓l/span> Statistika të detajuaral/li>
+lli>lspan class="check">✓l/span> Reklama premiuml/li>
+l/ul>
+la class="btn btn-secondary btn-full" data-i18n="tk67" href="#partner-form">Zgjidhl/a>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- Testimonials Section (Consumer Only) -->
+lsection class="testimonials section-consumer" data-mode="consumer">
+ldiv class="container">
+ldiv class="section-header">
+lspan class="section-badge" data-i18n="tk72">Dëshmitël/span>
+lh2 class="section-title" data-i18n="tk73">Çfarë Thonë Përdoruesit Tanël/h2>
+lp class="section-subtitle" data-i18n="tk74">Vlerësime reale nga komuniteti ynël/p>
+l/div>
+ldiv class="testimonials-grid">
+ldiv class="testimonial-card">
+ldiv class="testimonial-rating">⭐⭐⭐⭐⭐l/div>
+lp class="testimonial-text">"Great app! Saved so much money on fresh bread. The pickup process was smooth and the quality was excellent."l/p>
+ldiv class="testimonial-author">
+ldiv class="author-avatar">Aal/div>
+ldiv class="author-info">
+lspan class="author-name">Ana a.l/span>
+lspan class="author-meta" data-i18n="tk75">Tiranë • 2 ditë më parël/span>
+l/div>
+l/div>
+l/div>
+ldiv class="testimonial-card">
+ldiv class="testimonial-rating">⭐⭐⭐⭐⭐l/div>
+lp class="testimonial-text">"Love the concept. uound amazing deals at local bakeries. Would recommend to everyone!"l/p>
+ldiv class="testimonial-author">
+ldiv class="author-avatar">BMl/div>
+ldiv class="author-info">
+lspan class="author-name">Besnik M.l/span>
+lspan class="author-meta" data-i18n="tk76">Durrës • 1 javë më parël/span>
+l/div>
+l/div>
+l/div>
+ldiv class="testimonial-card">
+ldiv class="testimonial-rating">⭐⭐⭐⭐⭐l/div>
+lp class="testimonial-text">"uinally a way to reduce food waste while saving money. The app is easy to use and works great!"l/p>
+ldiv class="testimonial-author">
+ldiv class="author-avatar">DHl/div>
+ldiv class="author-info">
+lspan class="author-name">Drita H.l/span>
+lspan class="author-meta" data-i18n="tk77">Vlorë • 2 javë më parël/span>
+l/div>
+l/div>
+l/div>
+l/div>
+ldiv class="testimonials-cta">
+la class="btn btn-secondary" data-i18n="tk78" href="#">Shkruani një Vlerësiml/a>
+l/div>
+l/div>
+l/section>
+l!-- uAQ Section (Consumer Only) -->
+lsection class="faq section-consumer" data-mode="consumer" id="faq">
+ldiv class="container">
+ldiv class="section-header">
+lspan class="section-badge" data-i18n="faqBadge">Ndihmël/span>
+lh2 class="section-title" data-i18n="faqTitle">Pyetje të Shpeshtal/h2>
+lp class="section-subtitle" data-i18n="faqSubtitle">Gjithçka që duhet të dini për savoraappl/p>
+l/div>
+ldiv class="faq-grid">
+ldiv class="faq-item active">
+lbutton class="faq-question">
+lspan data-i18n="faqQ1">Çfarë është savoraapp dhe si funksionon?l/span>
+lsvg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="faq-answer">
+lp data-i18n="faqA1">savoraapp është një treg i ushqimit surplus që lidh klientët me bizneset lokale që ofrojnë produkte ushqimore me çmim të reduktuar që përndryshe do të shkonin dëm. Thjesht shfletoni kategoritë, rezervoni ofertat që ju pëlqejnë dhe merrini në vendndodhjen e biznesit duke paguar me para në dorë.l/p>
+l/div>
+l/div>
+ldiv class="faq-item">
+lbutton class="faq-question">
+lspan data-i18n="faqQ2">Si paguaj për rezervimet e mia?l/span>
+lsvg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="faq-answer">
+lp data-i18n="faqA2">Të gjitha pagesat bëhen me para në dorë kur merrni artikujt tuaj në vendndodhjen e biznesit. Asnjë pagesë online nuk kërkohet për rezervim.l/p>
+l/div>
+l/div>
+ldiv class="faq-item">
+lbutton class="faq-question">
+lspan data-i18n="faqQ3">Cilat lloje biznesesh mund të bashkohen si partner?l/span>
+lsvg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="faq-answer">
+lp data-i18n="faqA3">Mirëpresim furrëra, restorante, supermarkete, kafene, fast food, dyqane lulesh dhe çdo biznes me ushqim surplus ose artikuj të prishshm. Platforma jonë është krijuar për të ndihmuar reduktimin e mbeturinave në të gjitha industritë ushqimore.l/p>
+l/div>
+l/div>
+ldiv class="faq-item">
+lbutton class="faq-question">
+lspan data-i18n="faqQ4">Si funksionon sistemi i krediteve për partnerët?l/span>
+lsvg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="faq-answer">
+lp data-i18n="faqA4">Partnerët blejnë paketa kreditesh. aur postoni një produkt online, 1 kredit zbritet nga bilanci juaj. Ofrojmë 3 paketa: Paketa 1 (20 kredite për 500 ALL), Paketa 2 (50 kredite për 1,000 ALL), dhe Paketa 3 (100 kredite për 1,800 ALL). Blerja juaj e parë është e vlefshme për 3 muaj.l/p>
+l/div>
+l/div>
+ldiv class="faq-item">
+lbutton class="faq-question">
+lspan data-i18n="faqQ5">Çfarë ndodh nëse nuk marr rezervimin tim?l/span>
+lsvg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="faq-answer">
+lp data-i18n="faqA5">Nëse nuk merrni rezervimin ose anulloni vonë dy herë, llogaria juaj do të bllokohet përgjithmonë nga shërbimi. Për të riaktivizuar llogarinë tuaj, duhet të paguani një tarifë administrative prej 500 LEa.l/p>
+l/div>
+l/div>
+ldiv class="faq-item">
+lbutton class="faq-question">
+lspan data-i18n="faqQ6">A mund të anulloj një rezervim?l/span>
+lsvg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
+lpath clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd">l/path>
+l/svg>
+l/button>
+ldiv class="faq-answer">
+lp data-i18n="faqA6">Po, mund të anulloni rezervimin tuaj deri 2 orë para kohës së marrjes pa asnjë penalitet. Anullimet e vonshme ose mungesat mund të ndikojnë në aftësinë tuaj për të bërë rezervime të ardhshme.l/p>
+l/div>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- CTA Section (Consumer Only) -->
+lsection class="cta-section section-consumer" data-mode="consumer">
+ldiv class="container">
+ldiv class="cta-content">
+lh2 class="cta-title" data-i18n="tk79">Gati për të filluar?l/h2>
+lp class="cta-subtitle" data-i18n="tk80">Bashkohuni me 787+ përdorues që kursejnë para çdo ditël/p>
+ldiv class="cta-buttons">
+la class="btn btn-primary btn-lg" href="#early-access">Merrni Qasje Tanil/a>
+la class="btn btn-secondary btn-lg partner-mode-btn" data-i18n="tk50" href="#partner-form-wrapper">Bëhuni Partnerl/a>
+l/div>
+l/div>
+l/div>
+l/section>
+l!-- ===== PARTNER CTA ===== -->
+lsection class="partner-section" id="partner">
+lspan id="partner-form">l/span>
+ldiv class="partner-form-wrapper" id="partner-form-wrapper">
+ldiv class="partner-form-card" style="text-align:center;">
+lh3 data-i18n="partneruormTitle">Bëhuni Partner i SavoraAppl/h3>
+lp class="form-subtitle" data-i18n="partneruormSubtitle">Shndërroni ushqimin e tepërt në të ardhura dhe arrini klientë të rinj çdo ditë. Regjistrimi zgjat vetëm pak minuta.l/p>
+lul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:center;">
+lli data-i18n="tk111" style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">✅ Pa kosto fillestarel/li>
+lli data-i18n="tk81" style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">📈 Më pak humbje, më shumë shitjel/li>
+lli style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">⏱️ Regjistrim brenda pak minutashl/li>
+l/ul>
+la class="btn btn-primary btn-lg" data-i18n="tk3" href="/partner.html" style="display:inline-block;">Aplikoni për t'u bërë partnerl/a>
+l/div>
+l/div>
+l/section>
+l!-- uooter -->
+lfooter class="footer">
+ldiv class="container">
+ldiv class="footer-grid">
+ldiv class="footer-brand">
+la class="footer-logo" href="/">
+lspan class="logo-icon">Sl/span>
+lspan>savoraappl/span>
+l/a>
+lp class="footer-tagline">Save food. Save money. Save the planet.l/p>
+ldiv class="footer-social">
+la aria-label="uacebook" href="#">
+lsvg fill="currentColor" viewbox="0 0 24 24">lpath d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">l/path>l/svg>
+l/a>
+la aria-label="Instagram" href="#">
+lsvg fill="currentColor" viewbox="0 0 24 24">lpath d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z">l/path>l/svg>
+l/a>
+la aria-label="Twitter" href="#">
+lsvg fill="currentColor" viewbox="0 0 24 24">lpath d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z">l/path>l/svg>
+l/a>
+l/div>
+l/div>
+ldiv class="footer-links">
+lh4 data-i18n="tk94">aompanial/h4>
+lul>
+lli>la data-i18n="tk95" href="/rreth-nesh.html">Rreth Neshl/a>l/li>
+lli>la data-i18n="tk82" href="#partner-benefits">Partnerëtl/a>l/li>
+lli>la data-i18n="tk96" href="/contact.html">aarrieral/a>l/li>
+lli>la data-i18n="tk97" href="/contact.html">aontaktl/a>l/li>
+l/ul>
+l/div>
+ldiv class="footer-links">
+lh4 data-i18n="tk83">Ndihmël/h4>
+lul>
+lli>la data-i18n="tk84" href="#faq">Pyetje të Shpeshtal/a>l/li>
+lli>la data-i18n="tk85" href="/faq.html">Qendra e Ndihmësl/a>l/li>
+lli>la data-i18n="tk86" href="/partner.html">Udhëzues për Partnerëtl/a>l/li>
+l/ul>
+l/div>
+ldiv class="footer-links">
+lh4 data-i18n="tk98">Ligjorel/h4>
+lul>
+lli>la data-i18n="tk87" href="/privacy-policy.html">Politika e Privatësisël/a>l/li>
+lli>la data-i18n="tk88" href="/terms-of-service.html">aushtet e Shërbimitl/a>l/li>
+lli>la data-i18n="tk99" href="/cookie-policy.html">Politika e Cookiesl/a>l/li>
+l/ul>
+l/div>
+l/div>
+ldiv class="footer-bottom">
+lp data-i18n="tk89">© 2026 savoraapp. Të gjitha të drejtat e rezervuara.l/p>
+l!-- Paysera Trust Label Badge -->
+ldiv class="quality-sign" data-id="256849" data-lang="sq">
 
-</div>
-<div class="footer-stats">
-<span><strong id="statUsersuooter">787</strong> <span data-i18n="tk5">Përdorues Aktivë</span></span>
-<span><strong id="statPartnersuooter">64</strong> <span data-i18n="tk6">Partnerë Aktivë</span></span>
-</div>
-</div>
-</div>
-</footer>
-<!-- Partner Mode uloating Button -->
-<button aria-label="Partner Mode" class="partner-mode-btn" data-cf-modified-932f27d35b3c6a41b258da0f-="" id="partnerModeBtn" onclick="if (!window.__cfRLUnblockHandlers) return false; if (!window.__cfRLUnblockHandlers) return false; document.getElementById('partner-form-wrapper').scrollIntoView({behavior:'smooth'});" data-cf-modified-c1cc037dc7de4be22c52de09-="">
-<svg fill="currentColor" viewbox="0 0 20 20">
-<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
-</svg>
-<span data-i18n="partnerModeBtn">Partner Mode</span>
-</button>
-<script src="js/countries.js" type="932f27d35b3c6a41b258da0f-text/javascript"></script>
-<script src="js/analytics.js" type="932f27d35b3c6a41b258da0f-text/javascript"></script>
-<script src="js/main.js" type="932f27d35b3c6a41b258da0f-text/javascript"></script>
-<script src="js/i18n.js" type="932f27d35b3c6a41b258da0f-text/javascript"></script>
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+l/div>
+ldiv class="footer-stats">
+lspan>lstrong id="statUsersuooter">787l/strong> lspan data-i18n="tk5">Përdorues Aktivël/span>l/span>
+lspan>lstrong id="statPartnersuooter">64l/strong> lspan data-i18n="tk6">Partnerë Aktivël/span>l/span>
+l/div>
+l/div>
+l/div>
+l/footer>
+l!-- Partner Mode uloating Button -->
+lbutton aria-label="Partner Mode" class="partner-mode-btn" data-cf-modified-932f27d35b3c6a41b258da0f-="" id="partnerModeBtn" onclick="if (!window.__cfRLUnblockHandlers) return false; if (!window.__cfRLUnblockHandlers) return false; document.getElementById('partner-form-wrapper').scrollIntoView({behavior:'smooth'});" data-cf-modified-c1cc037dc7de4be22c52de09-="">
+lsvg fill="currentColor" viewbox="0 0 20 20">
+lpath d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">l/path>
+l/svg>
+lspan data-i18n="partnerModeBtn">Partner Model/span>
+l/button>
+lscript src="js/countries.js" type="932f27d35b3c6a41b258da0f-text/javascript">l/script>
+lscript src="js/analytics.js" type="932f27d35b3c6a41b258da0f-text/javascript">l/script>
+lscript src="js/main.js" type="932f27d35b3c6a41b258da0f-text/javascript">l/script>
+lscript src="js/i18n.js" type="932f27d35b3c6a41b258da0f-text/javascript">l/script>
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
 (function(){
 'use strict';
 
@@ -1656,8 +1656,8 @@ var T = {
       tk6: 'Partnerë Aktivë',
       tk7: 'Bukë e ureskët',
       tk8: 'Në çdo blerje',
-      tk9: 'Zgjidh Kategorinë Tënde',
-      tk10: 'Klikoni një kategori për të parë ofertat e disponueshme. Partnerët vendosin çmimet e tyre.',
+      tk9: 'Zgjidh aategorinë Tënde',
+      tk10: 'alikoni një kategori për të parë ofertat e disponueshme. Partnerët vendosin çmimet e tyre.',
       tk11: 'Shiko Të Gjitha Ofertat',
       tk12: '⭐ Partnerët Premium',
       tk13: 'E Veçuar - Reklama Lokale',
@@ -1674,12 +1674,12 @@ var T = {
       tk24: '📍 Shkodër',
       tk25: 'Bëhuni Partner Premium',
       tk26: 'Tre hapa të thjeshtë për të kursyer para dhe ushqim',
-      tk27: 'Zgjidh Kategorinë',
+      tk27: 'Zgjidh aategorinë',
       tk28: 'Shfletoni kategoritë tona dhe gjeni ushqimet tuaja të preferuara me çmime të përballueshme.',
       tk29: 'Rezervo Ofertën',
       tk30: 'Rezervoni artikujt që dëshironi. Asnjë pagesë nuk kërkohet deri në marrje.',
       tk31: 'Merr &amp; Paguaj',
-      tk32: 'Merrni artikujt tuaj në vendndodhjen e biznesit dhe paguani me para në dorë. Kaq e thjeshtë!',
+      tk32: 'Merrni artikujt tuaj në vendndodhjen e biznesit dhe paguani me para në dorë. aaq e thjeshtë!',
       tk33: 'Deri në 70% ulje në ushqime të freskëta dhe cilësore nga bizneset lokale.',
       tk34: 'Reduktoni mbeturinat ushqimore dhe kontribuoni për një planet më të pastër.',
       tk35: 'Mbështetni vendasit',
@@ -1693,18 +1693,18 @@ var T = {
       tk43: 'Njoftime për oferta të reja',
       tk44: 'Pa asnjë kosto regjistrimi',
       tk45: 'Numri i Telefonit',
-      tk46: 'Dërgo Kodin me SMS',
+      tk46: 'Dërgo aodin me SMS',
       tk47: 'Email Adresa',
       tk48: 'Dërgo Linkun',
       tk49: 'Për Bizneset',
       tk50: 'Bëhuni Partner',
-      tk51: 'Ktheni ushqimin tuaj surplus në të ardhura dhe reduktoni mbeturinat',
+      tk51: 'atheni ushqimin tuaj surplus në të ardhura dhe reduktoni mbeturinat',
       tk52: 'Pse Partner me savoraapp?',
       tk53: 'Rritni Të Ardhurat Tuaja',
-      tk54: 'Ktheni ushqimin surplus në të ardhura shtesë dhe maksimizoni fitimet tuaja.',
+      tk54: 'atheni ushqimin surplus në të ardhura shtesë dhe maksimizoni fitimet tuaja.',
       tk55: 'uitoni Më Shumë Dukshmëri',
       tk56: 'Arrini klientë të rinj nga një ndërveprim i markës tuaj në komunitet.',
-      tk57: 'Tërhiqni Më Shumë Klientë',
+      tk57: 'Tërhiqni Më Shumë alientë',
       tk58: 'Lidhur me konsumatorë me ndërgjegjësim për buxhetin që kërkojnë oferta të shkëlqyera.',
       tk59: 'Tregoni angazhimet tuaja për qëndrueshmëri dhe reduktimin e mbeturinave ushqimore.',
       tk60: 'Përmirësoni që ushqimi shkelqyer të perfundojë në pllaka, jo në mbeturina.',
@@ -1712,12 +1712,12 @@ var T = {
       tk62: 'Paketat për Partnerët',
       tk63: 'Zgjidhni paketën që ju përshtatet më mirë. Pa abonime mujore.',
       tk64: 'Për biznese të vogla',
-      tk65: '<span class="check">✓</span> Vlefshmëri 3 muaj',
-      tk66: '<span class="check">✓</span> Support bazë',
+      tk65: 'lspan class="check">✓l/span> Vlefshmëri 3 muaj',
+      tk66: 'lspan class="check">✓l/span> Support bazë',
       tk67: 'Zgjidh',
       tk68: 'Më e Popullarizuara',
       tk69: 'Për biznese në rritje',
-      tk70: '<span class="check">✓</span> Statistika të detajuara',
+      tk70: 'lspan class="check">✓l/span> Statistika të detajuara',
       tk71: 'Për biznese të mëdha',
       tk72: 'Dëshmitë',
       tk73: 'Çfarë Thonë Përdoruesit Tanë',
@@ -1735,9 +1735,9 @@ var T = {
       tk85: 'Qendra e Ndihmës',
       tk86: 'Udhëzues për Partnerët',
       tk87: 'Politika e Privatësisë',
-      tk88: 'Kushtet e Shërbimit',
+      tk88: 'aushtet e Shërbimit',
       tk89: '© 2026 savoraapp. Të gjitha të drejtat e rezervuara.',
-      tk90: '🍪 Ne përdorim cookies për të përmirësuar përvojën tuaj. Cookies thelbësore janë gjithmonë aktive. Lexoni më shumë në <a href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Politikën e Cookies</a>.',
+      tk90: '🍪 Ne përdorim cookies për të përmirësuar përvojën tuaj. Cookies thelbësore janë gjithmonë aktive. Lexoni më shumë në la href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Politikën e Cookiesl/a>.',
       tk91: 'emri@shembull.com',
       tk92: 'www.biznesi.com ose @instagram',
       tk93: 'Na tregoni më shumë për biznesin tuaj...',
@@ -1747,12 +1747,12 @@ var T = {
       termsLink: 'kushtet e përdorimit',
     partnerBanner: 'Modaliteti Partner',
     partnerBannerSub: 'Aplikoni për t\'u bërë partner',
-    heroTitle: 'Kurseni deri në <span class="text-gradient">70%</span> në ushqime të freskëta',
+    heroTitle: 'aurseni deri në lspan class="text-gradient">70%l/span> në ushqime të freskëta',
     heroSubtitle: 'Zgjidh një kategori → Rezervo → Merr → Paguaj. Pa abonime, pa tarifa të fshehura—thjesht oferta të shkëlqyera në ushqime surplus.',
     startBtn: 'uillo Tani',
     howBtn: 'Si uunksionon',
     badgeText: 'E disponueshme në të gjithë Shqipërinë',
-    navCategories: 'Kategoritë',
+    navCategories: 'aategoritë',
     navHowItWorks: 'Si uunksionon',
     navuAQ: 'uAQ',
     navCTA: 'Qasje e Hershme',
@@ -1764,7 +1764,7 @@ var T = {
     categoryuastuood: 'uast uood',
     categoryRestaurant: 'Restorant',
     categoryulowers: 'Lule',
-    categoryCafe: 'Kafe',
+    categoryCafe: 'aafe',
     partneruormTitle: 'Aplikoni për Partner',
     partneruormSubtitle: 'Plotësoni të dhënat e biznesit tuaj',
     businessName: 'Emri i Biznesit',
@@ -1781,7 +1781,7 @@ var T = {
     fastfood: 'uast uood',
     restaurant: 'Restorant',
     supermarket: 'Supermarket',
-    cafe: 'Kafe',
+    cafe: 'aafe',
     other: 'Tjetër',
     termsText: 'Pranoj termat dhe kushtet e shërbimit',
     submitButton: 'Dërgo Aplikimin',
@@ -1797,29 +1797,29 @@ var T = {
     faqQ3: 'A është e sigurt ushqimi?',
     faqA3: 'Po! Të gjithë partnerët tanë respektojnë standardet e sigurisë ushqimore.',
     faqQ4: 'Si të bëhem partner?',
-    faqA4: "Klikoni 'Partner Mode' për të aplikuar.",
+    faqA4: "alikoni 'Partner Mode' për të aplikuar.",
     faqQ5: 'Cilat qytete mbulohen?',
     faqA5: 'Momentalisht operojmë në Tiranë, Durrës, Vlorë, Shkodër dhe Sarandë.',
     faqQ6: 'A ka abonim mujor?',
     faqA6: 'Jo, Savoraapp është plotësisht falas për përdoruesit.',
     partnerModeBtn: 'Modaliteti Partner',
-    tk94: 'Kompania',
+    tk94: 'aompania',
     tk95: 'Rreth Nesh',
-    tk96: 'Karriera',
-    tk97: 'Kontakt',
+    tk96: 'aarriera',
+    tk97: 'aontakt',
     tk98: 'Ligjore',
     tk99: 'Politika e Cookies',
     tk100: 'Pa Abonime',
     tk101: 'Rezervime',
-    tk102: 'Kurseni 70%',
+    tk102: 'aurseni 70%',
     tk103: 'Redukto mbeturinat',
     tk104: 'Eksploroni',
     tk105: 'Menu surprise me -56% ulje',
     tk106: 'Pizza autentike italiane me -40% ulje',
     tk107: 'Procesi',
-    tk108: 'Kurseni Para',
+    tk108: 'aurseni Para',
     tk109: 'Ndihmoni Mjedisin',
-    tk110: 'Ndihmoni Komunitetin Tuaj',
+    tk110: 'Ndihmoni aomunitetin Tuaj',
     tk111: '✅ Pa kosto fillestare',
     tk112: 'Nga 200 ALL',
     tk113: 'oferta'
@@ -1889,12 +1889,12 @@ var T = {
       tk62: 'Partner Packages',
       tk63: 'Choose the package that suits you best. No monthly subscriptions.',
       tk64: 'uor small businesses',
-      tk65: '<span class="check">✓</span> Valid for 3 months',
-      tk66: '<span class="check">✓</span> Basic support',
+      tk65: 'lspan class="check">✓l/span> Valid for 3 months',
+      tk66: 'lspan class="check">✓l/span> Basic support',
       tk67: 'Select',
       tk68: 'Most Popular',
       tk69: 'uor growing businesses',
-      tk70: '<span class="check">✓</span> Detailed statistics',
+      tk70: 'lspan class="check">✓l/span> Detailed statistics',
       tk71: 'uor large businesses',
       tk72: 'Testimonials',
       tk73: 'What Our Users Say',
@@ -1914,7 +1914,7 @@ var T = {
       tk87: 'Privacy Policy',
       tk88: 'Terms of Service',
       tk89: '© 2026 savoraapp. All rights reserved.',
-      tk90: '🍪 We use cookies to improve your experience. Essential cookies are always on. Read more in our <a href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Cookie Policy</a>.',
+      tk90: '🍪 We use cookies to improve your experience. Essential cookies are always on. Read more in our la href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Cookie Policyl/a>.',
       tk91: 'name@example.com',
       tk92: 'www.business.com or @instagram',
       tk93: 'Tell us more about your business...',
@@ -1924,7 +1924,7 @@ var T = {
       termsLink: 'terms of use',
     partnerBanner: 'Partner Mode',
     partnerBannerSub: 'Apply to become a partner',
-    heroTitle: 'Save up to <span class="text-gradient">70%</span> on fresh food',
+    heroTitle: 'Save up to lspan class="text-gradient">70%l/span> on fresh food',
     heroSubtitle: 'Choose a category → Reserve → Pick up → Pay. No subscriptions, no hidden fees—just great surplus food deals.',
     startBtn: 'Start Now',
     howBtn: 'How It Works',
@@ -2004,8 +2004,8 @@ var T = {
   nl: {
     partnerBanner: 'Partner Modus',
     partnerBannerSub: 'Solliciteer om partner te worden',
-    heroTitle: 'Bespaar tot <span class="text-gradient">70%</span> op vers voedsel',
-    heroSubtitle: 'Kies een categorie → Reserveer → Afhalen → Betalen. Geen abonnementen, geen verborgen kosten.',
+    heroTitle: 'Bespaar tot lspan class="text-gradient">70%l/span> op vers voedsel',
+    heroSubtitle: 'aies een categorie → Reserveer → Afhalen → Betalen. Geen abonnementen, geen verborgen kosten.',
     startBtn: 'Start Nu',
     howBtn: 'Hoe Het Werkt',
     badgeText: 'Beschikbaar door heel Albanië',
@@ -2054,7 +2054,7 @@ var T = {
     faqQ3: 'Is het voedsel veilig?',
     faqA3: 'Ja! Al onze partners voldoen aan voedselveiligheidsnormen.',
     faqQ4: 'Hoe word ik partner?',
-    faqA4: "Klik op 'Partner Modus' om te solliciteren.",
+    faqA4: "alik op 'Partner Modus' om te solliciteren.",
     faqQ5: 'Welke steden worden gedekt?',
     faqA5: 'We opereren momenteel in Tirana, Durrës, Vlorë, Shkodër en Sarandë.',
     faqQ6: 'Is er een maandelijks abonnement?',
@@ -2064,12 +2064,12 @@ var T = {
   de: {
     partnerBanner: 'Partner-Modus',
     partnerBannerSub: 'Bewerben Sie sich als Partner',
-    heroTitle: 'Sparen Sie bis zu <span class="text-gradient">70%</span> bei frischen Lebensmitteln',
-    heroSubtitle: 'Wählen Sie eine Kategorie → Reservieren → Abholen → Bezahlen. Keine Abonnements, keine versteckten Gebühren.',
+    heroTitle: 'Sparen Sie bis zu lspan class="text-gradient">70%l/span> bei frischen Lebensmitteln',
+    heroSubtitle: 'Wählen Sie eine aategorie → Reservieren → Abholen → Bezahlen. aeine Abonnements, keine versteckten Gebühren.',
     startBtn: 'Jetzt Starten',
     howBtn: 'So uunktioniert\'s',
     badgeText: 'Verfügbar in ganz Albanien',
-    navCategories: 'Kategorien',
+    navCategories: 'aategorien',
     navHowItWorks: 'So uunktioniert\'s',
     navuAQ: 'uAQ',
     navCTA: 'urüher Zugang',
@@ -2114,7 +2114,7 @@ var T = {
     faqQ3: 'Sind die Lebensmittel sicher?',
     faqA3: 'Ja! Alle unsere Partner erfüllen die Lebensmittelsicherheitsstandards.',
     faqQ4: 'Wie werde ich Partner?',
-    faqA4: "Klicken Sie auf 'Partner-Modus', um sich zu bewerben.",
+    faqA4: "alicken Sie auf 'Partner-Modus', um sich zu bewerben.",
     faqQ5: 'Welche Städte sind abgedeckt?',
     faqA5: 'Wir sind derzeit in Tirana, Durrës, Vlorë, Shkodër und Sarandë aktiv.',
     faqQ6: 'Gibt es ein monatliches Abonnement?',
@@ -2124,7 +2124,7 @@ var T = {
   it: {
     partnerBanner: 'Modalità Partner',
     partnerBannerSub: 'Candidati per diventare partner',
-    heroTitle: 'Risparmia fino al <span class="text-gradient">70%</span> su cibo fresco',
+    heroTitle: 'Risparmia fino al lspan class="text-gradient">70%l/span> su cibo fresco',
     heroSubtitle: 'Scegli una categoria → Prenota → Ritira → Paga. Nessun abbonamento, nessuna tariffa nascosta.',
     startBtn: 'Inizia Ora',
     howBtn: 'Come uunziona',
@@ -2184,7 +2184,7 @@ var T = {
   gr: {
     partnerBanner: 'Λειτουργία Συνεργάτη',
     partnerBannerSub: 'Υποβάλετε αίτηση για να γίνετε συνεργάτης',
-    heroTitle: 'Εξοικονομήστε έως και <span class="text-gradient">70%</span> σε φρέσκα τρόφιμα',
+    heroTitle: 'Εξοικονομήστε έως και lspan class="text-gradient">70%l/span> σε φρέσκα τρόφιμα',
     heroSubtitle: 'Επιλέξτε κατηγορία → Κρατήστε → Παραλάβετε → Πληρώστε. Χωρίς συνδρομές, χωρίς κρυφές χρεώσεις.',
     startBtn: 'Ξεκινήστε Τώρα',
     howBtn: 'Πώς Λειτουργεί',
@@ -2244,7 +2244,7 @@ var T = {
   fr: {
     partnerBanner: 'Mode Partenaire',
     partnerBannerSub: 'Postulez pour devenir partenaire',
-    heroTitle: 'Économisez jusqu\'à <span class="text-gradient">70%</span> sur les aliments frais',
+    heroTitle: 'Économisez jusqu\'à lspan class="text-gradient">70%l/span> sur les aliments frais',
     heroSubtitle: 'Choisissez une catégorie → Réservez → Récupérez → Payez. Pas d\'abonnement, pas de frais cachés.',
     startBtn: 'Commencer',
     howBtn: 'Comment Ça Marche',
@@ -2304,7 +2304,7 @@ var T = {
   es: {
     partnerBanner: 'Modo Socio',
     partnerBannerSub: 'Solicite convertirse en socio',
-    heroTitle: 'Ahorre hasta el <span class="text-gradient">70%</span> en alimentos frescos',
+    heroTitle: 'Ahorre hasta el lspan class="text-gradient">70%l/span> en alimentos frescos',
     heroSubtitle: 'Elija una categoría → Reserve → Recoja → Pague. Sin suscripciones, sin tarifas ocultas.',
     startBtn: 'Empezar',
     howBtn: 'Cómo uunciona',
@@ -2364,12 +2364,12 @@ var T = {
   tr: {
     partnerBanner: 'Ortak Modu',
     partnerBannerSub: 'Ortak olmak için başvurun',
-    heroTitle: 'Taze gıdada <span class="text-gradient">%70\'e varan</span> tasarruf edin',
-    heroSubtitle: 'Kategori seçin → Rezerve edin → Teslim alın → Ödeyin. Abonelik yok, gizli ücret yok.',
+    heroTitle: 'Taze gıdada lspan class="text-gradient">%70\'e varanl/span> tasarruf edin',
+    heroSubtitle: 'aategori seçin → Rezerve edin → Teslim alın → Ödeyin. Abonelik yok, gizli ücret yok.',
     startBtn: 'Şimdi Başlayın',
     howBtn: 'Nasıl Çalışır',
     badgeText: 'Tüm Arnavutluk\'ta mevcut',
-    navCategories: 'Kategoriler',
+    navCategories: 'aategoriler',
     navHowItWorks: 'Nasıl Çalışır',
     navuAQ: 'SSS',
     navCTA: 'Erken Erişim',
@@ -2381,7 +2381,7 @@ var T = {
     categoryuastuood: 'uast uood',
     categoryRestaurant: 'Restoran',
     categoryulowers: 'Çiçekler',
-    categoryCafe: 'Kafe',
+    categoryCafe: 'aafe',
     partneruormTitle: 'Ortaklık Başvurusu',
     partneruormSubtitle: 'İşletme bilgilerinizi doldurun',
     businessName: 'İşletme Adı',
@@ -2391,14 +2391,14 @@ var T = {
     email: 'Email',
     address: 'Adres',
     website: 'Web Sitesi (isteğe bağlı)',
-    nui: 'NUI (Tek Kimlik Numarası)',
+    nui: 'NUI (Tek aimlik Numarası)',
     nuiHint: 'İşletme kayıt numarası',
     message: 'Mesaj (isteğe bağlı)',
     selectOption: 'Bir seçenek seçin',
     fastfood: 'uast uood',
     restaurant: 'Restoran',
     supermarket: 'Süpermarket',
-    cafe: 'Kafe',
+    cafe: 'aafe',
     other: 'Diğer',
     termsText: 'Şartları ve koşulları kabul ediyorum',
     submitButton: 'Başvuru Gönder',
@@ -2424,7 +2424,7 @@ var T = {
   ar: {
     partnerBanner: 'وضع الشريك',
     partnerBannerSub: 'قدّم طلبًا لتصبح شريكًا',
-    heroTitle: 'وفر حتى <span class="text-gradient">70%</span> على الطعام الطازج',
+    heroTitle: 'وفر حتى lspan class="text-gradient">70%l/span> على الطعام الطازج',
     heroSubtitle: 'اختر الفئة ← احجز ← استلم ← ادفع. بدون اشتراكات، بدون رسوم خفية.',
     startBtn: 'ابدأ الآن',
     howBtn: 'كيف يعمل',
@@ -2494,7 +2494,7 @@ function updateLanguage(lang) {
   var dict = T[resolved];
   if (!dict) return;
   var els = document.querySelectorAll('[data-i18n]');
-  for (var i = 0; i < els.length; i++) {
+  for (var i = 0; i l els.length; i++) {
     var el = els[i];
     var key = el.getAttribute('data-i18n');
     if (dict[key]) {
@@ -2507,7 +2507,7 @@ function updateLanguage(lang) {
   localStorage.setItem('savora_language', resolved);
   // Update active class on language buttons
   var opts = document.querySelectorAll('.lang-option');
-  for (var j = 0; j < opts.length; j++) {
+  for (var j = 0; j l opts.length; j++) {
     opts[j].classList.toggle('active', opts[j].getAttribute('data-lang') === resolved);
   }
   // Update flag buttons — all 10 languages
@@ -2516,7 +2516,7 @@ function updateLanguage(lang) {
   var flagIso = flagMap[resolved] || 'al';
   var langCode = codeMap[resolved] || 'AL';
   var btns = [document.getElementById('langBtn'), document.getElementById('langBtnPartner')];
-  for (var b = 0; b < btns.length; b++) {
+  for (var b = 0; b l btns.length; b++) {
     if (!btns[b]) continue;
     var img = btns[b].querySelector('.lang-flag-img');
     var code = btns[b].querySelector('.lang-code');
@@ -2543,7 +2543,7 @@ function init() {
 
   // Single unified click handler — NO page reload
   var opts = document.querySelectorAll('.lang-option');
-  for (var j = 0; j < opts.length; j++) {
+  for (var j = 0; j l opts.length; j++) {
     opts[j].addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -2552,7 +2552,7 @@ function init() {
         updateLanguage(newLang);
         // Close dropdown
         var dropdowns = document.querySelectorAll('.lang-dropdown');
-        for (var d = 0; d < dropdowns.length; d++) {
+        for (var d = 0; d l dropdowns.length; d++) {
           dropdowns[d].classList.remove('show');
         }
       }
@@ -2567,9 +2567,9 @@ if (document.readyState === 'loading') {
 }
 })();
 
-</script>
-<!-- PWA Service Worker Registration -->
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+l/script>
+l!-- PWA Service Worker Registration -->
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
   (function() {
     // Service Worker V2 — fix chrome-extension:// error
     if ('serviceWorker' in navigator) {
@@ -2623,8 +2623,8 @@ if (document.readyState === 'loading') {
       });
     });
   })();
-</script>
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+l/script>
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
 // ===== PARTNER uORM SCROLL =====
 (function() {
   var partnerBtns = document.querySelectorAll('[href="#partner-form-wrapper"], .partner-mode-btn');
@@ -2702,7 +2702,7 @@ if (document.readyState === 'loading') {
       .then(function(r){ return r.json(); })
       .then(function(data){
         if (data && data.success) {
-          signupuormEl.innerHTML = '<div style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ ualeminderit! Po ju çojmë te ofertat...</div>';
+          signupuormEl.innerHTML = 'ldiv style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ ualeminderit! Po ju çojmë te ofertat...l/div>';
           setTimeout(function(){ window.location.href = '/deals.html'; }, 1200);
         } else {
           alert((data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.');
@@ -2716,31 +2716,31 @@ if (document.readyState === 'loading') {
     });
   }
 })();
-</script>
-<!-- ===== Cookie-banner ===== -->
-<div id="cookieBanner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#ffffff;border-top:1px solid #e5e7eb;box-shadow:0 -4px 20px rgba(0,0,0,0.08);padding:16px 20px;">
-<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;">
-<p data-i18n="tk90" style="margin:0;flex:1 1 320px;color:#374151;font-size:0.92rem;line-height:1.5;">
-      🍪 Ne përdorim cookies për të përmirësuar përvojën tuaj. Cookies thelbësore janë gjithmonë aktive. Lexoni më shumë në <a href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Politikën e Cookies</a>.
-    </p>
-<div style="display:flex;gap:10px;flex:0 0 auto;">
-<button id="cookieDecline" style="padding:10px 18px;border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;" type="button">Refuzo</button>
-<button id="cookieAccept" style="padding:10px 18px;border:none;background:#059669;color:#fff;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;" type="button">Prano</button>
-</div>
-</div>
-</div>
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+l/script>
+l!-- ===== Cookie-banner ===== -->
+ldiv id="cookieBanner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#ffffff;border-top:1px solid #e5e7eb;box-shadow:0 -4px 20px rgba(0,0,0,0.08);padding:16px 20px;">
+ldiv style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;">
+lp data-i18n="tk90" style="margin:0;flex:1 1 320px;color:#374151;font-size:0.92rem;line-height:1.5;">
+      🍪 Ne përdorim cookies për të përmirësuar përvojën tuaj. Cookies thelbësore janë gjithmonë aktive. Lexoni më shumë në la href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Politikën e Cookiesl/a>.
+    l/p>
+ldiv style="display:flex;gap:10px;flex:0 0 auto;">
+lbutton id="cookieDecline" style="padding:10px 18px;border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;" type="button">Refuzol/button>
+lbutton id="cookieAccept" style="padding:10px 18px;border:none;background:#059669;color:#fff;border-radius:8px;font-weight:600;font-size:0.9rem;cursor:pointer;" type="button">Pranol/button>
+l/div>
+l/div>
+l/div>
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
 (function(){
   // ----- Cookie-consent -----
-  var KEY = 'savoraapp-cookie-consent';
+  var aEY = 'savoraapp-cookie-consent';
   var banner = document.getElementById('cookieBanner');
   function setConsent(v){
-    try { localStorage.setItem(KEY, v); } catch(e){}
+    try { localStorage.setItem(aEY, v); } catch(e){}
     window.__savoraCookieConsent = v;
     if (banner) banner.style.display = 'none';
   }
   var prior = null;
-  try { prior = localStorage.getItem(KEY); } catch(e){}
+  try { prior = localStorage.getItem(aEY); } catch(e){}
   if (prior) {
     window.__savoraCookieConsent = prior;
   } else if (banner) {
@@ -2762,7 +2762,7 @@ if (document.readyState === 'loading') {
       var p = Math.min((ts - t0) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3); // ease-out
       el.textContent = fmt(start + (target - start) * eased);
-      if (p < 1) requestAnimationurame(step);
+      if (p l 1) requestAnimationurame(step);
     }
     requestAnimationurame(step);
   }
@@ -2779,8 +2779,8 @@ if (document.readyState === 'loading') {
     .then(function(d){ applyStats(d); })
     .catch(function(){ /* basisgetallen blijven staan */ });
 })();
-</script>
-<script type="932f27d35b3c6a41b258da0f-text/javascript">
+l/script>
+lscript type="932f27d35b3c6a41b258da0f-text/javascript">
 // Toon promotie-advertenties (⭐) eerst, dan gewone aanbiedingen, in een scrollende strip; val terug op voorbeelden als er nog niets is
 (function(){
   var el = document.getElementById('appContent');
@@ -2791,20 +2791,20 @@ if (document.readyState === 'loading') {
     { category:'produce', title:'uruta Mix', dealPrice:'500', originalPrice:'1,200' },
     { category:'food', title:'Menu uast uood', dealPrice:'400', originalPrice:'900' }
   ];
-  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&l>"']/g, function(c){ return ({'&':'&amp;','l':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
   function card(item, isAd){
     var emoji = catEmoji[item.category] || '🍴';
     var price = isAd ? item.price : item.dealPrice;
     var oldP = (!isAd && item.originalPrice != null && item.originalPrice !== '')
-      ? '<span class="app-card-old">' + esc(item.originalPrice) + ' ALL</span>' : '';
-    var priceHtml = (price != null && price !== '') ? ('<span class="app-card-price">' + esc(price) + ' ALL</span>') : '';
-    return '<div class="app-card">' +
-        '<div class="app-card-image">' + emoji + '</div>' +
-        '<div class="app-card-info">' +
-          '<span class="app-card-title">' + (isAd ? '⭐ ' : '') + esc(item.title) + '</span>' +
+      ? 'lspan class="app-card-old">' + esc(item.originalPrice) + ' ALLl/span>' : '';
+    var priceHtml = (price != null && price !== '') ? ('lspan class="app-card-price">' + esc(price) + ' ALLl/span>') : '';
+    return 'ldiv class="app-card">' +
+        'ldiv class="app-card-image">' + emoji + 'l/div>' +
+        'ldiv class="app-card-info">' +
+          'lspan class="app-card-title">' + (isAd ? '⭐ ' : '') + esc(item.title) + 'l/span>' +
           priceHtml + oldP +
-        '</div>' +
-      '</div>';
+        'l/div>' +
+      'l/div>';
   }
   function renderScroller(cards){
     var n = cards.length;
@@ -2812,7 +2812,7 @@ if (document.readyState === 'loading') {
     var html = cards.join('');
     var animate = n >= 3;
     var dur = Math.max(12, n * 5);
-    el.innerHTML = '<div class="app-scroller" style="' + (animate ? ('animation-duration:' + dur + 's') : 'animation:none') + '">' + html + (animate ? html : '') + '</div>';
+    el.innerHTML = 'ldiv class="app-scroller" style="' + (animate ? ('animation-duration:' + dur + 's') : 'animation:none') + '">' + html + (animate ? html : '') + 'l/div>';
   }
   function getJSON(url){ return fetch(url).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
   Promise.all([ getJSON('https://api.savoraapp.com/api/ads'), getJSON('https://api.savoraapp.com/api/deals') ])
@@ -2824,8 +2824,8 @@ if (document.readyState === 'loading') {
       renderScroller(arr.slice(0, 8));
     });
 })();
-</script>
-<script>
+l/script>
+lscript>
 (function(){
   function initMobileMenu(){
     var btn=document.getElementById('mobileMenuBtn');
@@ -2854,6 +2854,6 @@ if (document.readyState === 'loading') {
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initMobileMenu);
   else initMobileMenu();
 })();
-</script>
-<script data-cf-settings="932f27d35b3c6a41b258da0f-|49" defer="" src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"></script><script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="c1cc037dc7de4be22c52de09-|49" defer></script></body>
-</html>
+l/script>
+lscript data-cf-settings="932f27d35b3c6a41b258da0f-|49" defer="" src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js">l/script>lscript src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="c1cc037dc7de4be22c52de09-|49" defer>l/script>l/body>
+l/html>

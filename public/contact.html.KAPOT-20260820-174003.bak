@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt - Savoraapp</title>
+<meta name="description" content="Na kontaktoni. Pyetje, komente ose deshironi te bashkepunojme? Jemi ketu per ju.">
+<meta name="theme-color" content="#10b981">
+<meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<link rel="icon" href="icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/config.js"></script>
+<style>
+  :root{--primary:#10b981;--primary-d:#059669;--dark:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1f2937;line-height:1.6;}
+  a{color:var(--primary);text-decoration:none;}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);}
+  .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);}
+  main{max-width:900px;margin:0 auto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
+  h1{font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:10px;}
+  .sub{color:var(--gray);margin-bottom:36px;font-size:1.05rem;}
+  .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;}
+  @media (max-width:760px){.grid{grid-template-columns:1fr;}}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;}
+  .form-group{margin-bottom:18px;}
+  label{display:block;font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:6px;}
+  input,textarea{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:10px;font-size:0.95rem;font-family:inherit;transition:border-color .2s;}
+  input:focus,textarea:focus{outline:none;border-color:var(--primary);}
+  textarea{resize:vertical;min-height:100px;}
+  .char-count{font-size:0.75rem;color:var(--gray);text-align:right;margin-top:4px;}
+  button[type=submit]{width:100%;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:background .2s;}
+  button[type=submit]:hover{background:var(--primary-d);}
+  button[type=submit]:disabled{opacity:.6;cursor:not-allowed;}
+  .success-msg{display:none;background:#ecfdf5;color:var(--primary-d);padding:14px 16px;border-radius:10px;font-weight:600;margin-top:16px;}
+  .success-msg.show{display:block;}
+  .info-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px;}
+  .info-icon{width:40px;height:40px;border-radius:10px;background:#ecfdf5;color:var(--primary-d);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;}
+  .info-item h4{font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--gray);margin-bottom:2px;}
+  .info-item p{font-weight:600;color:var(--dark);}
+  footer{background:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;}
+  footer a{color:#a7f3d0;}
+  .paysera-badge{margin-bottom:16px;display:inline-block;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
+  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+</header>
+
+<main>
+  <div class="badge">Kontakt</div>
+  <h1>Na kontaktoni</h1>
+  <p class="sub">Pyetje, komente ose deshironi te bashkepunojme? Jemi ketu per ju.</p>
+
+  <div class="grid">
+    <div class="card">
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="cName">Emri</label>
+          <input type="text" id="cName" placeholder="P.sh. Ana Krasniqi" required>
+        </div>
+        <div class="form-group">
+          <label for="cPhone">Numri i telefonit</label>
+          <input type="tel" id="cPhone" placeholder="+355 69 123 4567">
+        </div>
+        <div class="form-group">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" placeholder="ju@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="cCity">Qyteti</label>
+          <input type="text" id="cCity" placeholder="P.sh. Durres">
+        </div>
+        <div class="form-group">
+          <label for="cMessage">Mesazhi (maksimumi 300 karaktere)</label>
+          <textarea id="cMessage" maxlength="300" required></textarea>
+          <div class="char-count"><span id="charCount">0</span> / 300</div>
+        </div>
+        <button type="submit" id="submitBtn">Dergo</button>
+        <div class="success-msg" id="successMsg">Mesazhi u dergua! Do t'ju kontaktojme se shpejti.</div>
+      </form>
+    </div>
+
+    <div>
+      <div class="info-item">
+        <div class="info-icon">@</div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:info@savoraapp.com">info@savoraapp.com</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">#</div>
+        <div>
+          <h4>Telefon</h4>
+          <p><a href="tel:+355696080926">+355 69 608 0926</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">*</div>
+        <div>
+          <h4>Adresa</h4>
+          <p>Durres, Shqiperi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a class="paysera-badge" href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer">Pagesa te Sigurta nga Paysera</a><br>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+</footer>
+
+<script>
+  var API_BASE = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || 'https://savoraapp.sparkling-scene-16e3.workers.dev';
+  var API_URL = API_BASE.replace(/\/$/, '') + '/api';
+
+  var msgEl = document.getElementById('cMessage');
+  var countEl = document.getElementById('charCount');
+  msgEl.addEventListener('input', function () {
+    countEl.textContent = msgEl.value.length;
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('cName').value.trim();
+    var phone = document.getElementById('cPhone').value.trim();
+    var email = document.getElementById('cEmail').value.trim();
+    var city = document.getElementById('cCity').value.trim();
+    var message = document.getElementById('cMessage').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Ju lutem plotesoni emrin, email-in dhe mesazhin.');
+      return;
+    }
+
+    var btn = document.getElementById('submitBtn');
+    var originalText = btn.textContent;
+    btn.textContent = 'Duke derguar...';
+    btn.disabled = true;
+
+    fetch(API_URL + '/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, phone: phone, email: email, city: city, message: message }),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        if (data && data.success !== false) {
+          document.getElementById('successMsg').classList.add('show');
+          document.getElementById('contactForm').reset();
+          countEl.textContent = '0';
+        } else {
+          alert((data && data.error) || 'Dicka shkoi keq. Provoni serish.');
+        }
+      })
+      .catch(function () {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Nuk mund te lidhemi me serverin. Provoni serish me vone.');
+      });
+  });
+</script>
+</body>
+</html>

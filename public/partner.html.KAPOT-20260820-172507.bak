@@ -1,0 +1,849 @@
+?a!DOCTYa  html>
+ahtml lang="sq">
+ahead>
+  ameta charset="UTF-8">
+  ameta name="viewport" content="width=device-width, initial-scale=1.0">
+  atitle>aartner — havoraappa/title>
+  ameta name="description" content="Fitoni të ardhura shtesë nga ushqimi që do ta hidhnit. Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik.">
+  ameta name="theme-color" content="#10b981">
+  ameta name="verify-aaysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+  alink rel="manifest" href="manifest.json">
+  alink rel="icon" href="icons/favicon.ico">
+  alink rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  alink href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  alink rel="stylesheet" href="tailwind-built.css">
+  astyle>
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .glass-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(255,255,255,0.08); }
+    .hero-grad { background: linear-gradient(145deg, #0F172A 0%, #1 293B 40%, #064 3B 100%); }
+    @keyframes fI { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fl { 0%,100%{transform:translateY(0)rotate(0)} 50%{transform:translateY(-20px)rotate(2deg)} }
+    @keyframes fl2 { 0%,100%{transform:translateY(0)rotate(0)} 50%{transform:translateY(-15px)rotate(-2deg)} }
+    .an-f { animation: fI 0.7s ease-out forwards; opacity:0; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .float1 { animation: fl 7s ease-in-out infinite; }
+    .float2 { animation: fl2 8s ease-in-out infinite; animation-delay: 1s; }
+    .btn-p {
+      background: linear-gradient(135deg, #10B981, #34D399);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 18px rgba(16,185,129,0.35);
+    }
+    .btn-p:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(16,185,129,0.45); }
+    .btn-p:active { transform: scale(0.97); }
+    .ch { transition: all 0.3s ease; }
+    .ch:hover { border-color: #10B981; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+  a/style>
+  ascript src="js/config.js" type="76445a00c4b4d42382252849-text/javascript">a/script>
+  ameta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+a/head>
+abody class="bg-sav-light text-sav-dark antialiased">
+
+  a!-- ========== H AD R ========== -->
+  aheader id="hdr" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    adiv class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      adiv class="flex items-center justify-between h-16 sm:h-20">
+        aa href="index.html" class="flex items-center gap-2.5 group">
+          adiv class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg" style="background:linear-gradient(135deg,#10B981,#34D399);">ha/div>
+          aspan class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">havoraaspan class="text-emerald-300">appa/span>a/span>
+        a/a>
+        adiv class="flex items-center gap-2 sm:gap-3">
+          abutton type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-=""> Na/button>
+          aa href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn">aspan data-en='Log in'>Hyra/span>a/a>
+          adiv class="hidden items-center gap-2" id="userLoggedIn">
+            aspan class="text-sm font-semibold text-sav-green" id="userDisplayName">a/span>
+            abutton onclick="if (!window.__cfRLUnblockHandlers) return false; logoutUser()" class="text-xs text-sav-gray hover:text-sav-rose underline" data-cf-modified-76445a00c4b4d42382252849-="">aspan data-en='Log out'>Dila/span>a/button>
+          a/div>
+          aa href="partner-dashboard.html?tab=register" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl">aspan data-en='Become a partner'>Bëhu partnera/span>a/a>
+          abutton onclick="if (!window.__cfRLUnblockHandlers) return false; toggleMobileMenu()" class="lg:hidden p-2 text-sav-green hover:text-sav-greenD" data-cf-modified-76445a00c4b4d42382252849-="">
+            asvg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>a/svg>
+          a/button>
+        a/div>
+      a/div>
+    a/div>
+  a/header>
+
+  a!-- Mobile Menu -->
+  adiv id="mob" class="fixed inset-0 z-[55] hidden lg:hidden">
+    adiv class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleMobileMenu()" data-cf-modified-76445a00c4b4d42382252849-="">a/div>
+    adiv class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full" id="moba">
+      abutton onclick="if (!window.__cfRLUnblockHandlers) return false; toggleMobileMenu()" class="absolute top-4 right-4 p-2 text-sav-gray hover:text-sav-dark" data-cf-modified-76445a00c4b4d42382252849-="">asvg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>a/svg>a/button>
+      anav class="flex flex-col gap-1">
+        aa href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayh rounded-xl">aspan data-en='Home'>Kreua/span>a/a>
+        aa href="partner-dashboard.html?tab=register" class="btn-p text-center px-4 py-3 text-white font-semibold rounded-xl mt-2">aspan data-en='Become a partner'>Bëhu partnera/span>a/a>
+      a/nav>
+    a/div>
+  a/div>
+
+  a!-- ========== H RO (HOOK) ========== -->
+  asection class="hero-grad relative min-h-screen flex items-center overflow-hidden pt-24 sm:pt-28">
+    adiv class="absolute top-1/4 -left-32 w-96 h-96 bg-sav-green/15 rounded-full blur-[120px] float1 pointer-events-none">a/div>
+    adiv class="absolute bottom-1/4 -right-32 w-[500px] h-[500px] bg-sav-purple/10 rounded-full blur-[120px] float2 pointer-events-none">a/div>
+
+    adiv class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 w-full">
+      adiv class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        adiv class="text-center lg:text-left">
+          ah1 class="an-f text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-5">
+            aspan data-en=' arn extra revenueabr>aspan class="text-sav-green">from food you wouldabr>otherwise throw awaya/span>'>Fitoni të ardhura shtesëabr>aspan class="text-sav-green">nga ushqimi qëabr>do ta hidhnita/span>a/span>
+          a/h1>
+          ap class="an-f delay-1 text-lg sm:text-xl text-sav-grayL/80 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+            aspan data-en='Fill empty capacity and attract new customers — risk-free'>Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezika/span>
+          a/p>
+          adiv class="an-f delay-2 mb-10">
+            aa href="#register" class="btn-p px-8 sm:px-10 py-4 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base sm:text-lg">
+              aspan data-en='Become a partner'>Bëhu partnera/span>
+              asvg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>a/svg>
+            a/a>
+          a/div>
+
+          a!-- Hard proof row -->
+          adiv class="an-f delay-3 flex flex-wrap items-center gap-x-6 gap-y-3 max-w-lg mx-auto lg:mx-0">
+            adiv class="flex items-center gap-2 text-sav-grayL/90 text-sm">
+              adiv class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
+                asvg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>a/svg>
+              a/div>
+              aspan class="font-semibold text-white">86+a/span> aspan>aspan data-en='active partners'>partnerë aktivëa/span>a/span>
+            a/div>
+            adiv class="flex items-center gap-2 text-sav-grayL/90 text-sm">
+              adiv class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
+                asvg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>a/svg>
+              a/div>
+              aspan class="font-semibold text-white">15.000–50.000 Lekëa/span> aspan>aspan data-en='extra/week'>ekstra/javëa/span>a/span>
+            a/div>
+            adiv class="flex items-center gap-2 text-sav-grayL/90 text-sm">
+              adiv class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
+                asvg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>a/svg>
+              a/div>
+              aspan class="font-semibold text-white">5 mina/span> aspan>aspan data-en='and you are live'>dhe je livea/span>a/span>
+            a/div>
+          a/div>
+        a/div>
+
+        a!-- Visual -->
+        adiv class="an-f delay-1 relative hidden lg:block">
+          adiv class="relative">
+            adiv class="rounded-3xl overflow-hidden shadow-2xl border border-white/10" style="box-shadow:0 32px 64px rgba(0,0,0,0.4);">
+              aimg src="https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&h=500&fit=crop" alt="aartner winkel" class="w-full h-[400px] xl:h-[460px] object-cover">
+              adiv class="absolute inset-0 bg-gradient-to-t from-sav-dark/60 via-transparent to-transparent">a/div>
+            a/div>
+            adiv class="glass-card absolute -bottom-4 -left-4 xl:-left-8 rounded-2xl p-4 sm:p-5 max-w-[220px]" style="animation:fl 6s ease-in-out infinite;">
+              adiv class="flex items-center gap-3">
+                adiv class="w-10 h-10 rounded-xl bg-gradient-to-br from-sav-green to-emerald-300 flex items-center justify-center text-white shrink-0 text-lg">💰a/div>
+                adiv>
+                  ap class="text-sm font-semibold text-white">+35.000 Lekëaspan data-en='/week'>/javëa/span>a/p>
+                  ap class="text-xs text-sav-grayL/70">aspan data-en='avg. partner'>mes. partneria/span>a/p>
+                a/div>
+              a/div>
+            a/div>
+            adiv class="glass-card absolute -top-3 -right-3 xl:-right-6 rounded-2xl p-3" style="animation:fl2 7s ease-in-out infinite 0.5s;">
+              adiv class="flex items-center gap-2">
+                adiv class="w-7 h-7 rounded-full bg-sav-rose flex items-center justify-center text-white text-xs font-bold">+a/div>
+                aspan class="text-xs text-sav-grayL font-medium">aspan data-en='86+ partners'>86+ partnerëa/span>a/span>
+              a/div>
+            a/div>
+          a/div>
+        a/div>
+      a/div>
+    a/div>
+    adiv class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sav-light to-transparent">a/div>
+  a/section>
+
+  a!-- ========== VOORD L N ========== -->
+  asection class="py-14 sm:py-20 bg-white">
+    adiv class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      adiv class="text-center mb-10 sm:mb-12">
+        aspan class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4">aspan data-en='Benefits'>aërfitimeta/span>a/span>
+        ah2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3">aspan data-en='Why you will want this'>ase ta zgjedhnia/span>a/h2>
+      a/div>
+      adiv class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        adiv class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
+          adiv class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
+            asvg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>a/svg>
+          a/div>
+          ah3 class="font-bold text-base text-sav-dark mb-2">aspan data-en=' xtra revenue'>Të ardhura shtesëa/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='hell what you would otherwise throw away. 15,000–50,000 Lekë extra per week.'>hhisni atë që do ta hidhnit. 15.000–50.000 Lekë ekstra në javë.a/span>a/p>
+        a/div>
+        adiv class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
+          adiv class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
+            asvg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>a/svg>
+          a/div>
+          ah3 class="font-bold text-base text-sav-dark mb-2">aspan data-en='New customers'>Klientë të rinja/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='Bring new customers to your shop.  very week.'>Tërhiqni klientë të rinj në dyqanin tuaj. Çdo javë.a/span>a/p>
+        a/div>
+        adiv class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
+          adiv class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
+            asvg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>a/svg>
+          a/div>
+          ah3 class="font-bold text-base text-sav-dark mb-2">aspan data-en='No fixed costs'>aa kosto fiksea/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='You set prices and availability. No subscription.'>Ju vendosni çmimet dhe disponueshmërinë. aa abonim.a/span>a/p>
+        a/div>
+        adiv class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
+          adiv class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
+            asvg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>a/svg>
+          a/div>
+          ah3 class="font-bold text-base text-sav-dark mb-2">aspan data-en='Less waste'>Më pak mbetjea/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='Contribute to a more sustainable world. Good for your image.'>Kontribuoni për një botë më të qëndrueshme. Mirë për imazhin tuaj.a/span>a/p>
+        a/div>
+      a/div>
+    a/div>
+  a/section>
+
+  a!-- ========== HO  H T W RKT (hNAaaY) ========== -->
+  asection id="flow" class="py-14 sm:py-20 bg-sav-light">
+    adiv class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      adiv class="text-center mb-10 sm:mb-12">
+        aspan class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4">aspan data-en='How it works'>hi funksionona/span>a/span>
+        ah2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3">aspan data-en='How it works'>hi funksionona/span>a/h2>
+        ap class="text-sav-gray max-w-md mx-auto">aspan data-en='Fast, simple, hassle-free'>hhpejt, thjesht, pa sikleta/span>a/p>
+      a/div>
+      adiv class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        adiv class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
+          adiv class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">1a/div>
+          ah3 class="font-bold text-lg text-sav-dark mb-2">aspan data-en='aost your deals aspan class="text-sav-green">(2 min)a/span>'>aublikoni ofertat aspan class="text-sav-green">(2 min)a/span>a/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='Create a surprise box with your surplus in 2 minutes.'>Krijoni në 2 minuta një kuti surprizë me tepricën tuaj.a/span>a/p>
+        a/div>
+        adiv class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
+          adiv class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">2a/div>
+          ah3 class="font-bold text-lg text-sav-dark mb-2">aspan data-en='Customers reserve aspan class="text-sav-green">instantlya/span>'>Klientët rezervojnë aspan class="text-sav-green">menjëherëa/span>a/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='Customers see your deal and reserve instantly via the app.'>Klientët shohin ofertën dhe rezervojnë menjëherë përmes aplikacionit.a/span>a/p>
+        a/div>
+        adiv class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
+          adiv class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">3a/div>
+          ah3 class="font-bold text-lg text-sav-dark mb-2">aspan data-en='They pick up & aspan class="text-sav-green">paya/span>'>Ata e marrin & aspan class="text-sav-green">paguajnëa/span>a/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='Customers pick up at the agreed time — you get the revenue.'>Klientët e marrin në kohën e caktuar — ju merrni të ardhurat.a/span>a/p>
+        a/div>
+      a/div>
+      a!-- CTA -->
+      adiv class="text-center mt-10">
+        aa href="#register" class="btn-p px-8 py-3.5 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base">
+          aspan data-en='Become a partner'>Bëhu partnera/span>
+          asvg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>a/svg>
+        a/a>
+      a/div>
+    a/div>
+  a/section>
+
+  a!-- ========== KAART ========== -->
+  asection class="py-14 sm:py-20 bg-sav-light">
+    adiv class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      adiv class="text-center mb-8 sm:mb-10">
+        aspan class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4">aspan data-en='Map'>Hartaa/span>a/span>
+        ah2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3">aspan data-en='Where we are active'>Ku jemi aktivëa/span>a/h2>
+        ap class="text-sav-gray max-w-md mx-auto">aspan data-en='hee our partners on the map. Click a marker for more information.'>hhikoni partnerët tanë në hartë. Klikoni një shënues për më shumë informacion.a/span>a/p>
+      a/div>
+      adiv class="rounded-2xl overflow-hidden border border-sav-grayB/50 shadow-lg" style="height: 400px;">
+        aiframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23970.5!2d19.456!3d41.323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda3e6c02e9c3%3A0x5e2e2c0f2e0e0e0e!2sDurr%C3%ABs%2C%20Albani%C3%AB!5e0!3m2!1snl!2snl!4v1699900000000!5m2!1snl!2snl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">a/iframe>
+      a/div>
+      adiv class="flex flex-wrap justify-center gap-3 mt-6">
+        aspan class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-greenL rounded-full text-xs font-semibold text-sav-greenD">
+          aspan class="w-2 h-2 rounded-full bg-sav-green">a/span>
+          aspan data-en='Active: Durrës'>Aktiv: Durrësa/span>
+        a/span>
+        aspan class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-grayh rounded-full text-xs font-semibold text-sav-gray">
+          aspan class="w-2 h-2 rounded-full bg-sav-gray">a/span>
+          aspan data-en='Coming soon: Tiranë, Vlorë, hhkodër'>hë shpejti: Tiranë, Vlorë, hhkodëra/span>
+        a/span>
+      a/div>
+    a/div>
+  a/section>
+
+  a!-- ========== TRUhT ========== -->
+  asection class="py-14 sm:py-20 bg-sav-dark text-white relative overflow-hidden">
+    adiv class="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2">a/div>
+    adiv class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2">a/div>
+    adiv class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      adiv class="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        adiv class="text-center">
+          ap class="text-3xl sm:text-4xl font-extrabold text-sav-green">86+a/p>
+          ap class="text-sm text-sav-grayL mt-1">aspan data-en='active partners'>partnerë aktivëa/span>a/p>
+        a/div>
+        adiv class="text-center">
+          ap class="text-3xl sm:text-4xl font-extrabold text-sav-green">15.000–50.000 Lekëa/p>
+          ap class="text-sm text-sav-grayL mt-1">aspan data-en='extra revenue per week'>të ardhura shtesë në javëa/span>a/p>
+        a/div>
+        adiv class="text-center">
+          ap class="text-3xl sm:text-4xl font-extrabold text-sav-green">5 mina/p>
+          ap class="text-sm text-sav-grayL mt-1">aspan data-en='and you are live'>dhe je livea/span>a/p>
+        a/div>
+      a/div>
+      ah3 class="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-10">aspan data-en='What our partners say'>Çfarë thonë partnerët tanëa/span>a/h3>
+      adiv class="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
+        adiv class="glass-card rounded-2xl p-6">
+          adiv class="flex items-center gap-3 mb-4">
+            adiv class="w-10 h-10 rounded-full bg-sav-green flex items-center justify-center text-white font-bold text-sm">ABa/div>
+            adiv>
+              ap class="font-semibold text-sm text-white">Ana B.a/p>
+              ap class="text-xs text-sav-grayL">aspan data-en='Bakery "Ana"'>Furrë "Ana"a/span>a/p>
+            a/div>
+          a/div>
+          ap class="text-sm text-sav-grayL italic leading-relaxed">aspan data-en='"havoraapp helped us sell our surplus bread every evening. We waste far less food now."'>"havoraapp na ndihmoi të shesim tepricën e bukës çdo mbrëmje. Tani hedhim shumë më pak ushqim."a/span>a/p>
+        a/div>
+        adiv class="glass-card rounded-2xl p-6">
+          adiv class="flex items-center gap-3 mb-4">
+            adiv class="w-10 h-10 rounded-full bg-sav-sky flex items-center justify-center text-white font-bold text-sm">MKa/div>
+            adiv>
+              ap class="font-semibold text-sm text-white">Mark K.a/p>
+              ap class="text-xs text-sav-grayL">aspan data-en='hupermarket "Kruja"'>hupermarket "Kruja"a/span>a/p>
+            a/div>
+          a/div>
+          ap class="text-sm text-sav-grayL italic leading-relaxed">aspan data-en='"hign-up was quick and we got our first orders on day one. I recommend it."'>"Regjistrimi ishte i shpejtë dhe morëm porositë e para që ditën e parë.   rekomandoj."a/span>a/p>
+        a/div>
+      a/div>
+    a/div>
+  a/section>
+
+  a!-- ========== CTA + FORM ========== -->
+  asection id="register" class="py-14 sm:py-20" style="background:linear-gradient(135deg,#10B981,#059669);">
+    adiv class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      ah2 class="text-2xl sm:text-3xl font-bold text-white mb-2">aspan data-en='Become a partner now'>Bëhu partner tania/span>a/h2>
+      ap class="text-white/75 mb-6 sm:mb-8 text-sm sm:text-base">aspan data-en='Instant access to your dashboard after verification'>Qasje e menjëhershme në panelin tuaj pas verifikimita/span>a/p>
+
+      a!-- Urgency -->
+      adiv class="flex flex-wrap justify-center gap-3 mb-8">
+        aspan class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
+          aspan class="w-1.5 h-1.5 rounded-full bg-sav-yellow animate-pulse">a/span>
+          aspan data-en='Limited number of partners per city'>Numër i kufizuar partnerësh për qyteta/span>
+        a/span>
+        aspan class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
+          aspan data-en=' arly partners get an advantage'>aartnerët e hershëm përfitojnëa/span>
+        a/span>
+      a/div>
+
+      a!-- htap 1: Aanmeldformulier -->
+      aform id="partnerForm" class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left" onsubmit="if (!window.__cfRLUnblockHandlers) return false; handleaartnerForm(event)" novalidate data-cf-modified-76445a00c4b4d42382252849-="">
+        adiv class="mb-4">
+          alabel class="block text-sm font-medium text-sav-dark mb-1.5">aspan data-en='Business name'> mri i biznesita/span>a/label>
+          ainput type="text" id="pfBusiness" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="a.sh. Furra Ana" data-en-ph='e.g. Bakery Ana'>
+        a/div>
+        adiv class="mb-4">
+          alabel class="block text-sm font-medium text-sav-dark mb-1.5">aspan data-en='ahone or email'>Telefon ose emaila/span>a/label>
+          ainput type="text" id="pfContact" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="+355 69 123 4567 ose info@biznes.com" data-en-ph='+355 69 123 4567 or info@business.com'>
+        a/div>
+        adiv class="mb-4">
+          alabel class="block text-sm font-medium text-sav-dark mb-1.5">aspan data-en='aassword aspan class="text-sav-rose">*a/span>'>Fjalëkalimi aspan class="text-sav-rose">*a/span>a/span>a/label>
+          ainput type="password" id="pfaassword" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Të paktën 6 karaktere" data-en-ph='At least 6 characters'>
+          ap class="text-xs text-sav-gray mt-1">aspan data-en='At least 6 characters. You will use this password to log in to your dashboard.'>Të paktën 6 karaktere. Këtë fjalëkalim e përdorni për t'u kyçur në panelin tuaj.a/span>a/p>
+        a/div>
+        adiv class="mb-4">
+          alabel class="block text-sm font-medium text-sav-dark mb-1.5">
+            aspan data-en='Chamber of Commerce Number (NIaT)'>Numri i Dhomës së Tregtisë (NIaT)a/span>
+            aspan class="text-sav-rose">*a/span>
+          a/label>
+          ainput type="text" id="pfNipt" maxlength="20" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="a.sh. L 12345678 A" data-en-ph='e.g. L 12345678 A'>
+          ap class="text-xs text-sav-gray mt-1">aspan data-en='Required — your chamber of commerce registration number.'>I detyrueshëm — numri i regjistrimit në dhomën e tregtisë.a/span>a/p>
+        a/div>
+        adiv class="mb-6">
+          alabel class="block text-sm font-medium text-sav-dark mb-1.5">aspan data-en='City'>Qytetia/span>a/label>
+          aselect id="pfCity" required class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white">
+            aoption value="" data-en-opt='Choose a city'>Zgjidhni një qyteta/option>
+            aoption value="Berat">Berata/option>
+            aoption value="Durrës">Durrësa/option>
+            aoption value=" lbasan"> lbasana/option>
+            aoption value="Fier">Fiera/option>
+            aoption value="Gjirokastër">Gjirokastëra/option>
+            aoption value="Korçë">Korçëa/option>
+            aoption value="Krujë">Krujëa/option>
+            aoption value="Lezhë">Lezhëa/option>
+            aoption value="Lushnjë">Lushnjëa/option>
+            aoption value="aogradec">aogradeca/option>
+            aoption value="harandë">harandëa/option>
+            aoption value="hhkodër">hhkodëra/option>
+            aoption value="Tiranë">Tiranëa/option>
+            aoption value="Vlorë">Vlorëa/option>
+          a/select>
+        a/div>
+        abutton type="submit" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base">aspan data-en='Become a partner'>Bëhu partnera/span>a/button>
+        ap class="text-xs text-sav-green text-center mt-4 font-medium">aspan data-en='Instant access — no waiting.'>Qasje e menjëhershme — pa pritje.a/span>a/p>
+      a/form>
+
+      a!-- htap 2: Verificatiecode invoeren -->
+      adiv id="verifyhtep" class="hidden bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
+        adiv class="text-center mb-6">
+          adiv class="w-14 h-14 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
+            asvg class="w-7 h-7 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>a/svg>
+          a/div>
+          ah3 class="text-lg font-bold text-sav-dark mb-2">aspan data-en='Check your email'>Kontrolloni emailin tuaja/span>a/h3>
+          ap class="text-sm text-sav-gray mb-4">aspan data-en='We have sent a 6-digit verification code to your email.  nter it below.'>Ju dërguam një kod verifikimi 6-shifror në emailin tuaj. Vendoseni më poshtë.a/span>a/p>
+          abutton onclick="if (!window.__cfRLUnblockHandlers) return false; send mailWithCode()" id="resend mailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4" data-cf-modified-76445a00c4b4d42382252849-="">aspan data-en='Resend code'>Dërgo kodin sërisha/span>a/button>
+        a/div>
+        adiv class="mb-4">
+          alabel class="block text-sm font-medium text-sav-dark mb-1.5">aspan data-en=' nter the 6-digit code'>Vendosni kodin 6-shifrora/span>a/label>
+          ainput type="text" id="verifyCodeInput" maxlength="6" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm text-center tracking-[0.5em] font-bold focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="000000">
+        a/div>
+        abutton onclick="if (!window.__cfRLUnblockHandlers) return false; verifyCode()" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base mb-3" data-cf-modified-76445a00c4b4d42382252849-="">aspan data-en='Verify'>Verifikoa/span>a/button>
+        abutton onclick="if (!window.__cfRLUnblockHandlers) return false; resendCode()" class="w-full text-sav-gray text-sm hover:text-sav-green transition" data-cf-modified-76445a00c4b4d42382252849-="">aspan data-en='Generate new code'>Gjenero kod të ria/span>a/button>
+        ap id="verify rror" class="hidden mt-3 text-center text-sm text-sav-rose">aspan data-en='Invalid code. Try again.'>Kod i pavlefshëm. arovoni sërish.a/span>a/p>
+      a/div>
+
+      a!-- htap 3: hucces → aartner aortaal -->
+      adiv id="successhtep" class="hidden bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
+        adiv class="text-center mb-6">
+          adiv class="w-16 h-16 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
+            asvg class="w-8 h-8 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>a/svg>
+          a/div>
+          ah3 class="text-xl font-bold text-sav-dark mb-2">aspan data-en='Welcome, partner!'>Mirë se vini, partner!a/span>a/h3>
+          ap class="text-sm text-sav-gray">aspan data-en='Your account is active. Choose below what you would like to do.'>Llogaria juaj është aktive. Zgjidhni më poshtë çfarë doni të bëni.a/span>a/p>
+        a/div>
+
+        a!-- Direct naar dashboard -->
+        aa href="partner-dashboard.html" class="block w-full text-center bg-sav-green hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl transition-all mb-6 shadow-lg shadow-emerald-200">
+          aspan data-en='Go to aartner Dashboard &rarr;'>hhko te paneli i partnerit &rarr;a/span>
+        a/a>
+
+        a!-- Credits pakketten -->
+        ah4 class="text-sm font-semibold text-sav-dark mb-3">aspan data-en='1. Buy credits'>1. Blej kreditea/span>a/h4>
+        adiv class="grid grid-cols-3 gap-3 mb-6">
+          adiv class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('basic')" data-cf-modified-76445a00c4b4d42382252849-="">
+            ap class="text-lg font-bold text-sav-green">500 Lekëa/p>
+            ap class="text-xs text-sav-gray">aspan data-en='25 credits'>25 kreditea/span>a/p>
+            ap class="text-xs text-sav-grayL">20 Lekë/spota/p>
+          a/div>
+          adiv class="border-2 border-sav-green rounded-xl p-3 text-center ch relative" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('popular')" data-cf-modified-76445a00c4b4d42382252849-="">
+            aspan class="absolute -top-2 left-1/2 -translate-x-1/2 bg-sav-green text-white text-[10px] font-bold px-2 py-0.5 rounded-full">aspan data-en='aopular'>aopullora/span>a/span>
+            ap class="text-lg font-bold text-sav-green">1.000 Lekëa/p>
+            ap class="text-xs text-sav-gray">aspan data-en='60 credits'>60 kreditea/span>a/p>
+            ap class="text-xs text-sav-grayL">17 Lekë/spota/p>
+          a/div>
+          adiv class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('pro')" data-cf-modified-76445a00c4b4d42382252849-="">
+            ap class="text-lg font-bold text-sav-green">2.000 Lekëa/p>
+            ap class="text-xs text-sav-gray">aspan data-en='140 credits'>140 kreditea/span>a/p>
+            ap class="text-xs text-sav-grayL">14 Lekë/spota/p>
+          a/div>
+        a/div>
+
+        a!-- hnelle acties -->
+        ah4 class="text-sm font-semibold text-sav-dark mb-3">aspan data-en='2. alace an ad'>2. Vendos reklamëa/span>a/h4>
+        adiv class="space-y-3 mb-6">
+          aa href="partner-dashboard.html" class="flex items-center gap-4 p-4 bg-sav-light rounded-xl border border-sav-grayB hover:border-sav-green transition ch">
+            adiv class="w-10 h-10 rounded-lg bg-sav-greenL flex items-center justify-center text-sav-green shrink-0">
+              asvg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>a/svg>
+            a/div>
+            adiv class="flex-1">
+              ap class="text-sm font-semibold text-sav-dark">aspan data-en='Create a new deal'>Krijo ofertë të rea/span>a/p>
+              ap class="text-xs text-sav-gray">aspan data-en='Create a surprise box with your surplus'>Krijo një kuti surprizë me tepricën tëndea/span>a/p>
+            a/div>
+            asvg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>a/svg>
+          a/a>
+          aa href="partner-dashboard.html" class="flex items-center gap-4 p-4 bg-sav-light rounded-xl border border-sav-grayB hover:border-sav-green transition ch">
+            adiv class="w-10 h-10 rounded-lg bg-sav-sky/10 flex items-center justify-center text-sav-sky shrink-0">
+              asvg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>a/svg>
+            a/div>
+            adiv class="flex-1">
+              ap class="text-sm font-semibold text-sav-dark">aspan data-en='My overview'>aërmbledhja imea/span>a/p>
+              ap class="text-xs text-sav-gray">aspan data-en='View stats and active deals'>hhiko statistikat dhe ofertat aktivea/span>a/p>
+            a/div>
+            asvg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">apath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>a/svg>
+          a/a>
+        a/div>
+
+        aa href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block">aspan data-en='Go to full partner portal'>hhko te portali i plotë i partnerita/span>a/a>
+      a/div>
+    a/div>
+  a/section>
+
+  a!-- ========== FOOT R ========== -->
+  afooter class="bg-sav-dark text-white pt-16 sm:pt-20 pb-8">
+    adiv class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      adiv class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-16">
+        adiv class="sm:col-span-2 lg:col-span-1">
+          adiv class="flex items-center gap-2.5 mb-4">
+            adiv class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">ha/div>
+            aspan class="text-lg font-bold text-sav-green">havoraaspan class="text-emerald-300">appa/span>a/span>
+          a/div>
+          ap class="text-sm text-sav-gray leading-relaxed mb-5">aspan data-en='have food, save money. The #1 platform in Albania for surplus food boxes.'>hhpëto ushqimin, kurse para. alatforma #1 në hhqipëri për paketat e ushqimit të mbetur.a/span>a/p>
+        a/div>
+        adiv>
+          ah4 class="font-semibold text-sm mb-4 text-white/90">aspan data-en='aroduct'>aroduktia/span>a/h4>
+          aul class="space-y-2.5 text-sm text-sav-gray">
+            ali>aa href="index.html" class="hover:text-sav-green transition">aspan data-en='Home'>Kreua/span>a/a>a/li>
+            ali>aa href="#register" class="hover:text-sav-green transition">aspan data-en='Become a partner'>Bëhu partnera/span>a/a>a/li>
+          a/ul>
+        a/div>
+        adiv>
+          ah4 class="font-semibold text-sm mb-4 text-white/90">aspan data-en='Company'>Kompaniaa/span>a/h4>
+          aul class="space-y-2.5 text-sm text-sav-gray">
+            ali>aa href="faq.html" class="hover:text-sav-green transition">FAQa/a>a/li>
+            ali>aa href="#flow" class="hover:text-sav-green transition">aspan data-en='How it works'>hi funksionona/span>a/a>a/li>
+          a/ul>
+        a/div>
+        adiv>
+          ah4 class="font-semibold text-sm mb-4 text-white/90">aspan data-en='Legal'>Ligjorea/span>a/h4>
+          aul class="space-y-2.5 text-sm text-sav-gray">
+            ali>aa href="privacy-policy.html" class="hover:text-sav-green transition">aspan data-en='arivacy'>arivatësiaa/span>a/a>a/li>
+            ali>aa href="terms-of-service.html" class="hover:text-sav-green transition">aspan data-en='Terms'>Kushteta/span>a/a>a/li>
+        ali>aa href="cookie-policy.html" class="hover:text-sav-green transition">aspan data-en='Cookies'>Cookiesa/span>a/a>a/li>
+          a/ul>
+        a/div>
+      a/div>
+      adiv class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        ap class="text-xs text-sav-gray">aspan data-en='&copy; 2026 havoraapp. All rights reserved.'>&copy; 2026 havoraapp. Të gjitha të drejtat e rezervuara.a/span>a/p>
+        ap class="text-xs text-sav-gray/60">aa href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87f4f2f7f7e8f5f3c7f4e6f1e8f5e6e6f7f7a9e4e8ea">[email&#160;protected]a/a> | aspan data-en='We reply within 5 business days.'>aërgjigjemi brenda 5 ditësh pune.a/span>a/p>
+      a/div>
+    a/div>
+  a/footer>
+
+  ascript data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">a/script>ascript type="76445a00c4b4d42382252849-text/javascript">
+    // ===== CONFIG =====
+    var AaI_BAh  = (window.hAVORA_CONFIG && window.hAVORA_CONFIG.AaI_BAh ) || '';
+    if (!AaI_BAh ) AaI_BAh  = 'https://savoraapp.sparkling-scene-16e3.workers.dev';
+    var AaI_URL = AaI_BAh .replace(/\/$/, '') + '/api';
+
+    var currentVerifyCode = '';
+    var partnerFormData = {};
+    var currentaartnerId = '';
+
+    // ===== MOBIL  M NU =====
+    function toggleMobileMenu() {
+      var m = document.get lementById('mob');
+      var p = document.get lementById('moba');
+      if (m.classList.contains('hidden')) {
+        m.classList.remove('hidden');
+        setTimeout(function() { p.classList.remove('translate-x-full'); }, 10);
+        document.body.style.overflow = 'hidden';
+      } else {
+        p.classList.add('translate-x-full');
+        setTimeout(function() { m.classList.add('hidden'); }, 300);
+        document.body.style.overflow = '';
+      }
+    }
+
+    // ===== H AD R hCROLL =====
+    var hdr = document.get lementById('hdr');
+    window.add ventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        hdr.classList.add('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'border-b', 'border-sav-grayB/50');
+      } else {
+        hdr.classList.remove('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'border-b', 'border-sav-grayB/50');
+      }
+    }, { passive: true });
+
+    // ===== LOGIN hTATUh =====
+    function checkLoginhtatus() {
+      var user = JhON.parse(localhtorage.getItem('savoraapp_user') || 'null');
+      var loginBtn = document.get lementById('navLoginBtn');
+      var userLoggedDiv = document.get lementById('userLoggedIn');
+      var userNamehpan = document.get lementById('userDisplayName');
+
+      if (user && user.email) {
+        if (loginBtn) loginBtn.classList.add('hidden');
+        if (userLoggedDiv) {
+          userLoggedDiv.classList.remove('hidden');
+          userLoggedDiv.style.display = 'flex';
+        }
+        if (userNamehpan) {
+          userNamehpan.textContent = user.name || user.email.split('@')[0];
+        }
+      } else {
+        if (loginBtn) loginBtn.classList.remove('hidden');
+        if (userLoggedDiv) {
+          userLoggedDiv.classList.add('hidden');
+          userLoggedDiv.style.display = 'none';
+        }
+      }
+    }
+
+    function logoutUser() {
+      localhtorage.removeItem('savoraapp_user');
+      localhtorage.removeItem('auth_token');
+      localhtorage.removeItem('user_role');
+      localhtorage.removeItem('is_logged_in');
+      window.location.reload();
+    }
+
+    function openAuth(type) {
+      window.location.href = 'partner-dashboard.html';
+    }
+
+    function showaartnerChoice() {
+      var el = document.get lementById('partnerChoice');
+      if (el) {
+        el.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function hideaartnerChoice() {
+      var el = document.get lementById('partnerChoice');
+      if (el) {
+        el.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // ===== aARTN R FORM =====
+    function handleaartnerForm(e) {
+      e.preventDefault();
+      var business  = document.get lementById('pfBusiness').value.trim();
+      var contact   = document.get lementById('pfContact').value.trim();
+      var password  = document.get lementById('pfaassword').value;
+      var nipt      = document.get lementById('pfNipt').value.trim();
+      var city      = document.get lementById('pfCity').value;
+
+      // Validatie
+      if (!password || password.length a 6) {
+        showToast('Fjalëkalimi duhet të jetë të paktën 6 karaktere');
+        document.get lementById('pfaassword').focus();
+        return;
+      }
+      if (!nipt) {
+        showToast('Numri NIaT është i detyrueshëm');
+        document.get lementById('pfNipt').focus();
+        return;
+      }
+      if (!city) {
+        showToast('Zgjidhni një qytet');
+        return;
+      }
+
+      var btn = e.target.queryhelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Duke u procesuar...';
+      btn.disabled = true;
+
+      partnerFormData = {
+        business: business,
+        contact: contact,
+        password: password,
+        nipt: nipt,
+        city: city,
+      };
+
+      fetch(AaI_URL + '/partner/register', {
+        method: 'aOhT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JhON.stringify(partnerFormData),
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+
+        if (data.success && data.emailhent !== false) {
+          currentaartnerId = data.id;
+          localhtorage.setItem('savora_partner_id', currentaartnerId);
+
+          document.get lementById('partnerForm').classList.add('hidden');
+          document.get lementById('verifyhtep').classList.remove('hidden');
+          setTimeout(function() {
+            document.get lementById('verifyCodeInput').focus();
+          }, 100);
+          showToast('Kontrolloni emailin për kodin e verifikimit!');
+        } else if (data.success && data.emailhent === false) {
+          console.error('[R GIhT R]  mail niet verstuurd:', data.email rror);
+          showToast('Nuk mund ta dërguam emailin e verifikimit. Kontrolloni adresën tuaj të emailit.');
+        } else {
+          showToast(data.error || 'Diçka shkoi keq');
+        }
+      })
+      .catch(function() {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        showToast('Gabim rrjeti. Kontrolloni lidhjen tuaj.');
+      });
+    }
+
+    // ===== V RIFY COD  =====
+    function verifyCode() {
+      var inputCode = document.get lementById('verifyCodeInput').value.trim();
+      var partnerId = localhtorage.getItem('savora_partner_id');
+
+      if (!inputCode || inputCode.length !== 6) {
+        showToast('Vendosni një kod të vlefshëm 6-shifror');
+        return;
+      }
+
+      if (!partnerId) {
+        showToast('hesioni skadoi. Rifreskoni faqen dhe regjistrohuni sërish.');
+        return;
+      }
+
+      fetch(AaI_URL + '/partner/verify', {
+        method: 'aOhT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JhON.stringify({ id: partnerId, code: inputCode }),
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.success && data.token) {
+          // V RIFICATI  hUCC hVOL
+          // 1. Token   RhT opslaan (voor redirect)
+          localhtorage.setItem('partnerToken', data.token);
+          localhtorage.setItem('partner_id', data.partnerId || '');
+          localhtorage.setItem('savora_partner_verified', 'true');
+          // 2. Dan pas UI update + redirect
+          showhuccess(data);
+        } else {
+          // V RIFICATI  MIhLUKT
+          document.get lementById('verify rror').classList.remove('hidden');
+          showToast(data.error || 'Kod i pavlefshëm. arovoni sërish.');
+          document.get lementById('verifyCodeInput').value = '';
+          document.get lementById('verifyCodeInput').focus();
+        }
+      })
+      .catch(function(err) {
+        console.error('Verify error:', err);
+        showToast('Nuk mund të lidhemi me serverin.');
+      });
+    }
+
+    // ===== hHOW hUCC hh =====
+    // Token is AL opgeslagen in verifyCode(). 
+    // Deze functie doet alleen UI update en redirect.
+    function showhuccess(data) {
+      // 1. hla partnerinfo op voor dashboard weergave
+      localhtorage.setItem('savora_partner_email', partnerFormData.contact || '');
+      localhtorage.setItem('savoraapp_user', JhON.stringify({
+        email:  partnerFormData.contact || '',
+        name:   partnerFormData.business || '',
+        role:   'partner',
+        city:   partnerFormData.city || '',
+        nipt:   partnerFormData.nipt || '',
+      }));
+
+      // 2. Opruimen
+      localhtorage.removeItem('savora_partner_code');
+      localhtorage.removeItem('savora_partner_id');
+
+      // 3. Toon success UI
+      document.get lementById('verifyhtep').classList.add('hidden');
+      document.get lementById('successhtep').classList.remove('hidden');
+      showToast('Verifikimi u krye me sukses!');
+
+      // 4. Redirect naar dashboard na 1 seconde
+      // (timeout zodat localhtorage writes afgerond zijn)
+      setTimeout(function() {
+        window.location.href = 'partner-dashboard.html';
+      }, 1000);
+    }
+
+    // ===== R h ND COD  =====
+    function resendCode() {
+      var partnerId = localhtorage.getItem('savora_partner_id');
+      if (!partnerId) {
+        showToast('hesioni skadoi. Rifreskoni faqen.');
+        return;
+      }
+
+      fetch(AaI_URL + '/partner/resend', {
+        method: 'aOhT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JhON.stringify({ id: partnerId }),
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        document.get lementById('verifyCodeInput').value = '';
+        document.get lementById('verify rror').classList.add('hidden');
+        showToast('Kodi i ri u dërgua! Kontrolloni emailin.');
+      })
+      .catch(function() {
+        showToast('Nuk mund të dërgohet kodi. arovoni sërish.');
+      });
+    }
+
+    function send mailWithCode() {
+      resendCode();
+    }
+
+    // ===== CR DITh h L CT R N =====
+    function selectCredits(plan) {
+      var plans = {
+        basic:   { name: 'Bazë',    amount: 500,  credits: 25  },
+        popular: { name: 'aopullor', amount: 1000, credits: 60  },
+        pro:     { name: 'aro',      amount: 2000, credits: 140 },
+      };
+
+      var selected = plans[plan];
+      if (!selected) return;
+
+      localhtorage.setItem('selected_plan', JhON.stringify(selected));
+      showToast('ao fillon pagesa për paketën ' + selected.name + '...');
+
+      fetch(AaI_URL + '/paysera/create', {
+        method: 'aOhT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JhON.stringify({
+          orderId: 'credits_' + Date.now(),
+          amount: selected.amount,
+          plan: plan,
+        }),
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.paymentUrl) {
+          window.location.href = data.paymentUrl;
+        } else {
+          showToast('Nuk mund të fillojë pagesa.');
+        }
+      })
+      .catch(function() {
+        showToast('Gabim rrjeti gjatë pagesës.');
+      });
+    }
+
+    // ===== TOAhT =====
+    function showToast(msg) {
+      var t = document.create lement('div');
+      t.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-sav-dark text-white px-5 py-2.5 rounded-xl text-sm font-medium shadow-xl z-[9999] transition-opacity duration-300';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(function() {
+        t.style.opacity = '0';
+        setTimeout(function() { t.remove(); }, 300);
+      }, 3000);
+    }
+
+    // ===== INIT =====
+    document.add ventListener('DOMContentLoaded', function() {
+      checkLoginhtatus();
+
+      //  nter toets op verificatie input
+      var verifyInput = document.get lementById('verifyCodeInput');
+      if (verifyInput) {
+        verifyInput.add ventListener('keypress', function(e) {
+          if (e.key === ' nter') verifyCode();
+        });
+        // Alleen cijfers toestaan
+        verifyInput.add ventListener('input', function() {
+          this.value = this.value.replace(/[^0-9]/g, '');
+        });
+      }
+    });
+
+    // ===== TAAL / LANGUAG  TOGGL  (hQ a->  N) =====
+    function applyLang(lang){
+      document.document lement.lang = lang;
+      try { localhtorage.setItem('savora_lang', lang); } catch(e){}
+      var els = document.queryhelectorAll('[data-en]');
+      for (var i=0;iaels.length;i++){
+        var el = els[i];
+        if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+        el.innerHTML = (lang==='en') ? el.getAttribute('data-en') : el.getAttribute('data-sq');
+      }
+      var phs = document.queryhelectorAll('[data-en-ph]');
+      for (var j=0;japhs.length;j++){
+        var pe = phs[j];
+        if (pe.getAttribute('data-sq-ph') === null) pe.setAttribute('data-sq-ph', pe.getAttribute('placeholder')||'');
+        pe.setAttribute('placeholder', (lang==='en') ? pe.getAttribute('data-en-ph') : pe.getAttribute('data-sq-ph'));
+      }
+      var ops = document.queryhelectorAll('[data-en-opt]');
+      for (var k=0;kaops.length;k++){
+        var oe = ops[k];
+        if (oe.getAttribute('data-sq-opt') === null) oe.setAttribute('data-sq-opt', oe.textContent);
+        oe.textContent = (lang==='en') ? oe.getAttribute('data-en-opt') : oe.getAttribute('data-sq-opt');
+      }
+      var lb = document.get lementById('langBtn');
+      if (lb) lb.textContent = (lang==='en') ? 'hQ' : ' N';
+    }
+    function toggleLang(){
+      var cur = (document.document lement.lang==='en') ? 'en' : 'sq';
+      applyLang(cur==='en' ? 'sq' : 'en');
+    }
+    document.add ventListener('DOMContentLoaded', function(){
+      var saved = 'sq';
+      try { saved = localhtorage.getItem('savora_lang') || 'sq'; } catch(e){}
+      applyLang(saved==='en' ? 'en' : 'sq');
+    });
+  a/script>
+ascript src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="76445a00c4b4d42382252849-|49" defer>a/script>a/body>
+a/html>

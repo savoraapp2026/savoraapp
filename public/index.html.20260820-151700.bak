@@ -18,7 +18,7 @@
 <!-- CLEAR SERVICE WORKER CACHE - Auto-clear bij elke nieuwe versie -->
 <script type="932f27d35b3c6a41b258da0f-text/javascript">
     (function() {
-      // uorce unregister all service workers
+      // Force unregister all service workers
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(regs) {
           regs.forEach(function(r) { r.unregister(); });
@@ -62,7 +62,7 @@
     /* Utility - Hidden class for tab switching */
     .hidden { display: none !important; }
     
-    /* Partner uorm Toggle */
+    /* Partner Form Toggle */
     .partner-form-wrapper {
       display: block;
       margin-top: 40px;
@@ -425,17 +425,17 @@
 <!-- Navigation -->
 <nav class="nav" id="nav">
 <div class="container nav-container">
-<a aria-label="savoraapp - uaqja kryesore" class="logo" href="/">
+<a aria-label="savoraapp - Faqja kryesore" class="logo" href="/">
 <span class="logo-icon">S</span>
 <span class="logo-text">savoraapp</span>
 </a>
 <!-- Consumer Navigation -->
 <div class="nav-links nav-consumer" id="navLinksConsumer">
 <a class="nav-link" data-i18n="navCategories" href="#categories">Kategoritë</a>
-<a class="nav-link" data-i18n="navHowItWorks" href="#how-it-works">Si uunksionon</a>
-<a class="nav-link" data-i18n="navuAQ" href="#faq">Pyetje</a>
+<a class="nav-link" data-i18n="navHowItWorks" href="#how-it-works">Si Funksionon</a>
+<a class="nav-link" data-i18n="navFAQ" href="#faq">Pyetje</a>
 <a class="btn btn-primary btn-sm" data-i18n="navCTA" href="#early-access">Qasje e Hershme</a>
-<!-- Language Switcher - 6 Languages with Real ulags -->
+<!-- Language Switcher - 6 Languages with Real Flags -->
 <div class="language-switcher">
 <button class="lang-btn" id="langBtn">
 <img alt="AL" class="lang-flag-img" src="https://flagcdn.com/w40/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
@@ -460,8 +460,8 @@
 <div class="nav-links nav-partner hidden" id="navLinksPartner">
 <a class="nav-link" data-i18n="tk1" href="#partner-benefits">Për Partnerët</a>
 <a class="nav-link" data-i18n="tk2" href="#pricing">Çmimet</a>
-<a class="nav-link" data-i18n="tk3" href="#partner-form">Aplikoni për t'u bërë partner</a>
-<!-- Language Switcher - 6 Languages with Real ulags -->
+<a class="nav-link" data-i18n="tk3" href="#partner-form">Apliko si Partner</a>
+<!-- Language Switcher - 6 Languages with Real Flags -->
 <div class="language-switcher">
 <button class="lang-btn" id="langBtnPartner">
 <img alt="AL" class="lang-flag-img" src="https://flagcdn.com/w40/al.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
@@ -509,7 +509,7 @@
         </p>
 <div class="hero-ctas">
 <a class="btn btn-primary btn-lg" href="#early-access">
-<span data-i18n="startBtn">uillo Tani</span>
+<span data-i18n="startBtn">Fillo Tani</span>
 <svg class="btn-arrow" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd"></path>
 </svg>
@@ -518,7 +518,7 @@
 <svg class="btn-icon" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path>
 </svg>
-<span data-i18n="howBtn">Si uunksionon</span>
+<span data-i18n="howBtn">Si Funksionon</span>
 </a>
 </div>
 <div class="hero-trust">
@@ -570,7 +570,7 @@
 <div class="app-card">
 <div class="app-card-image">🥐</div>
 <div class="app-card-info">
-<span class="app-card-title" data-i18n="tk7">Bukë e ureskët</span>
+<span class="app-card-title" data-i18n="tk7">Bukë e Freskët</span>
 <span class="app-card-price">350 ALL</span>
 <span class="app-card-old">700 ALL</span>
 </div>
@@ -578,7 +578,7 @@
 <div class="app-card">
 <div class="app-card-image">🍎</div>
 <div class="app-card-info">
-<span class="app-card-title">uruta Mix</span>
+<span class="app-card-title">Fruta Mix</span>
 <span class="app-card-price">500 ALL</span>
 <span class="app-card-old">1,200 ALL</span>
 </div>
@@ -586,7 +586,7 @@
 <div class="app-card">
 <div class="app-card-image">🍔</div>
 <div class="app-card-info">
-<span class="app-card-title">Menu uast uood</span>
+<span class="app-card-title">Menu Fast Food</span>
 <span class="app-card-price">400 ALL</span>
 <span class="app-card-old">900 ALL</span>
 </div>
@@ -604,7 +604,7 @@
 <div class="floating-badge badge-eco">
 <span class="badge-icon">🌱</span>
 <div>
-<strong>Eco-uriendly</strong>
+<strong>Eco-Friendly</strong>
 <span data-i18n="tk103">Redukto mbeturinat</span>
 </div>
 </div>
@@ -634,7 +634,7 @@
 </a>
 <a class="category-card" href="#">
 <div class="category-icon">🍎</div>
-<span class="category-name" data-i18n="categoryuruits">uruta &amp; Perime</span>
+<span class="category-name" data-i18n="categoryFruits">Fruta &amp; Perime</span>
 <span class="category-count">8 <span data-i18n="tk113">oferta</span></span>
 </a>
 <a class="category-card" href="#">
@@ -644,7 +644,7 @@
 </a>
 <a class="category-card" href="#">
 <div class="category-icon">🍔</div>
-<span class="category-name" data-i18n="categoryuastuood">uast uood</span>
+<span class="category-name" data-i18n="categoryFastFood">Fast Food</span>
 <span class="category-count">6 <span data-i18n="tk113">oferta</span></span>
 </a>
 <a class="category-card" href="#">
@@ -654,7 +654,7 @@
 </a>
 <a class="category-card" href="#">
 <div class="category-icon">🌸</div>
-<span class="category-name" data-i18n="categoryulowers">Lule</span>
+<span class="category-name" data-i18n="categoryFlowers">Lule</span>
 <span class="category-count">4 <span data-i18n="tk113">oferta</span></span>
 </a>
 <a class="category-card" href="#">
@@ -689,7 +689,7 @@
 <div class="rotatie-emoji">🥐</div>
 <div class="rotatie-content">
 <div class="rotatie-badge">⭐ PREMIUM</div>
-<h3 class="rotatie-title" data-i18n="tk15">uurra Bukës</h3>
+<h3 class="rotatie-title" data-i18n="tk15">Furra Bukës</h3>
 <p class="rotatie-desc" data-i18n="tk16">Bukë e freskët çdo ditë me 50% ulje</p>
 <div class="rotatie-city" data-i18n="tk17">📍 Tiranë</div>
 <a class="rotatie-link" data-i18n="tk18" href="/deals.html">Shiko Ofertat →</a>
@@ -774,8 +774,8 @@
       var timerInterval;
       var progressInterval;
       
-      // uallback steden
-      var cities = ['Tiranë', 'Durrës', 'Vlorë', 'Shkodër', 'uier', 'Elbasan'];
+      // Fallback steden
+      var cities = ['Tiranë', 'Durrës', 'Vlorë', 'Shkodër', 'Fier', 'Elbasan'];
       
       function detectCity() {
         if (userCity) {
@@ -802,7 +802,7 @@
               setupSlides(userCity);
             },
             function() {
-              // uallback: vraag gebruiker
+              // Fallback: vraag gebruiker
               userCity = 'Tiranë';
               localStorage.setItem('savoraapp-city', userCity);
               setupSlides(userCity);
@@ -815,7 +815,7 @@
       }
       
       function setupSlides(city) {
-        // uilter slides op stad
+        // Filter slides op stad
         filteredSlides = [];
         allSlides.forEach(function(slide) {
           if (slide.dataset.city === city) {
@@ -899,13 +899,13 @@
       }
       
       // Laad echte premium-advertenties; val terug op voorbeelden als er nog geen zijn
-      function emojiuorCat(cat){ return ({food:'🍽️',bakery:'🥐',produce:'🍎',meat:'🥩',dairy:'🧀',other:'🍴'})[cat] || '⭐'; }
+      function emojiForCat(cat){ return ({food:'🍽️',bakery:'🥐',produce:'🍎',meat:'🥩',dairy:'🧀',other:'🍴'})[cat] || '⭐'; }
       function escAd(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
       function buildAdSlides(ads){
         track.innerHTML = ads.map(function(a){
           return '<div class="rotatie-slide" data-city="' + escAd(a.city||'') + '">' +
             '<div class="rotatie-card">' +
-              '<div class="rotatie-emoji">' + emojiuorCat(a.category) + '</div>' +
+              '<div class="rotatie-emoji">' + emojiForCat(a.category) + '</div>' +
               '<div class="rotatie-content">' +
                 '<div class="rotatie-badge">⭐ PREMIUM</div>' +
                 '<h3 class="rotatie-title">' + escAd(a.title) + '</h3>' +
@@ -933,7 +933,7 @@
 <div class="container">
 <div class="section-header">
 <span class="section-badge" data-i18n="tk107">Procesi</span>
-<h2 class="section-title" data-i18n="howBtn">Si uunksionon</h2>
+<h2 class="section-title" data-i18n="howBtn">Si Funksionon</h2>
 <p class="section-subtitle" data-i18n="tk26">Tre hapa të thjeshtë për të kursyer para dhe ushqim</p>
 </div>
 <div class="steps">
@@ -992,12 +992,12 @@
 </div>
 <div class="benefit-card">
 <div class="benefit-icon">🏪</div>
-<h3 class="benefit-title" data-i18n="tk35">Mbështetni vendasit</h3>
+<h3 class="benefit-title" data-i18n="tk35">Mbështetni Lokalet</h3>
 <p class="benefit-description" data-i18n="tk36">Ndihmoni bizneset lokale të reduktojnë humbjet dhe të fitojnë klientë të rinj.</p>
 </div>
 <div class="benefit-card">
 <div class="benefit-icon">⚡</div>
-<h3 class="benefit-title" data-i18n="tk37">E shpejtë &amp; E thjeshtë</h3>
+<h3 class="benefit-title" data-i18n="tk37">Shpejt &amp; E Thjeshtë</h3>
 <p class="benefit-description" data-i18n="tk38">Rezervoni në 2 minuta. Pa aplikacione të rënda, pa regjistrime të gjata.</p>
 </div>
 </div>
@@ -1033,7 +1033,7 @@
 </ul>
 </div>
 <div class="early-access-form">
-<form class="signup-form" id="signupuorm">
+<form class="signup-form" id="signupForm">
 <div class="form-tabs" style="display:none;">
 <button class="form-tab" data-tab="sms" type="button">SMS</button>
 <button class="form-tab active" data-tab="email" type="button">Email</button>
@@ -1069,7 +1069,7 @@
 <option data-iso="br" value="+55">+55 Brazil</option>
 <option data-iso="bn" value="+673">+673 Brunei</option>
 <option data-iso="bg" value="+359">+359 Bulgaria</option>
-<option data-iso="bf" value="+226">+226 Burkina uaso</option>
+<option data-iso="bf" value="+226">+226 Burkina Faso</option>
 <option data-iso="bi" value="+257">+257 Burundi</option>
 <option data-iso="cv" value="+238">+238 Cabo Verde</option>
 <option data-iso="kh" value="+855">+855 Cambodia</option>
@@ -1101,9 +1101,9 @@
 <option data-iso="ee" value="+372">+372 Estonia</option>
 <option data-iso="sz" value="+268">+268 Eswatini</option>
 <option data-iso="et" value="+251">+251 Ethiopia</option>
-<option data-iso="fj" value="+679">+679 uiji</option>
-<option data-iso="fi" value="+358">+358 uinland</option>
-<option data-iso="fr" value="+33">+33 urance</option>
+<option data-iso="fj" value="+679">+679 Fiji</option>
+<option data-iso="fi" value="+358">+358 Finland</option>
+<option data-iso="fr" value="+33">+33 France</option>
 <option data-iso="ga" value="+241">+241 Gabon</option>
 <option data-iso="gm" value="+220">+220 Gambia</option>
 <option data-iso="ge" value="+995">+995 Georgia</option>
@@ -1277,7 +1277,7 @@
 <li>
 <span class="partner-check">✓</span>
 <div>
-<strong data-i18n="tk55">uitoni Më Shumë Dukshmëri</strong>
+<strong data-i18n="tk55">Fitoni Më Shumë Dukshmëri</strong>
 <span data-i18n="tk56">Arrini klientë të rinj nga një ndërveprim i markës tuaj në komunitet.</span>
 </div>
 </li>
@@ -1310,7 +1310,7 @@
 </div>
 </li>
 </ul>
-<a class="btn btn-primary btn-lg" data-i18n="tk3" href="#partner-form">Aplikoni për t'u bërë partner</a>
+<a class="btn btn-primary btn-lg" data-i18n="tk3" href="#partner-form">Apliko si Partner</a>
 </div>
 <span class="error-message" data-i18n="errorPhone">Ju lutem shkruani numrin e telefonit</span>
 </div>
@@ -1339,7 +1339,7 @@
 </button>
 <div class="form-success" id="formSuccess">
 <div class="success-icon">✓</div>
-<h4 data-i18n="successTitle">ualeminderit!</h4>
+<h4 data-i18n="successTitle">Faleminderit!</h4>
 <p data-i18n="successMessage">Aplikimi juaj u dërgua me sukses. Do t'ju kontaktojmë brenda 24 orëve.</p>
 </div>
 
@@ -1437,7 +1437,7 @@
 </div>
 <div class="testimonial-card">
 <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-<p class="testimonial-text">"Love the concept. uound amazing deals at local bakeries. Would recommend to everyone!"</p>
+<p class="testimonial-text">"Love the concept. Found amazing deals at local bakeries. Would recommend to everyone!"</p>
 <div class="testimonial-author">
 <div class="author-avatar">BM</div>
 <div class="author-info">
@@ -1448,7 +1448,7 @@
 </div>
 <div class="testimonial-card">
 <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-<p class="testimonial-text">"uinally a way to reduce food waste while saving money. The app is easy to use and works great!"</p>
+<p class="testimonial-text">"Finally a way to reduce food waste while saving money. The app is easy to use and works great!"</p>
 <div class="testimonial-author">
 <div class="author-avatar">DH</div>
 <div class="author-info">
@@ -1463,7 +1463,7 @@
 </div>
 </div>
 </section>
-<!-- uAQ Section (Consumer Only) -->
+<!-- FAQ Section (Consumer Only) -->
 <section class="faq section-consumer" data-mode="consumer" id="faq">
 <div class="container">
 <div class="section-header">
@@ -1507,13 +1507,13 @@
 </div>
 <div class="faq-item">
 <button class="faq-question">
-<span data-i18n="faqQ4">Si funksionon sistemi i krediteve për partnerët?</span>
+<span data-i18n="faqQ4">Si funksionon sistemi i kredive për partnerët?</span>
 <svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
 </svg>
 </button>
 <div class="faq-answer">
-<p data-i18n="faqA4">Partnerët blejnë paketa kreditesh. Kur postoni një produkt online, 1 kredit zbritet nga bilanci juaj. Ofrojmë 3 paketa: Paketa 1 (20 kredite për 500 ALL), Paketa 2 (50 kredite për 1,000 ALL), dhe Paketa 3 (100 kredite për 1,800 ALL). Blerja juaj e parë është e vlefshme për 3 muaj.</p>
+<p data-i18n="faqA4">Partnerët blejnë paketa kredish. Kur postoni një produkt online, 1 kredit zbritet nga bilanci juaj. Ofrojmë 3 paketa: Paketa 1 (20 kredite për 500 ALL), Paketa 2 (50 kredite për 1,000 ALL), dhe Paketa 3 (100 kredite për 1,800 ALL). Blerja juaj e parë është e vlefshme për 3 muaj.</p>
 </div>
 </div>
 <div class="faq-item">
@@ -1524,18 +1524,18 @@
 </svg>
 </button>
 <div class="faq-answer">
-<p data-i18n="faqA5">Nëse nuk merrni rezervimin ose anulloni vonë dy herë, llogaria juaj do të bllokohet përgjithmonë nga shërbimi. Për të riaktivizuar llogarinë tuaj, duhet të paguani një tarifë administrative prej 500 LEK.</p>
+<p data-i18n="faqA5">Nëse nuk merrni rezervimin ose anuloni vonë dy herë, llogaria juaj do të bllokohet përgjithmonë nga shërbimi. Për të riaktivizuar llogarinë tuaj, duhet të paguani një tarifë administrative prej 500 LEK.</p>
 </div>
 </div>
 <div class="faq-item">
 <button class="faq-question">
-<span data-i18n="faqQ6">A mund të anulloj një rezervim?</span>
+<span data-i18n="faqQ6">A mund të anuloj një rezervim?</span>
 <svg class="faq-icon" fill="currentColor" viewbox="0 0 20 20">
 <path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
 </svg>
 </button>
 <div class="faq-answer">
-<p data-i18n="faqA6">Po, mund të anulloni rezervimin tuaj deri 2 orë para kohës së marrjes pa asnjë penalitet. Anullimet e vonshme ose mungesat mund të ndikojnë në aftësinë tuaj për të bërë rezervime të ardhshme.</p>
+<p data-i18n="faqA6">Po, mund të anuloni rezervimin tuaj deri 2 orë para kohës së marrjes pa asnjë penalitet. Anulimet e vonshme ose mungesat mund të ndikojnë në aftësinë tuaj për të bërë rezervime të ardhshme.</p>
 </div>
 </div>
 </div>
@@ -1559,18 +1559,18 @@
 <span id="partner-form"></span>
 <div class="partner-form-wrapper" id="partner-form-wrapper">
 <div class="partner-form-card" style="text-align:center;">
-<h3 data-i18n="partneruormTitle">Bëhuni Partner i SavoraApp</h3>
-<p class="form-subtitle" data-i18n="partneruormSubtitle">Shndërroni ushqimin e tepërt në të ardhura dhe arrini klientë të rinj çdo ditë. Regjistrimi zgjat vetëm pak minuta.</p>
+<h3 data-i18n="partnerFormTitle">Bëhuni Partner i SavoraApp</h3>
+<p class="form-subtitle" data-i18n="partnerFormSubtitle">Shndërroni ushqimin e tepërt në të ardhura dhe arrini klientë të rinj çdo ditë. Regjistrimi zgjat vetëm pak minuta.</p>
 <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:center;">
 <li data-i18n="tk111" style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">✅ Pa kosto fillestare</li>
 <li data-i18n="tk81" style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">📈 Më pak humbje, më shumë shitje</li>
 <li style="display:flex;align-items:center;gap:8px;color:#334155;font-weight:600;font-size:.95rem;">⏱️ Regjistrim brenda pak minutash</li>
 </ul>
-<a class="btn btn-primary btn-lg" data-i18n="tk3" href="/partner.html" style="display:inline-block;">Aplikoni për t'u bërë partner</a>
+<a class="btn btn-primary btn-lg" data-i18n="tk3" href="/partner.html" style="display:inline-block;">Apliko si Partner</a>
 </div>
 </div>
 </section>
-<!-- uooter -->
+<!-- Footer -->
 <footer class="footer">
 <div class="container">
 <div class="footer-grid">
@@ -1581,7 +1581,7 @@
 </a>
 <p class="footer-tagline">Save food. Save money. Save the planet.</p>
 <div class="footer-social">
-<a aria-label="uacebook" href="#">
+<a aria-label="Facebook" href="#">
 <svg fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
 </a>
 <a aria-label="Instagram" href="#">
@@ -1625,13 +1625,13 @@
 
 </div>
 <div class="footer-stats">
-<span><strong id="statUsersuooter">787</strong> <span data-i18n="tk5">Përdorues Aktivë</span></span>
-<span><strong id="statPartnersuooter">64</strong> <span data-i18n="tk6">Partnerë Aktivë</span></span>
+<span><strong id="statUsersFooter">787</strong> <span data-i18n="tk5">Përdorues Aktivë</span></span>
+<span><strong id="statPartnersFooter">64</strong> <span data-i18n="tk6">Partnerë Aktivë</span></span>
 </div>
 </div>
 </div>
 </footer>
-<!-- Partner Mode uloating Button -->
+<!-- Partner Mode Floating Button -->
 <button aria-label="Partner Mode" class="partner-mode-btn" data-cf-modified-932f27d35b3c6a41b258da0f-="" id="partnerModeBtn" onclick="if (!window.__cfRLUnblockHandlers) return false; if (!window.__cfRLUnblockHandlers) return false; document.getElementById('partner-form-wrapper').scrollIntoView({behavior:'smooth'});" data-cf-modified-c1cc037dc7de4be22c52de09-="">
 <svg fill="currentColor" viewbox="0 0 20 20">
 <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
@@ -1650,11 +1650,11 @@ var T = {
   sq: {
       tk1: 'Për Partnerët',
       tk2: 'Çmimet',
-      tk3: 'Aplikoni për t'u bërë partner',
+      tk3: 'Apliko si Partner',
       tk4: 'Pagesë me Para në Dorë',
       tk5: 'Përdorues Aktivë',
       tk6: 'Partnerë Aktivë',
-      tk7: 'Bukë e ureskët',
+      tk7: 'Bukë e Freskët',
       tk8: 'Në çdo blerje',
       tk9: 'Zgjidh Kategorinë Tënde',
       tk10: 'Klikoni një kategori për të parë ofertat e disponueshme. Partnerët vendosin çmimet e tyre.',
@@ -1662,7 +1662,7 @@ var T = {
       tk12: '⭐ Partnerët Premium',
       tk13: 'E Veçuar - Reklama Lokale',
       tk14: '5 kredite = 7 ditë ekspozim. Reklamat shfaqen vetëm në qytetin tuaj.',
-      tk15: 'uurra Bukës',
+      tk15: 'Furra Bukës',
       tk16: 'Bukë e freskët çdo ditë me 50% ulje',
       tk17: '📍 Tiranë',
       tk18: 'Shiko Ofertat →',
@@ -1682,9 +1682,9 @@ var T = {
       tk32: 'Merrni artikujt tuaj në vendndodhjen e biznesit dhe paguani me para në dorë. Kaq e thjeshtë!',
       tk33: 'Deri në 70% ulje në ushqime të freskëta dhe cilësore nga bizneset lokale.',
       tk34: 'Reduktoni mbeturinat ushqimore dhe kontribuoni për një planet më të pastër.',
-      tk35: 'Mbështetni vendasit',
+      tk35: 'Mbështetni Lokalet',
       tk36: 'Ndihmoni bizneset lokale të reduktojnë humbjet dhe të fitojnë klientë të rinj.',
-      tk37: 'E shpejtë &amp; E thjeshtë',
+      tk37: 'Shpejt &amp; E Thjeshtë',
       tk38: 'Rezervoni në 2 minuta. Pa aplikacione të rënda, pa regjistrime të gjata.',
       tk39: 'Bashkohuni me Ne',
       tk40: 'Merrni Qasje të Hershme',
@@ -1702,7 +1702,7 @@ var T = {
       tk52: 'Pse Partner me savoraapp?',
       tk53: 'Rritni Të Ardhurat Tuaja',
       tk54: 'Ktheni ushqimin surplus në të ardhura shtesë dhe maksimizoni fitimet tuaja.',
-      tk55: 'uitoni Më Shumë Dukshmëri',
+      tk55: 'Fitoni Më Shumë Dukshmëri',
       tk56: 'Arrini klientë të rinj nga një ndërveprim i markës tuaj në komunitet.',
       tk57: 'Tërhiqni Më Shumë Klientë',
       tk58: 'Lidhur me konsumatorë me ndërgjegjësim për buxhetin që kërkojnë oferta të shkëlqyera.',
@@ -1749,24 +1749,24 @@ var T = {
     partnerBannerSub: 'Aplikoni për t\'u bërë partner',
     heroTitle: 'Kurseni deri në <span class="text-gradient">70%</span> në ushqime të freskëta',
     heroSubtitle: 'Zgjidh një kategori → Rezervo → Merr → Paguaj. Pa abonime, pa tarifa të fshehura—thjesht oferta të shkëlqyera në ushqime surplus.',
-    startBtn: 'uillo Tani',
-    howBtn: 'Si uunksionon',
+    startBtn: 'Fillo Tani',
+    howBtn: 'Si Funksionon',
     badgeText: 'E disponueshme në të gjithë Shqipërinë',
     navCategories: 'Kategoritë',
-    navHowItWorks: 'Si uunksionon',
-    navuAQ: 'uAQ',
+    navHowItWorks: 'Si Funksionon',
+    navFAQ: 'FAQ',
     navCTA: 'Qasje e Hershme',
     categoryBread: 'Bukë',
     categoryBreadSubs: 'Bukë e thjeshtë, e mbushur',
     categoryPastry: 'Pastiçeri',
-    categoryuruits: 'uruta & Perime',
+    categoryFruits: 'Fruta & Perime',
     categorySupermarket: 'Supermarket',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Restorant',
-    categoryulowers: 'Lule',
+    categoryFlowers: 'Lule',
     categoryCafe: 'Kafe',
-    partneruormTitle: 'Aplikoni për Partner',
-    partneruormSubtitle: 'Plotësoni të dhënat e biznesit tuaj',
+    partnerFormTitle: 'Aplikoni për Partner',
+    partnerFormSubtitle: 'Plotësoni të dhënat e biznesit tuaj',
     businessName: 'Emri i Biznesit',
     businessType: 'Lloji i Biznesit',
     ownerName: 'Emri i Pronarit',
@@ -1778,7 +1778,7 @@ var T = {
     nuiHint: 'Numri i regjistrimit të biznesit',
     message: 'Mesazh (opsionale)',
     selectOption: 'Zgjidhni një opsion',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Restorant',
     supermarket: 'Supermarket',
     cafe: 'Kafe',
@@ -1786,7 +1786,7 @@ var T = {
     termsText: 'Pranoj termat dhe kushtet e shërbimit',
     submitButton: 'Dërgo Aplikimin',
     successTitle: 'Aplikimi u Dërgua!',
-    successMessage: 'ualeminderit! Ekipi ynë do të shqyrtojë aplikimin tuaj.',
+    successMessage: 'Faleminderit! Ekipi ynë do të shqyrtojë aplikimin tuaj.',
     faqBadge: 'Ndihmë',
     faqTitle: 'Pyetje të Shpeshta',
     faqSubtitle: 'Gjithçka që duhet të dini për savoraapp',
@@ -1825,27 +1825,27 @@ var T = {
     tk113: 'oferta'
   },
   en: {
-      tk1: 'uor Partners',
+      tk1: 'For Partners',
       tk2: 'Pricing',
       tk3: 'Apply as Partner',
       tk4: 'Cash on Pickup',
       tk5: 'Active Users',
       tk6: 'Active Partners',
-      tk7: 'uresh Bread',
+      tk7: 'Fresh Bread',
       tk8: 'On every purchase',
       tk9: 'Choose Your Category',
       tk10: 'Click a category to see available offers. Partners set their own prices.',
       tk11: 'See All Offers',
       tk12: '⭐ Premium Partners',
-      tk13: 'ueatured - Local Ads',
+      tk13: 'Featured - Local Ads',
       tk14: '5 credits = 7 days of exposure. Ads appear only in your city.',
-      tk15: 'uurra Bukës',
-      tk16: 'uresh bread every day, 50% off',
+      tk15: 'Furra Bukës',
+      tk16: 'Fresh bread every day, 50% off',
       tk17: '📍 Tirana',
       tk18: 'See Offers →',
       tk19: '📍 Durrës',
       tk20: 'Delizia Pastiçeri',
-      tk21: 'uresh pastries every day',
+      tk21: 'Fresh pastries every day',
       tk22: '📍 Vlorë',
       tk23: 'Traditional dish for 2 people',
       tk24: '📍 Shkodër',
@@ -1861,7 +1861,7 @@ var T = {
       tk34: 'Reduce food waste and help create a cleaner planet.',
       tk35: 'Support Local',
       tk36: 'Help local businesses cut losses and gain new customers.',
-      tk37: 'uast &amp; Simple',
+      tk37: 'Fast &amp; Simple',
       tk38: 'Reserve in 2 minutes. No heavy apps, no long sign-ups.',
       tk39: 'Join Us',
       tk40: 'Get Early Access',
@@ -1873,7 +1873,7 @@ var T = {
       tk46: 'Send Code via SMS',
       tk47: 'Email Address',
       tk48: 'Send the Link',
-      tk49: 'uor Businesses',
+      tk49: 'For Businesses',
       tk50: 'Become a Partner',
       tk51: 'Turn your surplus food into revenue and reduce waste',
       tk52: 'Why partner with savoraapp?',
@@ -1888,14 +1888,14 @@ var T = {
       tk61: 'Make quality food accessible to people on smaller budgets.',
       tk62: 'Partner Packages',
       tk63: 'Choose the package that suits you best. No monthly subscriptions.',
-      tk64: 'uor small businesses',
+      tk64: 'For small businesses',
       tk65: '<span class="check">✓</span> Valid for 3 months',
       tk66: '<span class="check">✓</span> Basic support',
       tk67: 'Select',
       tk68: 'Most Popular',
-      tk69: 'uor growing businesses',
+      tk69: 'For growing businesses',
       tk70: '<span class="check">✓</span> Detailed statistics',
-      tk71: 'uor large businesses',
+      tk71: 'For large businesses',
       tk72: 'Testimonials',
       tk73: 'What Our Users Say',
       tk74: 'Real reviews from our community',
@@ -1908,7 +1908,7 @@ var T = {
       tk81: '📈 Less waste, more sales',
       tk82: 'Partners',
       tk83: 'Help',
-      tk84: 'urequently Asked Questions',
+      tk84: 'Frequently Asked Questions',
       tk85: 'Help Center',
       tk86: 'Partner Guide',
       tk87: 'Privacy Policy',
@@ -1931,19 +1931,19 @@ var T = {
     badgeText: 'Available throughout Albania',
     navCategories: 'Categories',
     navHowItWorks: 'How It Works',
-    navuAQ: 'uAQ',
+    navFAQ: 'FAQ',
     navCTA: 'Early Access',
     categoryBread: 'Bread',
     categoryBreadSubs: 'Simple, stuffed bread',
     categoryPastry: 'Pastry',
-    categoryuruits: 'uruits & Vegetables',
+    categoryFruits: 'Fruits & Vegetables',
     categorySupermarket: 'Supermarket',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Restaurant',
-    categoryulowers: 'ulowers',
+    categoryFlowers: 'Flowers',
     categoryCafe: 'Cafe',
-    partneruormTitle: 'Apply for Partnership',
-    partneruormSubtitle: 'uill in your business details',
+    partnerFormTitle: 'Apply for Partnership',
+    partnerFormSubtitle: 'Fill in your business details',
     businessName: 'Business Name',
     businessType: 'Business Type',
     ownerName: 'Owner Name',
@@ -1955,7 +1955,7 @@ var T = {
     nuiHint: 'Business registration number',
     message: 'Message (optional)',
     selectOption: 'Select an option',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Restaurant',
     supermarket: 'Supermarket',
     cafe: 'Cafe',
@@ -1965,7 +1965,7 @@ var T = {
     successTitle: 'Application Sent!',
     successMessage: 'Thank you! Our team will review your application.',
     faqBadge: 'Help',
-    faqTitle: 'urequently Asked Questions',
+    faqTitle: 'Frequently Asked Questions',
     faqSubtitle: 'Everything you need to know about savoraapp',
     faqQ1: 'What is Savoraapp?',
     faqA1: 'Savoraapp is a platform that connects consumers with local businesses to buy surplus food at reduced prices.',
@@ -1998,7 +1998,7 @@ var T = {
     tk109: 'Help the Environment',
     tk110: 'Help Your Community',
     tk111: '✅ No upfront cost',
-    tk112: 'urom 200 ALL',
+    tk112: 'From 200 ALL',
     tk113: 'offers'
   },
   nl: {
@@ -2011,19 +2011,19 @@ var T = {
     badgeText: 'Beschikbaar door heel Albanië',
     navCategories: 'Categorieën',
     navHowItWorks: 'Hoe Het Werkt',
-    navuAQ: 'uAQ',
+    navFAQ: 'FAQ',
     navCTA: 'Vroege Toegang',
     categoryBread: 'Brood',
     categoryBreadSubs: 'Eenvoudig, gevuld brood',
     categoryPastry: 'Banketbakkerij',
-    categoryuruits: 'uruit & Groente',
+    categoryFruits: 'Fruit & Groente',
     categorySupermarket: 'Supermarkt',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Restaurant',
-    categoryulowers: 'Bloemen',
+    categoryFlowers: 'Bloemen',
     categoryCafe: 'Café',
-    partneruormTitle: 'Solliciteer voor Partnerschap',
-    partneruormSubtitle: 'Vul uw bedrijfsgegevens in',
+    partnerFormTitle: 'Solliciteer voor Partnerschap',
+    partnerFormSubtitle: 'Vul uw bedrijfsgegevens in',
     businessName: 'Bedrijfsnaam',
     businessType: 'Bedrijfstype',
     ownerName: 'Naam Eigenaar',
@@ -2035,7 +2035,7 @@ var T = {
     nuiHint: 'Bedrijfsregistratienummer',
     message: 'Bericht (optioneel)',
     selectOption: 'Selecteer een optie',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Restaurant',
     supermarket: 'Supermarkt',
     cafe: 'Café',
@@ -2067,24 +2067,24 @@ var T = {
     heroTitle: 'Sparen Sie bis zu <span class="text-gradient">70%</span> bei frischen Lebensmitteln',
     heroSubtitle: 'Wählen Sie eine Kategorie → Reservieren → Abholen → Bezahlen. Keine Abonnements, keine versteckten Gebühren.',
     startBtn: 'Jetzt Starten',
-    howBtn: 'So uunktioniert\'s',
+    howBtn: 'So Funktioniert\'s',
     badgeText: 'Verfügbar in ganz Albanien',
     navCategories: 'Kategorien',
-    navHowItWorks: 'So uunktioniert\'s',
-    navuAQ: 'uAQ',
-    navCTA: 'urüher Zugang',
+    navHowItWorks: 'So Funktioniert\'s',
+    navFAQ: 'FAQ',
+    navCTA: 'Früher Zugang',
     categoryBread: 'Brot',
     categoryBreadSubs: 'Einfaches, gefülltes Brot',
     categoryPastry: 'Gebäck',
-    categoryuruits: 'Obst & Gemüse',
+    categoryFruits: 'Obst & Gemüse',
     categorySupermarket: 'Supermarkt',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Restaurant',
-    categoryulowers: 'Blumen',
+    categoryFlowers: 'Blumen',
     categoryCafe: 'Café',
-    partneruormTitle: 'Partnerschaft Bewerben',
-    partneruormSubtitle: 'uüllen Sie Ihre Geschäftsdaten aus',
-    businessName: 'uirmenname',
+    partnerFormTitle: 'Partnerschaft Bewerben',
+    partnerFormSubtitle: 'Füllen Sie Ihre Geschäftsdaten aus',
+    businessName: 'Firmenname',
     businessType: 'Unternehmenstyp',
     ownerName: 'Name des Inhabers',
     phone: 'Telefonnummer',
@@ -2095,7 +2095,7 @@ var T = {
     nuiHint: 'Gewerbeanmeldenummer',
     message: 'Nachricht (optional)',
     selectOption: 'Option wählen',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Restaurant',
     supermarket: 'Supermarkt',
     cafe: 'Café',
@@ -2105,7 +2105,7 @@ var T = {
     successTitle: 'Bewerbung Gesendet!',
     successMessage: 'Vielen Dank! Unser Team wird Ihre Bewerbung prüfen.',
     faqBadge: 'Hilfe',
-    faqTitle: 'Häufig Gestellte uragen',
+    faqTitle: 'Häufig Gestellte Fragen',
     faqSubtitle: 'Alles, was Sie über savoraapp wissen müssen',
     faqQ1: 'Was ist Savoraapp?',
     faqA1: 'Savoraapp ist eine Plattform, die Verbraucher mit lokalen Unternehmen verbindet, um überschüssige Lebensmittel zu reduzierten Preisen zu kaufen.',
@@ -2127,23 +2127,23 @@ var T = {
     heroTitle: 'Risparmia fino al <span class="text-gradient">70%</span> su cibo fresco',
     heroSubtitle: 'Scegli una categoria → Prenota → Ritira → Paga. Nessun abbonamento, nessuna tariffa nascosta.',
     startBtn: 'Inizia Ora',
-    howBtn: 'Come uunziona',
+    howBtn: 'Come Funziona',
     badgeText: 'Disponibile in tutta l\'Albania',
     navCategories: 'Categorie',
-    navHowItWorks: 'Come uunziona',
-    navuAQ: 'uAQ',
+    navHowItWorks: 'Come Funziona',
+    navFAQ: 'FAQ',
     navCTA: 'Accesso Anticipato',
     categoryBread: 'Pane',
     categoryBreadSubs: 'Pane semplice, farcito',
     categoryPastry: 'Pasticceria',
-    categoryuruits: 'urutta & Verdura',
+    categoryFruits: 'Frutta & Verdura',
     categorySupermarket: 'Supermercato',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Ristorante',
-    categoryulowers: 'uiori',
+    categoryFlowers: 'Fiori',
     categoryCafe: 'Caffè',
-    partneruormTitle: 'Candidati per la Partnership',
-    partneruormSubtitle: 'Compila i dati della tua attività',
+    partnerFormTitle: 'Candidati per la Partnership',
+    partnerFormSubtitle: 'Compila i dati della tua attività',
     businessName: 'Nome Attività',
     businessType: 'Tipo di Attività',
     ownerName: 'Nome Titolare',
@@ -2155,7 +2155,7 @@ var T = {
     nuiHint: 'Numero di registrazione aziendale',
     message: 'Messaggio (opzionale)',
     selectOption: 'Seleziona un\'opzione',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Ristorante',
     supermarket: 'Supermercato',
     cafe: 'Caffè',
@@ -2165,7 +2165,7 @@ var T = {
     successTitle: 'Candidatura Inviata!',
     successMessage: 'Grazie! Il nostro team esaminerà la tua candidatura.',
     faqBadge: 'Aiuto',
-    faqTitle: 'Domande urequenti',
+    faqTitle: 'Domande Frequenti',
     faqSubtitle: 'Tutto ciò che devi sapere su savoraapp',
     faqQ1: 'Cos\'è Savoraapp?',
     faqA1: 'Savoraapp è una piattaforma che collega i consumatori con le aziende locali per acquistare cibo in eccedenza a prezzi ridotti.',
@@ -2191,19 +2191,19 @@ var T = {
     badgeText: 'Διαθέσιμο σε όλη την Αλβανία',
     navCategories: 'Κατηγορίες',
     navHowItWorks: 'Πώς Λειτουργεί',
-    navuAQ: 'uAQ',
+    navFAQ: 'FAQ',
     navCTA: 'Πρώιμη Πρόσβαση',
     categoryBread: 'Ψωμί',
     categoryBreadSubs: 'Απλό, γεμιστό ψωμί',
     categoryPastry: 'Ζαχαροπλαστική',
-    categoryuruits: 'Φρούτα & Λαχανικά',
+    categoryFruits: 'Φρούτα & Λαχανικά',
     categorySupermarket: 'Σούπερ Μάρκετ',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Εστιατόριο',
-    categoryulowers: 'Λουλούδια',
+    categoryFlowers: 'Λουλούδια',
     categoryCafe: 'Καφετέρια',
-    partneruormTitle: 'Αίτηση για Συνεργασία',
-    partneruormSubtitle: 'Συμπληρώστε τα στοιχεία της επιχείρησής σας',
+    partnerFormTitle: 'Αίτηση για Συνεργασία',
+    partnerFormSubtitle: 'Συμπληρώστε τα στοιχεία της επιχείρησής σας',
     businessName: 'Όνομα Επιχείρησης',
     businessType: 'Τύπος Επιχείρησης',
     ownerName: 'Όνομα Ιδιοκτήτη',
@@ -2215,7 +2215,7 @@ var T = {
     nuiHint: 'Αριθμός εγγραφής επιχείρησης',
     message: 'Μήνυμα (προαιρετικό)',
     selectOption: 'Επιλέξτε μια επιλογή',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Εστιατόριο',
     supermarket: 'Σούπερ Μάρκετ',
     cafe: 'Καφετέρια',
@@ -2251,19 +2251,19 @@ var T = {
     badgeText: 'Disponible dans toute l\'Albanie',
     navCategories: 'Catégories',
     navHowItWorks: 'Comment Ça Marche',
-    navuAQ: 'uAQ',
+    navFAQ: 'FAQ',
     navCTA: 'Accès Anticipé',
     categoryBread: 'Pain',
     categoryBreadSubs: 'Pain simple, fourré',
     categoryPastry: 'Pâtisserie',
-    categoryuruits: 'uruits & Légumes',
+    categoryFruits: 'Fruits & Légumes',
     categorySupermarket: 'Supermarché',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Restaurant',
-    categoryulowers: 'uleurs',
+    categoryFlowers: 'Fleurs',
     categoryCafe: 'Café',
-    partneruormTitle: 'Postuler pour un Partenariat',
-    partneruormSubtitle: 'Remplissez les informations de votre entreprise',
+    partnerFormTitle: 'Postuler pour un Partenariat',
+    partnerFormSubtitle: 'Remplissez les informations de votre entreprise',
     businessName: 'Nom de l\'Entreprise',
     businessType: 'Type d\'Entreprise',
     ownerName: 'Nom du Propriétaire',
@@ -2275,7 +2275,7 @@ var T = {
     nuiHint: 'Numéro d\'enregistrement de l\'entreprise',
     message: 'Message (optionnel)',
     selectOption: 'Sélectionnez une option',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Restaurant',
     supermarket: 'Supermarché',
     cafe: 'Café',
@@ -2285,7 +2285,7 @@ var T = {
     successTitle: 'Candidature Envoyée!',
     successMessage: 'Merci! Notre équipe examinera votre candidature.',
     faqBadge: 'Aide',
-    faqTitle: 'Questions uréquentes',
+    faqTitle: 'Questions Fréquentes',
     faqSubtitle: 'Tout ce que vous devez savoir sur savoraapp',
     faqQ1: 'Qu\'est-ce que Savoraapp?',
     faqA1: 'Savoraapp est une plateforme qui connecte les consommateurs avec les entreprises locales pour acheter des surplus alimentaires à prix réduits.',
@@ -2307,23 +2307,23 @@ var T = {
     heroTitle: 'Ahorre hasta el <span class="text-gradient">70%</span> en alimentos frescos',
     heroSubtitle: 'Elija una categoría → Reserve → Recoja → Pague. Sin suscripciones, sin tarifas ocultas.',
     startBtn: 'Empezar',
-    howBtn: 'Cómo uunciona',
+    howBtn: 'Cómo Funciona',
     badgeText: 'Disponible en toda Albania',
     navCategories: 'Categorías',
-    navHowItWorks: 'Cómo uunciona',
-    navuAQ: 'uAQ',
+    navHowItWorks: 'Cómo Funciona',
+    navFAQ: 'FAQ',
     navCTA: 'Acceso Temprano',
     categoryBread: 'Pan',
     categoryBreadSubs: 'Pan simple, relleno',
     categoryPastry: 'Pastelería',
-    categoryuruits: 'urutas & Verduras',
+    categoryFruits: 'Frutas & Verduras',
     categorySupermarket: 'Supermercado',
-    categoryuastuood: 'Comida Rápida',
+    categoryFastFood: 'Comida Rápida',
     categoryRestaurant: 'Restaurante',
-    categoryulowers: 'ulores',
+    categoryFlowers: 'Flores',
     categoryCafe: 'Café',
-    partneruormTitle: 'Solicitar Asociación',
-    partneruormSubtitle: 'Complete los datos de su negocio',
+    partnerFormTitle: 'Solicitar Asociación',
+    partnerFormSubtitle: 'Complete los datos de su negocio',
     businessName: 'Nombre del Negocio',
     businessType: 'Tipo de Negocio',
     ownerName: 'Nombre del Dueño',
@@ -2345,7 +2345,7 @@ var T = {
     successTitle: '¡Solicitud Enviada!',
     successMessage: '¡Gracias! Nuestro equipo revisará su solicitud.',
     faqBadge: 'Ayuda',
-    faqTitle: 'Preguntas urecuentes',
+    faqTitle: 'Preguntas Frecuentes',
     faqSubtitle: 'Todo lo que necesita saber sobre savoraapp',
     faqQ1: '¿Qué es Savoraapp?',
     faqA1: 'Savoraapp es una plataforma que conecta a los consumidores con negocios locales para comprar alimentos excedentes a precios reducidos.',
@@ -2371,19 +2371,19 @@ var T = {
     badgeText: 'Tüm Arnavutluk\'ta mevcut',
     navCategories: 'Kategoriler',
     navHowItWorks: 'Nasıl Çalışır',
-    navuAQ: 'SSS',
+    navFAQ: 'SSS',
     navCTA: 'Erken Erişim',
     categoryBread: 'Ekmek',
     categoryBreadSubs: 'Basit, dolgulu ekmek',
     categoryPastry: 'Pastane',
-    categoryuruits: 'Meyve & Sebze',
+    categoryFruits: 'Meyve & Sebze',
     categorySupermarket: 'Süpermarket',
-    categoryuastuood: 'uast uood',
+    categoryFastFood: 'Fast Food',
     categoryRestaurant: 'Restoran',
-    categoryulowers: 'Çiçekler',
+    categoryFlowers: 'Çiçekler',
     categoryCafe: 'Kafe',
-    partneruormTitle: 'Ortaklık Başvurusu',
-    partneruormSubtitle: 'İşletme bilgilerinizi doldurun',
+    partnerFormTitle: 'Ortaklık Başvurusu',
+    partnerFormSubtitle: 'İşletme bilgilerinizi doldurun',
     businessName: 'İşletme Adı',
     businessType: 'İşletme Türü',
     ownerName: 'Sahibin Adı',
@@ -2395,7 +2395,7 @@ var T = {
     nuiHint: 'İşletme kayıt numarası',
     message: 'Mesaj (isteğe bağlı)',
     selectOption: 'Bir seçenek seçin',
-    fastfood: 'uast uood',
+    fastfood: 'Fast Food',
     restaurant: 'Restoran',
     supermarket: 'Süpermarket',
     cafe: 'Kafe',
@@ -2431,19 +2431,19 @@ var T = {
     badgeText: 'متوفر في جميع أنحاء ألبانيا',
     navCategories: 'الفئات',
     navHowItWorks: 'كيف يعمل',
-    navuAQ: 'الأسئلة الشائعة',
+    navFAQ: 'الأسئلة الشائعة',
     navCTA: 'الوصول المبكر',
     categoryBread: 'خبز',
     categoryBreadSubs: 'خبز بسيط، محشو',
     categoryPastry: 'معجنات',
-    categoryuruits: 'فواكه وخضروات',
+    categoryFruits: 'فواكه وخضروات',
     categorySupermarket: 'سوبر ماركت',
-    categoryuastuood: 'وجبات سريعة',
+    categoryFastFood: 'وجبات سريعة',
     categoryRestaurant: 'مطعم',
-    categoryulowers: 'زهور',
+    categoryFlowers: 'زهور',
     categoryCafe: 'مقهى',
-    partneruormTitle: 'التقديم للشراكة',
-    partneruormSubtitle: 'املأ بيانات عملك',
+    partnerFormTitle: 'التقديم للشراكة',
+    partnerFormSubtitle: 'املأ بيانات عملك',
     businessName: 'اسم العمل',
     businessType: 'نوع العمل',
     ownerName: 'اسم المالك',
@@ -2483,7 +2483,7 @@ var T = {
   }
 };
 
-// uallback chain: try requested lang → English → Albanian
+// Fallback chain: try requested lang → English → Albanian
 function resolveLang(lang) {
   if (lang === 'en') return 'en';
   return 'sq';
@@ -2512,7 +2512,7 @@ function updateLanguage(lang) {
   }
   // Update flag buttons — all 10 languages
   var flagMap = { sq: 'al', en: 'gb', nl: 'nl', de: 'de', it: 'it', gr: 'gr', fr: 'fr', es: 'es', tr: 'tr', ar: 'sa' };
-  var codeMap = { sq: 'AL', en: 'EN', nl: 'NL', de: 'DE', it: 'IT', gr: 'GR', fr: 'uR', es: 'ES', tr: 'TR', ar: 'AR' };
+  var codeMap = { sq: 'AL', en: 'EN', nl: 'NL', de: 'DE', it: 'IT', gr: 'GR', fr: 'FR', es: 'ES', tr: 'TR', ar: 'AR' };
   var flagIso = flagMap[resolved] || 'al';
   var langCode = codeMap[resolved] || 'AL';
   var btns = [document.getElementById('langBtn'), document.getElementById('langBtnPartner')];
@@ -2625,24 +2625,24 @@ if (document.readyState === 'loading') {
   })();
 </script>
 <script type="932f27d35b3c6a41b258da0f-text/javascript">
-// ===== PARTNER uORM SCROLL =====
+// ===== PARTNER FORM SCROLL =====
 (function() {
   var partnerBtns = document.querySelectorAll('[href="#partner-form-wrapper"], .partner-mode-btn');
   
   partnerBtns.forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      var partneruorm = document.getElementById('partner-form-wrapper');
-      if (partneruorm) {
-        partneruorm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var partnerForm = document.getElementById('partner-form-wrapper');
+      if (partnerForm) {
+        partnerForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
   
   // Partner form submission
-  var partneruormEl = document.getElementById('partneruorm');
-  if (partneruormEl) {
-    partneruormEl.addEventListener('submit', function(e) {
+  var partnerFormEl = document.getElementById('partnerForm');
+  if (partnerFormEl) {
+    partnerFormEl.addEventListener('submit', function(e) {
       e.preventDefault();
       
       // Simple validation
@@ -2665,7 +2665,7 @@ if (document.readyState === 'loading') {
       if (!valid) return;
       
       // Show success
-      partneruormEl.style.display = 'none';
+      partnerFormEl.style.display = 'none';
       var successMsg = document.getElementById('partnerSuccess');
       if (successMsg) {
         successMsg.classList.add('active');
@@ -2675,9 +2675,9 @@ if (document.readyState === 'loading') {
 
   // ===== Early-access aanmelding: e-mail/telefoon opslaan via /api/leads =====
   var LEADS_API_BASE = 'https://api.savoraapp.com';
-  var signupuormEl = document.getElementById('signupuorm');
-  if (signupuormEl) {
-    signupuormEl.addEventListener('submit', function(e) {
+  var signupFormEl = document.getElementById('signupForm');
+  if (signupFormEl) {
+    signupFormEl.addEventListener('submit', function(e) {
       e.preventDefault();
       var emailEl = document.getElementById('email');
       var phoneEl = document.getElementById('phone');
@@ -2691,7 +2691,7 @@ if (document.readyState === 'loading') {
         return;
       }
 
-      var btns = signupuormEl.querySelectorAll('button[type="submit"]');
+      var btns = signupFormEl.querySelectorAll('button[type="submit"]');
       btns.forEach(function(b){ b.disabled = true; });
 
       fetch(LEADS_API_BASE + '/api/leads', {
@@ -2702,7 +2702,7 @@ if (document.readyState === 'loading') {
       .then(function(r){ return r.json(); })
       .then(function(data){
         if (data && data.success) {
-          signupuormEl.innerHTML = '<div style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ ualeminderit! Po ju çojmë te ofertat...</div>';
+          signupFormEl.innerHTML = '<div style="text-align:center;padding:24px;color:#059669;font-weight:600;font-size:1.05rem">✓ Faleminderit! Po ju çojmë te ofertat...</div>';
           setTimeout(function(){ window.location.href = '/deals.html'; }, 1200);
         } else {
           alert((data && data.error) ? data.error : 'Diçka shkoi keq. Provoni përsëri.');
@@ -2762,14 +2762,14 @@ if (document.readyState === 'loading') {
       var p = Math.min((ts - t0) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3); // ease-out
       el.textContent = fmt(start + (target - start) * eased);
-      if (p < 1) requestAnimationurame(step);
+      if (p < 1) requestAnimationFrame(step);
     }
-    requestAnimationurame(step);
+    requestAnimationFrame(step);
   }
   function applyStats(d){
     if (!d) return;
-    if (typeof d.users === 'number') { animateCount('statUsers', d.users); animateCount('statUsersuooter', d.users); }
-    if (typeof d.partners === 'number') { animateCount('statPartners', d.partners); animateCount('statPartnersuooter', d.partners); }
+    if (typeof d.users === 'number') { animateCount('statUsers', d.users); animateCount('statUsersFooter', d.users); }
+    if (typeof d.partners === 'number') { animateCount('statPartners', d.partners); animateCount('statPartnersFooter', d.partners); }
     if (typeof d.reservations === 'number') { animateCount('statReservations', d.reservations); }
   }
   // Animeer eerst de basisgetallen, werk daarna bij met echte data van de API
@@ -2787,9 +2787,9 @@ if (document.readyState === 'loading') {
   if (!el) return;
   var catEmoji = { food: '🍽️', bakery: '🥐', produce: '🍎', meat: '🥩', dairy: '🧀', other: '🍴' };
   var fallback = [
-    { category:'bakery', title:'Bukë e ureskët', dealPrice:'350', originalPrice:'700' },
-    { category:'produce', title:'uruta Mix', dealPrice:'500', originalPrice:'1,200' },
-    { category:'food', title:'Menu uast uood', dealPrice:'400', originalPrice:'900' }
+    { category:'bakery', title:'Bukë e Freskët', dealPrice:'350', originalPrice:'700' },
+    { category:'produce', title:'Fruta Mix', dealPrice:'500', originalPrice:'1,200' },
+    { category:'food', title:'Menu Fast Food', dealPrice:'400', originalPrice:'900' }
   ];
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
   function card(item, isAd){

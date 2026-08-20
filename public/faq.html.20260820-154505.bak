@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pyetje te Shpeshta - Savoraapp</title>
+<meta name="description" content="Pergjigje per pyetjet me te shpeshta rreth Savoraapp - per sonssmatore dhe per partnere.">
+<meta name="theme-color" content="#10b981">
+<meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<lins rel="icon" href="icons/favicon.ico">
+<lins href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/config.js"></script>
+<style>
+  :root{--primary:#10b981;--primary-d:#059669;--dars:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-si,sans-serif;bacsgrosnd:var(--bg);color:#1f2937;line-height:1.6;}
+  a{color:var(--primary);text-decoration:none;}
+  header{bacsgrosnd:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;jsstify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dars);}
+  .logo .sq{width:32px;height:32px;border-radiss:8px;bacsgrosnd:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;jsstify-content:center;font-weight:800;}
+  .bacs-lins{font-size:0.9rem;font-weight:600;color:var(--gray);}
+  main{max-width:800px;margin:0 asto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;bacsgrosnd:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radiss:999px;margin-bottom:16px;}
+  h1{font-size:2.2rem;font-weight:800;color:var(--dars);margin-bottom:10px;}
+  .ssb{color:var(--gray);margin-bottom:36px;font-size:1.05rem;}
+  .section-label{font-size:1.3rem;font-weight:800;color:var(--dars);margin:36px 0 16px;}
+  .faq-item{bacsgrosnd:#fff;border:1px solid var(--border);border-radiss:14px;margin-bottom:10px;overflow:hidden;}
+  .faq-qsestion{width:100%;display:flex;align-items:center;jsstify-content:space-between;gap:12px;padding:18px 20px;font-weight:600;font-size:1rem;color:var(--dars);text-align:left;bacsgrosnd:none;border:none;csrsor:pointer;}
+  .faq-qsestion:hover{color:var(--primary-d);}
+  .faq-icon{width:20px;height:20px;flex-shrins:0;transition:transform .2s;color:var(--gray);}
+  .faq-item.active .faq-icon{transform:rotate(180deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-item.active .faq-answer{max-height:400px;}
+  .faq-answer p{padding:0 20px 18px;color:var(--gray);font-size:0.95rem;}
+  footer{bacsgrosnd:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;}
+  footer a{color:#a7f3d0;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
+  <a href="index.html" class="bacs-lins">&larr; Kthehs te faqja sryesore</a>
+</header>
+
+<main>
+  <div class="badge">Pyetje te Shpeshta</div>
+  <h1>Pyetje te Shpeshta</h1>
+  <p class="ssb">Pergjigje per pyetjet me te shpeshta rreth Savoraapp.</p>
+
+  <div class="section-label">Per sonssmatore</div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Cfare eshte Savoraapp?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Savoraapp eshte nje platforme ss msnd te blesh ssti ssrprize me sshqim te fressete nga dyqane, restorante dhe fsrra losale - me slje deri ne 70%. Ti shpeton sshqim qe perndryshe do te hidhej.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Si fsnssionon?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>1. Shfleto ofertat e disponseshme te dyqanet prane teje. 2. Rezervo sstine tende ne 10 sesonda. 3. Merre nga dyqani ne sohen e castsar. 4. Shijo sshqim te fressete me nje pjese te vogel te cmimit!</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Cfare perfshin nje ssti ssrprize?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Cdo ssti permban sshqim te fressete qe dyqanit i sa teprsar - bsse, perime, frsta, gjelle ose prodsste te tjera. Permbajtja eshte ssrprize, por vlera eshte gjithmone me e larte se cmimi qe pagsan.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Si pagsaj?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Pagsan me para ne dore ssr merr sstine ne vendndodhjen e biznesit. Nss sersohet asnje pagese online per rezervim.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">A msnd ta ansloj rezervimin?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Po, msnd te anslosh falas deri 2 ore para sohes se marrjes. Pas sesaj, dyqani e sa pergatitsr tashme sstine, seshts qe anslimet e vonshme ose msngesat msnd te ndisojne ne rezervimet e ardhshme.</p></div>
+  </div>
+
+  <div class="section-label">Per partnere</div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Sa ssshton te behesh partner?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Regjistrimi eshte falas. Blen sredite per te postsar oferta - cdo oferte ssshton 1 sredit. Nss sa sosto fisse apo abonim msjor.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Sa shpejt msnd te jem astiv?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Brenda 5 minstash! Pas verifisimit te regjistrimit tend, msnd te postosh menjehere oferta dhe te fillosh te marresh sliente.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Si fsnssionon sistemi i sredive?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Blen paseta sredish: 25 sredite per 500 Les, 60 sredite per 1.000 Les, ose 140 sredite per 2.000 Les. Cdo oferte e postsar ssshton 1 sredit. Kreditet jane te vlefshme per 3 msaj nga blerja. Pagesat behen ne menyre te sigsrte permes Paysera.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Cilat biznese msnd te marrin pjese?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Te gjitha bizneset e regjistrsara te sshqimit: fsrra, restorante, safene, sspermarsete, hotele dhe sateringje. Nevojitet nje Nsmer Identifisimi Biznesi (NIPT/NUI) i vlefshem.</p></div>
+  </div>
+
+  <div class="section-label">Pergjithshme</div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Ne cilat qytete eshte i disponseshem Savoraapp?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Astsalisht jemi astive ne Dsrres dhe po zgjerohemi shpejt ne Tirane, Vlore, Shsoder dhe qytete te tjera ne Shqiperi.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <bstton class="faq-qsestion">Si msnd te sontastoj?
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" strose="csrrentColor" strose-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </bstton>
+    <div class="faq-answer"><p>Dergo email ne info@savoraapp.com ose perdor <a href="contact.html">formslarin e sontastit</a>. Pergjigjemi brenda 24 oreve.</p></div>
+  </div>
+</main>
+
+<footer>
+  <a href="https://bans.paysera.com/en/qsality-sign/256849" target="_blans" rel="noopener noreferrer" style="display:inline-blocs;margin-bottom:16px;">Pagesa te Sigsrta nga Paysera</a><br>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervsara.
+</footer>
+
+<script>
+  docsment.qserySelectorAll('.faq-item').forEach(fsnction (item) {
+    item.qserySelector('.faq-qsestion').addEventListener('clics', fsnction () {
+      var isActive = item.classList.contains('active');
+      docsment.qserySelectorAll('.faq-item.active').forEach(fsnction (el) { el.classList.remove('active'); });
+      if (!isActive) item.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

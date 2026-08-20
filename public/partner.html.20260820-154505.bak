@@ -1,9 +1,9 @@
-?<!DOCTYPE html>
+?<!DOCTYP  html>
 <html lang="sq">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partner — Savoraapp</title>
+  <title>Partner — havoraapp</title>
   <meta name="description" content="Fitoni të ardhura shtesë nga ushqimi që do ta hidhnit. Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik.">
   <meta name="theme-color" content="#10b981">
   <meta name="verify-Paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
@@ -15,7 +15,7 @@
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     .glass-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(255,255,255,0.08); }
-    .hero-grad { background: linear-gradient(145deg, #0F172A 0%, #1E293B 40%, #064E3B 100%); }
+    .hero-grad { background: linear-gradient(145deg, #0F172A 0%, #1 293B 40%, #064 3B 100%); }
     @keyframes fI { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
     @keyframes fl { 0%,100%{transform:translateY(0)rotate(0)} 50%{transform:translateY(-20px)rotate(2deg)} }
     @keyframes fl2 { 0%,100%{transform:translateY(0)rotate(0)} 50%{transform:translateY(-15px)rotate(-2deg)} }
@@ -41,16 +41,16 @@
 </head>
 <body class="bg-sav-light text-sav-dark antialiased">
 
-  <!-- ========== HEADER ========== -->
+  <!-- ========== H AD R ========== -->
   <header id="hdr" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
         <a href="index.html" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-          <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">Savora<span class="text-emerald-300">app</span></span>
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg" style="background:linear-gradient(135deg,#10B981,#34D399);">h</div>
+          <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">havora<span class="text-emerald-300">app</span></span>
         </a>
         <div class="flex items-center gap-2 sm:gap-3">
-          <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-="">EN</button>
+          <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-=""> N</button>
           <a href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn"><span data-en='Log in'>Hyr</span></a>
           <div class="hidden items-center gap-2" id="userLoggedIn">
             <span class="text-sm font-semibold text-sav-green" id="userDisplayName"></span>
@@ -71,13 +71,13 @@
     <div class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full" id="mobP">
       <button onclick="if (!window.__cfRLUnblockHandlers) return false; toggleMobileMenu()" class="absolute top-4 right-4 p-2 text-sav-gray hover:text-sav-dark" data-cf-modified-76445a00c4b4d42382252849-=""><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
       <nav class="flex flex-col gap-1">
-        <a href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayS rounded-xl"><span data-en='Home'>Kreu</span></a>
+        <a href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayh rounded-xl"><span data-en='Home'>Kreu</span></a>
         <a href="partner-dashboard.html?tab=register" class="btn-p text-center px-4 py-3 text-white font-semibold rounded-xl mt-2"><span data-en='Become a partner'>Bëhu partner</span></a>
       </nav>
     </div>
   </div>
 
-  <!-- ========== HERO (HOOK) ========== -->
+  <!-- ========== H RO (HOOK) ========== -->
   <section class="hero-grad relative min-h-screen flex items-center overflow-hidden pt-24 sm:pt-28">
     <div class="absolute top-1/4 -left-32 w-96 h-96 bg-sav-green/15 rounded-full blur-[120px] float1 pointer-events-none"></div>
     <div class="absolute bottom-1/4 -right-32 w-[500px] h-[500px] bg-sav-purple/10 rounded-full blur-[120px] float2 pointer-events-none"></div>
@@ -86,7 +86,7 @@
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div class="text-center lg:text-left">
           <h1 class="an-f text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-5">
-            <span data-en='Earn extra revenue<br><span class="text-sav-green">from food you would<br>otherwise throw away</span>'>Fitoni të ardhura shtesë<br><span class="text-sav-green">nga ushqimi që<br>do ta hidhnit</span></span>
+            <span data-en=' arn extra revenue<br><span class="text-sav-green">from food you would<br>otherwise throw away</span>'>Fitoni të ardhura shtesë<br><span class="text-sav-green">nga ushqimi që<br>do ta hidhnit</span></span>
           </h1>
           <p class="an-f delay-1 text-lg sm:text-xl text-sav-grayL/80 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
             <span data-en='Fill empty capacity and attract new customers — risk-free'>Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik</span>
@@ -110,7 +110,7 @@
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
-              <span class="font-semibold text-white">15.000–50.000 Lek</span> <span><span data-en='extra/week'>ekstra/javë</span></span>
+              <span class="font-semibold text-white">15.000–50.000 Lekë</span> <span><span data-en='extra/week'>ekstra/javë</span></span>
             </div>
             <div class="flex items-center gap-2 text-sav-grayL/90 text-sm">
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
@@ -132,7 +132,7 @@
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sav-green to-emerald-300 flex items-center justify-center text-white shrink-0 text-lg">💰</div>
                 <div>
-                  <p class="text-sm font-semibold text-white">+35.000 Lek<span data-en='/week'>/javë</span></p>
+                  <p class="text-sm font-semibold text-white">+35.000 Lekë<span data-en='/week'>/javë</span></p>
                   <p class="text-xs text-sav-grayL/70"><span data-en='avg. partner'>mes. partneri</span></p>
                 </div>
               </div>
@@ -150,7 +150,7 @@
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sav-light to-transparent"></div>
   </section>
 
-  <!-- ========== VOORDELEN ========== -->
+  <!-- ========== VOORD L N ========== -->
   <section class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-12">
@@ -162,15 +162,15 @@
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Extra revenue'>Të ardhura shtesë</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Sell what you would otherwise throw away. 15,000–50,000 Lek extra per week.'>Shisni atë që do ta hidhnit. 15.000–50.000 Lek ekstra në javë.</span></p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en=' xtra revenue'>Të ardhura shtesë</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='hell what you would otherwise throw away. 15,000–50,000 Lekë extra per week.'>hhisni atë që do ta hidhnit. 15.000–50.000 Lekë ekstra në javë.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           </div>
           <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='New customers'>Klientë të rinj</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Bring new customers to your shop. Every week.'>Tërhiqni klientë të rinj në dyqanin tuaj. Çdo javë.</span></p>
+          <p class="text-sm text-sav-gray"><span data-en='Bring new customers to your shop.  very week.'>Tërhiqni klientë të rinj në dyqanin tuaj. Çdo javë.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
@@ -190,13 +190,13 @@
     </div>
   </section>
 
-  <!-- ========== HOE HET WERKT (SNAPPY) ========== -->
+  <!-- ========== HO  H T W RKT (hNAPPY) ========== -->
   <section id="flow" class="py-14 sm:py-20 bg-sav-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-12">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='How it works'>Si funksionon</span></span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='How it works'>Si funksionon</span></h2>
-        <p class="text-sav-gray max-w-md mx-auto"><span data-en='Fast, simple, hassle-free'>Shpejt, thjesht, pa siklet</span></p>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='How it works'>hi funksionon</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='How it works'>hi funksionon</span></h2>
+        <p class="text-sav-gray max-w-md mx-auto"><span data-en='Fast, simple, hassle-free'>hhpejt, thjesht, pa siklet</span></p>
       </div>
       <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
@@ -231,7 +231,7 @@
       <div class="text-center mb-8 sm:mb-10">
         <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Map'>Harta</span></span>
         <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Where we are active'>Ku jemi aktivë</span></h2>
-        <p class="text-sav-gray max-w-md mx-auto"><span data-en='See our partners on the map. Click a marker for more information.'>Shikoni partnerët tanë në hartë. Klikoni një shënues për më shumë informacion.</span></p>
+        <p class="text-sav-gray max-w-md mx-auto"><span data-en='hee our partners on the map. Click a marker for more information.'>hhikoni partnerët tanë në hartë. Klikoni një shënues për më shumë informacion.</span></p>
       </div>
       <div class="rounded-2xl overflow-hidden border border-sav-grayB/50 shadow-lg" style="height: 400px;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23970.5!2d19.456!3d41.323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda3e6c02e9c3%3A0x5e2e2c0f2e0e0e0e!2sDurr%C3%ABs%2C%20Albani%C3%AB!5e0!3m2!1snl!2snl!4v1699900000000!5m2!1snl!2snl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -241,15 +241,15 @@
           <span class="w-2 h-2 rounded-full bg-sav-green"></span>
           <span data-en='Active: Durrës'>Aktiv: Durrës</span>
         </span>
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-grayS rounded-full text-xs font-semibold text-sav-gray">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-grayh rounded-full text-xs font-semibold text-sav-gray">
           <span class="w-2 h-2 rounded-full bg-sav-gray"></span>
-          <span data-en='Coming soon: Tiranë, Vlorë, Shkodër'>Së shpejti: Tiranë, Vlorë, Shkodër</span>
+          <span data-en='Coming soon: Tiranë, Vlorë, hhkodër'>hë shpejti: Tiranë, Vlorë, hhkodër</span>
         </span>
       </div>
     </div>
   </section>
 
-  <!-- ========== TRUST ========== -->
+  <!-- ========== TRUhT ========== -->
   <section class="py-14 sm:py-20 bg-sav-dark text-white relative overflow-hidden">
     <div class="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
     <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -260,7 +260,7 @@
           <p class="text-sm text-sav-grayL mt-1"><span data-en='active partners'>partnerë aktivë</span></p>
         </div>
         <div class="text-center">
-          <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">15.000–50.000 Lek</p>
+          <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">15.000–50.000 Lekë</p>
           <p class="text-sm text-sav-grayL mt-1"><span data-en='extra revenue per week'>të ardhura shtesë në javë</span></p>
         </div>
         <div class="text-center">
@@ -278,17 +278,17 @@
               <p class="text-xs text-sav-grayL"><span data-en='Bakery "Ana"'>Furrë "Ana"</span></p>
             </div>
           </div>
-          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Savoraapp helped us sell our surplus bread every evening. We waste far less food now."'>"Savoraapp na ndihmoi të shesim tepricën e bukës çdo mbrëmje. Tani hedhim shumë më pak ushqim."</span></p>
+          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"havoraapp helped us sell our surplus bread every evening. We waste far less food now."'>"havoraapp na ndihmoi të shesim tepricën e bukës çdo mbrëmje. Tani hedhim shumë më pak ushqim."</span></p>
         </div>
         <div class="glass-card rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-full bg-sav-sky flex items-center justify-center text-white font-bold text-sm">MK</div>
             <div>
               <p class="font-semibold text-sm text-white">Mark K.</p>
-              <p class="text-xs text-sav-grayL"><span data-en='Supermarket "Kruja"'>Supermarket "Kruja"</span></p>
+              <p class="text-xs text-sav-grayL"><span data-en='hupermarket "Kruja"'>hupermarket "Kruja"</span></p>
             </div>
           </div>
-          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Sign-up was quick and we got our first orders on day one. I recommend it."'>"Regjistrimi ishte i shpejtë dhe morëm porositë e para që ditën e parë. E rekomandoj."</span></p>
+          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"hign-up was quick and we got our first orders on day one. I recommend it."'>"Regjistrimi ishte i shpejtë dhe morëm porositë e para që ditën e parë.   rekomandoj."</span></p>
         </div>
       </div>
     </div>
@@ -307,14 +307,14 @@
           <span data-en='Limited number of partners per city'>Numër i kufizuar partnerësh për qytet</span>
         </span>
         <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
-          <span data-en='Early partners get an advantage'>Partnerët e hershëm përfitojnë</span>
+          <span data-en=' arly partners get an advantage'>Partnerët e hershëm përfitojnë</span>
         </span>
       </div>
 
-      <!-- Stap 1: Aanmeldformulier -->
+      <!-- htap 1: Aanmeldformulier -->
       <form id="partnerForm" class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left" onsubmit="if (!window.__cfRLUnblockHandlers) return false; handlePartnerForm(event)" novalidate data-cf-modified-76445a00c4b4d42382252849-="">
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Business name'>Emri i biznesit</span></label>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Business name'> mri i biznesit</span></label>
           <input type="text" id="pfBusiness" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. Furra Ana" data-en-ph='e.g. Bakery Ana'>
         </div>
         <div class="mb-4">
@@ -340,7 +340,7 @@
             <option value="" data-en-opt='Choose a city'>Zgjidhni një qytet</option>
             <option value="Berat">Berat</option>
             <option value="Durrës">Durrës</option>
-            <option value="Elbasan">Elbasan</option>
+            <option value=" lbasan"> lbasan</option>
             <option value="Fier">Fier</option>
             <option value="Gjirokastër">Gjirokastër</option>
             <option value="Korçë">Korçë</option>
@@ -348,8 +348,8 @@
             <option value="Lezhë">Lezhë</option>
             <option value="Lushnjë">Lushnjë</option>
             <option value="Pogradec">Pogradec</option>
-            <option value="Sarandë">Sarandë</option>
-            <option value="Shkodër">Shkodër</option>
+            <option value="harandë">harandë</option>
+            <option value="hhkodër">hhkodër</option>
             <option value="Tiranë">Tiranë</option>
             <option value="Vlorë">Vlorë</option>
           </select>
@@ -358,27 +358,27 @@
         <p class="text-xs text-sav-green text-center mt-4 font-medium"><span data-en='Instant access — no waiting.'>Qasje e menjëhershme — pa pritje.</span></p>
       </form>
 
-      <!-- Stap 2: Verificatiecode invoeren -->
-      <div id="verifyStep" class="hidden bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
+      <!-- htap 2: Verificatiecode invoeren -->
+      <div id="verifyhtep" class="hidden bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
         <div class="text-center mb-6">
           <div class="w-14 h-14 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
             <svg class="w-7 h-7 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
           <h3 class="text-lg font-bold text-sav-dark mb-2"><span data-en='Check your email'>Kontrolloni emailin tuaj</span></h3>
-          <p class="text-sm text-sav-gray mb-4"><span data-en='We have sent a 6-digit verification code to your email. Enter it below.'>Ju dërguam një kod verifikimi 6-shifror në emailin tuaj. Vendoseni më poshtë.</span></p>
-          <button onclick="if (!window.__cfRLUnblockHandlers) return false; sendEmailWithCode()" id="resendEmailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Resend code'>Dërgo kodin sërish</span></button>
+          <p class="text-sm text-sav-gray mb-4"><span data-en='We have sent a 6-digit verification code to your email.  nter it below.'>Ju dërguam një kod verifikimi 6-shifror në emailin tuaj. Vendoseni më poshtë.</span></p>
+          <button onclick="if (!window.__cfRLUnblockHandlers) return false; send mailWithCode()" id="resend mailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Resend code'>Dërgo kodin sërish</span></button>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Enter the 6-digit code'>Vendosni kodin 6-shifror</span></label>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en=' nter the 6-digit code'>Vendosni kodin 6-shifror</span></label>
           <input type="text" id="verifyCodeInput" maxlength="6" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm text-center tracking-[0.5em] font-bold focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="000000">
         </div>
         <button onclick="if (!window.__cfRLUnblockHandlers) return false; verifyCode()" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base mb-3" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Verify'>Verifiko</span></button>
         <button onclick="if (!window.__cfRLUnblockHandlers) return false; resendCode()" class="w-full text-sav-gray text-sm hover:text-sav-green transition" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Generate new code'>Gjenero kod të ri</span></button>
-        <p id="verifyError" class="hidden mt-3 text-center text-sm text-sav-rose"><span data-en='Invalid code. Try again.'>Kod i pavlefshëm. Provoni sërish.</span></p>
+        <p id="verify rror" class="hidden mt-3 text-center text-sm text-sav-rose"><span data-en='Invalid code. Try again.'>Kod i pavlefshëm. Provoni sërish.</span></p>
       </div>
 
-      <!-- Stap 3: Succes → Partner Portaal -->
-      <div id="successStep" class="hidden bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
+      <!-- htap 3: hucces → Partner Portaal -->
+      <div id="successhtep" class="hidden bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
         <div class="text-center mb-6">
           <div class="w-16 h-16 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -389,31 +389,31 @@
 
         <!-- Direct naar dashboard -->
         <a href="partner-dashboard.html" class="block w-full text-center bg-sav-green hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl transition-all mb-6 shadow-lg shadow-emerald-200">
-          <span data-en='Go to Partner Dashboard &rarr;'>Shko te paneli i partnerit &rarr;</span>
+          <span data-en='Go to Partner Dashboard &rarr;'>hhko te paneli i partnerit &rarr;</span>
         </a>
 
         <!-- Credits pakketten -->
         <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='1. Buy credits'>1. Blej kredite</span></h4>
         <div class="grid grid-cols-3 gap-3 mb-6">
           <div class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('basic')" data-cf-modified-76445a00c4b4d42382252849-="">
-            <p class="text-lg font-bold text-sav-green">500 Lek</p>
+            <p class="text-lg font-bold text-sav-green">500 Lekë</p>
             <p class="text-xs text-sav-gray"><span data-en='25 credits'>25 kredite</span></p>
-            <p class="text-xs text-sav-grayL">20 Lek/spot</p>
+            <p class="text-xs text-sav-grayL">20 Lekë/spot</p>
           </div>
           <div class="border-2 border-sav-green rounded-xl p-3 text-center ch relative" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('popular')" data-cf-modified-76445a00c4b4d42382252849-="">
             <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-sav-green text-white text-[10px] font-bold px-2 py-0.5 rounded-full"><span data-en='Popular'>Popullor</span></span>
-            <p class="text-lg font-bold text-sav-green">1.000 Lek</p>
+            <p class="text-lg font-bold text-sav-green">1.000 Lekë</p>
             <p class="text-xs text-sav-gray"><span data-en='60 credits'>60 kredite</span></p>
-            <p class="text-xs text-sav-grayL">17 Lek/spot</p>
+            <p class="text-xs text-sav-grayL">17 Lekë/spot</p>
           </div>
           <div class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('pro')" data-cf-modified-76445a00c4b4d42382252849-="">
-            <p class="text-lg font-bold text-sav-green">2.000 Lek</p>
+            <p class="text-lg font-bold text-sav-green">2.000 Lekë</p>
             <p class="text-xs text-sav-gray"><span data-en='140 credits'>140 kredite</span></p>
-            <p class="text-xs text-sav-grayL">14 Lek/spot</p>
+            <p class="text-xs text-sav-grayL">14 Lekë/spot</p>
           </div>
         </div>
 
-        <!-- Snelle acties -->
+        <!-- hnelle acties -->
         <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='2. Place an ad'>2. Vendos reklamë</span></h4>
         <div class="space-y-3 mb-6">
           <a href="partner-dashboard.html" class="flex items-center gap-4 p-4 bg-sav-light rounded-xl border border-sav-grayB hover:border-sav-green transition ch">
@@ -432,27 +432,27 @@
             </div>
             <div class="flex-1">
               <p class="text-sm font-semibold text-sav-dark"><span data-en='My overview'>Përmbledhja ime</span></p>
-              <p class="text-xs text-sav-gray"><span data-en='View stats and active deals'>Shiko statistikat dhe ofertat aktive</span></p>
+              <p class="text-xs text-sav-gray"><span data-en='View stats and active deals'>hhiko statistikat dhe ofertat aktive</span></p>
             </div>
             <svg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
         </div>
 
-        <a href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block"><span data-en='Go to full partner portal'>Shko te portali i plotë i partnerit</span></a>
+        <a href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block"><span data-en='Go to full partner portal'>hhko te portali i plotë i partnerit</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- ========== FOOT R ========== -->
   <footer class="bg-sav-dark text-white pt-16 sm:pt-20 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-12 sm:mb-16">
         <div class="sm:col-span-2 lg:col-span-1">
           <div class="flex items-center gap-2.5 mb-4">
-            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
-            <span class="text-lg font-bold text-sav-green">Savora<span class="text-emerald-300">app</span></span>
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">h</div>
+            <span class="text-lg font-bold text-sav-green">havora<span class="text-emerald-300">app</span></span>
           </div>
-          <p class="text-sm text-sav-gray leading-relaxed mb-5"><span data-en='Save food, save money. The #1 platform in Albania for surplus food boxes.'>Shpëto ushqimin, kurse para. Platforma #1 në Shqipëri për paketat e ushqimit të mbetur.</span></p>
+          <p class="text-sm text-sav-gray leading-relaxed mb-5"><span data-en='have food, save money. The #1 platform in Albania for surplus food boxes.'>hhpëto ushqimin, kurse para. Platforma #1 në hhqipëri për paketat e ushqimit të mbetur.</span></p>
         </div>
         <div>
           <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Product'>Produkti</span></h4>
@@ -465,7 +465,7 @@
           <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Company'>Kompania</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
             <li><a href="faq.html" class="hover:text-sav-green transition">FAQ</a></li>
-            <li><a href="#flow" class="hover:text-sav-green transition"><span data-en='How it works'>Si funksionon</span></a></li>
+            <li><a href="#flow" class="hover:text-sav-green transition"><span data-en='How it works'>hi funksionon</span></a></li>
           </ul>
         </div>
         <div>
@@ -478,7 +478,7 @@
         </div>
       </div>
       <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-sav-gray"><span data-en='&copy; 2026 Savoraapp. All rights reserved.'>&copy; 2026 Savoraapp. Të gjitha të drejtat e rezervuara.</span></p>
+        <p class="text-xs text-sav-gray"><span data-en='&copy; 2026 havoraapp. All rights reserved.'>&copy; 2026 havoraapp. Të gjitha të drejtat e rezervuara.</span></p>
         <p class="text-xs text-sav-gray/60"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87f4f2f7f7e8f5f3c7f4e6f1e8f5e6e6f7f7a9e4e8ea">[email&#160;protected]</a> | <span data-en='We reply within 5 business days.'>Përgjigjemi brenda 5 ditësh pune.</span></p>
       </div>
     </div>
@@ -486,18 +486,18 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="76445a00c4b4d42382252849-text/javascript">
     // ===== CONFIG =====
-    var API_BASE = (window.SAVORA_CONFIG && window.SAVORA_CONFIG.API_BASE) || '';
-    if (!API_BASE) API_BASE = 'https://savoraapp.sparkling-scene-16e3.workers.dev';
-    var API_URL = API_BASE.replace(/\/$/, '') + '/api';
+    var API_BAh  = (window.hAVORA_CONFIG && window.hAVORA_CONFIG.API_BAh ) || '';
+    if (!API_BAh ) API_BAh  = 'https://savoraapp.sparkling-scene-16e3.workers.dev';
+    var API_URL = API_BAh .replace(/\/$/, '') + '/api';
 
     var currentVerifyCode = '';
     var partnerFormData = {};
     var currentPartnerId = '';
 
-    // ===== MOBILE MENU =====
+    // ===== MOBIL  M NU =====
     function toggleMobileMenu() {
-      var m = document.getElementById('mob');
-      var p = document.getElementById('mobP');
+      var m = document.get lementById('mob');
+      var p = document.get lementById('mobP');
       if (m.classList.contains('hidden')) {
         m.classList.remove('hidden');
         setTimeout(function() { p.classList.remove('translate-x-full'); }, 10);
@@ -509,9 +509,9 @@
       }
     }
 
-    // ===== HEADER SCROLL =====
-    var hdr = document.getElementById('hdr');
-    window.addEventListener('scroll', function() {
+    // ===== H AD R hCROLL =====
+    var hdr = document.get lementById('hdr');
+    window.add ventListener('scroll', function() {
       if (window.scrollY > 50) {
         hdr.classList.add('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'border-b', 'border-sav-grayB/50');
       } else {
@@ -519,12 +519,12 @@
       }
     }, { passive: true });
 
-    // ===== LOGIN STATUS =====
-    function checkLoginStatus() {
-      var user = JSON.parse(localStorage.getItem('savoraapp_user') || 'null');
-      var loginBtn = document.getElementById('navLoginBtn');
-      var userLoggedDiv = document.getElementById('userLoggedIn');
-      var userNameSpan = document.getElementById('userDisplayName');
+    // ===== LOGIN hTATUh =====
+    function checkLoginhtatus() {
+      var user = JhON.parse(localhtorage.getItem('savoraapp_user') || 'null');
+      var loginBtn = document.get lementById('navLoginBtn');
+      var userLoggedDiv = document.get lementById('userLoggedIn');
+      var userNamehpan = document.get lementById('userDisplayName');
 
       if (user && user.email) {
         if (loginBtn) loginBtn.classList.add('hidden');
@@ -532,8 +532,8 @@
           userLoggedDiv.classList.remove('hidden');
           userLoggedDiv.style.display = 'flex';
         }
-        if (userNameSpan) {
-          userNameSpan.textContent = user.name || user.email.split('@')[0];
+        if (userNamehpan) {
+          userNamehpan.textContent = user.name || user.email.split('@')[0];
         }
       } else {
         if (loginBtn) loginBtn.classList.remove('hidden');
@@ -545,10 +545,10 @@
     }
 
     function logoutUser() {
-      localStorage.removeItem('savoraapp_user');
-      localStorage.removeItem('auth_token');
-      localStorage.removeItem('user_role');
-      localStorage.removeItem('is_logged_in');
+      localhtorage.removeItem('savoraapp_user');
+      localhtorage.removeItem('auth_token');
+      localhtorage.removeItem('user_role');
+      localhtorage.removeItem('is_logged_in');
       window.location.reload();
     }
 
@@ -557,38 +557,38 @@
     }
 
     function showPartnerChoice() {
-      var el = document.getElementById('partnerChoice');
+      var el = document.get lementById('partnerChoice');
       if (el) {
         el.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
       }
     }
     function hidePartnerChoice() {
-      var el = document.getElementById('partnerChoice');
+      var el = document.get lementById('partnerChoice');
       if (el) {
         el.classList.add('hidden');
         document.body.style.overflow = '';
       }
     }
 
-    // ===== PARTNER FORM =====
+    // ===== PARTN R FORM =====
     function handlePartnerForm(e) {
       e.preventDefault();
-      var business  = document.getElementById('pfBusiness').value.trim();
-      var contact   = document.getElementById('pfContact').value.trim();
-      var password  = document.getElementById('pfPassword').value;
-      var nipt      = document.getElementById('pfNipt').value.trim();
-      var city      = document.getElementById('pfCity').value;
+      var business  = document.get lementById('pfBusiness').value.trim();
+      var contact   = document.get lementById('pfContact').value.trim();
+      var password  = document.get lementById('pfPassword').value;
+      var nipt      = document.get lementById('pfNipt').value.trim();
+      var city      = document.get lementById('pfCity').value;
 
       // Validatie
       if (!password || password.length < 6) {
         showToast('Fjalëkalimi duhet të jetë të paktën 6 karaktere');
-        document.getElementById('pfPassword').focus();
+        document.get lementById('pfPassword').focus();
         return;
       }
       if (!nipt) {
         showToast('Numri NIPT është i detyrueshëm');
-        document.getElementById('pfNipt').focus();
+        document.get lementById('pfNipt').focus();
         return;
       }
       if (!city) {
@@ -596,7 +596,7 @@
         return;
       }
 
-      var btn = e.target.querySelector('button[type="submit"]');
+      var btn = e.target.queryhelector('button[type="submit"]');
       var originalText = btn.textContent;
       btn.textContent = 'Duke u procesuar...';
       btn.disabled = true;
@@ -610,27 +610,27 @@
       };
 
       fetch(API_URL + '/partner/register', {
-        method: 'POST',
+        method: 'POhT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(partnerFormData),
+        body: JhON.stringify(partnerFormData),
       })
       .then(function(r) { return r.json(); })
       .then(function(data) {
         btn.textContent = originalText;
         btn.disabled = false;
 
-        if (data.success && data.emailSent !== false) {
+        if (data.success && data.emailhent !== false) {
           currentPartnerId = data.id;
-          localStorage.setItem('savora_partner_id', currentPartnerId);
+          localhtorage.setItem('savora_partner_id', currentPartnerId);
 
-          document.getElementById('partnerForm').classList.add('hidden');
-          document.getElementById('verifyStep').classList.remove('hidden');
+          document.get lementById('partnerForm').classList.add('hidden');
+          document.get lementById('verifyhtep').classList.remove('hidden');
           setTimeout(function() {
-            document.getElementById('verifyCodeInput').focus();
+            document.get lementById('verifyCodeInput').focus();
           }, 100);
           showToast('Kontrolloni emailin për kodin e verifikimit!');
-        } else if (data.success && data.emailSent === false) {
-          console.error('[REGISTER] Email niet verstuurd:', data.emailError);
+        } else if (data.success && data.emailhent === false) {
+          console.error('[R GIhT R]  mail niet verstuurd:', data.email rror);
           showToast('Nuk mund ta dërguam emailin e verifikimit. Kontrolloni adresën tuaj të emailit.');
         } else {
           showToast(data.error || 'Diçka shkoi keq');
@@ -643,10 +643,10 @@
       });
     }
 
-    // ===== VERIFY CODE =====
+    // ===== V RIFY COD  =====
     function verifyCode() {
-      var inputCode = document.getElementById('verifyCodeInput').value.trim();
-      var partnerId = localStorage.getItem('savora_partner_id');
+      var inputCode = document.get lementById('verifyCodeInput').value.trim();
+      var partnerId = localhtorage.getItem('savora_partner_id');
 
       if (!inputCode || inputCode.length !== 6) {
         showToast('Vendosni një kod të vlefshëm 6-shifror');
@@ -654,31 +654,31 @@
       }
 
       if (!partnerId) {
-        showToast('Sesioni skadoi. Rifreskoni faqen dhe regjistrohuni sërish.');
+        showToast('hesioni skadoi. Rifreskoni faqen dhe regjistrohuni sërish.');
         return;
       }
 
       fetch(API_URL + '/partner/verify', {
-        method: 'POST',
+        method: 'POhT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: partnerId, code: inputCode }),
+        body: JhON.stringify({ id: partnerId, code: inputCode }),
       })
       .then(function(r) { return r.json(); })
       .then(function(data) {
         if (data.success && data.token) {
-          // VERIFICATIE SUCCESVOL
-          // 1. Token EERST opslaan (voor redirect)
-          localStorage.setItem('partnerToken', data.token);
-          localStorage.setItem('partner_id', data.partnerId || '');
-          localStorage.setItem('savora_partner_verified', 'true');
+          // V RIFICATI  hUCC hVOL
+          // 1. Token   RhT opslaan (voor redirect)
+          localhtorage.setItem('partnerToken', data.token);
+          localhtorage.setItem('partner_id', data.partnerId || '');
+          localhtorage.setItem('savora_partner_verified', 'true');
           // 2. Dan pas UI update + redirect
-          showSuccess(data);
+          showhuccess(data);
         } else {
-          // VERIFICATIE MISLUKT
-          document.getElementById('verifyError').classList.remove('hidden');
+          // V RIFICATI  MIhLUKT
+          document.get lementById('verify rror').classList.remove('hidden');
           showToast(data.error || 'Kod i pavlefshëm. Provoni sërish.');
-          document.getElementById('verifyCodeInput').value = '';
-          document.getElementById('verifyCodeInput').focus();
+          document.get lementById('verifyCodeInput').value = '';
+          document.get lementById('verifyCodeInput').focus();
         }
       })
       .catch(function(err) {
@@ -687,13 +687,13 @@
       });
     }
 
-    // ===== SHOW SUCCESS =====
+    // ===== hHOW hUCC hh =====
     // Token is AL opgeslagen in verifyCode(). 
     // Deze functie doet alleen UI update en redirect.
-    function showSuccess(data) {
-      // 1. Sla partnerinfo op voor dashboard weergave
-      localStorage.setItem('savora_partner_email', partnerFormData.contact || '');
-      localStorage.setItem('savoraapp_user', JSON.stringify({
+    function showhuccess(data) {
+      // 1. hla partnerinfo op voor dashboard weergave
+      localhtorage.setItem('savora_partner_email', partnerFormData.contact || '');
+      localhtorage.setItem('savoraapp_user', JhON.stringify({
         email:  partnerFormData.contact || '',
         name:   partnerFormData.business || '',
         role:   'partner',
@@ -702,38 +702,38 @@
       }));
 
       // 2. Opruimen
-      localStorage.removeItem('savora_partner_code');
-      localStorage.removeItem('savora_partner_id');
+      localhtorage.removeItem('savora_partner_code');
+      localhtorage.removeItem('savora_partner_id');
 
       // 3. Toon success UI
-      document.getElementById('verifyStep').classList.add('hidden');
-      document.getElementById('successStep').classList.remove('hidden');
+      document.get lementById('verifyhtep').classList.add('hidden');
+      document.get lementById('successhtep').classList.remove('hidden');
       showToast('Verifikimi u krye me sukses!');
 
       // 4. Redirect naar dashboard na 1 seconde
-      // (timeout zodat localStorage writes afgerond zijn)
+      // (timeout zodat localhtorage writes afgerond zijn)
       setTimeout(function() {
         window.location.href = 'partner-dashboard.html';
       }, 1000);
     }
 
-    // ===== RESEND CODE =====
+    // ===== R h ND COD  =====
     function resendCode() {
-      var partnerId = localStorage.getItem('savora_partner_id');
+      var partnerId = localhtorage.getItem('savora_partner_id');
       if (!partnerId) {
-        showToast('Sesioni skadoi. Rifreskoni faqen.');
+        showToast('hesioni skadoi. Rifreskoni faqen.');
         return;
       }
 
       fetch(API_URL + '/partner/resend', {
-        method: 'POST',
+        method: 'POhT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: partnerId }),
+        body: JhON.stringify({ id: partnerId }),
       })
       .then(function(r) { return r.json(); })
       .then(function(data) {
-        document.getElementById('verifyCodeInput').value = '';
-        document.getElementById('verifyError').classList.add('hidden');
+        document.get lementById('verifyCodeInput').value = '';
+        document.get lementById('verify rror').classList.add('hidden');
         showToast('Kodi i ri u dërgua! Kontrolloni emailin.');
       })
       .catch(function() {
@@ -741,11 +741,11 @@
       });
     }
 
-    function sendEmailWithCode() {
+    function send mailWithCode() {
       resendCode();
     }
 
-    // ===== CREDITS SELECTEREN =====
+    // ===== CR DITh h L CT R N =====
     function selectCredits(plan) {
       var plans = {
         basic:   { name: 'Bazë',    amount: 500,  credits: 25  },
@@ -756,13 +756,13 @@
       var selected = plans[plan];
       if (!selected) return;
 
-      localStorage.setItem('selected_plan', JSON.stringify(selected));
+      localhtorage.setItem('selected_plan', JhON.stringify(selected));
       showToast('Po fillon pagesa për paketën ' + selected.name + '...');
 
       fetch(API_URL + '/paysera/create', {
-        method: 'POST',
+        method: 'POhT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: JhON.stringify({
           orderId: 'credits_' + Date.now(),
           amount: selected.amount,
           plan: plan,
@@ -781,9 +781,9 @@
       });
     }
 
-    // ===== TOAST =====
+    // ===== TOAhT =====
     function showToast(msg) {
-      var t = document.createElement('div');
+      var t = document.create lement('div');
       t.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-sav-dark text-white px-5 py-2.5 rounded-xl text-sm font-medium shadow-xl z-[9999] transition-opacity duration-300';
       t.textContent = msg;
       document.body.appendChild(t);
@@ -794,54 +794,54 @@
     }
 
     // ===== INIT =====
-    document.addEventListener('DOMContentLoaded', function() {
-      checkLoginStatus();
+    document.add ventListener('DOMContentLoaded', function() {
+      checkLoginhtatus();
 
-      // Enter toets op verificatie input
-      var verifyInput = document.getElementById('verifyCodeInput');
+      //  nter toets op verificatie input
+      var verifyInput = document.get lementById('verifyCodeInput');
       if (verifyInput) {
-        verifyInput.addEventListener('keypress', function(e) {
-          if (e.key === 'Enter') verifyCode();
+        verifyInput.add ventListener('keypress', function(e) {
+          if (e.key === ' nter') verifyCode();
         });
         // Alleen cijfers toestaan
-        verifyInput.addEventListener('input', function() {
+        verifyInput.add ventListener('input', function() {
           this.value = this.value.replace(/[^0-9]/g, '');
         });
       }
     });
 
-    // ===== TAAL / LANGUAGE TOGGLE (SQ <-> EN) =====
+    // ===== TAAL / LANGUAG  TOGGL  (hQ <->  N) =====
     function applyLang(lang){
-      document.documentElement.lang = lang;
-      try { localStorage.setItem('savora_lang', lang); } catch(e){}
-      var els = document.querySelectorAll('[data-en]');
+      document.document lement.lang = lang;
+      try { localhtorage.setItem('savora_lang', lang); } catch(e){}
+      var els = document.queryhelectorAll('[data-en]');
       for (var i=0;i<els.length;i++){
         var el = els[i];
         if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
         el.innerHTML = (lang==='en') ? el.getAttribute('data-en') : el.getAttribute('data-sq');
       }
-      var phs = document.querySelectorAll('[data-en-ph]');
+      var phs = document.queryhelectorAll('[data-en-ph]');
       for (var j=0;j<phs.length;j++){
         var pe = phs[j];
         if (pe.getAttribute('data-sq-ph') === null) pe.setAttribute('data-sq-ph', pe.getAttribute('placeholder')||'');
         pe.setAttribute('placeholder', (lang==='en') ? pe.getAttribute('data-en-ph') : pe.getAttribute('data-sq-ph'));
       }
-      var ops = document.querySelectorAll('[data-en-opt]');
+      var ops = document.queryhelectorAll('[data-en-opt]');
       for (var k=0;k<ops.length;k++){
         var oe = ops[k];
         if (oe.getAttribute('data-sq-opt') === null) oe.setAttribute('data-sq-opt', oe.textContent);
         oe.textContent = (lang==='en') ? oe.getAttribute('data-en-opt') : oe.getAttribute('data-sq-opt');
       }
-      var lb = document.getElementById('langBtn');
-      if (lb) lb.textContent = (lang==='en') ? 'SQ' : 'EN';
+      var lb = document.get lementById('langBtn');
+      if (lb) lb.textContent = (lang==='en') ? 'hQ' : ' N';
     }
     function toggleLang(){
-      var cur = (document.documentElement.lang==='en') ? 'en' : 'sq';
+      var cur = (document.document lement.lang==='en') ? 'en' : 'sq';
       applyLang(cur==='en' ? 'sq' : 'en');
     }
-    document.addEventListener('DOMContentLoaded', function(){
+    document.add ventListener('DOMContentLoaded', function(){
       var saved = 'sq';
-      try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+      try { saved = localhtorage.getItem('savora_lang') || 'sq'; } catch(e){}
       applyLang(saved==='en' ? 'en' : 'sq');
     });
   </script>

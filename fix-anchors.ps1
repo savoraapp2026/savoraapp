@@ -1,18 +1,13 @@
 # ============================================================
-# Savoraapp - twee resterende problemen op partner.html:
+# Savoraapp - resterende problemen op partner.html:
 #
 # 1. De link "Si funksionon" / "How it works" (#flow) werkte
 #    niet omdat er nergens een element met id="flow" bestond.
-#    Dit script vindt de juiste sectie (de "Hoe het werkt"-
-#    sectie, herkenbaar aan de tekst data-en="How it works")
-#    en zet daar id="flow" op, zonder de andere sectie met
-#    dezelfde CSS-classes per ongeluk te raken.
-#
-# 2. De header staat "fixed" (zwevend, 80px hoog). Na een
-#    anker-sprong (#register, #flow, etc.) verdwijnt de kop
-#    van de sectie half achter die header. Dit script voegt
-#    een CSS-regel toe (scroll-margin-top) zodat elk anker-
-#    doel altijd netjes onder de header landt.
+# 2. De header staat "fixed" (zwevend, 80px hoog), waardoor
+#    ankerdoelen er half achter verdwijnen. Fix: scroll-margin-top.
+# 3. De footer-link "Behu partner" verwees naar partner.html
+#    zelf (top van de pagina) in plaats van naar het
+#    aanmeldformulier. Fix: verwijst nu naar #register.
 # ============================================================
 
 $ProjectPath = "C:\Savoraapp.com"
@@ -38,10 +33,7 @@ if (-not (Test-Path $partnerFile)) {
     if ($content -match 'id="flow"') {
         Write-Host "id=""flow"" bestaat al, niets te doen." -ForegroundColor Green
     } else {
-        # Zoek de <section class="py-14 sm:py-20 bg-sav-light"> die
-        # gevolgd wordt (voor de volgende <section>) door de tekst
-        # die uniek is voor de "Hoe het werkt"-sectie.
-        $pattern = '<section class="py-14 sm:py-20 bg-sav-light">(?=(?:(?!<section\b).)*?data-en="How it works" data-sq="Si funksionon")'
+        $pattern = "<section class=`"py-14 sm:py-20 bg-sav-light`">(?=(?:(?!<section\b).)*?data-en='How it works')"
         $rx = New-Object System.Text.RegularExpressions.Regex($pattern, [System.Text.RegularExpressions.RegexOptions]::Singleline)
         $matchCount = $rx.Matches($content).Count
 
@@ -55,6 +47,25 @@ if (-not (Test-Path $partnerFile)) {
         } else {
             Write-Host "Meerdere ($matchCount) mogelijke secties gevonden - voor de zekerheid NIET automatisch aangepast. Stuur de pagina-broncode." -ForegroundColor Yellow
         }
+    }
+}
+
+Write-Host ""
+Write-Host "=== Stap 1b: 'Behu partner' footer-link naar #register ===" -ForegroundColor Cyan
+if (Test-Path $partnerFile) {
+    $content2 = [System.IO.File]::ReadAllText($partnerFile, [System.Text.Encoding]::UTF8)
+    $oldLink = '<a href="partner.html" class="hover:text-sav-green transition"><span data-en=' + [char]0x27 + 'Become a partner' + [char]0x27 + '>Behu partner</span></a>'
+    $oldLink = $oldLink.Replace('Behu partner', [string]([char]0x42 + [char]0xEB + 'hu partner'))
+    if ($content2.Contains($oldLink)) {
+        Backup-File $partnerFile
+        $newLink = $oldLink.Replace('href="partner.html"', 'href="#register"')
+        $content2 = $content2.Replace($oldLink, $newLink)
+        [System.IO.File]::WriteAllText($partnerFile, $content2, $Utf8NoBom)
+        Write-Host "Footer-link 'Behu partner' verwijst nu naar #register." -ForegroundColor Green
+    } elseif ($content2.Contains('href="#register" class="hover:text-sav-green transition">')) {
+        Write-Host "Link verwijst al naar #register, niets te doen." -ForegroundColor Green
+    } else {
+        Write-Host "Exacte link niet gevonden - handmatig controleren." -ForegroundColor Yellow
     }
 }
 
@@ -89,4 +100,4 @@ try {
 }
 
 Write-Host ""
-Write-Host "Klaar. Test https://savoraapp.com/partner.html - klik op de partner-knop en op Si funksionon." -ForegroundColor Cyan
+Write-Host "Klaar. Test https://savoraapp.com/partner.html" -ForegroundColor Cyan

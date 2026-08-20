@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kushtet e Sherbimit - Savoraapp</title>
+<meta name="description" content="Kushtet e sherbimit te Savoraapp per konsumatore dhe partnere biznesi.">
+<meta name="theme-color" content="#10b981">
+<meta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+<link rel="icon" href="icons/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="js/config.js"></script>
+<style>
+  :root{--primary:#10b981;--primary-d:#059669;--dark:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;}
+  a{color:var(--primary);}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);text-decoration:none;}
+  .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);text-decoration:none;}
+  main{max-width:760px;margin:0 auto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
+  h1{font-size:2.1rem;font-weight:800;color:var(--dark);margin-bottom:6px;}
+  .updated{color:var(--gray);font-size:0.9rem;margin-bottom:20px;}
+  h2{font-size:1.25rem;font-weight:800;color:var(--dark);margin:32px 0 12px;}
+  h3{font-size:1.02rem;font-weight:700;color:var(--dark);margin:18px 0 8px;}
+  p,li{color:#374151;margin-bottom:10px;}
+  ul{padding-left:22px;margin-bottom:14px;}
+  strong{color:var(--dark);}
+  .review-note{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px 18px;font-size:0.88rem;color:#991b1b;margin-bottom:28px;}
+  footer{background:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;margin-top:24px;}
+  footer a{color:#a7f3d0;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
+  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+</header>
+
+<main>
+  <div class="badge">Kushtet e Sherbimit</div>
+  <h1>Kushtet e Sherbimit</h1>
+  <p class="updated">Perditesuar se fundi: 6 gusht 2026</p>
+
+  <div class="review-note"><strong>Shenim:</strong> Ky draft eshte pergatitur per te zevendesuar nje version te gabuar (ne nje gjuhe tjeter, me referenca ligjore per nje vend tjeter). Permbajtja tani i referohet Shqiperise dhe modelit tuaj real te biznesit (kredite, pa abonim), por rekomandohet te kaloje nga nje avokat perpara se ta konsideroni perfundimtare ligjerisht.</div>
+
+  <h2>1. Perkufizime</h2>
+  <p>Ne keto kushte te sherbimit kuptohet me:</p>
+  <ul>
+    <li><strong>Savoraapp:</strong> platforma "food surplus marketplace" e ofruar nga SavoraApp</li>
+    <li><strong>Partneri:</strong> pronari ose menaxheri i biznesit (dyqan, furre, restorant etj.) qe perdor Savoraapp per te postuar oferta</li>
+    <li><strong>Konsumatori:</strong> perdoruesi qe rezervon kuti ushqimi permes Savoraapp</li>
+    <li><strong>Sherbimi:</strong> lidhja e ofruar nga Savoraapp mes ushqimit te tepert dhe konsumatoreve</li>
+  </ul>
+
+  <h2>2. Zbatueshmeria</h2>
+  <p>Keto kushte te sherbimit zbatohen per cdo perdorim te Savoraapp. Duke perdorur sherbimin tone, ju pranoni keto kushte.</p>
+
+  <h2>3. Llogaria dhe qasja</h2>
+  <h3>3.1 Krijimi i llogarise</h3>
+  <ul>
+    <li>Duhet te keni te pakten 18 vjec</li>
+    <li>Jepni informacion te sakte dhe te plote</li>
+    <li>Jeni pergjegjes per ruajtjen e sigurt te te dhenave tuaja te hyrjes</li>
+  </ul>
+  <h3>3.2 Perdorimi i sherbimit</h3>
+  <ul>
+    <li>Perdorni Savoraapp vetem per qellimin e synuar (shitja/rezervimi i ushqimit surplus)</li>
+    <li>Nuk lejohet keqperdorimi i sistemit</li>
+    <li>Respektoni privatesine e perdoruesve te tjere</li>
+  </ul>
+
+  <h2>4. Regjistrimi, kreditet dhe pagesat</h2>
+  <h3>4.1 Regjistrimi</h3>
+  <p>Regjistrimi si partner ne Savoraapp eshte <strong>falas</strong>. Nuk ka kosto fikse ose abonim mujor.</p>
+  <h3>4.2 Kreditet</h3>
+  <p>Partneret blejne paketa kreditesh per te postuar oferta (1 kredit = 1 postim). Kreditet jane te vlefshme per nje periudhe te caktuar (deri ne 3 muaj) nga blerja. Pagesat perpunohen ne menyre te sigurte permes Paysera.</p>
+  <h3>4.3 Rimbursime</h3>
+  <p>Kreditet e pashpenzuara nuk rimbursohen pas skadimit te vlefshmerise, pervec rasteve te kerkuara nga ligji.</p>
+
+  <h2>5. Pronesia intelektuale</h2>
+  <p>Te gjitha te drejtat mbi Savoraapp, perfshire softuerin, dizajnin dhe markat, mbeten prone e SavoraApp. Ju merrni nje licence te kufizuar per perdorimin e sherbimit.</p>
+
+  <h2>6. Te dhenat dhe privatesia</h2>
+  <p>Trajtojme te gjitha te dhenat sipas <a href="privacy-policy.html">Politikes se Privatesise</a>. Ju mbeteni pronar i produkteve qe ofroni permes Savoraapp.</p>
+
+  <h2>7. Kufizimi i pergjegjesise</h2>
+  <p>Savoraapp nuk mban pergjegjesi per:</p>
+  <ul>
+    <li>Demtim reputacioni nga pershkrime te gabuara te produkteve nga partneret</li>
+    <li>Defekte teknike jashte kontrollit tone</li>
+    <li>Deme indirekte ose pasuese</li>
+  </ul>
+  <p>Pergjegjesia jone totale kufizohet ne shumen qe keni paguar tek Savoraapp ne 12 muajt e fundit.</p>
+
+  <h2>8. Ndryshimet</h2>
+  <p>Mund t'i ndryshojme keto kushte here pas here. Ne rast ndryshimesh te rendesishme, do t'ju informojme permes email-it.</p>
+
+  <h2>9. Ligji i zbatueshem</h2>
+  <p>Keto kushte rregullohen nga legjislacioni i Republikes se Shqiperise. Cdo mosmarreveshje do t'i nenshtrohet juridiksionit te gjykatave kompetente ne Shqiperi.</p>
+
+  <h2>10. Kontakt</h2>
+  <p>Pyetje rreth ketyre kushteve? Na shkruani ne <a href="mailto:info@savoraapp.com">info@savoraapp.com</a>.</p>
+</main>
+
+<footer>
+  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;">Pagesa te Sigurta nga Paysera</a><br>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+</footer>
+</body>
+</html>

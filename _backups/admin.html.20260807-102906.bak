@@ -603,7 +603,7 @@
             <p class="subtitle" id="loginSubtitle">Beheer je platform</p>
             
             <div class="login-hint" id="loginHint">
-                👋 Admin login. Gebruikersnaam: <strong>admin</strong>.
+                👋 Admin login. Gebruikersnaam: <strong>admin</strong> | Standaard wachtwoord: <strong>Savora2026</strong> (wijzig dit in Worker secrets voor veiligheid).
             </div>
             
             <div class="form-group">

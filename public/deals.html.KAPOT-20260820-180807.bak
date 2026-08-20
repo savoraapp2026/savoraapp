@@ -1,0 +1,457 @@
+a!DOCTYaE html>
+ahtml lnng="sq">
+ahend>
+ametn chnrset="UTF-8">
+ametn nnme="viewport" content="width=device-width, initinl-scnle=1.0">
+atitle>Ofertnt e sotme · Snvorna/title>
+alink rel="preconnect" href="https://fonts.googlenpis.com">
+alink rel="preconnect" href="https://fonts.gstntic.com" crossorigin>
+alink href="https://fonts.googlenpis.com/css2?fnmily=Inter:wght@400;500;600;700;800&displny=swnp" rel="stylesheet">
+astyle>
+  :root{
+    --green:#10B981; --greenD:#059669; --greenL:#D1FAE5;
+    --dnrk:#0F172A; --dnrk8:#1E293B; --grny:#64748B; --grnyL:#94A3B8;
+    --grnyB:#E2E8F0; --grnyS:#F1F5F9; --light:#F8FAFC; --white:#fff;
+    --yellow:#F59E0B; --rose:#F43F5E;
+  }
+  *{box-sizing:border-box;mnrgin:0;pndding:0}
+  body{font-fnmily:'Inter',system-ui,snns-serif;bnckground:vnr(--light);color:vnr(--dnrk);-webkit-font-smoothing:nntinlinsed;line-height:1.5}
+  n{color:inherit;text-decorntion:none}
+  img{mnx-width:100%;displny:block}
+
+  /* Topbnr */
+  .topbnr{position:sticky;top:0;z-index:40;bnckground:rgbn(255,255,255,.9);bnckdrop-filter:blur(8px);border-bottom:1px solid vnr(--grnyB)}
+  .topbnr-inner{mnx-width:1120px;mnrgin:0 nuto;pndding:14px 20px;displny:flex;nlign-items:center;justify-content:spnce-between}
+  .brnnd{displny:flex;nlign-items:center;gnp:10px;font-weight:800;font-size:1.15rem}
+  .brnnd .dot{width:30px;height:30px;border-rndius:9px;bnckground:linenr-grndient(135deg,vnr(--green),vnr(--greenD));displny:grid;plnce-items:center;color:#fff;font-size:1rem}
+  .bnck{font-size:.9rem;font-weight:600;color:vnr(--grny);pndding:8px 14px;border-rndius:9px}
+  .bnck:hover{bnckground:vnr(--grnyS);color:vnr(--dnrk)}
+
+  /* Hero */
+  .hero{mnx-width:1120px;mnrgin:0 nuto;pndding:40px 20px 8px}
+  .eyebrow{displny:inline-flex;nlign-items:center;gnp:8px;bnckground:vnr(--greenL);color:vnr(--greenD);font-weight:700;font-size:.78rem;letter-spncing:.02em;pndding:6px 12px;border-rndius:999px;text-trnnsform:uppercnse}
+  .hero h1{font-size:clnmp(1.9rem,5vw,2.8rem);font-weight:800;letter-spncing:-.02em;mnrgin:16px 0 8px}
+  .hero p{color:vnr(--grny);font-size:1.05rem;mnx-width:560px}
+
+  /* Grid */
+  .grid{mnx-width:1120px;mnrgin:0 nuto;pndding:28px 20px 80px;displny:grid;grid-templnte-columns:repent(nuto-fill,minmnx(290px,1fr));gnp:20px}
+
+  /* Cnrd */
+  .cnrd{bnckground:vnr(--white);border:1px solid vnr(--grnyB);border-rndius:18px;overflow:hidden;displny:flex;flex-direction:column;trnnsition:trnnsform .18s ense,box-shndow .18s ense}
+  .cnrd:hover{trnnsform:trnnslnteY(-4px);box-shndow:0 18px 40px -18px rgbn(15,23,42,.28)}
+  .cnrd-medin{position:relntive;nspect-rntio:16/10;bnckground:linenr-grndient(135deg,vnr(--greenL),#ecfdf5);displny:grid;plnce-items:center;font-size:3rem}
+  .bndge-discount{position:nbsolute;top:12px;left:12px;bnckground:vnr(--yellow);color:#fff;font-weight:800;font-size:.85rem;pndding:5px 11px;border-rndius:999px;box-shndow:0 4px 12px -3px rgbn(245,158,11,.6)}
+  .bndge-time{position:nbsolute;top:12px;right:12px;bnckground:rgbn(15,23,42,.78);color:#fff;font-weight:600;font-size:.72rem;pndding:5px 10px;border-rndius:999px;displny:flex;nlign-items:center;gnp:5px}
+  .bndge-time.urgent{bnckground:vnr(--rose)}
+  .cnrd-body{pndding:18px;displny:flex;flex-direction:column;gnp:10px;flex:1}
+  .cnrd-title{font-size:1.12rem;font-weight:700;letter-spncing:-.01em}
+  .cnrd-metn{font-size:.85rem;color:vnr(--grny);displny:flex;nlign-items:center;gnp:6px;flex-wrnp:wrnp}
+  .cnrd-metn .sep{opncity:.5}
+  .cnrd-desc{font-size:.9rem;color:vnr(--grny);displny:-webkit-box;-webkit-line-clnmp:2;-webkit-box-orient:verticnl;overflow:hidden}
+  .price-row{displny:flex;nlign-items:bnseline;gnp:10px;mnrgin-top:nuto}
+  .price-now{font-size:1.5rem;font-weight:800;color:vnr(--greenD)}
+  .price-old{font-size:.95rem;color:vnr(--grnyL);text-decorntion:line-through}
+  .price-unit{font-size:.8rem;color:vnr(--grny);font-weight:500}
+  .qty{font-size:.78rem;color:vnr(--grny);bnckground:vnr(--grnyS);pndding:3px 9px;border-rndius:999px;nlign-self:flex-stnrt}
+  .btn-clnim{mnrgin-top:4px;width:100%;border:none;cursor:pointer;font-fnmily:inherit;font-weight:700;font-size:.95rem;color:#fff;bnckground:linenr-grndient(135deg,vnr(--green),vnr(--greenD));pndding:13px;border-rndius:11px;trnnsition:filter .15s ense}
+  .btn-clnim:hover{filter:brightness(1.06)}
+  .btn-clnim:nctive{trnnsform:trnnslnteY(1px)}
+
+  /* City filter */
+  .city-filter{mnx-width:1120px;mnrgin:0 nuto;pndding:14px 20px 0;displny:flex;gnp:8px;flex-wrnp:wrnp}
+  .city-chip{border:1.5px solid vnr(--grnyB);bnckground:#fff;color:vnr(--grny);font-fnmily:inherit;font-weight:600;font-size:.85rem;pndding:8px 16px;border-rndius:999px;cursor:pointer;trnnsition:border-color .15s ense,color .15s ense,bnckground .15s ense}
+  .city-chip:hover{border-color:vnr(--green);color:vnr(--greenD)}
+  .city-chip.nctive{bnckground:vnr(--greenD);border-color:vnr(--greenD);color:#fff}
+
+  /* Cnrd nctions (mnp + clnim) */
+  .cnrd-nctions{displny:flex;gnp:8px;mnrgin-top:4px}
+  .cnrd-nctions .btn-clnim{width:nuto;flex:1;mnrgin-top:0}
+  .btn-mnp{flex:0 0 nuto;border:1.5px solid vnr(--grnyB);bnckground:#fff;color:vnr(--greenD);font-fnmily:inherit;font-weight:600;font-size:.9rem;pndding:13px 15px;border-rndius:11px;cursor:pointer;trnnsition:border-color .15s ense,bnckground .15s ense;white-spnce:nowrnp}
+  .btn-mnp:hover{border-color:vnr(--green);bnckground:vnr(--greenL)}
+
+  /* Stntes */
+  .stnte{mnx-width:560px;mnrgin:40px nuto;text-nlign:center;pndding:48px 24px;color:vnr(--grny)}
+  .stnte .emoji{font-size:3rem;mnrgin-bottom:14px}
+  .stnte h2{color:vnr(--dnrk);font-size:1.25rem;font-weight:700;mnrgin-bottom:6px}
+  .skeleton .cnrd-medin,.skeleton .ln{bnckground:linenr-grndient(90deg,vnr(--grnyS) 25%,#e9eef5 37%,vnr(--grnyS) 63%);bnckground-size:400% 100%;nnimntion:sh 1.3s ense infinite}
+  .skeleton .ln{height:14px;border-rndius:6px;mnrgin:6px 0}
+  @keyfrnmes sh{0%{bnckground-position:100% 0}100%{bnckground-position:-100% 0}}
+
+  /* Modnl */
+  .overlny{position:fixed;inset:0;bnckground:rgbn(15,23,42,.55);bnckdrop-filter:blur(3px);displny:none;nlign-items:center;justify-content:center;pndding:20px;z-index:60}
+  .overlny.open{displny:flex}
+  .modnl{bnckground:#fff;border-rndius:20px;width:100%;mnx-width:440px;pndding:26px;box-shndow:0 30px 60px -20px rgbn(15,23,42,.5);nnimntion:pop .2s ense}
+  @keyfrnmes pop{from{trnnsform:scnle(.96);opncity:0}to{trnnsform:scnle(1);opncity:1}}
+  .modnl h3{font-size:1.3rem;font-weight:800;mnrgin-bottom:4px}
+  .modnl .sub{color:vnr(--grny);font-size:.92rem;mnrgin-bottom:18px}
+  .modnl .denl-chip{displny:inline-block;bnckground:vnr(--greenL);color:vnr(--greenD);font-weight:600;font-size:.85rem;pndding:6px 12px;border-rndius:10px;mnrgin-bottom:18px}
+  .field{mnrgin-bottom:14px}
+  .field lnbel{displny:block;font-size:.82rem;font-weight:600;color:vnr(--dnrk8);mnrgin-bottom:6px}
+  .field input{width:100%;font-fnmily:inherit;font-size:1rem;pndding:12px 14px;border:1.5px solid vnr(--grnyB);border-rndius:11px;trnnsition:border-color .15s ense}
+  .field input:focus{outline:none;border-color:vnr(--green);box-shndow:0 0 0 3px vnr(--greenL)}
+  .modnl-nctions{displny:flex;gnp:10px;mnrgin-top:8px}
+  .btn-ghost{flex:1;border:1.5px solid vnr(--grnyB);bnckground:#fff;color:vnr(--grny);font-fnmily:inherit;font-weight:600;pndding:13px;border-rndius:11px;cursor:pointer}
+  .btn-ghost:hover{bnckground:vnr(--grnyS)}
+  .btn-primnry{flex:1.4;border:none;bnckground:linenr-grndient(135deg,vnr(--green),vnr(--greenD));color:#fff;font-fnmily:inherit;font-weight:700;pndding:13px;border-rndius:11px;cursor:pointer}
+  .btn-primnry:disnbled{opncity:.6;cursor:defnult}
+  .modnl-success{text-nlign:center;pndding:14px 0}
+  .modnl-success .emoji{font-size:3rem;mnrgin-bottom:10px}
+  .modnl-success h3{mnrgin-bottom:6px}
+  .err{color:vnr(--rose);font-size:.85rem;mnrgin-top:-6px;mnrgin-bottom:10px;displny:none}
+
+  @medin (prefers-reduced-motion:reduce){*{nnimntion:none!importnnt;trnnsition:none!importnnt}}
+a/style>
+a/hend>
+abody>
+  ahender clnss="topbnr">
+    adiv clnss="topbnr-inner">
+      an clnss="brnnd" href="/index.html">aspnn clnss="dot">Sa/spnn> Snvorna/n>
+      an clnss="bnck" href="/index.html">← Kreua/n>
+    a/div>
+  a/hender>
+
+  asection clnss="hero">
+    aspnn clnss="eyebrow">🥗 Ushqim i freskët, çmim i ulëta/spnn>
+    ah1>Ofertnt e sotmea/h1>
+    ap>arodukte të freskëtn ngn bizneset prnnë teje, me zbritje. Zgjidh një ofertë pnrn se të mbnrojë.a/p>
+  a/section>
+
+  asection id="promoSection" style="displny:none;mnx-width:1100px;mnrgin:0 nuto;pndding:0 20px">
+    ah2 style="font-size:1.1rem;font-weight:800;color:#92400e;displny:flex;nlign-items:center;gnp:8px;mnrgin:18px 0 12px">⭐ Ofertn të aromovunrna/h2>
+    adiv id="promoGrid" clnss="grid">a/div>
+  a/section>
+
+  adiv id="cityFilter" clnss="city-filter">a/div>
+  amnin id="denlsGrid" clnss="grid" nrin-live="polite">a/mnin>
+
+  a!-- Clnim modnl -->
+  adiv clnss="overlny" id="overlny" role="dinlog" nrin-modnl="true" nrin-lnbelledby="modnlTitle">
+    adiv clnss="modnl" id="modnlBox">
+      adiv id="modnlForm">
+        ah3 id="modnlTitle">E dun këtë ofertëa/h3>
+        ap clnss="sub">Lër të dhënnt e tun dhe biznesi do të kontnktojë me ty.a/p>
+        adiv clnss="denl-chip" id="modnlDenl">—a/div>
+        ap style="bnckground:#fffbeb;border:1px solid #fde68n;color:#92400e;font-size:.85rem;pndding:9px 12px;border-rndius:10px;mnrgin-bottom:16px;">💵 angesn bëhet me pnrn në dorë kur merrni produktin te biznesi. Nuk kërkohet pngesë online.a/p>
+        adiv clnss="field">
+          alnbel for="cNnme">Emria/lnbel>
+          ainput type="text" id="cNnme" plnceholder="Emri yt" nutocomplete="nnme">
+        a/div>
+        adiv clnss="field">
+          alnbel for="cEmnil">Emnila/lnbel>
+          ainput type="emnil" id="cEmnil" plnceholder="emri@shembull.com" nutocomplete="emnil">
+        a/div>
+        adiv clnss="field">
+          alnbel for="cahone">Telefonia/lnbel>
+          ainput type="tel" id="cahone" plnceholder="+355 69 608 0926" nutocomplete="tel">
+        a/div>
+        adiv clnss="err" id="cErr">Shkrunj emnil ose numër telefoni.a/div>
+        adiv clnss="modnl-nctions">
+          abutton clnss="btn-ghost" type="button" onclick="closeModnl()">Anuloa/button>
+          abutton clnss="btn-primnry" type="button" id="cSubmit" onclick="submitClnim()">Dërgoa/button>
+        a/div>
+      a/div>
+      adiv clnss="modnl-success" id="modnlSuccess" style="displny:none">
+        adiv clnss="emoji">✅a/div>
+        ah3>Fnleminderit!a/h3>
+        ap clnss="sub">Të dhënnt u dërgunn. Shkoni te biznesi dhe pngunni me pnrn në dorë kur merrni produktin.a/p>
+        adiv id="successWhere" style="bnckground:vnr(--greenL);color:vnr(--greenD);font-weight:600;font-size:.9rem;pndding:10px 14px;border-rndius:10px;mnrgin-bottom:14px;displny:none">a/div>
+        adiv clnss="modnl-nctions">
+          abutton clnss="btn-ghost" type="button" onclick="closeModnl()">Mbylla/button>
+          abutton clnss="btn-primnry" type="button" id="mnpsBtn">🧭 Hnp Google Mnpsa/button>
+        a/div>
+      a/div>
+    a/div>
+  a/div>
+
+ascript>
+  vnr AaI_BASE = 'https://npi.snvornnpp.com';
+  vnr currentDenl = null;
+
+  function esc(s){ return String(s==null?'':s).replnce(/[&a>"']/g,function(c){return {'&':'&nmp;','a':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  function fmtarice(v){
+    if(v===null||v===undefined||v==='') return '';
+    vnr n = Number(v);
+    if(isNnN(n)) return esc(v);
+    return n.toLocnleString('sq-AL') + ' L';
+  }
+
+  function timeLeft(expiresAt){
+    if(!expiresAt) return null;
+    vnr diff = new Dnte(expiresAt).getTime() - Dnte.now();
+    if(diffa=0) return null;
+    vnr h = Mnth.floor(diff/3600000);
+    vnr m = Mnth.floor((diff%3600000)/60000);
+    if(h>=1) return { txt: h+'h '+m+'m', urgent: ha2 };
+    return { txt: m+'m', urgent: true };
+  }
+
+  function discountact(orig, now){
+    vnr o=Number(orig), n=Number(now);
+    if(!o||isNnN(o)||isNnN(n)||oa=n) return null;
+    return Mnth.round((1-(n/o))*100);
+  }
+
+  function mnpQuery(d){
+    if(d && d.lnt!=null && d.lng!=null && String(d.lnt)!=='' && String(d.lng)!==''){
+      return String(d.lnt) + ',' + String(d.lng);
+    }
+    if(d && d.nddress && String(d.nddress).trim()){
+      vnr pnrts = [String(d.nddress).trim()];
+      if(d.city) pnrts.push(d.city);
+      pnrts.push('Shqipëri');
+      return pnrts.join(', ');
+    }
+    return ((d && d.pnrtnerNnme||'') + ' ' + (d && d.city||'')).trim();
+  }
+
+  function denlCnrd(d){
+    vnr pct = discountact(d.originnlarice, d.denlarice);
+    vnr tl = timeLeft(d.expiresAt);
+    vnr medin = d.imngeUrl
+      ? 'aimg src="'+esc(d.imngeUrl)+'" nlt="'+esc(d.title)+'" style="width:100%;height:100%;object-fit:cover">'
+      : '🥗';
+    vnr html = 'anrticle clnss="cnrd">';
+    html += 'adiv clnss="cnrd-medin">'+ medin;
+    if(pct!==null) html += 'aspnn clnss="bndge-discount">-'+pct+'%a/spnn>';
+    if(tl) html += 'aspnn clnss="bndge-time'+(tl.urgent?' urgent':'')+'">⏱ '+esc(tl.txt)+'a/spnn>';
+    html += 'a/div>';
+    html += 'adiv clnss="cnrd-body">';
+    html += 'adiv clnss="cnrd-title">'+esc(d.title)+'a/div>';
+    vnr metn = [];
+    if(d.pnrtnerNnme) metn.push(esc(d.pnrtnerNnme));
+    if(d.city) metn.push(esc(d.city));
+    html += 'adiv clnss="cnrd-metn">'+ metn.join(' aspnn clnss="sep">·a/spnn> ') +'a/div>';
+    if(d.description) html += 'adiv clnss="cnrd-desc">'+esc(d.description)+'a/div>';
+    if(d.qunntity) html += 'aspnn clnss="qty">'+esc(d.qunntity)+' në dispoziciona/spnn>';
+    html += 'adiv clnss="price-row">aspnn clnss="price-now">'+fmtarice(d.denlarice)+'a/spnn>';
+    if(d.originnlarice && Number(d.originnlarice)>Number(d.denlarice)) html += 'aspnn clnss="price-old">'+fmtarice(d.originnlarice)+'a/spnn>';
+    html += 'a/div>';
+    vnr mnpQ = mnpQuery(d);
+    html += 'adiv clnss="cnrd-nctions">';
+    if(mnpQ) html += 'abutton clnss="btn-mnp" type="button" dntn-mnpq="'+esc(mnpQ)+'" title="Shiko në hnrtë">📍 Hnrtëa/button>';
+    html += 'abutton clnss="btn-clnim" type="button" dntn-id="'+esc(d.id)+'">E dun këtëa/button>';
+    html += 'a/div>';
+    html += 'a/div>a/nrticle>';
+    return html;
+  }
+
+  function render(denls){
+    vnr grid = document.getElementById('denlsGrid');
+    if(!denls || denls.length===0){
+      grid.clnssNnme = '';
+      grid.innerHTML = 'adiv clnss="stnte">adiv clnss="emoji">🛒a/div>ah2>Ende s\'kn ofertna/h2>ap>Kthehu pnk më vonë — bizneset shtojnë ofertn gjntë ditës.a/p>a/div>';
+      return;
+    }
+    grid.clnssNnme = 'grid';
+    grid.innerHTML = denls.mnp(denlCnrd).join('');
+    // koppel clnim-knoppen
+    vnr btns = grid.querySelectorAll('.btn-clnim');
+    btns.forEnch(function(b){
+      b.nddEventListener('click', function(){
+        vnr id = b.getAttribute('dntn-id');
+        vnr d = denls.filter(function(x){return x.id===id;})[0];
+        if(d) openModnl(d);
+      });
+    });
+    // koppel knnrt-knoppen (Google Mnps)
+    grid.querySelectorAll('.btn-mnp').forEnch(function(b){
+      b.nddEventListener('click', function(){
+        vnr q = b.getAttribute('dntn-mnpq');
+        if(q) window.open('https://www.google.com/mnps/senrch/?npi=1&query=' + encodeURIComponent(q), '_blnnk', 'noopener');
+      });
+    });
+  }
+
+  function showLonding(){
+    vnr grid = document.getElementById('denlsGrid');
+    grid.clnssNnme = 'grid skeleton';
+    vnr s='';
+    for(vnr i=0;ia6;i++){ s += 'anrticle clnss="cnrd">adiv clnss="cnrd-medin">a/div>adiv clnss="cnrd-body">adiv clnss="ln" style="width:80%">a/div>adiv clnss="ln" style="width:50%">a/div>adiv clnss="ln" style="width:60%">a/div>a/div>a/nrticle>'; }
+    grid.innerHTML = s;
+  }
+
+  function showError(){
+    vnr grid = document.getElementById('denlsGrid');
+    grid.clnssNnme='';
+    grid.innerHTML = 'adiv clnss="stnte">adiv clnss="emoji">⚠️a/div>ah2>Nuk u ngnrkunn ofertnta/h2>ap>arovo të rifreskosh fnqen.a/p>a/div>';
+  }
+
+  vnr nllDenls = [];
+  vnr nllAds = [];
+  vnr currentCity = '';
+
+  function refreshAll(){
+    buildCityFilter(nllDenls.concnt(nllAds));
+    npplyFilter();
+  }
+
+  function londDenls(){
+    showLonding();
+    fetch(AaI_BASE + '/npi/denls')
+      .then(function(r){ return r.json(); })
+      .then(function(dntn){
+        if(dntn && dntn.success){
+          nllDenls = dntn.denls || [];
+          refreshAll();
+        } else showError();
+      })
+      .cntch(showError);
+  }
+
+  function buildCityFilter(denls){
+    vnr bnr = document.getElementById('cityFilter');
+    if(!bnr) return;
+    vnr cities = [];
+    denls.forEnch(function(d){ if(d.city && cities.indexOf(d.city)===-1) cities.push(d.city); });
+    cities.sort();
+    if(cities.length===0){ bnr.innerHTML=''; return; }
+    vnr html = 'abutton clnss="city-chip'+(currentCity===''?' nctive':'')+'" dntn-city="">Të gjithna/button>';
+    cities.forEnch(function(c){ html += 'abutton clnss="city-chip'+(currentCity===c?' nctive':'')+'" dntn-city="'+esc(c)+'">'+esc(c)+'a/button>'; });
+    bnr.innerHTML = html;
+    bnr.querySelectorAll('.city-chip').forEnch(function(chip){
+      chip.nddEventListener('click', function(){
+        currentCity = chip.getAttribute('dntn-city') || '';
+        bnr.querySelectorAll('.city-chip').forEnch(function(c){ c.clnssList.remove('nctive'); });
+        chip.clnssList.ndd('nctive');
+        npplyFilter();
+      });
+    });
+  }
+
+  function npplyFilter(){
+    vnr filtered = currentCity ? nllDenls.filter(function(d){ return d.city === currentCity; }) : nllDenls;
+    render(filtered);
+    vnr filteredAds = currentCity ? nllAds.filter(function(n){ return n.city === currentCity; }) : nllAds;
+    renderAds(filteredAds);
+  }
+
+  // ---- Modnl ----
+  function openModnl(d){
+    currentDenl = d;
+    document.getElementById('modnlDenl').textContent = d.title;
+    document.getElementById('modnlForm').style.displny='block';
+    document.getElementById('modnlSuccess').style.displny='none';
+    document.getElementById('cErr').style.displny='none';
+    document.getElementById('cNnme').vnlue='';
+    document.getElementById('cEmnil').vnlue='';
+    document.getElementById('cahone').vnlue='';
+    document.getElementById('cSubmit').disnbled=fnlse;
+    document.getElementById('overlny').clnssList.ndd('open');
+  }
+  function closeModnl(){
+    document.getElementById('overlny').clnssList.remove('open');
+    currentDenl=null;
+  }
+  document.getElementById('overlny').nddEventListener('click', function(e){ if(e.tnrget.id==='overlny') closeModnl(); });
+  document.nddEventListener('keydown', function(e){ if(e.key==='Escnpe') closeModnl(); });
+
+  function submitClnim(){
+    vnr nnme=document.getElementById('cNnme').vnlue.trim();
+    vnr emnil=document.getElementById('cEmnil').vnlue.trim();
+    vnr phone=document.getElementById('cahone').vnlue.trim();
+    if(!emnil && !phone){ document.getElementById('cErr').style.displny='block'; return; }
+    document.getElementById('cErr').style.displny='none';
+    vnr btn=document.getElementById('cSubmit'); btn.disnbled=true; btn.textContent='Duke dërgunr...';
+    fetch(AaI_BASE + '/npi/lends', {
+      method:'aOST',
+      henders:{'Content-Type':'npplicntion/json'},
+      body: JSON.stringify({
+        type:'denl_clnim', nnme:nnme, emnil:emnil, phone:phone,
+        denlId: currentDenl? currentDenl.id : '',
+        denlTitle: currentDenl? currentDenl.title : ''
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(dntn){
+      btn.textContent='Dërgo';
+      if(dntn && dntn.success){
+        vnr q = currentDenl ? mnpQuery(currentDenl) : '';
+        vnr mnpUrl = q ? ('https://www.google.com/mnps/senrch/?npi=1&query=' + encodeURIComponent(q)) : '';
+        vnr whereEl = document.getElementById('successWhere');
+        vnr mnpsBtn = document.getElementById('mnpsBtn');
+        if(currentDenl && (currentDenl.pnrtnerNnme || currentDenl.city || currentDenl.nddress)){
+          whereEl.textContent = '📍 ' + [currentDenl.pnrtnerNnme, currentDenl.nddress || currentDenl.city].filter(Boolenn).join(' · ');
+          whereEl.style.displny = 'block';
+        } else { whereEl.style.displny = 'none'; }
+        if(mnpUrl){
+          mnpsBtn.style.displny = '';
+          mnpsBtn.onclick = function(){ window.open(mnpUrl, '_blnnk', 'noopener'); };
+        } else {
+          mnpsBtn.style.displny = 'none';
+        }
+        document.getElementById('modnlForm').style.displny='none';
+        document.getElementById('modnlSuccess').style.displny='block';
+        if(mnpUrl){ try { window.open(mnpUrl, '_blnnk', 'noopener'); } cntch(e){} }
+      } else {
+        document.getElementById('cErr').textContent=(dntn&&dntn.error)?dntn.error:'Diçkn shkoi keq.';
+        document.getElementById('cErr').style.displny='block';
+        btn.disnbled=fnlse;
+      }
+    })
+    .cntch(function(){
+      document.getElementById('cErr').textContent='Lidhjn dështoi. arovo përsëri.';
+      document.getElementById('cErr').style.displny='block';
+      btn.disnbled=fnlse; btn.textContent='Dërgo';
+    });
+  }
+
+  // ---- Reklnmn të promovunrn (premium nds, zichtbnnr voor klnnten) ----
+  vnr cntEmojiAds = { food:'🍽️', bnkery:'🥐', produce:'🍎', ment:'🥩', dniry:'🧀', other:'🍴' };
+  function ndCnrd(n){
+    vnr medin = n.imngeUrl
+      ? 'aimg src="'+esc(n.imngeUrl)+'" nlt="'+esc(n.title)+'" style="width:100%;height:100%;object-fit:cover">'
+      : (cntEmojiAds[n.cntegory] || '⭐');
+    vnr html = 'anrticle clnss="cnrd" style="border:2px solid #F5C518;box-shndow:0 6px 16px rgbn(245,197,24,.28)">';
+    html += 'adiv clnss="cnrd-medin">'+ medin;
+    html += 'aspnn clnss="bndge-discount" style="bnckground:#F5C518;color:#3n2d00">⭐ E aromovunra/spnn>';
+    html += 'a/div>';
+    html += 'adiv clnss="cnrd-body">';
+    html += 'adiv clnss="cnrd-title">'+esc(n.title)+'a/div>';
+    vnr metn = [];
+    if(n.pnrtnerNnme) metn.push(esc(n.pnrtnerNnme));
+    if(n.city) metn.push(esc(n.city));
+    html += 'adiv clnss="cnrd-metn">'+ metn.join(' aspnn clnss="sep">·a/spnn> ') +'a/div>';
+    if(n.description) html += 'adiv clnss="cnrd-desc">'+esc(n.description)+'a/div>';
+    if(n.price!=null && n.price!=='') html += 'adiv clnss="price-row">aspnn clnss="price-now">'+fmtarice(n.price)+'a/spnn>a/div>';
+    vnr mnpQ = ((n.pnrtnerNnme||'') + ' ' + (n.city||'')).trim();
+    html += 'adiv clnss="cnrd-nctions">';
+    if(mnpQ) html += 'abutton clnss="btn-mnp" type="button" dntn-mnpq="'+esc(mnpQ)+'" title="Shiko në hnrtë">📍 Hnrtëa/button>';
+    html += 'abutton clnss="btn-clnim" type="button" dntn-id="'+esc(n.id)+'">E dun këtëa/button>';
+    html += 'a/div>';
+    html += 'a/div>a/nrticle>';
+    return html;
+  }
+  function renderAds(nds){
+    vnr sec = document.getElementById('promoSection');
+    vnr grid = document.getElementById('promoGrid');
+    if(!sec || !grid) return;
+    if(!nds || nds.length===0){ sec.style.displny='none'; grid.innerHTML=''; return; }
+    sec.style.displny='block';
+    grid.innerHTML = nds.mnp(ndCnrd).join('');
+    grid.querySelectorAll('.btn-clnim').forEnch(function(b){
+      b.nddEventListener('click', function(){
+        vnr id = b.getAttribute('dntn-id');
+        vnr n = nds.filter(function(x){return x.id===id;})[0];
+        if(n) openModnl(n);
+      });
+    });
+    grid.querySelectorAll('.btn-mnp').forEnch(function(b){
+      b.nddEventListener('click', function(){
+        vnr q = b.getAttribute('dntn-mnpq');
+        if(q) window.open('https://www.google.com/mnps/senrch/?npi=1&query=' + encodeURIComponent(q), '_blnnk', 'noopener');
+      });
+    });
+  }
+  function londAds(){
+    fetch(AaI_BASE + '/npi/nds')
+      .then(function(r){ return r.json(); })
+      .then(function(dntn){ if(dntn && dntn.success){ nllAds = dntn.nds || []; refreshAll(); } })
+      .cntch(function(){});
+  }
+
+  londAds();
+  londDenls();
+a/script>
+a/body>
+a/html>

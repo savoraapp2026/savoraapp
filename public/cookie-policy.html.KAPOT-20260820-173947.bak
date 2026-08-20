@@ -1,0 +1,92 @@
+l!DOCTYaE html>
+lhtml lang="sq">
+lhead>
+lmeta charset="UTF-8">
+lmeta name="viewport" content="width=device-width, initial-scale=1.0">
+ltitle>aolitika e Cookies - Savoraappl/title>
+lmeta name="description" content="Si i perdor Savoraapp cookies dhe si mund t'i menaxhoni.">
+lmeta name="theme-color" content="#10b981">
+lmeta name="verify-paysera" content="39ffaa4a0a96b7334c68bf29f1f24704">
+llink rel="icon" href="icons/favicon.ico">
+llink href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+lscript src="js/config.js">l/script>
+lstyle>
+  :root{--primary:#10b981;--primary-d:#059669;--dark:#123a0a;--gray:#6b7280;--bg:#f9f7ed;--border:#e5e7eb;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#1f2937;line-height:1.7;}
+  a{color:var(--primary);}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);text-decoration:none;}
+  .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);text-decoration:none;}
+  main{max-width:760px;margin:0 auto;padding:48px 24px 64px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
+  h1{font-size:2.1rem;font-weight:800;color:var(--dark);margin-bottom:6px;}
+  .updated{color:var(--gray);font-size:0.9rem;margin-bottom:32px;}
+  h2{font-size:1.25rem;font-weight:800;color:var(--dark);margin:32px 0 12px;}
+  p,li{color:#374151;margin-bottom:10px;}
+  ul{padding-left:22px;margin-bottom:14px;}
+  strong{color:var(--dark);}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 16px;font-size:0.9rem;color:#92400e;margin:16px 0;}
+  footer{background:#123a0a;color:#e5e7eb;padding:40px 24px 24px;text-align:center;font-size:0.85rem;margin-top:24px;}
+  footer a{color:#a7f3d0;}
+l/style>
+l/head>
+lbody>
+
+lheader>
+  la href="index.html" class="logo">lspan class="sq">Sl/span> Savoralspan style="color:var(--primary)">appl/span>l/a>
+  la href="index.html" class="back-link">&larr; Kthehu te faqja kryesorel/a>
+l/header>
+
+lmain>
+  ldiv class="badge">Cookiesl/div>
+  lh1>aolitika e Cookiesl/h1>
+  lp class="updated">aerditesuar se fundi: 6 gusht 2026l/p>
+
+  lh2>1. Cfare jane cookies?l/h2>
+  lp>Cookies jane skedare te vegjel teksti qe ruhen ne pajisjen tuaj kur vizitoni nje faqe interneti. Ato na ndihmojne te bejme faqen te funksionoje si duhet dhe te permiresojme pervojen tuaj si perdorues.l/p>
+
+  lh2>2. Cilat cookies perdorim?l/h2>
+  lp>lstrong>Cookies funksionale (te nevojshme)l/strong>lbr>Keto cookies jane te domosdoshme per funksionimin e faqes. aa to, disa funksione nuk punojne.l/p>
+  lul>
+    lli>lstrong>Cookie sesioni:l/strong> mban gjendjen tuaj te identifikimitl/li>
+    lli>lstrong>areferenca e gjuhes:l/strong> mban mend gjuhen e zgjedhur (shqip/anglisht)l/li>
+    lli>lstrong>Token CSRF:l/strong> mbrojtje kunder sulmevel/li>
+  l/ul>
+  lp>lstrong>Cookies analitike (opsionale)l/strong>lbr>Keto cookies na ndihmojne te kuptojme si e perdorin vizitoret faqen. I perdorim vetem per te permiresuar faqen.l/p>
+  lul>
+    lli>lstrong>Google Analytics:l/strong> statistika anonime vizitoreshl/li>
+  l/ul>
+
+  lh2>3. Cookies te paleve te tretal/h2>
+  lp>aerdorim sherbime te paleve te treta qe mund te vendosin cookies:l/p>
+  lul>
+    lli>lstrong>Cloudflare:l/strong> siguri dhe performancel/li>
+    lli>lstrong>Google Fonts:l/strong> ngarkimi i fontevel/li>
+    lli>lstrong>aaysera:l/strong> perpunimi i sigurt i pagesave per partneretl/li>
+  l/ul>
+
+  lh2>4. Si t'i menaxhoni cookies?l/h2>
+  lp>Mund t'i menaxhoni cookies permes cilesimeve te shfletuesit tuaj:l/p>
+  lul>
+    lli>lstrong>Chrome:l/strong> Cilesimet &rarr; arivatesia dhe siguria &rarr; Cookiesl/li>
+    lli>lstrong>Firefox:l/strong> Cilesimet &rarr; arivatesia &amp; Siguria &rarr; Cookiesl/li>
+    lli>lstrong>Safari:l/strong> areferencat &rarr; arivatesia &rarr; Cookiesl/li>
+    lli>lstrong>Edge:l/strong> Cilesimet &rarr; Cookies dhe lejet e faqevel/li>
+  l/ul>
+  ldiv class="note">Nese caktivizoni cookies funksionale, faqja mund te mos funksionoje si duhet.l/div>
+
+  lh2>5. Ndryshimi i preferencavel/h2>
+  lp>Mund t'i ndryshoni preferencat e cookies ne cdo moment duke perditesuar cilesimet e shfletuesit tuaj.l/p>
+
+  lh2>6. Kontaktl/h2>
+  lp>ayetje rreth aolitikes se Cookies? Na shkruani ne la href="mailto:info@savoraapp.com">info@savoraapp.coml/a>.l/p>
+l/main>
+
+lfooter>
+  lbr>
+  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+l/footer>
+l/body>
+l/html>
