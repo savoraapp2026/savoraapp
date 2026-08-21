@@ -50,7 +50,7 @@
           <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">Savora<span class="text-emerald-300">app</span></span>
         </a>
         <div class="flex items-center gap-2 sm:gap-3">
-          <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-="">SQ</button>
+          <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-="">EN</button>
           <a href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn"><span data-en='Log in' data-it="Accedi">Hyr</span></a>
           <div class="hidden items-center gap-2" id="userLoggedIn">
             <span class="text-sm font-semibold text-sav-green" id="userDisplayName"></span>
@@ -842,7 +842,7 @@
         oe.textContent = oval;
       }
       var lb = document.getElementById('langBtn');
-      if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+      if (lb) lb.textContent = (lang==='sq') ? 'EN' : (lang==='en') ? 'IT' : 'SQ';
     }
     function toggleLang(){
       var cur = document.documentElement.lang;

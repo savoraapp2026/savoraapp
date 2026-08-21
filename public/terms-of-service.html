@@ -19,6 +19,9 @@
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);text-decoration:none;}
   .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
   .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);text-decoration:none;}
+  .header-right{display:flex;align-items:center;gap:12px;}
+  .lang-btn-simple{padding:6px 12px;font-size:0.85rem;font-weight:700;color:var(--primary-d);border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:inherit;}
+  .lang-btn-simple:hover{border-color:var(--primary);}
   main{max-width:760px;margin:0 auto;padding:48px 24px 64px;}
   .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
   h1{font-size:2.1rem;font-weight:800;color:var(--dark);margin-bottom:6px;}
@@ -37,78 +40,112 @@
 
 <header>
   <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
-  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+  <div class="header-right">
+    <a href="index.html" class="back-link" data-en="&larr; Back to main page" data-it="&larr; Torna alla pagina principale">&larr; Kthehu te faqja kryesore</a>
+    <button type="button" onclick="toggleLang()" id="langBtn" class="lang-btn-simple">SQ</button>
+  </div>
 </header>
 
 <main>
-  <div class="badge">Kushtet e Sherbimit</div>
-  <h1>Kushtet e Sherbimit</h1>
-  <p class="updated">Perditesuar se fundi: 6 gusht 2026</p>
+  <div class="badge" data-en="Terms of Service" data-it="Termini di Servizio">Kushtet e Sherbimit</div>
+  <h1 data-en="Terms of Service" data-it="Termini di Servizio">Kushtet e Sherbimit</h1>
+  <p class="updated" data-en="Last updated: August 6, 2026" data-it="Ultimo aggiornamento: 6 agosto 2026">Perditesuar se fundi: 6 gusht 2026</p>
 
-  <div class="review-note"><strong>Shenim:</strong> Ky draft eshte pergatitur per te zevendesuar nje version te gabuar (ne nje gjuhe tjeter, me referenca ligjore per nje vend tjeter). Permbajtja tani i referohet Shqiperise dhe modelit tuaj real te biznesit (kredite, pa abonim), por rekomandohet te kaloje nga nje avokat perpara se ta konsideroni perfundimtare ligjerisht.</div>
+  <div class="review-note" data-en="&lt;strong&gt;Note:&lt;/strong&gt; This draft was prepared to replace an incorrect version (in another language, with legal references for another country). The content now refers to Albania and your actual business model (credits, no subscription), but it is recommended to have it reviewed by a lawyer before considering it legally final." data-it="&lt;strong&gt;Nota:&lt;/strong&gt; Questa bozza &egrave; stata preparata per sostituire una versione errata (in un'altra lingua, con riferimenti legali per un altro paese). Il contenuto ora fa riferimento all'Albania e al tuo modello di business reale (crediti, senza abbonamento), ma si consiglia di farla revisionare da un avvocato prima di considerarla legalmente definitiva."><strong>Shenim:</strong> Ky draft eshte pergatitur per te zevendesuar nje version te gabuar (ne nje gjuhe tjeter, me referenca ligjore per nje vend tjeter). Permbajtja tani i referohet Shqiperise dhe modelit tuaj real te biznesit (kredite, pa abonim), por rekomandohet te kaloje nga nje avokat perpara se ta konsideroni perfundimtare ligjerisht.</div>
 
-  <h2>1. Perkufizime</h2>
-  <p>Ne keto kushte te sherbimit kuptohet me:</p>
+  <h2 data-en="1. Definitions" data-it="1. Definizioni">1. Perkufizime</h2>
+  <p data-en="In these terms of service, the following definitions apply:" data-it="Nei presenti termini di servizio si intende per:">Ne keto kushte te sherbimit kuptohet me:</p>
   <ul>
-    <li><strong>Savoraapp:</strong> platforma "food surplus marketplace" e ofruar nga SavoraApp</li>
-    <li><strong>Partneri:</strong> pronari ose menaxheri i biznesit (dyqan, furre, restorant etj.) qe perdor Savoraapp per te postuar oferta</li>
-    <li><strong>Konsumatori:</strong> perdoruesi qe rezervon kuti ushqimi permes Savoraapp</li>
-    <li><strong>Sherbimi:</strong> lidhja e ofruar nga Savoraapp mes ushqimit te tepert dhe konsumatoreve</li>
+    <li data-en='&lt;strong&gt;Savoraapp:&lt;/strong&gt; the "food surplus marketplace" platform offered by SavoraApp' data-it='&lt;strong&gt;Savoraapp:&lt;/strong&gt; la piattaforma "food surplus marketplace" offerta da SavoraApp'><strong>Savoraapp:</strong> platforma "food surplus marketplace" e ofruar nga SavoraApp</li>
+    <li data-en="&lt;strong&gt;Partner:&lt;/strong&gt; the owner or manager of the business (shop, bakery, restaurant, etc.) who uses Savoraapp to post deals" data-it="&lt;strong&gt;Partner:&lt;/strong&gt; il proprietario o gestore dell'attivit&agrave; (negozio, panetteria, ristorante, ecc.) che utilizza Savoraapp per pubblicare offerte"><strong>Partneri:</strong> pronari ose menaxheri i biznesit (dyqan, furre, restorant etj.) qe perdor Savoraapp per te postuar oferta</li>
+    <li data-en="&lt;strong&gt;Consumer:&lt;/strong&gt; the user who reserves food boxes through Savoraapp" data-it="&lt;strong&gt;Consumatore:&lt;/strong&gt; l'utente che prenota scatole di cibo tramite Savoraapp"><strong>Konsumatori:</strong> perdoruesi qe rezervon kuti ushqimi permes Savoraapp</li>
+    <li data-en="&lt;strong&gt;Service:&lt;/strong&gt; the connection offered by Savoraapp between surplus food and consumers" data-it="&lt;strong&gt;Servizio:&lt;/strong&gt; il collegamento offerto da Savoraapp tra il cibo in eccedenza e i consumatori"><strong>Sherbimi:</strong> lidhja e ofruar nga Savoraapp mes ushqimit te tepert dhe konsumatoreve</li>
   </ul>
 
-  <h2>2. Zbatueshmeria</h2>
-  <p>Keto kushte te sherbimit zbatohen per cdo perdorim te Savoraapp. Duke perdorur sherbimin tone, ju pranoni keto kushte.</p>
+  <h2 data-en="2. Applicability" data-it="2. Applicabilit&agrave;">2. Zbatueshmeria</h2>
+  <p data-en="These terms of service apply to any use of Savoraapp. By using our service, you accept these terms." data-it="I presenti termini di servizio si applicano a qualsiasi utilizzo di Savoraapp. Utilizzando il nostro servizio, accetti questi termini.">Keto kushte te sherbimit zbatohen per cdo perdorim te Savoraapp. Duke perdorur sherbimin tone, ju pranoni keto kushte.</p>
 
-  <h2>3. Llogaria dhe qasja</h2>
-  <h3>3.1 Krijimi i llogarise</h3>
+  <h2 data-en="3. Account and Access" data-it="3. Account e Accesso">3. Llogaria dhe qasja</h2>
+  <h3 data-en="3.1 Creating an Account" data-it="3.1 Creazione dell'account">3.1 Krijimi i llogarise</h3>
   <ul>
-    <li>Duhet te keni te pakten 18 vjec</li>
-    <li>Jepni informacion te sakte dhe te plote</li>
-    <li>Jeni pergjegjes per ruajtjen e sigurt te te dhenave tuaja te hyrjes</li>
+    <li data-en="You must be at least 18 years old" data-it="Devi avere almeno 18 anni">Duhet te keni te pakten 18 vjec</li>
+    <li data-en="Provide accurate and complete information" data-it="Fornisci informazioni accurate e complete">Jepni informacion te sakte dhe te plote</li>
+    <li data-en="You are responsible for keeping your login details secure" data-it="Sei responsabile della protezione dei tuoi dati di accesso">Jeni pergjegjes per ruajtjen e sigurt te te dhenave tuaja te hyrjes</li>
   </ul>
-  <h3>3.2 Perdorimi i sherbimit</h3>
+  <h3 data-en="3.2 Use of the Service" data-it="3.2 Utilizzo del servizio">3.2 Perdorimi i sherbimit</h3>
   <ul>
-    <li>Perdorni Savoraapp vetem per qellimin e synuar (shitja/rezervimi i ushqimit surplus)</li>
-    <li>Nuk lejohet keqperdorimi i sistemit</li>
-    <li>Respektoni privatesine e perdoruesve te tjere</li>
+    <li data-en="Use Savoraapp only for its intended purpose (selling/reserving surplus food)" data-it="Utilizza Savoraapp solo per lo scopo previsto (vendita/prenotazione di cibo in eccedenza)">Perdorni Savoraapp vetem per qellimin e synuar (shitja/rezervimi i ushqimit surplus)</li>
+    <li data-en="Misuse of the system is not permitted" data-it="Non &egrave; consentito un uso improprio del sistema">Nuk lejohet keqperdorimi i sistemit</li>
+    <li data-en="Respect the privacy of other users" data-it="Rispetta la privacy degli altri utenti">Respektoni privatesine e perdoruesve te tjere</li>
   </ul>
 
-  <h2>4. Regjistrimi, kreditet dhe pagesat</h2>
-  <h3>4.1 Regjistrimi</h3>
-  <p>Regjistrimi si partner ne Savoraapp eshte <strong>falas</strong>. Nuk ka kosto fikse ose abonim mujor.</p>
-  <h3>4.2 Kreditet</h3>
-  <p>Partneret blejne paketa kreditesh per te postuar oferta (1 kredit = 1 postim). Kreditet jane te vlefshme per nje periudhe te caktuar (deri ne 3 muaj) nga blerja. Pagesat perpunohen ne menyre te sigurte permes Paysera.</p>
-  <h3>4.3 Rimbursime</h3>
-  <p>Kreditet e pashpenzuara nuk rimbursohen pas skadimit te vlefshmerise, pervec rasteve te kerkuara nga ligji.</p>
+  <h2 data-en="4. Registration, Credits and Payments" data-it="4. Registrazione, Crediti e Pagamenti">4. Regjistrimi, kreditet dhe pagesat</h2>
+  <h3 data-en="4.1 Registration" data-it="4.1 Registrazione">4.1 Regjistrimi</h3>
+  <p data-en="Registering as a partner on Savoraapp is &lt;strong&gt;free&lt;/strong&gt;. There are no fixed costs or monthly subscription." data-it="La registrazione come partner su Savoraapp &egrave; &lt;strong&gt;gratuita&lt;/strong&gt;. Non ci sono costi fissi o abbonamenti mensili.">Regjistrimi si partner ne Savoraapp eshte <strong>falas</strong>. Nuk ka kosto fikse ose abonim mujor.</p>
+  <h3 data-en="4.2 Credits" data-it="4.2 Crediti">4.2 Kreditet</h3>
+  <p data-en="Partners purchase credit packages to post deals (1 credit = 1 post). Credits are valid for a set period (up to 3 months) from the date of purchase. Payments are processed securely via Paysera." data-it="I partner acquistano pacchetti di crediti per pubblicare offerte (1 credito = 1 pubblicazione). I crediti sono validi per un periodo determinato (fino a 3 mesi) dalla data di acquisto. I pagamenti vengono elaborati in modo sicuro tramite Paysera.">Partneret blejne paketa kreditesh per te postuar oferta (1 kredit = 1 postim). Kreditet jane te vlefshme per nje periudhe te caktuar (deri ne 3 muaj) nga blerja. Pagesat perpunohen ne menyre te sigurte permes Paysera.</p>
+  <h3 data-en="4.3 Refunds" data-it="4.3 Rimborsi">4.3 Rimbursime</h3>
+  <p data-en="Unused credits are not refunded after their validity expires, except where required by law." data-it="I crediti non utilizzati non vengono rimborsati dopo la scadenza della validit&agrave;, salvo nei casi previsti dalla legge.">Kreditet e pashpenzuara nuk rimbursohen pas skadimit te vlefshmerise, pervec rasteve te kerkuara nga ligji.</p>
 
-  <h2>5. Pronesia intelektuale</h2>
-  <p>Te gjitha te drejtat mbi Savoraapp, perfshire softuerin, dizajnin dhe markat, mbeten prone e SavoraApp. Ju merrni nje licence te kufizuar per perdorimin e sherbimit.</p>
+  <h2 data-en="5. Intellectual Property" data-it="5. Propriet&agrave; Intellettuale">5. Pronesia intelektuale</h2>
+  <p data-en="All rights to Savoraapp, including the software, design and trademarks, remain the property of SavoraApp. You are granted a limited license to use the service." data-it="Tutti i diritti su Savoraapp, incluso il software, il design e i marchi, rimangono di propriet&agrave; di SavoraApp. Ti viene concessa una licenza limitata per l'utilizzo del servizio.">Te gjitha te drejtat mbi Savoraapp, perfshire softuerin, dizajnin dhe markat, mbeten prone e SavoraApp. Ju merrni nje licence te kufizuar per perdorimin e sherbimit.</p>
 
-  <h2>6. Te dhenat dhe privatesia</h2>
-  <p>Trajtojme te gjitha te dhenat sipas <a href="privacy-policy.html">Politikes se Privatesise</a>. Ju mbeteni pronar i produkteve qe ofroni permes Savoraapp.</p>
+  <h2 data-en="6. Data and Privacy" data-it="6. Dati e Privacy">6. Te dhenat dhe privatesia</h2>
+  <p data-en='We handle all data in accordance with our &lt;a href="privacy-policy.html"&gt;Privacy Policy&lt;/a&gt;. You remain the owner of the products you offer through Savoraapp.' data-it='Trattiamo tutti i dati in conformit&agrave; con la nostra &lt;a href="privacy-policy.html"&gt;Informativa sulla Privacy&lt;/a&gt;. Rimani proprietario dei prodotti che offri tramite Savoraapp.'>Trajtojme te gjitha te dhenat sipas <a href="privacy-policy.html">Politikes se Privatesise</a>. Ju mbeteni pronar i produkteve qe ofroni permes Savoraapp.</p>
 
-  <h2>7. Kufizimi i pergjegjesise</h2>
-  <p>Savoraapp nuk mban pergjegjesi per:</p>
+  <h2 data-en="7. Limitation of Liability" data-it="7. Limitazione di Responsabilit&agrave;">7. Kufizimi i pergjegjesise</h2>
+  <p data-en="Savoraapp is not liable for:" data-it="Savoraapp non &egrave; responsabile per:">Savoraapp nuk mban pergjegjesi per:</p>
   <ul>
-    <li>Demtim reputacioni nga pershkrime te gabuara te produkteve nga partneret</li>
-    <li>Defekte teknike jashte kontrollit tone</li>
-    <li>Deme indirekte ose pasuese</li>
+    <li data-en="Reputational damage from incorrect product descriptions by partners" data-it="Danni reputazionali derivanti da descrizioni errate dei prodotti da parte dei partner">Demtim reputacioni nga pershkrime te gabuara te produkteve nga partneret</li>
+    <li data-en="Technical defects beyond our control" data-it="Difetti tecnici al di fuori del nostro controllo">Defekte teknike jashte kontrollit tone</li>
+    <li data-en="Indirect or consequential damages" data-it="Danni indiretti o consequenziali">Deme indirekte ose pasuese</li>
   </ul>
-  <p>Pergjegjesia jone totale kufizohet ne shumen qe keni paguar tek Savoraapp ne 12 muajt e fundit.</p>
+  <p data-en="Our total liability is limited to the amount you have paid to Savoraapp in the last 12 months." data-it="La nostra responsabilit&agrave; totale &egrave; limitata all'importo che hai pagato a Savoraapp negli ultimi 12 mesi.">Pergjegjesia jone totale kufizohet ne shumen qe keni paguar tek Savoraapp ne 12 muajt e fundit.</p>
 
-  <h2>8. Ndryshimet</h2>
-  <p>Mund t'i ndryshojme keto kushte here pas here. Ne rast ndryshimesh te rendesishme, do t'ju informojme permes email-it.</p>
+  <h2 data-en="8. Changes" data-it="8. Modifiche">8. Ndryshimet</h2>
+  <p data-en="We may change these terms from time to time. In the event of significant changes, we will inform you by email." data-it="Potremmo modificare questi termini di tanto in tanto. In caso di modifiche significative, ti informeremo via email.">Mund t'i ndryshojme keto kushte here pas here. Ne rast ndryshimesh te rendesishme, do t'ju informojme permes email-it.</p>
 
-  <h2>9. Ligji i zbatueshem</h2>
-  <p>Keto kushte rregullohen nga legjislacioni i Republikes se Shqiperise. Cdo mosmarreveshje do t'i nenshtrohet juridiksionit te gjykatave kompetente ne Shqiperi.</p>
+  <h2 data-en="9. Applicable Law" data-it="9. Legge Applicabile">9. Ligji i zbatueshem</h2>
+  <p data-en="These terms are governed by the laws of the Republic of Albania. Any dispute will be subject to the jurisdiction of the competent courts in Albania." data-it="I presenti termini sono regolati dalla legislazione della Repubblica d'Albania. Qualsiasi controversia sar&agrave; soggetta alla giurisdizione dei tribunali competenti in Albania.">Keto kushte rregullohen nga legjislacioni i Republikes se Shqiperise. Cdo mosmarreveshje do t'i nenshtrohet juridiksionit te gjykatave kompetente ne Shqiperi.</p>
 
-  <h2>10. Kontakt</h2>
-  <p>Pyetje rreth ketyre kushteve? Na shkruani ne <a href="mailto:info@savoraapp.com">info@savoraapp.com</a>.</p>
+  <h2 data-en="10. Contact" data-it="10. Contatti">10. Kontakt</h2>
+  <p data-en='Questions about these terms? Write to us at &lt;a href="mailto:info@savoraapp.com"&gt;info@savoraapp.com&lt;/a&gt;.' data-it='Domande su questi termini? Scrivici a &lt;a href="mailto:info@savoraapp.com"&gt;info@savoraapp.com&lt;/a&gt;.'>Pyetje rreth ketyre kushteve? Na shkruani ne <a href="mailto:info@savoraapp.com">info@savoraapp.com</a>.</p>
 </main>
 
 <footer>
-  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;">Pagesa te Sigurta nga Paysera</a><br>
-  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;" data-en="Secure Payments by Paysera" data-it="Pagamenti sicuri con Paysera">Pagesa te Sigurta nga Paysera</a><br>
+  <span data-en="(c) 2026 Savoraapp. All rights reserved." data-it="(c) 2026 Savoraapp. Tutti i diritti riservati.">(c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.</span>
 </footer>
+
+<script>
+  // ===== TAAL / LANGUAGE TOGGLE (SQ / EN / IT) =====
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('savora_lang', lang); } catch(e){}
+    var els = document.querySelectorAll('[data-en]');
+    for (var i=0;i<els.length;i++){
+      var el = els[i];
+      if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+      var val = el.getAttribute('data-sq');
+      if (lang==='en') val = el.getAttribute('data-en');
+      else if (lang==='it' && el.getAttribute('data-it') !== null) val = el.getAttribute('data-it');
+      el.innerHTML = val;
+    }
+    var lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+  }
+  function toggleLang(){
+    var cur = document.documentElement.lang;
+    if (cur!=='sq' && cur!=='en' && cur!=='it') cur = 'sq';
+    var next = (cur==='sq') ? 'en' : (cur==='en') ? 'it' : 'sq';
+    applyLang(next);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = 'sq';
+    try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+    if (saved!=='sq' && saved!=='en' && saved!=='it') saved = 'sq';
+    applyLang(saved);
+  });
+</script>
 </body>
 </html>

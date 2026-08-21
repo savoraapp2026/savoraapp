@@ -237,6 +237,96 @@ function generateCode() {
 }
 
 // ============================================
+// NO-SHOW TRACKING & TIJDELIJKE BLOKKADE
+// Beleid: 3 no-shows binnen 60 dagen -> 30 dagen geblokkeerd voor nieuwe reserveringen.
+// Bewaard per genormaliseerd telefoonnummer EN per e-mailadres (beide worden gecontroleerd),
+// zodat blokkeren betrouwbaar werkt ongeacht welk veld de klant gebruikt.
+// ============================================
+const NOSHOW_WINDOW_MS = 60 * 24 * 60 * 60 * 1000;   // 60 dagen: telt no-shows binnen dit venster
+const NOSHOW_BLOCK_MS = 30 * 24 * 60 * 60 * 1000;    // 30 dagen: duur van de blokkade
+const NOSHOW_STRIKES = 3;                             // aantal no-shows voordat blokkade ingaat
+const NOSHOW_TTL_SEC = 7776000;                       // 90 dagen KV-TTL (venster + blokkade + marge)
+const PICKUP_GRACE_MS = 3 * 60 * 60 * 1000;           // 3 uur respijt na sluitingstijd voor auto-no-show
+
+function normPhone(p) { return String(p || '').replace(/\D/g, ''); }
+function normEmail(e) { return String(e || '').toLowerCase().trim(); }
+
+function noShowKeys(phone, email) {
+  const keys = [];
+  const p = normPhone(phone);
+  const e = normEmail(email);
+  if (p) keys.push('p:' + p);
+  if (e) keys.push('e:' + e);
+  return keys;
+}
+
+async function getNoShowRecord(db, key) {
+  try {
+    const raw = await db.get('noshow_' + key);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+// Controleert of telefoon/e-mail momenteel geblokkeerd is. Geeft blockedUntil (ms) terug, of null.
+async function checkNoShowBlock(db, phone, email) {
+  const now = Date.now();
+  const keys = noShowKeys(phone, email);
+  let blockedUntil = null;
+  for (const k of keys) {
+    const rec = await getNoShowRecord(db, k);
+    if (rec && rec.blockedUntil && rec.blockedUntil > now) {
+      if (!blockedUntil || rec.blockedUntil > blockedUntil) blockedUntil = rec.blockedUntil;
+    }
+  }
+  return blockedUntil;
+}
+
+// Registreert een no-show voor telefoon/e-mail en blokkeert bij de 3e binnen het venster.
+async function registerNoShow(db, phone, email) {
+  const now = Date.now();
+  const keys = noShowKeys(phone, email);
+  let blockedUntil = null;
+  for (const k of keys) {
+    let rec = await getNoShowRecord(db, k);
+    if (!rec || typeof rec !== 'object') rec = { events: [] };
+    rec.events = (Array.isArray(rec.events) ? rec.events : []).filter(function(t) { return now - t < NOSHOW_WINDOW_MS; });
+    rec.events.push(now);
+    rec.count = rec.events.length;
+    if (rec.count >= NOSHOW_STRIKES) {
+      rec.blockedUntil = now + NOSHOW_BLOCK_MS;
+      if (!blockedUntil || rec.blockedUntil > blockedUntil) blockedUntil = rec.blockedUntil;
+    }
+    try { await db.put('noshow_' + k, JSON.stringify(rec), { expirationTtl: NOSHOW_TTL_SEC }); } catch (e) {}
+  }
+  return blockedUntil;
+}
+
+// Lazy no-show detectie: bij elke keer dat een partner zijn claims opvraagt, worden
+// verlopen 'pending' reserveringen (pickupDeadline + respijt < nu) automatisch op
+// 'no_show' gezet en meegeteld voor de blokkade. Geen Cron Trigger nodig.
+async function reconcileNoShows(db, leads) {
+  const now = Date.now();
+  let changed = false;
+  for (let i = 0; i < leads.length; i++) {
+    const l = leads[i];
+    if (l && l.type === 'deal_claim' && (!l.status || l.status === 'pending') && l.pickupDeadline) {
+      const deadline = new Date(l.pickupDeadline).getTime();
+      if (!isNaN(deadline) && now > deadline + PICKUP_GRACE_MS) {
+        l.status = 'no_show';
+        l.statusUpdatedAt = new Date().toISOString();
+        l.autoDetected = true;
+        changed = true;
+        try { await registerNoShow(db, l.phone, l.email); } catch (e) {}
+      }
+    }
+  }
+  if (changed) {
+    try { await db.put('leads', JSON.stringify(leads)); } catch (e) {}
+  }
+  return leads;
+}
+
+// ============================================
 // PAYSERA WebToPay (echte betaalverificatie)
 // ============================================
 
@@ -1190,6 +1280,7 @@ async function handleRequest(request, env, ctx) {
     const myIds = myDealIds.concat(myAdIds);
     let leads = [];
     try { const ex = await db.get('leads'); leads = ex ? JSON.parse(ex) : []; } catch { leads = []; }
+    leads = await reconcileNoShows(db, leads);
     const claims = leads.filter(function(l) { return l.type === 'deal_claim' && myIds.indexOf(l.dealId) !== -1; })
       .sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
     return jsonResponse({ success: true, count: claims.length, claims: claims }, 200, origin);
@@ -1326,14 +1417,39 @@ async function handleRequest(request, env, ctx) {
     if (!email && !phone) {
       return jsonResponse({ error: 'E-mailadres of telefoonnummer is verplicht' }, 400, origin);
     }
+    const isDealClaim = type === 'deal_claim';
+
     // Lichte anti-spam: max 10 aanmeldingen per uur per IP
-    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
     if (!(await checkRateLimit(db, 'lead_' + ip, 10, 3600000))) {
       return jsonResponse({ error: 'Te veel aanmeldingen, probeer het later opnieuw' }, 429, origin);
     }
+
+    // Blokkade-check: klanten met 3+ no-shows binnen 60 dagen kunnen tijdelijk niet reserveren
+    if (isDealClaim) {
+      const blockedUntil = await checkNoShowBlock(db, phone, email);
+      if (blockedUntil) {
+        return jsonResponse({
+          error: 'ACCOUNT_BLOCKED',
+          message: 'Je account is tijdelijk geblokkeerd voor reserveringen vanwege herhaalde no-shows.',
+          blockedUntil
+        }, 403, origin);
+      }
+    }
+
+    // Bij een dag-aanbieding: deal opzoeken (voorraad + ophaal-deadline) vóórdat de lead wordt aangemaakt
+    let deals = null;
+    let targetDeal = null;
+    if (isDealClaim && dealId) {
+      try {
+        const ex = await db.get('deals');
+        deals = ex ? JSON.parse(ex) : [];
+        targetDeal = deals.find(function(d) { return d.id === dealId; }) || null;
+      } catch { deals = null; targetDeal = null; }
+    }
+
     const lead = {
       id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
-      type: type === 'deal_claim' ? 'deal_claim' : 'early_access',
+      type: isDealClaim ? 'deal_claim' : 'early_access',
       email: email || '',
       phone: phone || '',
       name: name || '',
@@ -1343,16 +1459,21 @@ async function handleRequest(request, env, ctx) {
       note: note || '',
       createdAt: new Date().toISOString()
     };
+    if (isDealClaim) {
+      lead.status = 'pending';
+      lead.cancelToken = crypto.randomUUID();
+      lead.pickupDeadline = targetDeal ? (targetDeal.expiresAt || null) : null;
+      lead.statusUpdatedAt = lead.createdAt;
+    }
+
     let leads = [];
     try { const existing = await db.get('leads'); leads = existing ? JSON.parse(existing) : []; } catch { leads = []; }
     leads.push(lead);
     await db.put('leads', JSON.stringify(leads));
 
-    // Voorraad bijwerken bij een dag-aanbieding claim
-    if (lead.type === 'deal_claim' && lead.dealId) {
+    // Voorraad bijwerken bij een dag-aanbieding claim (hergebruikt de deals array die we al hadden)
+    if (isDealClaim && lead.dealId && deals) {
       try {
-        const ex = await db.get('deals');
-        let deals = ex ? JSON.parse(ex) : [];
         let changed = false;
         deals = deals.map(function(d) {
           if (d.id === lead.dealId) {
@@ -1370,7 +1491,131 @@ async function handleRequest(request, env, ctx) {
       } catch (e) {}
     }
 
-    return jsonResponse({ success: true, message: 'Bedankt! We hebben je gegevens ontvangen.' }, 200, origin);
+    // Bevestigingsmail met annuleerlink (best-effort, blokkeert de respons niet bij falen)
+    if (isDealClaim && lead.email && env.RESEND_API_KEY) {
+      try {
+        const cancelUrl = 'https://savoraapp.com/deals.html?cancel=' + encodeURIComponent(lead.cancelToken);
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + env.RESEND_API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'Savoraapp <noreply@savoraapp.com>',
+            to: lead.email,
+            subject: 'Jouw reservering bij ' + (lead.dealTitle || 'Savoraapp'),
+            html: '<h2>Reservering bevestigd</h2>' +
+              '<p>Je hebt <strong>' + (lead.dealTitle || 'een aanbieding') + '</strong> gereserveerd.</p>' +
+              '<p>Kun je toch niet ophalen? Annuleer dan op tijd, zodat de winkelier het aan iemand anders kan aanbieden:</p>' +
+              '<p><a href="' + cancelUrl + '">Annuleer mijn reservering</a></p>' +
+              '<p style="color:#888;font-size:12px">Niet geannuleerd en niet opgehaald? Na 3 keer wordt reserveren tijdelijk geblokkeerd.</p>'
+          })
+        });
+      } catch (e) {}
+    }
+
+    return jsonResponse({
+      success: true,
+      message: 'Bedankt! We hebben je gegevens ontvangen.',
+      cancelToken: isDealClaim ? lead.cancelToken : undefined,
+      claimId: isDealClaim ? lead.id : undefined
+    }, 200, origin);
+  }
+
+  // ---- Publiek: eigen reservering annuleren via token (geen login nodig) ----
+  if (path === '/api/deals/cancel-claim' && method === 'POST') {
+    const token = body.token;
+    if (!token) return jsonResponse({ error: 'Token is verplicht' }, 400, origin);
+
+    let leads = [];
+    try { const ex = await db.get('leads'); leads = ex ? JSON.parse(ex) : []; } catch { leads = []; }
+    const idx = leads.findIndex(function(l) { return l.type === 'deal_claim' && l.cancelToken === token; });
+    if (idx === -1) return jsonResponse({ error: 'Reservering niet gevonden of link ongeldig' }, 404, origin);
+
+    const lead = leads[idx];
+    if (lead.status && lead.status !== 'pending') {
+      return jsonResponse({
+        error: 'ALREADY_' + String(lead.status).toUpperCase(),
+        message: 'Deze reservering is al bijgewerkt (status: ' + lead.status + ')',
+        status: lead.status
+      }, 400, origin);
+    }
+
+    lead.status = 'cancelled';
+    lead.statusUpdatedAt = new Date().toISOString();
+    leads[idx] = lead;
+    await db.put('leads', JSON.stringify(leads));
+
+    // Voorraad teruggeven en de aanbieding evt. weer actief zetten
+    if (lead.dealId) {
+      try {
+        const ex = await db.get('deals');
+        let deals = ex ? JSON.parse(ex) : [];
+        let changed = false;
+        deals = deals.map(function(d) {
+          if (d.id !== lead.dealId) return d;
+          var qty = parseInt(d.quantity, 10);
+          if (!isNaN(qty)) { d.quantity = qty + 1; changed = true; }
+          var notExpired = !d.expiresAt || new Date(d.expiresAt).getTime() > Date.now();
+          // Alleen automatisch heractiveren als de deal alléén door "uitverkocht" was gestopt
+          // (niet als de winkelier hem handmatig heeft gestopt via /api/deals/delete)
+          if (d.soldOut && !d.stoppedAt && notExpired) {
+            d.soldOut = false;
+            d.active = true;
+            changed = true;
+          }
+          return d;
+        });
+        if (changed) await db.put('deals', JSON.stringify(deals));
+      } catch (e) {}
+    }
+
+    return jsonResponse({ success: true, message: 'Je reservering is geannuleerd.', dealTitle: lead.dealTitle }, 200, origin);
+  }
+
+  // ---- Partner: reservering markeren als opgehaald of no-show ----
+  if (path === '/api/deals/mark-claim' && method === 'POST') {
+    const decoded = await isPartnerAuthorized(request, env);
+    if (!decoded) return jsonResponse({ error: 'Niet geautoriseerd' }, 401, origin);
+
+    const claimId = body.claimId || body.id;
+    const action = body.action;
+    if (!claimId || ['picked_up', 'no_show'].indexOf(action) === -1) {
+      return jsonResponse({ error: 'claimId en een geldige action (picked_up of no_show) zijn verplicht' }, 400, origin);
+    }
+
+    let deals = [];
+    try { const ex = await db.get('deals'); deals = ex ? JSON.parse(ex) : []; } catch { deals = []; }
+    let ads = [];
+    try { const exa = await db.get('ads'); ads = exa ? JSON.parse(exa) : []; } catch { ads = []; }
+    const myIds = deals.filter(function(d) { return d.partnerId === decoded.partnerId; }).map(function(d) { return d.id; })
+      .concat(ads.filter(function(a) { return a.partnerId === decoded.partnerId; }).map(function(a) { return a.id; }));
+
+    let leads = [];
+    try { const ex = await db.get('leads'); leads = ex ? JSON.parse(ex) : []; } catch { leads = []; }
+    const idx = leads.findIndex(function(l) { return l.id === claimId && l.type === 'deal_claim'; });
+    if (idx === -1) return jsonResponse({ error: 'Reservering niet gevonden' }, 404, origin);
+
+    const lead = leads[idx];
+    if (myIds.indexOf(lead.dealId) === -1) {
+      return jsonResponse({ error: 'Niet geautoriseerd voor deze reservering' }, 403, origin);
+    }
+    if (lead.status && lead.status !== 'pending') {
+      return jsonResponse({ error: 'Status is al bijgewerkt: ' + lead.status, status: lead.status }, 400, origin);
+    }
+
+    lead.status = action;
+    lead.statusUpdatedAt = new Date().toISOString();
+    leads[idx] = lead;
+    await db.put('leads', JSON.stringify(leads));
+
+    let blockedUntil = null;
+    if (action === 'no_show') {
+      try { blockedUntil = await registerNoShow(db, lead.phone, lead.email); } catch (e) {}
+    }
+
+    return jsonResponse({ success: true, status: lead.status, blockedUntil }, 200, origin);
   }
 
   // ---- PROMOCODE: valideren (partner, bij afrekenen) ----

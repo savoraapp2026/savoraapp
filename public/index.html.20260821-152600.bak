@@ -453,10 +453,6 @@
 <img alt="EN" src="https://flagcdn.com/w20/gb.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
 <span>English (EN)</span>
 </button>
-<button class="lang-option" data-lang="it">
-<img alt="IT" src="https://flagcdn.com/w20/it.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span>Italiano (IT)</span>
-</button>
 </div>
 </div>
 </div>
@@ -482,10 +478,6 @@
 <button class="lang-option" data-lang="en">
 <img alt="EN" src="https://flagcdn.com/w20/gb.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
 <span>English (EN)</span>
-</button>
-<button class="lang-option" data-lang="it">
-<img alt="IT" src="https://flagcdn.com/w20/it.png" style="width:20px;height:14px;border-radius:2px;object-fit:cover;"/>
-<span>Italiano (IT)</span>
 </button>
 </div>
 </div>
@@ -1589,7 +1581,7 @@
 </a>
 <p class="footer-tagline">Save food. Save money. Save the planet.</p>
 <div class="footer-social">
-<a aria-label="Facebook" href="https://www.facebook.com/savora-app" target="_blank" rel="noopener">
+<a aria-label="Facebook" href="#">
 <svg fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
 </a>
 <a aria-label="Instagram" href="#">
@@ -2187,124 +2179,7 @@ var T = {
     faqA5: 'Operiamo attualmente a Tirana, Durrës, Vlorë, Shkodër e Sarandë.',
     faqQ6: 'C\'è un abbonamento mensile?',
     faqA6: 'No, Savoraapp è completamente gratuito per gli utenti.',
-    partnerModeBtn: 'Modalità Partner',
-    errorPhone: 'Inserisci il tuo numero di telefono',
-    errorTerms: 'Accetta i termini',
-    privacyLink: 'informativa sulla privacy',
-    termsLink: 'termini di utilizzo',
-    tk1: 'Per i Partner',
-    tk2: 'Prezzi',
-    tk3: 'Candidati come Partner',
-    tk4: 'Pagamento al ritiro',
-    tk5: 'Utenti Attivi',
-    tk6: 'Partner Attivi',
-    tk7: 'Pane Fresco',
-    tk8: 'Su ogni acquisto',
-    tk9: 'Scegli la tua Categoria',
-    tk10: 'Clicca su una categoria per vedere le offerte disponibili. I partner stabiliscono i propri prezzi.',
-    tk11: 'Vedi Tutte le Offerte',
-    tk12: '⭐ Partner Premium',
-    tk13: 'In Evidenza - Annunci Locali',
-    tk14: '5 crediti = 7 giorni di visibilità. Gli annunci appaiono solo nella tua città.',
-    tk15: 'Furra Bukës',
-    tk16: 'Pane fresco ogni giorno, sconto del 50%',
-    tk17: '📍 Tirana',
-    tk18: 'Vedi le Offerte →',
-    tk19: '📍 Durrës',
-    tk20: 'Delizia Pastiçeri',
-    tk21: 'Pasticceria fresca ogni giorno',
-    tk22: '📍 Vlorë',
-    tk23: 'Piatto tradizionale per 2 persone',
-    tk24: '📍 Shkodër',
-    tk25: 'Diventa un Partner Premium',
-    tk26: 'Tre semplici passi per risparmiare denaro e cibo',
-    tk27: 'Scegli una Categoria',
-    tk28: 'Sfoglia le nostre categorie e trova il tuo cibo preferito a prezzi accessibili',
-    tk29: "Prenota l'Offerta",
-    tk30: 'Prenota gli articoli che desideri. Non è richiesto alcun pagamento fino al ritiro.',
-    tk31: 'Ritira e Paga',
-    tk32: "Ritira i tuoi articoli presso l'attività e paga in contanti. È così semplice!",
-    tk33: 'Fino al 70% di sconto su cibo fresco e di qualità dalle attività locali.',
-    tk34: 'Riduci lo spreco alimentare e contribuisci a un pianeta più pulito.',
-    tk35: 'Sostieni il Locale',
-    tk36: 'Aiuta le attività locali a ridurre le perdite e ad acquisire nuovi clienti.',
-    tk37: 'Veloce e Semplice',
-    tk38: 'Prenota in 2 minuti. Nessuna app pesante, nessuna registrazione lunga.',
-    tk39: 'Unisciti a Noi',
-    tk40: "Ottieni l'Accesso Anticipato",
-    tk41: 'Registrati con il tuo numero di telefono o email e inizia oggi stesso a risparmiare su cibo fresco.',
-    tk42: 'Offerte esclusive per i membri',
-    tk43: 'Notifiche sulle nuove offerte',
-    tk44: 'Nessun costo di iscrizione',
-    tk45: 'Numero di Telefono',
-    tk46: 'Invia Codice via SMS',
-    tk47: 'Indirizzo Email',
-    tk48: 'Invia il Link',
-    tk49: 'Per le Attività',
-    tk50: 'Diventa Partner',
-    tk51: 'Trasforma le tue eccedenze alimentari in guadagno e riduci gli sprechi',
-    tk52: 'Perché collaborare con savoraapp?',
-    tk53: 'Aumenta i tuoi Ricavi',
-    tk54: 'Trasforma le eccedenze alimentari in reddito extra e massimizza i tuoi profitti.',
-    tk55: 'Ottieni Maggiore Visibilità',
-    tk56: "Raggiungi nuovi clienti grazie alla presenza del tuo marchio nella comunità.",
-    tk57: 'Attira Più Clienti',
-    tk58: 'Connettiti con acquirenti attenti al budget in cerca di ottimi affari.',
-    tk59: 'Dimostra il tuo impegno per la sostenibilità e la riduzione dello spreco alimentare.',
-    tk60: 'Aiuta il buon cibo a finire nei piatti, non nella spazzatura.',
-    tk61: 'Rendi il cibo di qualità accessibile a chi ha un budget più limitato.',
-    tk62: 'Pacchetti Partner',
-    tk63: 'Scegli il pacchetto più adatto a te. Nessun abbonamento mensile.',
-    tk64: 'Per piccole attività',
-    tk65: '<span class="check">✓</span> Valido per 3 mesi',
-    tk66: '<span class="check">✓</span> Supporto base',
-    tk67: 'Seleziona',
-    tk68: 'Più Popolare',
-    tk69: 'Per attività in crescita',
-    tk70: '<span class="check">✓</span> Statistiche dettagliate',
-    tk71: 'Per grandi attività',
-    tk72: 'Testimonianze',
-    tk73: 'Cosa dicono i nostri utenti',
-    tk74: 'Recensioni reali dalla nostra community',
-    tk75: 'Tirana • 2 giorni fa',
-    tk76: 'Durrës • 1 settimana fa',
-    tk77: 'Vlorë • 2 settimane fa',
-    tk78: 'Scrivi una Recensione',
-    tk79: 'Pronto per iniziare?',
-    tk80: 'Unisciti a 787+ utenti che risparmiano ogni giorno',
-    tk81: '📈 Meno sprechi, più vendite',
-    tk82: 'Partner',
-    tk83: 'Aiuto',
-    tk84: 'Domande Frequenti',
-    tk85: 'Centro Assistenza',
-    tk86: 'Guida per i Partner',
-    tk87: 'Informativa sulla Privacy',
-    tk88: 'Termini di Servizio',
-    tk89: '© 2026 savoraapp. Tutti i diritti riservati.',
-    tk90: '🍪 Utilizziamo i cookie per migliorare la tua esperienza. I cookie essenziali sono sempre attivi. Scopri di più nella nostra <a href="/cookie-policy.html" style="color:#059669;font-weight:600;text-decoration:underline;">Politica dei Cookie</a>.',
-    tk91: 'nome@esempio.com',
-    tk92: 'www.attivita.com o @instagram',
-    tk93: 'Raccontaci di più sulla tua attività...',
-    tk94: 'Azienda',
-    tk95: 'Chi Siamo',
-    tk96: 'Lavora con Noi',
-    tk97: 'Contatti',
-    tk98: 'Legale',
-    tk99: 'Politica dei Cookie',
-    tk100: 'Nessun Abbonamento',
-    tk101: 'Prenotazioni',
-    tk102: 'Risparmia il 70%',
-    tk103: 'Riduci gli sprechi',
-    tk104: 'Esplora',
-    tk105: 'Menu sorpresa con -56% di sconto',
-    tk106: 'Autentica pizza italiana con -40% di sconto',
-    tk107: 'Il Processo',
-    tk108: 'Risparmia Denaro',
-    tk109: "Aiuta l'Ambiente",
-    tk110: 'Aiuta la tua Comunità',
-    tk111: '✅ Nessun costo anticipato',
-    tk112: 'Da 200 ALL',
-    tk113: 'offerte'
+    partnerModeBtn: 'Modalità Partner'
   },
   gr: {
     partnerBanner: 'Λειτουργία Συνεργάτη',
@@ -2611,7 +2486,6 @@ var T = {
 // Fallback chain: try requested lang → English → Albanian
 function resolveLang(lang) {
   if (lang === 'en') return 'en';
-  if (lang === 'it') return 'it';
   return 'sq';
 }
 

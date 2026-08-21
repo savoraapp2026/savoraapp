@@ -396,7 +396,6 @@
   <div class="lang-dropdown" id="langDropdown">
     <div class="lang-option" data-lang="sq" onclick="setLang('sq')"><img src="https://flagcdn.com/w40/al.png" alt="AL"> Shqip</div>
     <div class="lang-option" data-lang="en" onclick="setLang('en')"><img src="https://flagcdn.com/w40/gb.png" alt="EN"> English</div>
-    <div class="lang-option" data-lang="it" onclick="setLang('it')"><img src="https://flagcdn.com/w40/it.png" alt="IT"> Italiano</div>
   </div>
 </div>
 
@@ -1472,243 +1471,6 @@
       paymentNote: 'Credits will be added to your account immediately.',
       alreadyRegisteredLink: 'Click here to login',
     },
-      it: {
-        loginTitle: 'Accesso Partner',
-        loginSubtitle: 'Accedi alla tua dashboard partner',
-        registerTitle: 'Registrati come Partner',
-        registerSubtitle: 'Inserisci i dati della tua attività',
-        noAccount: 'Non hai un account?',
-        hasAccount: 'Hai già un account?',
-        linkRegister: 'Registrati come Partner →',
-        linkLogin: 'Accedi qui →',
-        btnRegister: 'Registrati',
-        registerLoading: 'Registrazione in corso...',
-        registerSuccess: 'Registrazione completata! Ora puoi accedere.',
-        registerError: 'Registrazione non riuscita',
-        fillRequired: 'Compila tutti i campi obbligatori',
-        passwordMismatch: 'Le password non coincidono',
-        passwordShort: 'La password deve avere almeno 6 caratteri',
-        nuiInvalid: 'Il NUI deve avere esattamente 10 caratteri',
-        nuiValid: 'NUI valido!',
-        nuiCharsLeft: 'caratteri rimanenti',
-        resetPwTitle: 'Reimposta password',
-        resetPwSubtitle: 'Inserisci il codice di verifica e la nuova password.',
-        btnUpdatePw: 'Aggiorna password',
-        nuiHelp: 'Formato: lettera + 8 cifre + lettera (10 caratteri)',
-        labelBusinessName: 'Nome attività',
-        labelBusinessType: 'Tipo di attività',
-        labelOwnerName: 'Nome del titolare',
-        labelNui: 'NUI *',
-        labelConfirmPassword: 'Conferma password',
-        placeholderBusinessName: 'Nome azienda',
-        placeholderOwnerName: 'Mario',
-        placeholderNui: 'M12345678O',
-        placeholderPhone: '+355 67 XXX XXXX',
-        optFastfood: 'Fast Food',
-        optRestaurant: 'Ristorante',
-        optSupermarket: 'Supermercato',
-        optCafe: 'Bar/Caffè',
-        optOther: 'Altro',
-        labelEmail: 'Email',
-        labelPassword: 'Password',
-        placeholderEmail: 'partner@savoraapp.com',
-        btnLogin: 'Accedi',
-        linkBack: '← Torna al sito principale',
-        linkForgotPw: 'Password dimenticata?',
-        forgotPwTitle: 'Reimposta password',
-        forgotPwSubtitle: 'Inserisci la tua email e ti invieremo le istruzioni.',
-        btnSendReset: 'Invia istruzioni',
-        btnSending: 'Invio in corso...',
-        resetEmailSent: 'Istruzioni inviate! Controlla la tua email.',
-        resetEmailError: 'Errore di invio. Controlla l\'email e riprova.',
-        linkBackLogin: '← Torna al login',
-        loginLoading: 'Accesso in corso...',
-        loginError: 'Errore di connessione',
-        invalidCredentials: 'Credenziali non valide',
-        pricingTitle: 'Prezzi',
-        pricingSubtitle: 'Scegli il pacchetto più adatto a te.',
-        pkg1Name: 'Pacchetto 1',
-        pkg1Desc: 'Per piccole attività',
-        pkg2Name: 'Pacchetto 2',
-        pkg2Desc: 'Per attività in crescita',
-        pkg3Name: 'Pacchetto 3',
-        pkg3Desc: 'Per grandi attività',
-        pkgPopular: 'Più popolare',
-        btnSelect: 'Seleziona',
-        linkSkip: 'Salta per ora →',
-        pkgFeature1: '20 crediti',
-        pkgFeature2: '1 credito = 1 pubblicazione',
-        pkgFeature3: 'Valido 3 mesi',
-        pkgFeature4a: 'Supporto base',
-        pkgFeature4b: 'Supporto prioritario',
-        pkgFeature5: '50 crediti',
-        pkgFeature6: 'Statistiche dettagliate',
-        pkgFeature7: '100 crediti',
-        pkgFeature8: 'Pubblicità premium',
-        tabOverview: 'Panoramica',
-        tabBoxes: 'Scatole Sorpresa',
-        tabAds: 'Pubblicizza',
-        tabInvoice: 'Nuova fattura',
-        tabInvoices: 'Le mie fatture',
-        boxesTitle: 'Scatole Sorpresa',
-        boxesSubtitle: 'Crea scatole sorpresa con prodotti alimentari e vendile scontate.',
-        boxSmall: 'Scatola piccola',
-        boxSmallDesc: '3-5 prodotti, valore ~1000 LEK',
-        boxMedium: 'Scatola media',
-        boxMediumDesc: '5-8 prodotti, valore ~2000 LEK',
-        boxLarge: 'Scatola grande',
-        boxLargeDesc: '8-12 prodotti, valore ~3500 LEK',
-        popularLabel: 'Popolare',
-        btnCreateBox: 'Crea scatola',
-        myBoxesTitle: 'Le mie scatole',
-        noBoxes: 'Nessuna scatola ancora. Crea la tua prima scatola sorpresa!',
-        boxCreated: 'Scatola creata con successo!',
-        adsTitle: 'Pubblicizza',
-        adsSubtitle: 'Crea annunci premium per i tuoi prodotti. Ogni annuncio costa 3 crediti.',
-        adTitleLabel: 'Titolo annuncio',
-        placeholderAdTitle: 'Inserisci titolo',
-        adDescLabel: 'Descrizione',
-        placeholderAdDesc: 'Descrivi la tua offerta',
-        adPriceLabel: 'Prezzo (LEK)',
-        adCategoryLabel: 'Categoria',
-        catFood: 'Cibo',
-        catBakery: 'Panetteria',
-        catProduce: 'Frutta e verdura',
-        catMeat: 'Carne',
-        catDairy: 'Latticini',
-        catOther: 'Altro',
-        btnPublishAd: 'Pubblica (3 crediti)',
-        btnPublishing: 'Pubblicazione in corso...',
-        btnClear: '>> Cancella',
-        adPublished: 'Annuncio pubblicato con successo!',
-        myAdsTitle: 'I miei annunci',
-        noAds: 'Nessun annuncio ancora. Crea il tuo primo annuncio!',
-        btnLogout: 'Esci',
-        btnBackSite: '← Pagina principale',
-        welcomeTitle: 'Benvenuto',
-        ofTitle: 'Offerte del giorno',
-        ofSubtitle: 'Pubblica un\'offerta giornaliera per i clienti. Ogni offerta costa solo 1 credito e resta visibile per 24 ore nella pagina delle offerte.',
-        ofKredit: 'Credito',
-        ofBadge: 'ogni offerta · visibile 24h · mostrata ai clienti',
-        ofTitleLabel: 'Titolo offerta',
-        ofTitlePh: 'es. Pane fresco -50%',
-        ofOldPriceLabel: 'Prezzo vecchio (L)',
-        ofNewPriceLabel: 'Prezzo offerta (L)',
-        ofCatLabel: 'Categoria',
-        ofQtyLabel: 'Quantità (opzionale)',
-        ofQtyPh: 'es. 10',
-        ofQtyHint: 'Numero di articoli — diminuisce automaticamente quando i clienti li riscattano',
-        ofCityLabel: 'Città',
-        ofCityPh: 'es. Tirana',
-        ofAddrLabel: 'Indirizzo completo',
-        ofAddrPh: 'es. Rruga Dëshmorët e Kombit 5',
-        ofAddrHint: 'Via e numero civico — così i clienti ti trovano su Google Maps',
-        ofPhotoLabel: 'Foto',
-        ofPhotoOptional: '— opzionale',
-        ofSubmitBtn: 'Pubblica offerta (1 credito)',
-        ofMyDeals: 'Le mie offerte',
-        ofMyClaims: 'Chi ha riscattato le tue offerte',
-        ofLoading: 'Caricamento...',
-        welcomeDesc: 'Crea e gestisci qui le tue fatture.',
-        statInvoices: 'Totale fatture',
-        statInvoicesLabel: 'Fatture create',
-        statValue: 'Valore totale',
-        statValueLabel: 'Valore di tutte le fatture',
-        statNuiLabel: 'Il tuo numero identificativo',
-        invoiceNewTitle: 'Nuova fattura fiscale',
-        sectionBuyer: 'Informazioni acquirente',
-        labelBuyerName: 'Nome acquirente *',
-        placeholderBuyerName: 'Nome azienda',
-        labelNipt: 'Partita IVA',
-        labelAddress: 'Indirizzo',
-        placeholderAddress: 'Via, Città',
-        labelPhone: 'Telefono',
-        labelPaymentDue: 'Scadenza pagamento',
-        placeholderBuyerEmail: 'acquirente@email.com',
-        sectionItems: 'Articoli',
-        colCode: 'Codice',
-        colDesc: 'Descrizione',
-        colUnit: 'Unità',
-        colQty: 'Q.tà',
-        colPrice: 'Prezzo escl. IVA',
-        colVat: 'IVA %',
-        colTotal: 'Totale escl. IVA',
-        placeholderCode: 'A001',
-        placeholderItemDesc: 'Descrizione articolo',
-        btnAddItem: '+ Aggiungi articolo',
-        sectionSummary: 'Riepilogo',
-        labelPaymentMethod: 'Metodo di pagamento',
-        labelCurrency: 'Valuta',
-        optCash: 'Contanti',
-        optBank: 'Bonifico bancario',
-        optInvoice: 'Fattura',
-        totalSub: 'Subtotale escl. IVA',
-        totalVat: 'IVA (20%)',
-        totalGrand: 'TOTALE',
-        btnSave: '>> Salva fattura',
-        btnPreview: '>> Anteprima e stampa',
-        myInvoicesTitle: 'Le mie fatture',
-        noInvoices: 'Nessuna fattura ancora',
-        previewTitle: 'Anteprima fattura',
-        btnPrint: '>> Stampa',
-        invoiceSaved: 'Fattura salvata con successo!',
-        invoiceSaveError: 'Errore nel salvataggio della fattura',
-        buyerRequired: 'Il nome dell\'acquirente è obbligatorio',
-        itemRequired: 'Aggiungi almeno un articolo',
-        pkgSelected: 'Hai selezionato: ',
-        creditsLabel: 'Crediti: ',
-        priceLabel: 'Prezzo: ',
-        currencyLek: ' LEK',
-        paymentNote: 'I crediti verranno aggiunti immediatamente al tuo account.',
-        serialLabel: 'Numero seriale: ',
-        dateLabel: 'Data: ',
-        invoiceTitle: 'FATTURA FISCALE',
-        buyerLabel: 'ACQUIRENTE',
-        sellerLabel: 'VENDITORE',
-        paymentDueLabel: 'Scadenza pagamento: ',
-        paymentMethodLabel: 'Metodo di pagamento: ',
-        webLabel: 'Web: ',
-        totalExcl: 'Totale escl. IVA:',
-        vatLabel: 'IVA (20%):',
-        footerNote: 'Fattura generata da Savoraapp | savoraapp.com',
-        bankLabel: 'Banca:',
-        noItems: 'Nessun articolo',
-        invoiceItem: 'Articolo',
-        btnPayPaysera: 'Paga con Paysera',
-        trustTitle: 'Pagamento verificato da Paysera Albania SH.P.K.',
-        trustSubtitle: 'Autorizzato dalla Banca d\'Albania (N. 47) | Accordo ufficiale: AL-WILLIAM-2026 | NUI: M51921505O',
-        trustBadge: 'Verificato',
-        payseraTitle: 'Paga con Paysera',
-        payseraDesc: 'Pagamenti elaborati in modo sicuro tramite Paysera Albania SH.P.K.',
-        payseraVerified: 'William Al Farhat | NUI: M51921505O | IBAN verificato',
-        modalPayTitle: 'Paga con Paysera',
-        modalPaySubtitle: 'Bonifico bancario sicuro | Paysera Albania SH.P.K.',
-        labelBizName: 'Nome attività',
-        labelIban: 'IBAN (numero di conto)',
-        btnCopyIban: 'Copia IBAN',
-        btnOpenPaysera: 'Apri Paysera.com',
-        modalFooterSecure: '>> Pagamento sicuro - Paysera Albania SH.P.K.',
-        modalFooterDetail: 'NUI: M51921505O | Accordo: AL-WILLIAM-2026 | Autorizzato dalla Banca d\'Albania',
-        payInstructions: '<strong>Istruzioni per il bonifico bancario:</strong><br>1. Apri la tua app bancaria (Paysera, BKT, Raiffeisen, Intesa ecc.)<br>2. Seleziona "Trasferisci denaro" o "Nuovo pagamento"<br>3. Inserisci IBAN: <strong>AL57902127674521230229786655</strong><br>4. Inserisci importo: <strong id="paymentAmount2">500 LEK</strong><br>5. Nella descrizione: <strong>"Savoraapp - [Email]"</strong><br>6. Clicca "Invia"<br><br><small style="color:var(--success)">&#10003; Conto verificato da Paysera Albania SH.P.K.</small><br><small style="color:var(--gray-400)">Accordo: AL-WILLIAM-2026 | NUI: M51921505O</small><br><br>I crediti vengono attivati entro 15-30 minuti.',
-        creditTitle: 'Crediti attuali',
-        btnTopUp: 'Ricarica',
-        creditHistoryTitle: 'Cronologia crediti',
-        colDate: 'Data',
-        colAmount: 'Importo',
-        colBalance: 'Saldo',
-        creditUsed: 'pubblicazioni rimanenti',
-        creditMonthly: 'Acquista un pacchetto',
-        payseraBtn: 'Clicca OK per pagare tramite Paysera, o Annulla per il bonifico bancario.',
-        bankTransfer: 'Bonifico bancario a:',
-        bankTransferNote: 'Dopo il pagamento, i crediti verranno aggiunti entro 1 giorno lavorativo.',
-        paymentSuccess: 'Pagamento riuscito!',
-        paymentError: 'Pagamento non riuscito. Riprova più tardi.',
-        paymentRedirect: 'Sarai reindirizzato alla pagina di pagamento. Dopo il pagamento, i crediti verranno aggiunti automaticamente.',
-        creditTooltipText: 'Acquista pacchetti di crediti per pubblicare le tue offerte. 1 credito = 1 pubblicazione. Nessuna commissione sulla piattaforma.',
-        noHistory: 'Nessuna transazione',
-        creditsAdded: 'Crediti aggiunti',
-        alreadyRegisteredLink: 'Clicca qui per accedere',
-      },
   };
 
   // ========================================
@@ -1740,7 +1502,7 @@
   // TRANSLATION ENGINE
   // ========================================
   function setLang(lang) {
-    if (lang !== 'en' && lang !== 'it') lang = 'sq';
+    if (lang !== 'en') lang = 'sq';
     currentLang = lang;
     var t = T[lang];
     if (!t) return;
@@ -2752,8 +2514,8 @@
       var data = await res.json();
       if (msg) {
         msg.style.display = 'block';
-        if (data.valid) { msg.style.color = '#16a34a'; msg.textContent = (currentLang === 'en' ? 'Code valid: -' : currentLang === 'it' ? 'Codice valido: -' : 'Kod i vlefshëm: -') + data.percent + '%'; }
-        else { msg.style.color = '#dc2626'; msg.textContent = (currentLang === 'en' ? 'Invalid code' : currentLang === 'it' ? 'Codice non valido' : 'Kod i pavlefshëm'); }
+        if (data.valid) { msg.style.color = '#16a34a'; msg.textContent = (currentLang === 'en' ? 'Code valid: -' : 'Kod i vlefshëm: -') + data.percent + '%'; }
+        else { msg.style.color = '#dc2626'; msg.textContent = (currentLang === 'en' ? 'Invalid code' : 'Kod i pavlefshëm'); }
       }
     } catch (e) {
       if (msg) { msg.style.display = 'block'; msg.style.color = '#dc2626'; msg.textContent = 'Error: ' + e.message; }
@@ -2981,8 +2743,6 @@
         }
         wgBanner.innerHTML = '🎁 <span>' + (currentLang === 'en'
           ? 'Welcome bonus: you have <strong>' + data.welcomeBonusRemaining + ' free credits</strong>!'
-          : currentLang === 'it'
-          ? 'Bonus di benvenuto: hai <strong>' + data.welcomeBonusRemaining + ' crediti gratuiti</strong>!'
           : 'Bonus mirëseardhjeje: keni <strong>' + data.welcomeBonusRemaining + ' kredite falas</strong>!') + '</span>';
       } else if (wgBanner) {
         wgBanner.remove();
@@ -3508,31 +3268,6 @@
     .catch(function(){ alert('Lidhja dështoi.'); });
   }
 
-  var CLAIM_STATUS_MAP = {
-    pending:   { label: 'Në pritje',  bg: '#fef3c7', fg: '#92400e' },
-    picked_up: { label: 'U mor',      bg: '#d1fae5', fg: '#065f46' },
-    no_show:   { label: 'Nuk erdhi',  bg: '#fee2e2', fg: '#991b1b' },
-    cancelled: { label: 'U anulua',   bg: '#e5e7eb', fg: '#374151' }
-  };
-
-  function markClaim(claimId, action) {
-    if (!partnerToken || !claimId) return;
-    fetch(API_BASE + '/api/deals/mark-claim', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + partnerToken },
-      body: JSON.stringify({ claimId: claimId, action: action })
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      if (data && data.success) {
-        loadMyClaims();
-      } else {
-        alert((data && data.error) ? data.error : 'Diçka shkoi keq. Provo përsëri.');
-      }
-    })
-    .catch(function(){ alert('Lidhja dështoi. Provo përsëri.'); });
-  }
-
   function loadMyClaims() {
     var list = document.getElementById('myClaimsList');
     if (!list) return;
@@ -3549,23 +3284,10 @@
         var dt = new Date(c.createdAt);
         var when = isNaN(dt.getTime()) ? '' : (dt.toLocaleDateString('sq-AL') + ' ' + dt.toLocaleTimeString('sq-AL', {hour:'2-digit',minute:'2-digit'}));
         var contact = [c.phone, c.email].filter(Boolean).join(' · ');
-        var st = CLAIM_STATUS_MAP[c.status] || CLAIM_STATUS_MAP.pending;
-        var badge = '<span style="font-size:0.68rem;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;background:' + st.bg + ';color:' + st.fg + '">' + st.label + (c.autoDetected ? ' ⓘ' : '') + '</span>';
-        var actions = '';
-        if (!c.status || c.status === 'pending') {
-          actions = '<div style="display:flex;gap:8px;margin-top:10px">' +
-            '<button type="button" onclick="markClaim(\'' + esc(c.id) + '\',\'picked_up\')" style="flex:1;border:1.5px solid #a7f3d0;background:#ecfdf5;color:#065f46;font-weight:600;font-size:0.8rem;padding:8px;border-radius:8px;cursor:pointer">✓ U mor</button>' +
-            '<button type="button" onclick="markClaim(\'' + esc(c.id) + '\',\'no_show\')" style="flex:1;border:1.5px solid #fecaca;background:#fef2f2;color:#991b1b;font-weight:600;font-size:0.8rem;padding:8px;border-radius:8px;cursor:pointer">✗ Nuk erdhi</button>' +
-            '</div>';
-        }
         return '<div style="border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px">' +
-          '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">' +
           '<div style="font-weight:600;font-size:0.9rem">' + esc(c.name || 'Klient') + (c.dealTitle ? ' <span style="font-weight:400;color:var(--gray-500)">— ' + esc(c.dealTitle) + '</span>' : '') + '</div>' +
-          badge +
-          '</div>' +
           '<div style="font-size:0.82rem;color:var(--gray-600)">' + esc(contact) + '</div>' +
           '<div style="font-size:0.72rem;color:var(--gray-400);margin-top:2px">' + esc(when) + '</div>' +
-          actions +
           '</div>';
       }).join('');
     })
@@ -3579,7 +3301,7 @@
     selectPackage, skipPricing, buyCreditsViaPaysera, copyIban, closePayment,
     choosePayment, closePayMethod, payWith, applyPromoCode,
     handleAdSubmit, deleteAd, onAdPlanChange, addItem, removeItem, saveInvoice, previewInvoice, resetInvoice, closePrint,
-    handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims, markClaim,
+    handleDealSubmit, loadMyDeals, stopDeal, loadMyClaims,
     validateNuiRealtime
   });
 

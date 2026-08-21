@@ -19,6 +19,9 @@
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);}
   .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
   .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);}
+  .header-right{display:flex;align-items:center;gap:12px;}
+  .lang-btn-simple{padding:6px 12px;font-size:0.85rem;font-weight:700;color:var(--primary-d);border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:inherit;}
+  .lang-btn-simple:hover{border-color:var(--primary);}
   main{max-width:900px;margin:0 auto;padding:48px 24px 64px;}
   .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
   h1{font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:10px;}
@@ -50,40 +53,43 @@
 
 <header>
   <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
-  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+  <div class="header-right">
+    <a href="index.html" class="back-link" data-en="&larr; Back to main page" data-it="&larr; Torna alla pagina principale">&larr; Kthehu te faqja kryesore</a>
+    <button type="button" onclick="toggleLang()" id="langBtn" class="lang-btn-simple">SQ</button>
+  </div>
 </header>
 
 <main>
-  <div class="badge">Kontakt</div>
-  <h1>Na kontaktoni</h1>
-  <p class="sub">Pyetje, komente ose deshironi te bashkepunojme? Jemi ketu per ju.</p>
+  <div class="badge" data-en="Contact" data-it="Contatti">Kontakt</div>
+  <h1 data-en="Contact us" data-it="Contattaci">Na kontaktoni</h1>
+  <p class="sub" data-en="Questions, feedback, or want to collaborate? We're here for you." data-it="Domande, commenti o vuoi collaborare con noi? Siamo qui per te.">Pyetje, komente ose deshironi te bashkepunojme? Jemi ketu per ju.</p>
 
   <div class="grid">
     <div class="card">
       <form id="contactForm" novalidate>
         <div class="form-group">
-          <label for="cName">Emri</label>
-          <input type="text" id="cName" placeholder="P.sh. Ana Krasniqi" required>
+          <label for="cName" data-en="Name" data-it="Nome">Emri</label>
+          <input type="text" id="cName" placeholder="P.sh. Ana Krasniqi" data-en-ph="e.g. Ana Krasniqi" data-it-ph="es. Ana Krasniqi" required>
         </div>
         <div class="form-group">
-          <label for="cPhone">Numri i telefonit</label>
+          <label for="cPhone" data-en="Phone number" data-it="Numero di telefono">Numri i telefonit</label>
           <input type="tel" id="cPhone" placeholder="+355 69 123 4567">
         </div>
         <div class="form-group">
           <label for="cEmail">Email</label>
-          <input type="email" id="cEmail" placeholder="ju@email.com" required>
+          <input type="email" id="cEmail" placeholder="ju@email.com" data-en-ph="you@email.com" data-it-ph="tu@email.com" required>
         </div>
         <div class="form-group">
-          <label for="cCity">Qyteti</label>
-          <input type="text" id="cCity" placeholder="P.sh. Durres">
+          <label for="cCity" data-en="City" data-it="Citt&agrave;">Qyteti</label>
+          <input type="text" id="cCity" placeholder="P.sh. Durres" data-en-ph="e.g. Durr&euml;s" data-it-ph="es. Durr&euml;s">
         </div>
         <div class="form-group">
-          <label for="cMessage">Mesazhi (maksimumi 300 karaktere)</label>
+          <label for="cMessage" data-en="Message (maximum 300 characters)" data-it="Messaggio (massimo 300 caratteri)">Mesazhi (maksimumi 300 karaktere)</label>
           <textarea id="cMessage" maxlength="300" required></textarea>
           <div class="char-count"><span id="charCount">0</span> / 300</div>
         </div>
-        <button type="submit" id="submitBtn">Dergo</button>
-        <div class="success-msg" id="successMsg">Mesazhi u dergua! Do t'ju kontaktojme se shpejti.</div>
+        <button type="submit" id="submitBtn" data-en="Send" data-it="Invia">Dergo</button>
+        <div class="success-msg" id="successMsg" data-en="Message sent! We will contact you soon." data-it="Messaggio inviato! Ti contatteremo presto.">Mesazhi u dergua! Do t'ju kontaktojme se shpejti.</div>
       </form>
     </div>
 
@@ -98,15 +104,15 @@
       <div class="info-item">
         <div class="info-icon">#</div>
         <div>
-          <h4>Telefon</h4>
+          <h4 data-en="Phone" data-it="Telefono">Telefon</h4>
           <p><a href="tel:+355696080926">+355 69 608 0926</a></p>
         </div>
       </div>
       <div class="info-item">
         <div class="info-icon">*</div>
         <div>
-          <h4>Adresa</h4>
-          <p>Durres, Shqiperi</p>
+          <h4 data-en="Address" data-it="Indirizzo">Adresa</h4>
+          <p data-en="Durr&euml;s, Albania" data-it="Durr&euml;s, Albania">Durres, Shqiperi</p>
         </div>
       </div>
     </div>
@@ -114,8 +120,8 @@
 </main>
 
 <footer>
-  <a class="paysera-badge" href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer">Pagesa te Sigurta nga Paysera</a><br>
-  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+  <a class="paysera-badge" href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" data-en="Secure Payments by Paysera" data-it="Pagamenti sicuri con Paysera">Pagesa te Sigurta nga Paysera</a><br>
+  <span data-en="(c) 2026 Savoraapp. All rights reserved." data-it="(c) 2026 Savoraapp. Tutti i diritti riservati.">(c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.</span>
 </footer>
 
 <script>
@@ -128,6 +134,14 @@
     countEl.textContent = msgEl.value.length;
   });
 
+  var CONTACT_MSGS = {
+    fillRequired: {sq:'Ju lutem plotesoni emrin, email-in dhe mesazhin.', en:'Please fill in your name, email and message.', it:'Compila nome, email e messaggio.'},
+    sending: {sq:'Duke derguar...', en:'Sending...', it:'Invio in corso...'},
+    genericError: {sq:'Dicka shkoi keq. Provoni serish.', en:'Something went wrong. Please try again.', it:'Qualcosa è andato storto. Riprova.'},
+    networkError: {sq:'Nuk mund te lidhemi me serverin. Provoni serish me vone.', en:'Could not connect to the server. Please try again later.', it:'Impossibile connettersi al server. Riprova più tardi.'}
+  };
+  function curLang(){ var l = document.documentElement.lang; return (l==='en'||l==='it') ? l : 'sq'; }
+
   document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var name = document.getElementById('cName').value.trim();
@@ -137,13 +151,13 @@
     var message = document.getElementById('cMessage').value.trim();
 
     if (!name || !email || !message) {
-      alert('Ju lutem plotesoni emrin, email-in dhe mesazhin.');
+      alert(CONTACT_MSGS.fillRequired[curLang()]);
       return;
     }
 
     var btn = document.getElementById('submitBtn');
     var originalText = btn.textContent;
-    btn.textContent = 'Duke derguar...';
+    btn.textContent = CONTACT_MSGS.sending[curLang()];
     btn.disabled = true;
 
     fetch(API_URL + '/contact', {
@@ -160,14 +174,52 @@
           document.getElementById('contactForm').reset();
           countEl.textContent = '0';
         } else {
-          alert((data && data.error) || 'Dicka shkoi keq. Provoni serish.');
+          alert((data && data.error) || CONTACT_MSGS.genericError[curLang()]);
         }
       })
       .catch(function () {
         btn.textContent = originalText;
         btn.disabled = false;
-        alert('Nuk mund te lidhemi me serverin. Provoni serish me vone.');
+        alert(CONTACT_MSGS.networkError[curLang()]);
       });
+  });
+
+  // ===== TAAL / LANGUAGE TOGGLE (SQ / EN / IT) =====
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('savora_lang', lang); } catch(e){}
+    var els = document.querySelectorAll('[data-en]');
+    for (var i=0;i<els.length;i++){
+      var el = els[i];
+      if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+      var val = el.getAttribute('data-sq');
+      if (lang==='en') val = el.getAttribute('data-en');
+      else if (lang==='it' && el.getAttribute('data-it') !== null) val = el.getAttribute('data-it');
+      el.innerHTML = val;
+    }
+    var phs = document.querySelectorAll('[data-en-ph]');
+    for (var j=0;j<phs.length;j++){
+      var pe = phs[j];
+      if (pe.getAttribute('data-sq-ph') === null) pe.setAttribute('data-sq-ph', pe.getAttribute('placeholder')||'');
+      var pval = pe.getAttribute('data-sq-ph');
+      if (lang==='en') pval = pe.getAttribute('data-en-ph');
+      else if (lang==='it' && pe.getAttribute('data-it-ph') !== null) pval = pe.getAttribute('data-it-ph');
+      pe.setAttribute('placeholder', pval);
+    }
+    var lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+  }
+  function toggleLang(){
+    var cur = document.documentElement.lang;
+    if (cur!=='sq' && cur!=='en' && cur!=='it') cur = 'sq';
+    var next = (cur==='sq') ? 'en' : (cur==='en') ? 'it' : 'sq';
+    applyLang(next);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = 'sq';
+    try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+    if (saved!=='sq' && saved!=='en' && saved!=='it') saved = 'sq';
+    applyLang(saved);
   });
 </script>
 </body>

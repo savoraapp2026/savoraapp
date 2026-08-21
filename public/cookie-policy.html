@@ -19,6 +19,9 @@
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);text-decoration:none;}
   .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
   .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);text-decoration:none;}
+  .header-right{display:flex;align-items:center;gap:12px;}
+  .lang-btn-simple{padding:6px 12px;font-size:0.85rem;font-weight:700;color:var(--primary-d);border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:inherit;}
+  .lang-btn-simple:hover{border-color:var(--primary);}
   main{max-width:760px;margin:0 auto;padding:48px 24px 64px;}
   .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
   h1{font-size:2.1rem;font-weight:800;color:var(--dark);margin-bottom:6px;}
@@ -36,57 +39,91 @@
 
 <header>
   <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
-  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+  <div class="header-right">
+    <a href="index.html" class="back-link" data-en="&larr; Back to main page" data-it="&larr; Torna alla pagina principale">&larr; Kthehu te faqja kryesore</a>
+    <button type="button" onclick="toggleLang()" id="langBtn" class="lang-btn-simple">SQ</button>
+  </div>
 </header>
 
 <main>
   <div class="badge">Cookies</div>
-  <h1>Politika e Cookies</h1>
-  <p class="updated">Perditesuar se fundi: 6 gusht 2026</p>
+  <h1 data-en="Cookie Policy" data-it="Politica dei Cookie">Politika e Cookies</h1>
+  <p class="updated" data-en="Last updated: August 6, 2026" data-it="Ultimo aggiornamento: 6 agosto 2026">Perditesuar se fundi: 6 gusht 2026</p>
 
-  <h2>1. Cfare jane cookies?</h2>
-  <p>Cookies jane skedare te vegjel teksti qe ruhen ne pajisjen tuaj kur vizitoni nje faqe interneti. Ato na ndihmojne te bejme faqen te funksionoje si duhet dhe te permiresojme pervojen tuaj si perdorues.</p>
+  <h2 data-en="1. What are cookies?" data-it="1. Cosa sono i cookie?">1. Cfare jane cookies?</h2>
+  <p data-en="Cookies are small text files that are stored on your device when you visit a website. They help us make the site work properly and improve your experience as a user." data-it="I cookie sono piccoli file di testo che vengono salvati sul tuo dispositivo quando visiti un sito web. Ci aiutano a far funzionare correttamente il sito e a migliorare la tua esperienza come utente.">Cookies jane skedare te vegjel teksti qe ruhen ne pajisjen tuaj kur vizitoni nje faqe interneti. Ato na ndihmojne te bejme faqen te funksionoje si duhet dhe te permiresojme pervojen tuaj si perdorues.</p>
 
-  <h2>2. Cilat cookies perdorim?</h2>
-  <p><strong>Cookies funksionale (te nevojshme)</strong><br>Keto cookies jane te domosdoshme per funksionimin e faqes. Pa to, disa funksione nuk punojne.</p>
+  <h2 data-en="2. Which cookies do we use?" data-it="2. Quali cookie utilizziamo?">2. Cilat cookies perdorim?</h2>
+  <p data-en="&lt;strong&gt;Functional cookies (necessary)&lt;/strong&gt;&lt;br&gt;These cookies are essential for the site to work. Without them, some features will not work." data-it="&lt;strong&gt;Cookie funzionali (necessari)&lt;/strong&gt;&lt;br&gt;Questi cookie sono essenziali per il funzionamento del sito. Senza di essi, alcune funzionalit&agrave; non funzioneranno."><strong>Cookies funksionale (te nevojshme)</strong><br>Keto cookies jane te domosdoshme per funksionimin e faqes. Pa to, disa funksione nuk punojne.</p>
   <ul>
-    <li><strong>Cookie sesioni:</strong> mban gjendjen tuaj te identifikimit</li>
-    <li><strong>Preferenca e gjuhes:</strong> mban mend gjuhen e zgjedhur (shqip/anglisht)</li>
-    <li><strong>Token CSRF:</strong> mbrojtje kunder sulmeve</li>
+    <li data-en="&lt;strong&gt;Session cookie:&lt;/strong&gt; keeps you logged in" data-it="&lt;strong&gt;Cookie di sessione:&lt;/strong&gt; mantiene il tuo stato di accesso"><strong>Cookie sesioni:</strong> mban gjendjen tuaj te identifikimit</li>
+    <li data-en="&lt;strong&gt;Language preference:&lt;/strong&gt; remembers your chosen language (Albanian/English/Italian)" data-it="&lt;strong&gt;Preferenza lingua:&lt;/strong&gt; ricorda la lingua scelta (albanese/inglese/italiano)"><strong>Preferenca e gjuhes:</strong> mban mend gjuhen e zgjedhur (shqip/anglisht)</li>
+    <li data-en="&lt;strong&gt;CSRF token:&lt;/strong&gt; protection against attacks" data-it="&lt;strong&gt;Token CSRF:&lt;/strong&gt; protezione contro gli attacchi"><strong>Token CSRF:</strong> mbrojtje kunder sulmeve</li>
   </ul>
-  <p><strong>Cookies analitike (opsionale)</strong><br>Keto cookies na ndihmojne te kuptojme si e perdorin vizitoret faqen. I perdorim vetem per te permiresuar faqen.</p>
+  <p data-en="&lt;strong&gt;Analytics cookies (optional)&lt;/strong&gt;&lt;br&gt;These cookies help us understand how visitors use the site. We only use them to improve the site." data-it="&lt;strong&gt;Cookie analitici (opzionali)&lt;/strong&gt;&lt;br&gt;Questi cookie ci aiutano a capire come i visitatori utilizzano il sito. Li usiamo solo per migliorare il sito."><strong>Cookies analitike (opsionale)</strong><br>Keto cookies na ndihmojne te kuptojme si e perdorin vizitoret faqen. I perdorim vetem per te permiresuar faqen.</p>
   <ul>
-    <li><strong>Google Analytics:</strong> statistika anonime vizitoresh</li>
-  </ul>
-
-  <h2>3. Cookies te paleve te treta</h2>
-  <p>Perdorim sherbime te paleve te treta qe mund te vendosin cookies:</p>
-  <ul>
-    <li><strong>Cloudflare:</strong> siguri dhe performance</li>
-    <li><strong>Google Fonts:</strong> ngarkimi i fonteve</li>
-    <li><strong>Paysera:</strong> perpunimi i sigurt i pagesave per partneret</li>
+    <li data-en="&lt;strong&gt;Google Analytics:&lt;/strong&gt; anonymous visitor statistics" data-it="&lt;strong&gt;Google Analytics:&lt;/strong&gt; statistiche anonime dei visitatori"><strong>Google Analytics:</strong> statistika anonime vizitoresh</li>
   </ul>
 
-  <h2>4. Si t'i menaxhoni cookies?</h2>
-  <p>Mund t'i menaxhoni cookies permes cilesimeve te shfletuesit tuaj:</p>
+  <h2 data-en="3. Third-party cookies" data-it="3. Cookie di terze parti">3. Cookies te paleve te treta</h2>
+  <p data-en="We use third-party services that may set cookies:" data-it="Utilizziamo servizi di terze parti che potrebbero installare cookie:">Perdorim sherbime te paleve te treta qe mund te vendosin cookies:</p>
   <ul>
-    <li><strong>Chrome:</strong> Cilesimet &rarr; Privatesia dhe siguria &rarr; Cookies</li>
-    <li><strong>Firefox:</strong> Cilesimet &rarr; Privatesia &amp; Siguria &rarr; Cookies</li>
-    <li><strong>Safari:</strong> Preferencat &rarr; Privatesia &rarr; Cookies</li>
-    <li><strong>Edge:</strong> Cilesimet &rarr; Cookies dhe lejet e faqeve</li>
+    <li data-en="&lt;strong&gt;Cloudflare:&lt;/strong&gt; security and performance" data-it="&lt;strong&gt;Cloudflare:&lt;/strong&gt; sicurezza e prestazioni"><strong>Cloudflare:</strong> siguri dhe performance</li>
+    <li data-en="&lt;strong&gt;Google Fonts:&lt;/strong&gt; font loading" data-it="&lt;strong&gt;Google Fonts:&lt;/strong&gt; caricamento dei font"><strong>Google Fonts:</strong> ngarkimi i fonteve</li>
+    <li data-en="&lt;strong&gt;Paysera:&lt;/strong&gt; secure payment processing for partners" data-it="&lt;strong&gt;Paysera:&lt;/strong&gt; elaborazione sicura dei pagamenti per i partner"><strong>Paysera:</strong> perpunimi i sigurt i pagesave per partneret</li>
   </ul>
-  <div class="note">Nese caktivizoni cookies funksionale, faqja mund te mos funksionoje si duhet.</div>
 
-  <h2>5. Ndryshimi i preferencave</h2>
-  <p>Mund t'i ndryshoni preferencat e cookies ne cdo moment duke perditesuar cilesimet e shfletuesit tuaj.</p>
+  <h2 data-en="4. How to manage cookies?" data-it="4. Come gestire i cookie?">4. Si t'i menaxhoni cookies?</h2>
+  <p data-en="You can manage cookies through your browser settings:" data-it="Puoi gestire i cookie tramite le impostazioni del tuo browser:">Mund t'i menaxhoni cookies permes cilesimeve te shfletuesit tuaj:</p>
+  <ul>
+    <li data-en="&lt;strong&gt;Chrome:&lt;/strong&gt; Settings &rarr; Privacy and security &rarr; Cookies" data-it="&lt;strong&gt;Chrome:&lt;/strong&gt; Impostazioni &rarr; Privacy e sicurezza &rarr; Cookie"><strong>Chrome:</strong> Cilesimet &rarr; Privatesia dhe siguria &rarr; Cookies</li>
+    <li data-en="&lt;strong&gt;Firefox:&lt;/strong&gt; Settings &rarr; Privacy &amp; Security &rarr; Cookies" data-it="&lt;strong&gt;Firefox:&lt;/strong&gt; Impostazioni &rarr; Privacy e sicurezza &rarr; Cookie"><strong>Firefox:</strong> Cilesimet &rarr; Privatesia &amp; Siguria &rarr; Cookies</li>
+    <li data-en="&lt;strong&gt;Safari:&lt;/strong&gt; Preferences &rarr; Privacy &rarr; Cookies" data-it="&lt;strong&gt;Safari:&lt;/strong&gt; Preferenze &rarr; Privacy &rarr; Cookie"><strong>Safari:</strong> Preferencat &rarr; Privatesia &rarr; Cookies</li>
+    <li data-en="&lt;strong&gt;Edge:&lt;/strong&gt; Settings &rarr; Cookies and site permissions" data-it="&lt;strong&gt;Edge:&lt;/strong&gt; Impostazioni &rarr; Cookie e autorizzazioni dei siti"><strong>Edge:</strong> Cilesimet &rarr; Cookies dhe lejet e faqeve</li>
+  </ul>
+  <div class="note" data-en="If you disable functional cookies, the site may not work properly." data-it="Se disattivi i cookie funzionali, il sito potrebbe non funzionare correttamente.">Nese caktivizoni cookies funksionale, faqja mund te mos funksionoje si duhet.</div>
 
-  <h2>6. Kontakt</h2>
-  <p>Pyetje rreth Politikes se Cookies? Na shkruani ne <a href="mailto:info@savoraapp.com">info@savoraapp.com</a>.</p>
+  <h2 data-en="5. Changing your preferences" data-it="5. Modifica delle preferenze">5. Ndryshimi i preferencave</h2>
+  <p data-en="You can change your cookie preferences at any time by updating your browser settings." data-it="Puoi modificare le tue preferenze sui cookie in qualsiasi momento aggiornando le impostazioni del tuo browser.">Mund t'i ndryshoni preferencat e cookies ne cdo moment duke perditesuar cilesimet e shfletuesit tuaj.</p>
+
+  <h2 data-en="6. Contact" data-it="6. Contatti">6. Kontakt</h2>
+  <p data-en='Questions about our Cookie Policy? Write to us at &lt;a href="mailto:info@savoraapp.com"&gt;info@savoraapp.com&lt;/a&gt;.' data-it='Domande sulla nostra Politica dei Cookie? Scrivici a &lt;a href="mailto:info@savoraapp.com"&gt;info@savoraapp.com&lt;/a&gt;.'>Pyetje rreth Politikes se Cookies? Na shkruani ne <a href="mailto:info@savoraapp.com">info@savoraapp.com</a>.</p>
 </main>
 
 <footer>
   <br>
-  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+  <span data-en="(c) 2026 Savoraapp. All rights reserved." data-it="(c) 2026 Savoraapp. Tutti i diritti riservati.">(c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.</span>
 </footer>
+
+<script>
+  // ===== TAAL / LANGUAGE TOGGLE (SQ / EN / IT) =====
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('savora_lang', lang); } catch(e){}
+    var els = document.querySelectorAll('[data-en]');
+    for (var i=0;i<els.length;i++){
+      var el = els[i];
+      if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+      var val = el.getAttribute('data-sq');
+      if (lang==='en') val = el.getAttribute('data-en');
+      else if (lang==='it' && el.getAttribute('data-it') !== null) val = el.getAttribute('data-it');
+      el.innerHTML = val;
+    }
+    var lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+  }
+  function toggleLang(){
+    var cur = document.documentElement.lang;
+    if (cur!=='sq' && cur!=='en' && cur!=='it') cur = 'sq';
+    var next = (cur==='sq') ? 'en' : (cur==='en') ? 'it' : 'sq';
+    applyLang(next);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = 'sq';
+    try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+    if (saved!=='sq' && saved!=='en' && saved!=='it') saved = 'sq';
+    applyLang(saved);
+  });
+</script>
 </body>
 </html>

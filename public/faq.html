@@ -19,6 +19,9 @@
   .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.1rem;color:var(--dark);}
   .logo .sq{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
   .back-link{font-size:0.9rem;font-weight:600;color:var(--gray);}
+  .header-right{display:flex;align-items:center;gap:12px;}
+  .lang-btn-simple{padding:6px 12px;font-size:0.85rem;font-weight:700;color:var(--primary-d);border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:inherit;}
+  .lang-btn-simple:hover{border-color:var(--primary);}
   main{max-width:800px;margin:0 auto;padding:48px 24px 64px;}
   .badge{display:inline-flex;align-items:center;gap:8px;background:#ecfdf5;color:var(--primary-d);font-weight:700;font-size:0.85rem;padding:8px 16px;border-radius:999px;margin-bottom:16px;}
   h1{font-size:2.2rem;font-weight:800;color:var(--dark);margin-bottom:10px;}
@@ -40,101 +43,104 @@
 
 <header>
   <a href="index.html" class="logo"><span class="sq">S</span> Savora<span style="color:var(--primary)">app</span></a>
-  <a href="index.html" class="back-link">&larr; Kthehu te faqja kryesore</a>
+  <div class="header-right">
+    <a href="index.html" class="back-link" data-en="&larr; Back to main page" data-it="&larr; Torna alla pagina principale">&larr; Kthehu te faqja kryesore</a>
+    <button type="button" onclick="toggleLang()" id="langBtn" class="lang-btn-simple">SQ</button>
+  </div>
 </header>
 
 <main>
-  <div class="badge">Pyetje te Shpeshta</div>
-  <h1>Pyetje te Shpeshta</h1>
-  <p class="sub">Pergjigje per pyetjet me te shpeshta rreth Savoraapp.</p>
+  <div class="badge" data-en="Frequently Asked Questions" data-it="Domande Frequenti">Pyetje te Shpeshta</div>
+  <h1 data-en="Frequently Asked Questions" data-it="Domande Frequenti">Pyetje te Shpeshta</h1>
+  <p class="sub" data-en="Answers to the most frequently asked questions about Savoraapp." data-it="Risposte alle domande più frequenti su Savoraapp.">Pergjigje per pyetjet me te shpeshta rreth Savoraapp.</p>
 
-  <div class="section-label">Per konsumatore</div>
+  <div class="section-label" data-en="For consumers" data-it="Per i consumatori">Per konsumatore</div>
 
   <div class="faq-item">
-    <button class="faq-question">Cfare eshte Savoraapp?
+    <button class="faq-question"><span data-en="What is Savoraapp?" data-it="Cos'è Savoraapp?">Cfare eshte Savoraapp?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Savoraapp eshte nje platforme ku mund te blesh kuti surprize me ushqim te freskete nga dyqane, restorante dhe furra lokale - me ulje deri ne 70%. Ti shpeton ushqim qe perndryshe do te hidhej.</p></div>
+    <div class="faq-answer"><p data-en="Savoraapp is a platform where you can buy surprise boxes with fresh food from local shops, restaurants and bakeries - with discounts up to 70%. You save food that would otherwise be thrown away." data-it="Savoraapp è una piattaforma dove puoi acquistare scatole sorpresa con cibo fresco da negozi, ristoranti e panetterie locali - con sconti fino al 70%. Salvi cibo che altrimenti verrebbe buttato via.">Savoraapp eshte nje platforme ku mund te blesh kuti surprize me ushqim te freskete nga dyqane, restorante dhe furra lokale - me ulje deri ne 70%. Ti shpeton ushqim qe perndryshe do te hidhej.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Si funksionon?
+    <button class="faq-question"><span data-en="How does it work?" data-it="Come funziona?">Si funksionon?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>1. Shfleto ofertat e disponueshme te dyqanet prane teje. 2. Rezervo kutine tende ne 10 sekonda. 3. Merre nga dyqani ne kohen e caktuar. 4. Shijo ushqim te freskete me nje pjese te vogel te cmimit!</p></div>
+    <div class="faq-answer"><p data-en="1. Browse the available deals at shops near you. 2. Reserve your box in 10 seconds. 3. Pick it up from the shop at the agreed time. 4. Enjoy fresh food for a fraction of the price!" data-it="1. Sfoglia le offerte disponibili nei negozi vicino a te. 2. Prenota la tua scatola in 10 secondi. 3. Ritirala dal negozio all'orario concordato. 4. Gusta cibo fresco a una frazione del prezzo!">1. Shfleto ofertat e disponueshme te dyqanet prane teje. 2. Rezervo kutine tende ne 10 sekonda. 3. Merre nga dyqani ne kohen e caktuar. 4. Shijo ushqim te freskete me nje pjese te vogel te cmimit!</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Cfare perfshin nje kuti surprize?
+    <button class="faq-question"><span data-en="What's in a surprise box?" data-it="Cosa contiene una scatola sorpresa?">Cfare perfshin nje kuti surprize?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Cdo kuti permban ushqim te freskete qe dyqanit i ka tepruar - buke, perime, fruta, gjelle ose produkte te tjera. Permbajtja eshte surprize, por vlera eshte gjithmone me e larte se cmimi qe paguan.</p></div>
+    <div class="faq-answer"><p data-en="Each box contains fresh food surplus from the shop - bread, vegetables, fruit, meals or other products. The contents are a surprise, but the value is always higher than the price you pay." data-it="Ogni scatola contiene eccedenze di cibo fresco del negozio - pane, verdure, frutta, piatti pronti o altri prodotti. Il contenuto è una sorpresa, ma il valore è sempre superiore al prezzo pagato.">Cdo kuti permban ushqim te freskete qe dyqanit i ka tepruar - buke, perime, fruta, gjelle ose produkte te tjera. Permbajtja eshte surprize, por vlera eshte gjithmone me e larte se cmimi qe paguan.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Si paguaj?
+    <button class="faq-question"><span data-en="How do I pay?" data-it="Come pago?">Si paguaj?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Paguan me para ne dore kur merr kutine ne vendndodhjen e biznesit. Nuk kerkohet asnje pagese online per rezervim.</p></div>
+    <div class="faq-answer"><p data-en="You pay in cash when you pick up the box at the business location. No online payment is required for the reservation." data-it="Paghi in contanti quando ritiri la scatola presso l'attività. Non è richiesto alcun pagamento online per la prenotazione.">Paguan me para ne dore kur merr kutine ne vendndodhjen e biznesit. Nuk kerkohet asnje pagese online per rezervim.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">A mund ta anuloj rezervimin?
+    <button class="faq-question"><span data-en="Can I cancel my reservation?" data-it="Posso annullare la prenotazione?">A mund ta anuloj rezervimin?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Po, mund te anulosh falas deri 2 ore para kohes se marrjes. Pas kesaj, dyqani e ka pergatitur tashme kutine, keshtu qe anulimet e vonshme ose mungesat mund te ndikojne ne rezervimet e ardhshme.</p></div>
+    <div class="faq-answer"><p data-en="Yes, you can cancel for free up to 2 hours before pickup time. After that, the shop has already prepared the box, so late cancellations or no-shows may affect future reservations." data-it="Sì, puoi annullare gratuitamente fino a 2 ore prima dell'orario di ritiro. Dopo, il negozio ha già preparato la scatola, quindi cancellazioni tardive o mancati ritiri possono influire sulle prenotazioni future.">Po, mund te anulosh falas deri 2 ore para kohes se marrjes. Pas kesaj, dyqani e ka pergatitur tashme kutine, keshtu qe anulimet e vonshme ose mungesat mund te ndikojne ne rezervimet e ardhshme.</p></div>
   </div>
 
-  <div class="section-label">Per partnere</div>
+  <div class="section-label" data-en="For partners" data-it="Per i partner">Per partnere</div>
 
   <div class="faq-item">
-    <button class="faq-question">Sa kushton te behesh partner?
+    <button class="faq-question"><span data-en="How much does it cost to become a partner?" data-it="Quanto costa diventare partner?">Sa kushton te behesh partner?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Regjistrimi eshte falas. Blen kredite per te postuar oferta - cdo oferte kushton 1 kredit. Nuk ka kosto fikse apo abonim mujor.</p></div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">Sa shpejt mund te jem aktiv?
-      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </button>
-    <div class="faq-answer"><p>Brenda 5 minutash! Pas verifikimit te regjistrimit tend, mund te postosh menjehere oferta dhe te fillosh te marresh kliente.</p></div>
+    <div class="faq-answer"><p data-en="Registration is free. You buy credits to post deals - each deal costs 1 credit. There are no fixed costs or monthly subscription." data-it="La registrazione è gratuita. Acquisti crediti per pubblicare offerte - ogni offerta costa 1 credito. Non ci sono costi fissi né abbonamenti mensili.">Regjistrimi eshte falas. Blen kredite per te postuar oferta - cdo oferte kushton 1 kredit. Nuk ka kosto fikse apo abonim mujor.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Si funksionon sistemi i kredive?
+    <button class="faq-question"><span data-en="How fast can I be active?" data-it="Quanto velocemente posso essere attivo?">Sa shpejt mund te jem aktiv?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Blen paketa kredish: 25 kredite per 500 Lek, 60 kredite per 1.000 Lek, ose 140 kredite per 2.000 Lek. Cdo oferte e postuar kushton 1 kredit. Kreditet jane te vlefshme per 3 muaj nga blerja. Pagesat behen ne menyre te sigurte permes Paysera.</p></div>
+    <div class="faq-answer"><p data-en="Within 5 minutes! After verifying your registration, you can immediately post deals and start getting customers." data-it="Entro 5 minuti! Dopo la verifica della registrazione, puoi pubblicare subito offerte e iniziare a ricevere clienti.">Brenda 5 minutash! Pas verifikimit te regjistrimit tend, mund te postosh menjehere oferta dhe te fillosh te marresh kliente.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Cilat biznese mund te marrin pjese?
+    <button class="faq-question"><span data-en="How does the credit system work?" data-it="Come funziona il sistema di crediti?">Si funksionon sistemi i kredive?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Te gjitha bizneset e regjistruara te ushqimit: furra, restorante, kafene, supermarkete, hotele dhe kateringje. Nevojitet nje Numer Identifikimi Biznesi (NIPT/NUI) i vlefshem.</p></div>
-  </div>
-
-  <div class="section-label">Pergjithshme</div>
-
-  <div class="faq-item">
-    <button class="faq-question">Ne cilat qytete eshte i disponueshem Savoraapp?
-      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </button>
-    <div class="faq-answer"><p>Aktualisht jemi aktive ne Durres dhe po zgjerohemi shpejt ne Tirane, Vlore, Shkoder dhe qytete te tjera ne Shqiperi.</p></div>
+    <div class="faq-answer"><p data-en="You buy credit packages: 25 credits for 500 Lek, 60 credits for 1,000 Lek, or 140 credits for 2,000 Lek. Each posted deal costs 1 credit. Credits are valid for 3 months from purchase. Payments are processed securely via Paysera." data-it="Acquisti pacchetti di crediti: 25 crediti per 500 Lek, 60 crediti per 1.000 Lek, oppure 140 crediti per 2.000 Lek. Ogni offerta pubblicata costa 1 credito. I crediti sono validi per 3 mesi dall'acquisto. I pagamenti vengono elaborati in modo sicuro tramite Paysera.">Blen paketa kredish: 25 kredite per 500 Lek, 60 kredite per 1.000 Lek, ose 140 kredite per 2.000 Lek. Cdo oferte e postuar kushton 1 kredit. Kreditet jane te vlefshme per 3 muaj nga blerja. Pagesat behen ne menyre te sigurte permes Paysera.</p></div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Si mund te kontaktoj?
+    <button class="faq-question"><span data-en="Which businesses can take part?" data-it="Quali attività possono partecipare?">Cilat biznese mund te marrin pjese?</span>
       <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </button>
-    <div class="faq-answer"><p>Dergo email ne info@savoraapp.com ose perdor <a href="contact.html">formularin e kontaktit</a>. Pergjigjemi brenda 24 oreve.</p></div>
+    <div class="faq-answer"><p data-en="All registered food businesses: bakeries, restaurants, cafes, supermarkets, hotels and catering companies. A valid Business Identification Number (NIPT/NUI) is required." data-it="Tutte le attività alimentari registrate: panetterie, ristoranti, bar, supermercati, hotel e catering. È richiesto un Numero di Identificazione Aziendale (NIPT/NUI) valido.">Te gjitha bizneset e regjistruara te ushqimit: furra, restorante, kafene, supermarkete, hotele dhe kateringje. Nevojitet nje Numer Identifikimi Biznesi (NIPT/NUI) i vlefshem.</p></div>
+  </div>
+
+  <div class="section-label" data-en="General" data-it="Generale">Pergjithshme</div>
+
+  <div class="faq-item">
+    <button class="faq-question"><span data-en="In which cities is Savoraapp available?" data-it="In quali città è disponibile Savoraapp?">Ne cilat qytete eshte i disponueshem Savoraapp?</span>
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p data-en="We are currently active in Durrës and expanding quickly to Tirana, Vlora, Shkodra and other cities in Albania." data-it="Attualmente siamo attivi a Durrës e ci stiamo espandendo rapidamente a Tirana, Valona, Scutari e altre città in Albania.">Aktualisht jemi aktive ne Durres dhe po zgjerohemi shpejt ne Tirane, Vlore, Shkoder dhe qytete te tjera ne Shqiperi.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question"><span data-en="How can I contact you?" data-it="Come posso contattarvi?">Si mund te kontaktoj?</span>
+      <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="faq-answer"><p data-en='Send an email to info@savoraapp.com or use the <a href="contact.html">contact form</a>. We reply within 24 hours.' data-it='Invia un&#39;email a info@savoraapp.com oppure usa il <a href="contact.html">modulo di contatto</a>. Rispondiamo entro 24 ore.'>Dergo email ne info@savoraapp.com ose perdor <a href="contact.html">formularin e kontaktit</a>. Pergjigjemi brenda 24 oreve.</p></div>
   </div>
 </main>
 
 <footer>
-  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;">Pagesa te Sigurta nga Paysera</a><br>
-  (c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.
+  <a href="https://bank.paysera.com/en/quality-sign/256849" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-bottom:16px;" data-en="Secure Payments by Paysera" data-it="Pagamenti sicuri con Paysera">Pagesa te Sigurta nga Paysera</a><br>
+  <span data-en="(c) 2026 Savoraapp. All rights reserved." data-it="(c) 2026 Savoraapp. Tutti i diritti riservati.">(c) 2026 Savoraapp. Te gjitha te drejtat e rezervuara.</span>
 </footer>
 
 <script>
@@ -144,6 +150,35 @@
       document.querySelectorAll('.faq-item.active').forEach(function (el) { el.classList.remove('active'); });
       if (!isActive) item.classList.add('active');
     });
+  });
+
+  // ===== TAAL / LANGUAGE TOGGLE (SQ / EN / IT) =====
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('savora_lang', lang); } catch(e){}
+    var els = document.querySelectorAll('[data-en]');
+    for (var i=0;i<els.length;i++){
+      var el = els[i];
+      if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+      var val = el.getAttribute('data-sq');
+      if (lang==='en') val = el.getAttribute('data-en');
+      else if (lang==='it' && el.getAttribute('data-it') !== null) val = el.getAttribute('data-it');
+      el.innerHTML = val;
+    }
+    var lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+  }
+  function toggleLang(){
+    var cur = document.documentElement.lang;
+    if (cur!=='sq' && cur!=='en' && cur!=='it') cur = 'sq';
+    var next = (cur==='sq') ? 'en' : (cur==='en') ? 'it' : 'sq';
+    applyLang(next);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = 'sq';
+    try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+    if (saved!=='sq' && saved!=='en' && saved!=='it') saved = 'sq';
+    applyLang(saved);
   });
 </script>
 </body>

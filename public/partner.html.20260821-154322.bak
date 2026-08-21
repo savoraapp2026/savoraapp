@@ -50,13 +50,13 @@
           <span class="text-lg sm:text-xl font-bold tracking-tight text-sav-green">Savora<span class="text-emerald-300">app</span></span>
         </a>
         <div class="flex items-center gap-2 sm:gap-3">
-          <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-="">SQ</button>
-          <a href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn"><span data-en='Log in' data-it="Accedi">Hyr</span></a>
+          <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleLang()" id="langBtn" class="px-3 py-2 text-sm font-semibold text-sav-green hover:text-sav-greenD border border-sav-grayB rounded-xl transition-colors" data-cf-modified-76445a00c4b4d42382252849-="">EN</button>
+          <a href="partner-dashboard.html" class="hidden sm:block px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-sav-green to-emerald-500 hover:from-emerald-600 hover:to-emerald-700 rounded-xl shadow-lg shadow-emerald-200/50 transition-all" id="navLoginBtn"><span data-en='Log in'>Hyr</span></a>
           <div class="hidden items-center gap-2" id="userLoggedIn">
             <span class="text-sm font-semibold text-sav-green" id="userDisplayName"></span>
-            <button onclick="if (!window.__cfRLUnblockHandlers) return false; logoutUser()" class="text-xs text-sav-gray hover:text-sav-rose underline" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Log out' data-it="Esci">Dil</span></button>
+            <button onclick="if (!window.__cfRLUnblockHandlers) return false; logoutUser()" class="text-xs text-sav-gray hover:text-sav-rose underline" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Log out'>Dil</span></button>
           </div>
-          <a href="partner-dashboard.html?tab=register" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl"><span data-en='Become a partner' data-it="Diventa partner">Bëhu partner</span></a>
+          <a href="partner-dashboard.html?tab=register" class="btn-p px-4 sm:px-6 py-2 text-white text-sm font-semibold rounded-xl"><span data-en='Become a partner'>Bëhu partner</span></a>
           <button onclick="if (!window.__cfRLUnblockHandlers) return false; toggleMobileMenu()" class="lg:hidden p-2 text-sav-green hover:text-sav-greenD" data-cf-modified-76445a00c4b4d42382252849-="">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
@@ -71,8 +71,8 @@
     <div class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-2xl p-6 pt-20 transform transition-transform duration-300 translate-x-full" id="mobP">
       <button onclick="if (!window.__cfRLUnblockHandlers) return false; toggleMobileMenu()" class="absolute top-4 right-4 p-2 text-sav-gray hover:text-sav-dark" data-cf-modified-76445a00c4b4d42382252849-=""><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
       <nav class="flex flex-col gap-1">
-        <a href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayS rounded-xl"><span data-en='Home' data-it="Home">Kreu</span></a>
-        <a href="partner-dashboard.html?tab=register" class="btn-p text-center px-4 py-3 text-white font-semibold rounded-xl mt-2"><span data-en='Become a partner' data-it="Diventa partner">Bëhu partner</span></a>
+        <a href="index.html" class="px-4 py-3 text-sav-dark hover:bg-sav-grayS rounded-xl"><span data-en='Home'>Kreu</span></a>
+        <a href="partner-dashboard.html?tab=register" class="btn-p text-center px-4 py-3 text-white font-semibold rounded-xl mt-2"><span data-en='Become a partner'>Bëhu partner</span></a>
       </nav>
     </div>
   </div>
@@ -86,14 +86,14 @@
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div class="text-center lg:text-left">
           <h1 class="an-f text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight mb-5">
-            <span data-en='Earn extra revenue<br><span class="text-sav-green">from food you would<br>otherwise throw away</span>' data-it='Guadagna extra<br><span class="text-sav-green">dal cibo che altrimenti<br>butteresti via</span>'>Fitoni të ardhura shtesë<br><span class="text-sav-green">nga ushqimi që<br>do ta hidhnit</span></span>
+            <span data-en='Earn extra revenue<br><span class="text-sav-green">from food you would<br>otherwise throw away</span>'>Fitoni të ardhura shtesë<br><span class="text-sav-green">nga ushqimi që<br>do ta hidhnit</span></span>
           </h1>
           <p class="an-f delay-1 text-lg sm:text-xl text-sav-grayL/80 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
-            <span data-en='Fill empty capacity and attract new customers — risk-free' data-it="Riempi la capacità inutilizzata e attira nuovi clienti — senza rischi">Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik</span>
+            <span data-en='Fill empty capacity and attract new customers — risk-free'>Mbushni kapacitetin bosh dhe tërhiqni klientë të rinj — pa rrezik</span>
           </p>
           <div class="an-f delay-2 mb-10">
             <a href="#register" class="btn-p px-8 sm:px-10 py-4 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base sm:text-lg">
-              <span data-en='Become a partner' data-it="Diventa partner">Bëhu partner</span>
+              <span data-en='Become a partner'>Bëhu partner</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
           </div>
@@ -104,19 +104,19 @@
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
               </div>
-              <span class="font-semibold text-white">86+</span> <span><span data-en='active partners' data-it="partner attivi">partnerë aktivë</span></span>
+              <span class="font-semibold text-white">86+</span> <span><span data-en='active partners'>partnerë aktivë</span></span>
             </div>
             <div class="flex items-center gap-2 text-sav-grayL/90 text-sm">
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
-              <span class="font-semibold text-white">15.000–50.000 Lek</span> <span><span data-en='extra/week' data-it="extra/settimana">ekstra/javë</span></span>
+              <span class="font-semibold text-white">15.000–50.000 Lek</span> <span><span data-en='extra/week'>ekstra/javë</span></span>
             </div>
             <div class="flex items-center gap-2 text-sav-grayL/90 text-sm">
               <div class="w-8 h-8 rounded-lg bg-sav-green/20 flex items-center justify-center text-sav-green flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
-              <span class="font-semibold text-white">5 min</span> <span><span data-en='and you are live' data-it="e sei online">dhe je live</span></span>
+              <span class="font-semibold text-white">5 min</span> <span><span data-en='and you are live'>dhe je live</span></span>
             </div>
           </div>
         </div>
@@ -132,15 +132,15 @@
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sav-green to-emerald-300 flex items-center justify-center text-white shrink-0 text-lg">💰</div>
                 <div>
-                  <p class="text-sm font-semibold text-white">+35.000 Lek<span data-en='/week' data-it="/settimana">/javë</span></p>
-                  <p class="text-xs text-sav-grayL/70"><span data-en='avg. partner' data-it="partner medio">mes. partneri</span></p>
+                  <p class="text-sm font-semibold text-white">+35.000 Lek<span data-en='/week'>/javë</span></p>
+                  <p class="text-xs text-sav-grayL/70"><span data-en='avg. partner'>mes. partneri</span></p>
                 </div>
               </div>
             </div>
             <div class="glass-card absolute -top-3 -right-3 xl:-right-6 rounded-2xl p-3" style="animation:fl2 7s ease-in-out infinite 0.5s;">
               <div class="flex items-center gap-2">
                 <div class="w-7 h-7 rounded-full bg-sav-rose flex items-center justify-center text-white text-xs font-bold">+</div>
-                <span class="text-xs text-sav-grayL font-medium"><span data-en='86+ partners' data-it="86+ partner">86+ partnerë</span></span>
+                <span class="text-xs text-sav-grayL font-medium"><span data-en='86+ partners'>86+ partnerë</span></span>
               </div>
             </div>
           </div>
@@ -154,37 +154,37 @@
   <section class="py-14 sm:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-12">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Benefits' data-it="Vantaggi">Përfitimet</span></span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Why you will want this' data-it="Perché ti conviene">Pse ta zgjedhni</span></h2>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Benefits'>Përfitimet</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Why you will want this'>Pse ta zgjedhni</span></h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Extra revenue' data-it="Entrate extra">Të ardhura shtesë</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Sell what you would otherwise throw away. 15,000–50,000 Lek extra per week.' data-it="Vendi ciò che altrimenti butteresti via. 15.000–50.000 Lek extra a settimana.">Shisni atë që do ta hidhnit. 15.000–50.000 Lek ekstra në javë.</span></p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Extra revenue'>Të ardhura shtesë</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Sell what you would otherwise throw away. 15,000–50,000 Lek extra per week.'>Shisni atë që do ta hidhnit. 15.000–50.000 Lek ekstra në javë.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='New customers' data-it="Nuovi clienti">Klientë të rinj</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Bring new customers to your shop. Every week.' data-it="Porta nuovi clienti nel tuo negozio. Ogni settimana.">Tërhiqni klientë të rinj në dyqanin tuaj. Çdo javë.</span></p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='New customers'>Klientë të rinj</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Bring new customers to your shop. Every week.'>Tërhiqni klientë të rinj në dyqanin tuaj. Çdo javë.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='No fixed costs' data-it="Nessun costo fisso">Pa kosto fikse</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='You set prices and availability. No subscription.' data-it="Tu decidi prezzi e disponibilità. Nessun abbonamento.">Ju vendosni çmimet dhe disponueshmërinë. Pa abonim.</span></p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='No fixed costs'>Pa kosto fikse</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='You set prices and availability. No subscription.'>Ju vendosni çmimet dhe disponueshmërinë. Pa abonim.</span></p>
         </div>
         <div class="bg-sav-light rounded-2xl p-6 border border-sav-grayB/50 ch text-center">
           <div class="w-12 h-12 rounded-xl bg-sav-greenL flex items-center justify-center mb-4 mx-auto">
             <svg class="w-6 h-6 text-sav-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Less waste' data-it="Meno sprechi">Më pak mbetje</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Contribute to a more sustainable world. Good for your image.' data-it="Contribuisci a un mondo più sostenibile. Un vantaggio per la tua immagine.">Kontribuoni për një botë më të qëndrueshme. Mirë për imazhin tuaj.</span></p>
+          <h3 class="font-bold text-base text-sav-dark mb-2"><span data-en='Less waste'>Më pak mbetje</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Contribute to a more sustainable world. Good for your image.'>Kontribuoni për një botë më të qëndrueshme. Mirë për imazhin tuaj.</span></p>
         </div>
       </div>
     </div>
@@ -194,31 +194,31 @@
   <section id="flow" class="py-14 sm:py-20 bg-sav-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-12">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='How it works' data-it="Come funziona">Si funksionon</span></span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='How it works' data-it="Come funziona">Si funksionon</span></h2>
-        <p class="text-sav-gray max-w-md mx-auto"><span data-en='Fast, simple, hassle-free' data-it="Veloce, semplice, senza pensieri">Shpejt, thjesht, pa siklet</span></p>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='How it works'>Si funksionon</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='How it works'>Si funksionon</span></h2>
+        <p class="text-sav-gray max-w-md mx-auto"><span data-en='Fast, simple, hassle-free'>Shpejt, thjesht, pa siklet</span></p>
       </div>
       <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
           <div class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
-          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='Post your deals <span class="text-sav-green">(2 min)</span>' data-it='Pubblica le tue offerte <span class="text-sav-green">(2 min)</span>'>Publikoni ofertat <span class="text-sav-green">(2 min)</span></span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Create a surprise box with your surplus in 2 minutes.' data-it="Crea una scatola sorpresa con le tue eccedenze in 2 minuti.">Krijoni në 2 minuta një kuti surprizë me tepricën tuaj.</span></p>
+          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='Post your deals <span class="text-sav-green">(2 min)</span>'>Publikoni ofertat <span class="text-sav-green">(2 min)</span></span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Create a surprise box with your surplus in 2 minutes.'>Krijoni në 2 minuta një kuti surprizë me tepricën tuaj.</span></p>
         </div>
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
           <div class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
-          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='Customers reserve <span class="text-sav-green">instantly</span>' data-it='I clienti prenotano <span class="text-sav-green">all'istante</span>'>Klientët rezervojnë <span class="text-sav-green">menjëherë</span></span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Customers see your deal and reserve instantly via the app.' data-it="I clienti vedono la tua offerta e prenotano subito tramite l'app.">Klientët shohin ofertën dhe rezervojnë menjëherë përmes aplikacionit.</span></p>
+          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='Customers reserve <span class="text-sav-green">instantly</span>'>Klientët rezervojnë <span class="text-sav-green">menjëherë</span></span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Customers see your deal and reserve instantly via the app.'>Klientët shohin ofertën dhe rezervojnë menjëherë përmes aplikacionit.</span></p>
         </div>
         <div class="bg-white rounded-2xl p-6 sm:p-8 border border-sav-grayB/50 ch text-center">
           <div class="w-14 h-14 rounded-full bg-sav-green text-white flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
-          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='They pick up & <span class="text-sav-green">pay</span>' data-it='Ritirano & <span class="text-sav-green">pagano</span>'>Ata e marrin & <span class="text-sav-green">paguajnë</span></span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Customers pick up at the agreed time — you get the revenue.' data-it="I clienti ritirano all'orario concordato — tu incassi.">Klientët e marrin në kohën e caktuar — ju merrni të ardhurat.</span></p>
+          <h3 class="font-bold text-lg text-sav-dark mb-2"><span data-en='They pick up & <span class="text-sav-green">pay</span>'>Ata e marrin & <span class="text-sav-green">paguajnë</span></span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Customers pick up at the agreed time — you get the revenue.'>Klientët e marrin në kohën e caktuar — ju merrni të ardhurat.</span></p>
         </div>
       </div>
       <!-- CTA -->
       <div class="text-center mt-10">
         <a href="#register" class="btn-p px-8 py-3.5 text-white font-semibold rounded-xl inline-flex items-center justify-center gap-2 text-base">
-          <span data-en='Become a partner' data-it="Diventa partner">Bëhu partner</span>
+          <span data-en='Become a partner'>Bëhu partner</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
         </a>
       </div>
@@ -229,9 +229,9 @@
   <section class="py-14 sm:py-20 bg-sav-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-10">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Map' data-it="Mappa">Harta</span></span>
-        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Where we are active' data-it="Dove siamo attivi">Ku jemi aktivë</span></h2>
-        <p class="text-sav-gray max-w-md mx-auto"><span data-en='See our partners on the map. Click a marker for more information.' data-it="Guarda i nostri partner sulla mappa. Clicca su un indicatore per maggiori informazioni.">Shikoni partnerët tanë në hartë. Klikoni një shënues për më shumë informacion.</span></p>
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-sav-greenL text-sav-greenD mb-4"><span data-en='Map'>Harta</span></span>
+        <h2 class="text-2xl sm:text-4xl font-bold text-sav-dark tracking-tight mb-3"><span data-en='Where we are active'>Ku jemi aktivë</span></h2>
+        <p class="text-sav-gray max-w-md mx-auto"><span data-en='See our partners on the map. Click a marker for more information.'>Shikoni partnerët tanë në hartë. Klikoni një shënues për më shumë informacion.</span></p>
       </div>
       <div class="rounded-2xl overflow-hidden border border-sav-grayB/50 shadow-lg" style="height: 400px;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23970.5!2d19.456!3d41.323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fda3e6c02e9c3%3A0x5e2e2c0f2e0e0e0e!2sDurr%C3%ABs%2C%20Albani%C3%AB!5e0!3m2!1snl!2snl!4v1699900000000!5m2!1snl!2snl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -239,11 +239,11 @@
       <div class="flex flex-wrap justify-center gap-3 mt-6">
         <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-greenL rounded-full text-xs font-semibold text-sav-greenD">
           <span class="w-2 h-2 rounded-full bg-sav-green"></span>
-          <span data-en='Active: Durrës' data-it="Attivo: Durrës">Aktiv: Durrës</span>
+          <span data-en='Active: Durrës'>Aktiv: Durrës</span>
         </span>
         <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-sav-grayS rounded-full text-xs font-semibold text-sav-gray">
           <span class="w-2 h-2 rounded-full bg-sav-gray"></span>
-          <span data-en='Coming soon: Tiranë, Vlorë, Shkodër' data-it="Prossimamente: Tiranë, Vlorë, Shkodër">Së shpejti: Tiranë, Vlorë, Shkodër</span>
+          <span data-en='Coming soon: Tiranë, Vlorë, Shkodër'>Së shpejti: Tiranë, Vlorë, Shkodër</span>
         </span>
       </div>
     </div>
@@ -257,38 +257,38 @@
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
         <div class="text-center">
           <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">86+</p>
-          <p class="text-sm text-sav-grayL mt-1"><span data-en='active partners' data-it="partner attivi">partnerë aktivë</span></p>
+          <p class="text-sm text-sav-grayL mt-1"><span data-en='active partners'>partnerë aktivë</span></p>
         </div>
         <div class="text-center">
           <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">15.000–50.000 Lek</p>
-          <p class="text-sm text-sav-grayL mt-1"><span data-en='extra revenue per week' data-it="entrate extra a settimana">të ardhura shtesë në javë</span></p>
+          <p class="text-sm text-sav-grayL mt-1"><span data-en='extra revenue per week'>të ardhura shtesë në javë</span></p>
         </div>
         <div class="text-center">
           <p class="text-3xl sm:text-4xl font-extrabold text-sav-green">5 min</p>
-          <p class="text-sm text-sav-grayL mt-1"><span data-en='and you are live' data-it="e sei online">dhe je live</span></p>
+          <p class="text-sm text-sav-grayL mt-1"><span data-en='and you are live'>dhe je live</span></p>
         </div>
       </div>
-      <h3 class="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-10"><span data-en='What our partners say' data-it="Cosa dicono i nostri partner">Çfarë thonë partnerët tanë</span></h3>
+      <h3 class="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-10"><span data-en='What our partners say'>Çfarë thonë partnerët tanë</span></h3>
       <div class="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
         <div class="glass-card rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-full bg-sav-green flex items-center justify-center text-white font-bold text-sm">AB</div>
             <div>
               <p class="font-semibold text-sm text-white">Ana B.</p>
-              <p class="text-xs text-sav-grayL"><span data-en='Bakery "Ana"' data-it='Panetteria "Ana"'>Furrë "Ana"</span></p>
+              <p class="text-xs text-sav-grayL"><span data-en='Bakery "Ana"'>Furrë "Ana"</span></p>
             </div>
           </div>
-          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Savoraapp helped us sell our surplus bread every evening. We waste far less food now."' data-it='"Savoraapp ci ha aiutato a vendere il pane in eccedenza ogni sera. Ora sprechiamo molto meno cibo."'>"Savoraapp na ndihmoi të shesim tepricën e bukës çdo mbrëmje. Tani hedhim shumë më pak ushqim."</span></p>
+          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Savoraapp helped us sell our surplus bread every evening. We waste far less food now."'>"Savoraapp na ndihmoi të shesim tepricën e bukës çdo mbrëmje. Tani hedhim shumë më pak ushqim."</span></p>
         </div>
         <div class="glass-card rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-full bg-sav-sky flex items-center justify-center text-white font-bold text-sm">MK</div>
             <div>
               <p class="font-semibold text-sm text-white">Mark K.</p>
-              <p class="text-xs text-sav-grayL"><span data-en='Supermarket "Kruja"' data-it='Supermercato "Kruja"'>Supermarket "Kruja"</span></p>
+              <p class="text-xs text-sav-grayL"><span data-en='Supermarket "Kruja"'>Supermarket "Kruja"</span></p>
             </div>
           </div>
-          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Sign-up was quick and we got our first orders on day one. I recommend it."' data-it='"La registrazione è stata veloce e abbiamo ricevuto i primi ordini già il primo giorno. Lo consiglio."'>"Regjistrimi ishte i shpejtë dhe morëm porositë e para që ditën e parë. E rekomandoj."</span></p>
+          <p class="text-sm text-sav-grayL italic leading-relaxed"><span data-en='"Sign-up was quick and we got our first orders on day one. I recommend it."'>"Regjistrimi ishte i shpejtë dhe morëm porositë e para që ditën e parë. E rekomandoj."</span></p>
         </div>
       </div>
     </div>
@@ -297,47 +297,47 @@
   <!-- ========== CTA + FORM ========== -->
   <section id="register" class="py-14 sm:py-20" style="background:linear-gradient(135deg,#10B981,#059669);">
     <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2"><span data-en='Become a partner now' data-it="Diventa partner ora">Bëhu partner tani</span></h2>
-      <p class="text-white/75 mb-6 sm:mb-8 text-sm sm:text-base"><span data-en='Instant access to your dashboard after verification' data-it="Accesso immediato alla tua dashboard dopo la verifica">Qasje e menjëhershme në panelin tuaj pas verifikimit</span></p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2"><span data-en='Become a partner now'>Bëhu partner tani</span></h2>
+      <p class="text-white/75 mb-6 sm:mb-8 text-sm sm:text-base"><span data-en='Instant access to your dashboard after verification'>Qasje e menjëhershme në panelin tuaj pas verifikimit</span></p>
 
       <!-- Urgency -->
       <div class="flex flex-wrap justify-center gap-3 mb-8">
         <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
           <span class="w-1.5 h-1.5 rounded-full bg-sav-yellow animate-pulse"></span>
-          <span data-en='Limited number of partners per city' data-it="Numero limitato di partner per città">Numër i kufizuar partnerësh për qytet</span>
+          <span data-en='Limited number of partners per city'>Numër i kufizuar partnerësh për qytet</span>
         </span>
         <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/15 text-white rounded-full text-xs font-semibold border border-white/20">
-          <span data-en='Early partners get an advantage' data-it="I primi partner hanno un vantaggio">Partnerët e hershëm përfitojnë</span>
+          <span data-en='Early partners get an advantage'>Partnerët e hershëm përfitojnë</span>
         </span>
       </div>
 
       <!-- Stap 1: Aanmeldformulier -->
       <form id="partnerForm" class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left" onsubmit="if (!window.__cfRLUnblockHandlers) return false; handlePartnerForm(event)" novalidate data-cf-modified-76445a00c4b4d42382252849-="">
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Business name' data-it="Nome dell'attività">Emri i biznesit</span></label>
-          <input type="text" id="pfBusiness" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. Furra Ana" data-en-ph='e.g. Bakery Ana' data-it-ph="es. Panetteria Ana">
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Business name'>Emri i biznesit</span></label>
+          <input type="text" id="pfBusiness" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. Furra Ana" data-en-ph='e.g. Bakery Ana'>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Phone or email' data-it="Telefono o email">Telefon ose email</span></label>
-          <input type="text" id="pfContact" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="+355 69 123 4567 ose info@biznes.com" data-en-ph='+355 69 123 4567 or info@business.com' data-it-ph="+355 69 123 4567 o info@business.com">
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Phone or email'>Telefon ose email</span></label>
+          <input type="text" id="pfContact" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="+355 69 123 4567 ose info@biznes.com" data-en-ph='+355 69 123 4567 or info@business.com'>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Password <span class="text-sav-rose">*</span>' data-it='Password <span class="text-sav-rose">*</span>'>Fjalëkalimi <span class="text-sav-rose">*</span></span></label>
-          <input type="password" id="pfPassword" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Të paktën 6 karaktere" data-en-ph='At least 6 characters' data-it-ph="Almeno 6 caratteri">
-          <p class="text-xs text-sav-gray mt-1"><span data-en='At least 6 characters. You will use this password to log in to your dashboard.' data-it="Almeno 6 caratteri. Userai questa password per accedere alla tua dashboard.">Të paktën 6 karaktere. Këtë fjalëkalim e përdorni për t'u kyçur në panelin tuaj.</span></p>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Password <span class="text-sav-rose">*</span>'>Fjalëkalimi <span class="text-sav-rose">*</span></span></label>
+          <input type="password" id="pfPassword" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="Të paktën 6 karaktere" data-en-ph='At least 6 characters'>
+          <p class="text-xs text-sav-gray mt-1"><span data-en='At least 6 characters. You will use this password to log in to your dashboard.'>Të paktën 6 karaktere. Këtë fjalëkalim e përdorni për t'u kyçur në panelin tuaj.</span></p>
         </div>
         <div class="mb-4">
           <label class="block text-sm font-medium text-sav-dark mb-1.5">
-            <span data-en='Chamber of Commerce Number (NIPT)' data-it="Numero Camera di Commercio (NIPT)">Numri i Dhomës së Tregtisë (NIPT)</span>
+            <span data-en='Chamber of Commerce Number (NIPT)'>Numri i Dhomës së Tregtisë (NIPT)</span>
             <span class="text-sav-rose">*</span>
           </label>
-          <input type="text" id="pfNipt" maxlength="20" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. L 12345678 A" data-en-ph='e.g. L 12345678 A' data-it-ph="es. L 12345678 A">
-          <p class="text-xs text-sav-gray mt-1"><span data-en='Required — your chamber of commerce registration number.' data-it="Obbligatorio — il tuo numero di registrazione camerale.">I detyrueshëm — numri i regjistrimit në dhomën e tregtisë.</span></p>
+          <input type="text" id="pfNipt" maxlength="20" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="P.sh. L 12345678 A" data-en-ph='e.g. L 12345678 A'>
+          <p class="text-xs text-sav-gray mt-1"><span data-en='Required — your chamber of commerce registration number.'>I detyrueshëm — numri i regjistrimit në dhomën e tregtisë.</span></p>
         </div>
         <div class="mb-6">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='City' data-it="Città">Qyteti</span></label>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='City'>Qyteti</span></label>
           <select id="pfCity" required class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors bg-white">
-            <option value="" data-en-opt='Choose a city' data-it-opt="Scegli una città">Zgjidhni një qytet</option>
+            <option value="" data-en-opt='Choose a city'>Zgjidhni një qytet</option>
             <option value="Berat">Berat</option>
             <option value="Durrës">Durrës</option>
             <option value="Elbasan">Elbasan</option>
@@ -354,8 +354,8 @@
             <option value="Vlorë">Vlorë</option>
           </select>
         </div>
-        <button type="submit" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base"><span data-en='Become a partner' data-it="Diventa partner">Bëhu partner</span></button>
-        <p class="text-xs text-sav-green text-center mt-4 font-medium"><span data-en='Instant access — no waiting.' data-it="Accesso immediato — nessuna attesa.">Qasje e menjëhershme — pa pritje.</span></p>
+        <button type="submit" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base"><span data-en='Become a partner'>Bëhu partner</span></button>
+        <p class="text-xs text-sav-green text-center mt-4 font-medium"><span data-en='Instant access — no waiting.'>Qasje e menjëhershme — pa pritje.</span></p>
       </form>
 
       <!-- Stap 2: Verificatiecode invoeren -->
@@ -364,17 +364,17 @@
           <div class="w-14 h-14 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
             <svg class="w-7 h-7 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
-          <h3 class="text-lg font-bold text-sav-dark mb-2"><span data-en='Check your email' data-it="Controlla la tua email">Kontrolloni emailin tuaj</span></h3>
-          <p class="text-sm text-sav-gray mb-4"><span data-en='We have sent a 6-digit verification code to your email. Enter it below.' data-it="Ti abbiamo inviato un codice di verifica a 6 cifre via email. Inseriscilo qui sotto.">Ju dërguam një kod verifikimi 6-shifror në emailin tuaj. Vendoseni më poshtë.</span></p>
-          <button onclick="if (!window.__cfRLUnblockHandlers) return false; sendEmailWithCode()" id="resendEmailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Resend code' data-it="Invia di nuovo il codice">Dërgo kodin sërish</span></button>
+          <h3 class="text-lg font-bold text-sav-dark mb-2"><span data-en='Check your email'>Kontrolloni emailin tuaj</span></h3>
+          <p class="text-sm text-sav-gray mb-4"><span data-en='We have sent a 6-digit verification code to your email. Enter it below.'>Ju dërguam një kod verifikimi 6-shifror në emailin tuaj. Vendoseni më poshtë.</span></p>
+          <button onclick="if (!window.__cfRLUnblockHandlers) return false; sendEmailWithCode()" id="resendEmailBtn" class="text-sm text-sav-green hover:text-sav-greenD underline mb-4" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Resend code'>Dërgo kodin sërish</span></button>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Enter the 6-digit code' data-it="Inserisci il codice a 6 cifre">Vendosni kodin 6-shifror</span></label>
+          <label class="block text-sm font-medium text-sav-dark mb-1.5"><span data-en='Enter the 6-digit code'>Vendosni kodin 6-shifror</span></label>
           <input type="text" id="verifyCodeInput" maxlength="6" class="w-full border border-sav-grayB rounded-xl px-4 py-3 text-sm text-center tracking-[0.5em] font-bold focus:outline-none focus:border-sav-green focus:ring-2 focus:ring-sav-green/20 transition-colors" placeholder="000000">
         </div>
-        <button onclick="if (!window.__cfRLUnblockHandlers) return false; verifyCode()" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base mb-3" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Verify' data-it="Verifica">Verifiko</span></button>
-        <button onclick="if (!window.__cfRLUnblockHandlers) return false; resendCode()" class="w-full text-sav-gray text-sm hover:text-sav-green transition" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Generate new code' data-it="Genera nuovo codice">Gjenero kod të ri</span></button>
-        <p id="verifyError" class="hidden mt-3 text-center text-sm text-sav-rose"><span data-en='Invalid code. Try again.' data-it="Codice non valido. Riprova.">Kod i pavlefshëm. Provoni sërish.</span></p>
+        <button onclick="if (!window.__cfRLUnblockHandlers) return false; verifyCode()" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base mb-3" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Verify'>Verifiko</span></button>
+        <button onclick="if (!window.__cfRLUnblockHandlers) return false; resendCode()" class="w-full text-sav-gray text-sm hover:text-sav-green transition" data-cf-modified-76445a00c4b4d42382252849-=""><span data-en='Generate new code'>Gjenero kod të ri</span></button>
+        <p id="verifyError" class="hidden mt-3 text-center text-sm text-sav-rose"><span data-en='Invalid code. Try again.'>Kod i pavlefshëm. Provoni sërish.</span></p>
       </div>
 
       <!-- Stap 3: Succes → Partner Portaal -->
@@ -383,46 +383,46 @@
           <div class="w-16 h-16 rounded-full bg-sav-greenL flex items-center justify-center mx-auto mb-4">
             <svg class="w-8 h-8 text-sav-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-sav-dark mb-2"><span data-en='Welcome, partner!' data-it="Benvenuto, partner!">Mirë se vini, partner!</span></h3>
-          <p class="text-sm text-sav-gray"><span data-en='Your account is active. Choose below what you would like to do.' data-it="Il tuo account è attivo. Scegli qui sotto cosa vuoi fare.">Llogaria juaj është aktive. Zgjidhni më poshtë çfarë doni të bëni.</span></p>
+          <h3 class="text-xl font-bold text-sav-dark mb-2"><span data-en='Welcome, partner!'>Mirë se vini, partner!</span></h3>
+          <p class="text-sm text-sav-gray"><span data-en='Your account is active. Choose below what you would like to do.'>Llogaria juaj është aktive. Zgjidhni më poshtë çfarë doni të bëni.</span></p>
         </div>
 
         <!-- Direct naar dashboard -->
         <a href="partner-dashboard.html" class="block w-full text-center bg-sav-green hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl transition-all mb-6 shadow-lg shadow-emerald-200">
-          <span data-en='Go to Partner Dashboard &rarr;' data-it="Vai alla Dashboard Partner &rarr;">Shko te paneli i partnerit &rarr;</span>
+          <span data-en='Go to Partner Dashboard &rarr;'>Shko te paneli i partnerit &rarr;</span>
         </a>
 
         <!-- Credits pakketten -->
-        <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='1. Buy credits' data-it="1. Acquista crediti">1. Blej kredite</span></h4>
+        <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='1. Buy credits'>1. Blej kredite</span></h4>
         <div class="grid grid-cols-3 gap-3 mb-6">
           <div class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('basic')" data-cf-modified-76445a00c4b4d42382252849-="">
             <p class="text-lg font-bold text-sav-green">500 Lek</p>
-            <p class="text-xs text-sav-gray"><span data-en='25 credits' data-it="25 crediti">25 kredite</span></p>
+            <p class="text-xs text-sav-gray"><span data-en='25 credits'>25 kredite</span></p>
             <p class="text-xs text-sav-grayL">20 Lek/spot</p>
           </div>
           <div class="border-2 border-sav-green rounded-xl p-3 text-center ch relative" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('popular')" data-cf-modified-76445a00c4b4d42382252849-="">
-            <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-sav-green text-white text-[10px] font-bold px-2 py-0.5 rounded-full"><span data-en='Popular' data-it="Popolare">Popullor</span></span>
+            <span class="absolute -top-2 left-1/2 -translate-x-1/2 bg-sav-green text-white text-[10px] font-bold px-2 py-0.5 rounded-full"><span data-en='Popular'>Popullor</span></span>
             <p class="text-lg font-bold text-sav-green">1.000 Lek</p>
-            <p class="text-xs text-sav-gray"><span data-en='60 credits' data-it="60 crediti">60 kredite</span></p>
+            <p class="text-xs text-sav-gray"><span data-en='60 credits'>60 kredite</span></p>
             <p class="text-xs text-sav-grayL">17 Lek/spot</p>
           </div>
           <div class="border border-sav-grayB rounded-xl p-3 text-center ch" style="cursor:pointer" onclick="if (!window.__cfRLUnblockHandlers) return false; selectCredits('pro')" data-cf-modified-76445a00c4b4d42382252849-="">
             <p class="text-lg font-bold text-sav-green">2.000 Lek</p>
-            <p class="text-xs text-sav-gray"><span data-en='140 credits' data-it="140 crediti">140 kredite</span></p>
+            <p class="text-xs text-sav-gray"><span data-en='140 credits'>140 kredite</span></p>
             <p class="text-xs text-sav-grayL">14 Lek/spot</p>
           </div>
         </div>
 
         <!-- Snelle acties -->
-        <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='2. Place an ad' data-it="2. Pubblica un annuncio">2. Vendos reklamë</span></h4>
+        <h4 class="text-sm font-semibold text-sav-dark mb-3"><span data-en='2. Place an ad'>2. Vendos reklamë</span></h4>
         <div class="space-y-3 mb-6">
           <a href="partner-dashboard.html" class="flex items-center gap-4 p-4 bg-sav-light rounded-xl border border-sav-grayB hover:border-sav-green transition ch">
             <div class="w-10 h-10 rounded-lg bg-sav-greenL flex items-center justify-center text-sav-green shrink-0">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
             </div>
             <div class="flex-1">
-              <p class="text-sm font-semibold text-sav-dark"><span data-en='Create a new deal' data-it="Crea una nuova offerta">Krijo ofertë të re</span></p>
-              <p class="text-xs text-sav-gray"><span data-en='Create a surprise box with your surplus' data-it="Crea una scatola sorpresa con le tue eccedenze">Krijo një kuti surprizë me tepricën tënde</span></p>
+              <p class="text-sm font-semibold text-sav-dark"><span data-en='Create a new deal'>Krijo ofertë të re</span></p>
+              <p class="text-xs text-sav-gray"><span data-en='Create a surprise box with your surplus'>Krijo një kuti surprizë me tepricën tënde</span></p>
             </div>
             <svg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
@@ -431,14 +431,14 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
             </div>
             <div class="flex-1">
-              <p class="text-sm font-semibold text-sav-dark"><span data-en='My overview' data-it="La mia panoramica">Përmbledhja ime</span></p>
-              <p class="text-xs text-sav-gray"><span data-en='View stats and active deals' data-it="Visualizza statistiche e offerte attive">Shiko statistikat dhe ofertat aktive</span></p>
+              <p class="text-sm font-semibold text-sav-dark"><span data-en='My overview'>Përmbledhja ime</span></p>
+              <p class="text-xs text-sav-gray"><span data-en='View stats and active deals'>Shiko statistikat dhe ofertat aktive</span></p>
             </div>
             <svg class="w-5 h-5 text-sav-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
         </div>
 
-        <a href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block"><span data-en='Go to full partner portal' data-it="Vai al portale completo del partner">Shko te portali i plotë i partnerit</span></a>
+        <a href="partner-dashboard.html" class="btn-p w-full text-white font-semibold px-6 py-3.5 rounded-xl text-center text-base inline-block"><span data-en='Go to full partner portal'>Shko te portali i plotë i partnerit</span></a>
       </div>
     </div>
   </section>
@@ -452,34 +452,34 @@
             <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold" style="background:linear-gradient(135deg,#10B981,#34D399);">S</div>
             <span class="text-lg font-bold text-sav-green">Savora<span class="text-emerald-300">app</span></span>
           </div>
-          <p class="text-sm text-sav-gray leading-relaxed mb-5"><span data-en='Save food, save money. The #1 platform in Albania for surplus food boxes.' data-it="Salva cibo, risparmia denaro. La piattaforma #1 in Albania per le scatole di cibo in eccedenza.">Shpëto ushqimin, kurse para. Platforma #1 në Shqipëri për paketat e ushqimit të mbetur.</span></p>
+          <p class="text-sm text-sav-gray leading-relaxed mb-5"><span data-en='Save food, save money. The #1 platform in Albania for surplus food boxes.'>Shpëto ushqimin, kurse para. Platforma #1 në Shqipëri për paketat e ushqimit të mbetur.</span></p>
         </div>
         <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Product' data-it="Prodotto">Produkti</span></h4>
+          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Product'>Produkti</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="index.html" class="hover:text-sav-green transition"><span data-en='Home' data-it="Home">Kreu</span></a></li>
-            <li><a href="#register" class="hover:text-sav-green transition"><span data-en='Become a partner' data-it="Diventa partner">Bëhu partner</span></a></li>
+            <li><a href="index.html" class="hover:text-sav-green transition"><span data-en='Home'>Kreu</span></a></li>
+            <li><a href="#register" class="hover:text-sav-green transition"><span data-en='Become a partner'>Bëhu partner</span></a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Company' data-it="Azienda">Kompania</span></h4>
+          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Company'>Kompania</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
             <li><a href="faq.html" class="hover:text-sav-green transition">FAQ</a></li>
-            <li><a href="#flow" class="hover:text-sav-green transition"><span data-en='How it works' data-it="Come funziona">Si funksionon</span></a></li>
+            <li><a href="#flow" class="hover:text-sav-green transition"><span data-en='How it works'>Si funksionon</span></a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Legal' data-it="Legale">Ligjore</span></h4>
+          <h4 class="font-semibold text-sm mb-4 text-white/90"><span data-en='Legal'>Ligjore</span></h4>
           <ul class="space-y-2.5 text-sm text-sav-gray">
-            <li><a href="privacy-policy.html" class="hover:text-sav-green transition"><span data-en='Privacy' data-it="Privacy">Privatësia</span></a></li>
-            <li><a href="terms-of-service.html" class="hover:text-sav-green transition"><span data-en='Terms' data-it="Termini">Kushtet</span></a></li>
-        <li><a href="cookie-policy.html" class="hover:text-sav-green transition"><span data-en='Cookies' data-it="Cookie">Cookies</span></a></li>
+            <li><a href="privacy-policy.html" class="hover:text-sav-green transition"><span data-en='Privacy'>Privatësia</span></a></li>
+            <li><a href="terms-of-service.html" class="hover:text-sav-green transition"><span data-en='Terms'>Kushtet</span></a></li>
+        <li><a href="cookie-policy.html" class="hover:text-sav-green transition"><span data-en='Cookies'>Cookies</span></a></li>
           </ul>
         </div>
       </div>
       <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-sav-gray"><span data-en='&copy; 2026 Savoraapp. All rights reserved.' data-it="&copy; 2026 Savoraapp. Tutti i diritti riservati.">&copy; 2026 Savoraapp. Të gjitha të drejtat e rezervuara.</span></p>
-        <p class="text-xs text-sav-gray/60"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87f4f2f7f7e8f5f3c7f4e6f1e8f5e6e6f7f7a9e4e8ea">[email&#160;protected]</a> | <span data-en='We reply within 5 business days.' data-it="Rispondiamo entro 5 giorni lavorativi.">Përgjigjemi brenda 5 ditësh pune.</span></p>
+        <p class="text-xs text-sav-gray"><span data-en='&copy; 2026 Savoraapp. All rights reserved.'>&copy; 2026 Savoraapp. Të gjitha të drejtat e rezervuara.</span></p>
+        <p class="text-xs text-sav-gray/60"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="87f4f2f7f7e8f5f3c7f4e6f1e8f5e6e6f7f7a9e4e8ea">[email&#160;protected]</a> | <span data-en='We reply within 5 business days.'>Përgjigjemi brenda 5 ditësh pune.</span></p>
       </div>
     </div>
   </footer>
@@ -818,43 +818,31 @@
       for (var i=0;i<els.length;i++){
         var el = els[i];
         if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
-        var val = el.getAttribute('data-sq');
-        if (lang==='en') val = el.getAttribute('data-en');
-        else if (lang==='it' && el.getAttribute('data-it') !== null) val = el.getAttribute('data-it');
-        el.innerHTML = val;
+        el.innerHTML = (lang==='en') ? el.getAttribute('data-en') : el.getAttribute('data-sq');
       }
       var phs = document.querySelectorAll('[data-en-ph]');
       for (var j=0;j<phs.length;j++){
         var pe = phs[j];
         if (pe.getAttribute('data-sq-ph') === null) pe.setAttribute('data-sq-ph', pe.getAttribute('placeholder')||'');
-        var pval = pe.getAttribute('data-sq-ph');
-        if (lang==='en') pval = pe.getAttribute('data-en-ph');
-        else if (lang==='it' && pe.getAttribute('data-it-ph') !== null) pval = pe.getAttribute('data-it-ph');
-        pe.setAttribute('placeholder', pval);
+        pe.setAttribute('placeholder', (lang==='en') ? pe.getAttribute('data-en-ph') : pe.getAttribute('data-sq-ph'));
       }
       var ops = document.querySelectorAll('[data-en-opt]');
       for (var k=0;k<ops.length;k++){
         var oe = ops[k];
         if (oe.getAttribute('data-sq-opt') === null) oe.setAttribute('data-sq-opt', oe.textContent);
-        var oval = oe.getAttribute('data-sq-opt');
-        if (lang==='en') oval = oe.getAttribute('data-en-opt');
-        else if (lang==='it' && oe.getAttribute('data-it-opt') !== null) oval = oe.getAttribute('data-it-opt');
-        oe.textContent = oval;
+        oe.textContent = (lang==='en') ? oe.getAttribute('data-en-opt') : oe.getAttribute('data-sq-opt');
       }
       var lb = document.getElementById('langBtn');
-      if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+      if (lb) lb.textContent = (lang==='en') ? 'SQ' : 'EN';
     }
     function toggleLang(){
-      var cur = document.documentElement.lang;
-      if (cur!=='sq' && cur!=='en' && cur!=='it') cur = 'sq';
-      var next = (cur==='sq') ? 'en' : (cur==='en') ? 'it' : 'sq';
-      applyLang(next);
+      var cur = (document.documentElement.lang==='en') ? 'en' : 'sq';
+      applyLang(cur==='en' ? 'sq' : 'en');
     }
     document.addEventListener('DOMContentLoaded', function(){
       var saved = 'sq';
       try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
-      if (saved!=='sq' && saved!=='en' && saved!=='it') saved = 'sq';
-      applyLang(saved);
+      applyLang(saved==='en' ? 'en' : 'sq');
     });
   </script>
 <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="76445a00c4b4d42382252849-|49" defer></script></body>

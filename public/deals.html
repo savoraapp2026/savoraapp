@@ -26,6 +26,9 @@
   .brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--green),var(--greenD));display:grid;place-items:center;color:#fff;font-size:1rem}
   .back{font-size:.9rem;font-weight:600;color:var(--gray);padding:8px 14px;border-radius:9px}
   .back:hover{background:var(--grayS);color:var(--dark)}
+  .header-right{display:flex;align-items:center;gap:8px}
+  .lang-btn-simple{padding:6px 12px;font-size:.85rem;font-weight:700;color:var(--greenD);border:1.5px solid var(--grayB);border-radius:9px;background:#fff;cursor:pointer;font-family:inherit}
+  .lang-btn-simple:hover{border-color:var(--green)}
 
   /* Hero */
   .hero{max-width:1120px;margin:0 auto;padding:40px 20px 8px}
@@ -106,18 +109,21 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="/index.html"><span class="dot">S</span> Savora</a>
-      <a class="back" href="/index.html">← Kreu</a>
+      <div class="header-right">
+        <a class="back" href="/index.html" data-en="&larr; Home" data-it="&larr; Home">&larr; Kreu</a>
+        <button type="button" onclick="toggleLang()" id="langBtn" class="lang-btn-simple">SQ</button>
+      </div>
     </div>
   </header>
 
   <section class="hero">
-    <span class="eyebrow">🥗 Ushqim i freskët, çmim i ulët</span>
-    <h1>Ofertat e sotme</h1>
-    <p>Produkte të freskëta nga bizneset pranë teje, me zbritje. Zgjidh një ofertë para se të mbarojë.</p>
+    <span class="eyebrow" data-en="&#127814; Fresh food, low prices" data-it="&#127814; Cibo fresco, prezzi bassi">🥗 Ushqim i freskët, çmim i ulët</span>
+    <h1 data-en="Today's Deals" data-it="Le offerte di oggi">Ofertat e sotme</h1>
+    <p data-en="Fresh products from businesses near you, at a discount. Pick a deal before it's gone." data-it="Prodotti freschi dalle attivit&agrave; vicino a te, scontati. Scegli un'offerta prima che finisca.">Produkte të freskëta nga bizneset pranë teje, me zbritje. Zgjidh një ofertë para se të mbarojë.</p>
   </section>
 
   <section id="promoSection" style="display:none;max-width:1100px;margin:0 auto;padding:0 20px">
-    <h2 style="font-size:1.1rem;font-weight:800;color:#92400e;display:flex;align-items:center;gap:8px;margin:18px 0 12px">⭐ Oferta të Promovuara</h2>
+    <h2 style="font-size:1.1rem;font-weight:800;color:#92400e;display:flex;align-items:center;gap:8px;margin:18px 0 12px" data-en="&#11088; Featured Deals" data-it="&#11088; Offerte in Evidenza">⭐ Oferta të Promovuara</h2>
     <div id="promoGrid" class="grid"></div>
   </section>
 
@@ -128,36 +134,53 @@
   <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal" id="modalBox">
       <div id="modalForm">
-        <h3 id="modalTitle">E dua këtë ofertë</h3>
-        <p class="sub">Lër të dhënat e tua dhe biznesi do të kontaktojë me ty.</p>
+        <h3 id="modalTitle" data-en="I want this deal" data-it="Voglio questa offerta">E dua këtë ofertë</h3>
+        <p class="sub" data-en="Leave your details and the business will contact you." data-it="Lascia i tuoi dati e l'attivit&agrave; ti contatter&agrave;.">Lër të dhënat e tua dhe biznesi do të kontaktojë me ty.</p>
         <div class="deal-chip" id="modalDeal">—</div>
-        <p style="background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-size:.85rem;padding:9px 12px;border-radius:10px;margin-bottom:16px;">💵 Pagesa bëhet me para në dorë kur merrni produktin te biznesi. Nuk kërkohet pagesë online.</p>
+        <p style="background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-size:.85rem;padding:9px 12px;border-radius:10px;margin-bottom:16px;" data-en="&#128181; Payment is made in cash when you pick up the product at the business. No online payment required." data-it="&#128181; Il pagamento avviene in contanti al ritiro del prodotto presso l'attivit&agrave;. Non &egrave; richiesto alcun pagamento online.">💵 Pagesa bëhet me para në dorë kur merrni produktin te biznesi. Nuk kërkohet pagesë online.</p>
         <div class="field">
-          <label for="cName">Emri</label>
-          <input type="text" id="cName" placeholder="Emri yt" autocomplete="name">
+          <label for="cName" data-en="Name" data-it="Nome">Emri</label>
+          <input type="text" id="cName" placeholder="Emri yt" data-en-ph="Your name" data-it-ph="Il tuo nome" autocomplete="name">
         </div>
         <div class="field">
           <label for="cEmail">Email</label>
-          <input type="email" id="cEmail" placeholder="emri@shembull.com" autocomplete="email">
+          <input type="email" id="cEmail" placeholder="emri@shembull.com" data-en-ph="name@example.com" data-it-ph="nome@esempio.com" autocomplete="email">
         </div>
         <div class="field">
-          <label for="cPhone">Telefoni</label>
+          <label for="cPhone" data-en="Phone" data-it="Telefono">Telefoni</label>
           <input type="tel" id="cPhone" placeholder="+355 69 608 0926" autocomplete="tel">
         </div>
-        <div class="err" id="cErr">Shkruaj email ose numër telefoni.</div>
+        <div class="err" id="cErr" data-en="Enter an email or phone number." data-it="Inserisci un'email o un numero di telefono.">Shkruaj email ose numër telefoni.</div>
         <div class="modal-actions">
-          <button class="btn-ghost" type="button" onclick="closeModal()">Anulo</button>
-          <button class="btn-primary" type="button" id="cSubmit" onclick="submitClaim()">Dërgo</button>
+          <button class="btn-ghost" type="button" onclick="closeModal()" data-en="Cancel" data-it="Annulla">Anulo</button>
+          <button class="btn-primary" type="button" id="cSubmit" onclick="submitClaim()" data-en="Send" data-it="Invia">Dërgo</button>
         </div>
       </div>
       <div class="modal-success" id="modalSuccess" style="display:none">
         <div class="emoji">✅</div>
-        <h3>Faleminderit!</h3>
-        <p class="sub">Të dhënat u dërguan. Shkoni te biznesi dhe paguani me para në dorë kur merrni produktin.</p>
+        <h3 data-en="Thank you!" data-it="Grazie!">Faleminderit!</h3>
+        <p class="sub" data-en="Your details have been sent. Go to the business and pay in cash when you pick up the product." data-it="I tuoi dati sono stati inviati. Vai presso l'attivit&agrave; e paga in contanti al ritiro del prodotto.">Të dhënat u dërguan. Shkoni te biznesi dhe paguani me para në dorë kur merrni produktin.</p>
         <div id="successWhere" style="background:var(--greenL);color:var(--greenD);font-weight:600;font-size:.9rem;padding:10px 14px;border-radius:10px;margin-bottom:14px;display:none"></div>
         <div class="modal-actions">
-          <button class="btn-ghost" type="button" onclick="closeModal()">Mbyll</button>
-          <button class="btn-primary" type="button" id="mapsBtn">🧭 Hap Google Maps</button>
+          <button class="btn-ghost" type="button" onclick="closeModal()" data-en="Close" data-it="Chiudi">Mbyll</button>
+          <button class="btn-primary" type="button" id="mapsBtn" data-en="&#129513; Open Google Maps" data-it="&#129513; Apri Google Maps">🧭 Hap Google Maps</button>
+        </div>
+        <div id="successCancel" style="margin-top:14px;display:none;text-align:center">
+          <a href="#" id="cancelLink" style="font-size:.82rem;color:var(--gray);text-decoration:underline"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Annuleer-resultaat (via link uit bevestigingsmail: deals.html?cancel=TOKEN) -->
+  <div class="overlay" id="cancelOverlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-success">
+        <div class="emoji" id="cancelResultEmoji">⏳</div>
+        <h3 id="cancelResultTitle">…</h3>
+        <p class="sub" id="cancelResultText"></p>
+        <div class="modal-actions">
+          <button class="btn-primary" type="button" onclick="document.getElementById('cancelOverlay').classList.remove('open')" data-en="Close" data-it="Chiudi">Mbyll</button>
         </div>
       </div>
     </div>
@@ -166,6 +189,84 @@
 <script>
   var API_BASE = 'https://api.savoraapp.com';
   var currentDeal = null;
+
+  // ===== TAAL / LANGUAGE TOGGLE (SQ / EN / IT) =====
+  var DEALS_I18N = {
+    sq: {
+      allCities: 'Të gjitha', noDealsTitle: 'Ende s\'ka oferta',
+      noDealsText: 'Kthehu pak më vonë — bizneset shtojnë oferta gjatë ditës.',
+      errorTitle: 'Nuk u ngarkuan ofertat', errorText: 'Provo të rifreskosh faqen.',
+      available: 'në dispozicion', viewMap: 'Shiko në hartë', mapBtn: '📍 Hartë',
+      claimBtn: 'E dua këtë', featured: '⭐ E Promovuar',
+      sending: 'Duke dërguar...', send: 'Dërgo',
+      genericError: 'Diçka shkoi keq.', connError: 'Lidhja dështoi. Provo përsëri.',
+      cancelLinkLabel: 'Ndryshove mendje? Anulo rezervimin', cancelling: 'Duke anuluar...', cancelledDone: '✓ U anulua',
+      cancelSuccessTitle: 'Rezervimi u anulua', cancelSuccessText: 'Faleminderit që na njoftove — tani biznesi mund ta ofrojë dikujt tjetër.',
+      cancelErrorTitle: 'Nuk u anulua dot',
+      blockedText: 'Llogaria jote është përkohësisht e bllokuar për rezervime të reja për shkak të disa mos-marrjeve me radhë.'
+    },
+    en: {
+      allCities: 'All', noDealsTitle: 'No deals yet',
+      noDealsText: 'Check back later — businesses add deals throughout the day.',
+      errorTitle: 'Deals could not be loaded', errorText: 'Try refreshing the page.',
+      available: 'available', viewMap: 'View on map', mapBtn: '📍 Map',
+      claimBtn: 'I want this', featured: '⭐ Featured',
+      sending: 'Sending...', send: 'Send',
+      genericError: 'Something went wrong.', connError: 'Connection failed. Please try again.',
+      cancelLinkLabel: 'Changed your mind? Cancel reservation', cancelling: 'Cancelling...', cancelledDone: '✓ Cancelled',
+      cancelSuccessTitle: 'Reservation cancelled', cancelSuccessText: 'Thanks for letting us know — the business can now offer it to someone else.',
+      cancelErrorTitle: 'Could not cancel',
+      blockedText: 'Your account is temporarily blocked from new reservations due to repeated no-shows.'
+    },
+    it: {
+      allCities: 'Tutte', noDealsTitle: 'Ancora nessuna offerta',
+      noDealsText: 'Torna più tardi — le attività aggiungono offerte durante il giorno.',
+      errorTitle: 'Impossibile caricare le offerte', errorText: 'Prova ad aggiornare la pagina.',
+      available: 'disponibili', viewMap: 'Vedi sulla mappa', mapBtn: '📍 Mappa',
+      claimBtn: 'Lo voglio', featured: '⭐ In evidenza',
+      sending: 'Invio in corso...', send: 'Invia',
+      genericError: 'Qualcosa è andato storto.', connError: 'Connessione fallita. Riprova.',
+      cancelLinkLabel: "Hai cambiato idea? Annulla la prenotazione", cancelling: 'Annullamento in corso...', cancelledDone: '✓ Annullata',
+      cancelSuccessTitle: 'Prenotazione annullata', cancelSuccessText: "Grazie per averci avvisato — l'attività può ora offrirla a qualcun altro.",
+      cancelErrorTitle: 'Impossibile annullare',
+      blockedText: 'Il tuo account è temporaneamente bloccato per nuove prenotazioni a causa di ripetute mancate presentazioni.'
+    }
+  };
+  function curLang(){ var l = document.documentElement.lang; return (l==='en'||l==='it') ? l : 'sq'; }
+  function t(key){ return DEALS_I18N[curLang()][key]; }
+
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('savora_lang', lang); } catch(e){}
+    var els = document.querySelectorAll('[data-en]');
+    for (var i=0;i<els.length;i++){
+      var el = els[i];
+      if (el.getAttribute('data-sq') === null) el.setAttribute('data-sq', el.innerHTML);
+      var val = el.getAttribute('data-sq');
+      if (lang==='en') val = el.getAttribute('data-en');
+      else if (lang==='it' && el.getAttribute('data-it') !== null) val = el.getAttribute('data-it');
+      el.innerHTML = val;
+    }
+    var phs = document.querySelectorAll('[data-en-ph]');
+    for (var j=0;j<phs.length;j++){
+      var pe = phs[j];
+      if (pe.getAttribute('data-sq-ph') === null) pe.setAttribute('data-sq-ph', pe.getAttribute('placeholder')||'');
+      var pval = pe.getAttribute('data-sq-ph');
+      if (lang==='en') pval = pe.getAttribute('data-en-ph');
+      else if (lang==='it' && pe.getAttribute('data-it-ph') !== null) pval = pe.getAttribute('data-it-ph');
+      pe.setAttribute('placeholder', pval);
+    }
+    var lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = (lang==='sq') ? 'SQ' : (lang==='en') ? 'EN' : 'IT';
+  }
+  function toggleLang(){
+    var cur = document.documentElement.lang;
+    if (cur!=='sq' && cur!=='en' && cur!=='it') cur = 'sq';
+    var next = (cur==='sq') ? 'en' : (cur==='en') ? 'it' : 'sq';
+    applyLang(next);
+    if (typeof refreshAll === 'function') refreshAll();
+    if (typeof updateCancelLinkText === 'function') updateCancelLinkText();
+  }
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
 
@@ -223,14 +324,14 @@
     if(d.city) meta.push(esc(d.city));
     html += '<div class="card-meta">'+ meta.join(' <span class="sep">·</span> ') +'</div>';
     if(d.description) html += '<div class="card-desc">'+esc(d.description)+'</div>';
-    if(d.quantity) html += '<span class="qty">'+esc(d.quantity)+' në dispozicion</span>';
+    if(d.quantity) html += '<span class="qty">'+esc(d.quantity)+' '+t('available')+'</span>';
     html += '<div class="price-row"><span class="price-now">'+fmtPrice(d.dealPrice)+'</span>';
     if(d.originalPrice && Number(d.originalPrice)>Number(d.dealPrice)) html += '<span class="price-old">'+fmtPrice(d.originalPrice)+'</span>';
     html += '</div>';
     var mapQ = mapQuery(d);
     html += '<div class="card-actions">';
-    if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="Shiko në hartë">📍 Hartë</button>';
-    html += '<button class="btn-claim" type="button" data-id="'+esc(d.id)+'">E dua këtë</button>';
+    if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="'+esc(t('viewMap'))+'">'+t('mapBtn')+'</button>';
+    html += '<button class="btn-claim" type="button" data-id="'+esc(d.id)+'">'+t('claimBtn')+'</button>';
     html += '</div>';
     html += '</div></article>';
     return html;
@@ -240,7 +341,7 @@
     var grid = document.getElementById('dealsGrid');
     if(!deals || deals.length===0){
       grid.className = '';
-      grid.innerHTML = '<div class="state"><div class="emoji">🛒</div><h2>Ende s\'ka oferta</h2><p>Kthehu pak më vonë — bizneset shtojnë oferta gjatë ditës.</p></div>';
+      grid.innerHTML = '<div class="state"><div class="emoji">🛒</div><h2>'+esc(t('noDealsTitle'))+'</h2><p>'+esc(t('noDealsText'))+'</p></div>';
       return;
     }
     grid.className = 'grid';
@@ -274,7 +375,7 @@
   function showError(){
     var grid = document.getElementById('dealsGrid');
     grid.className='';
-    grid.innerHTML = '<div class="state"><div class="emoji">⚠️</div><h2>Nuk u ngarkuan ofertat</h2><p>Provo të rifreskosh faqen.</p></div>';
+    grid.innerHTML = '<div class="state"><div class="emoji">⚠️</div><h2>'+esc(t('errorTitle'))+'</h2><p>'+esc(t('errorText'))+'</p></div>';
   }
 
   var allDeals = [];
@@ -306,7 +407,7 @@
     deals.forEach(function(d){ if(d.city && cities.indexOf(d.city)===-1) cities.push(d.city); });
     cities.sort();
     if(cities.length===0){ bar.innerHTML=''; return; }
-    var html = '<button class="city-chip'+(currentCity===''?' active':'')+'" data-city="">Të gjitha</button>';
+    var html = '<button class="city-chip'+(currentCity===''?' active':'')+'" data-city="">'+esc(t('allCities'))+'</button>';
     cities.forEach(function(c){ html += '<button class="city-chip'+(currentCity===c?' active':'')+'" data-city="'+esc(c)+'">'+esc(c)+'</button>'; });
     bar.innerHTML = html;
     bar.querySelectorAll('.city-chip').forEach(function(chip){
@@ -329,6 +430,8 @@
   // ---- Modal ----
   function openModal(d){
     currentDeal = d;
+    lastCancelToken = null;
+    document.getElementById('successCancel').style.display='none';
     document.getElementById('modalDeal').textContent = d.title;
     document.getElementById('modalForm').style.display='block';
     document.getElementById('modalSuccess').style.display='none';
@@ -346,13 +449,88 @@
   document.getElementById('overlay').addEventListener('click', function(e){ if(e.target.id==='overlay') closeModal(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
 
+  var lastCancelToken = null;
+
+  function updateCancelLinkText(){
+    var link = document.getElementById('cancelLink');
+    if(!link || !lastCancelToken) return;
+    link.textContent = t('cancelLinkLabel');
+    link.style.color = '';
+    link.style.pointerEvents = '';
+    link.style.opacity = '';
+  }
+
+  function performCancel(token){
+    return fetch(API_BASE + '/api/deals/cancel-claim', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ token: token })
+    }).then(function(r){ return r.json().then(function(data){ return { ok:r.ok, data:data }; }); });
+  }
+
+  // Annuleerlink op het bevestigingsscherm (net na reservering)
+  document.getElementById('cancelLink').addEventListener('click', function(e){
+    e.preventDefault();
+    if(!lastCancelToken) return;
+    var link = e.currentTarget;
+    link.textContent = t('cancelling');
+    performCancel(lastCancelToken).then(function(res){
+      if(res.data && res.data.success){
+        link.textContent = t('cancelledDone');
+        link.style.color = 'var(--rose)';
+        link.style.pointerEvents = 'none';
+        link.style.opacity = .7;
+        lastCancelToken = null;
+      } else {
+        link.textContent = (res.data && res.data.message) ? res.data.message : t('genericError');
+        link.style.color = 'var(--rose)';
+      }
+    }).catch(function(){
+      link.textContent = t('connError');
+      link.style.color = 'var(--rose)';
+    });
+  });
+
+  // Annuleren via link uit de bevestigingsmail: deals.html?cancel=TOKEN
+  function handleCancelParam(){
+    var params;
+    try { params = new URLSearchParams(location.search); } catch(e){ return; }
+    var token = params.get('cancel');
+    if(!token) return;
+    try {
+      var url = new URL(location.href);
+      url.searchParams.delete('cancel');
+      history.replaceState({}, '', url.toString());
+    } catch(e){}
+    var emoji = document.getElementById('cancelResultEmoji');
+    var title = document.getElementById('cancelResultTitle');
+    var text = document.getElementById('cancelResultText');
+    title.textContent = t('sending');
+    text.textContent = '';
+    document.getElementById('cancelOverlay').classList.add('open');
+    performCancel(token).then(function(res){
+      if(res.data && res.data.success){
+        emoji.textContent = '✅';
+        title.textContent = t('cancelSuccessTitle');
+        text.textContent = res.data.dealTitle ? (t('cancelSuccessText') + ' (' + res.data.dealTitle + ')') : t('cancelSuccessText');
+      } else {
+        emoji.textContent = '⚠️';
+        title.textContent = t('cancelErrorTitle');
+        text.textContent = (res.data && res.data.message) ? res.data.message : t('genericError');
+      }
+    }).catch(function(){
+      emoji.textContent = '⚠️';
+      title.textContent = t('cancelErrorTitle');
+      text.textContent = t('connError');
+    });
+  }
+
   function submitClaim(){
     var name=document.getElementById('cName').value.trim();
     var email=document.getElementById('cEmail').value.trim();
     var phone=document.getElementById('cPhone').value.trim();
     if(!email && !phone){ document.getElementById('cErr').style.display='block'; return; }
     document.getElementById('cErr').style.display='none';
-    var btn=document.getElementById('cSubmit'); btn.disabled=true; btn.textContent='Duke dërguar...';
+    var btn=document.getElementById('cSubmit'); btn.disabled=true; btn.textContent=t('sending');
     fetch(API_BASE + '/api/leads', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
@@ -362,9 +540,10 @@
         dealTitle: currentDeal? currentDeal.title : ''
       })
     })
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      btn.textContent='Dërgo';
+    .then(function(r){ return r.json().then(function(data){ return { ok:r.ok, data:data }; }); })
+    .then(function(res){
+      var data = res.data;
+      btn.textContent=t('send');
       if(data && data.success){
         var q = currentDeal ? mapQuery(currentDeal) : '';
         var mapUrl = q ? ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q)) : '';
@@ -380,19 +559,32 @@
         } else {
           mapsBtn.style.display = 'none';
         }
+        // Zelf-annuleerlink tonen als de server een cancelToken teruggaf (deal_claim)
+        var cancelWrap = document.getElementById('successCancel');
+        if(data.cancelToken){
+          lastCancelToken = data.cancelToken;
+          updateCancelLinkText();
+          cancelWrap.style.display = 'block';
+        } else {
+          cancelWrap.style.display = 'none';
+        }
         document.getElementById('modalForm').style.display='none';
         document.getElementById('modalSuccess').style.display='block';
         if(mapUrl){ try { window.open(mapUrl, '_blank', 'noopener'); } catch(e){} }
+      } else if(data && data.error === 'ACCOUNT_BLOCKED'){
+        document.getElementById('cErr').textContent = t('blockedText');
+        document.getElementById('cErr').style.display='block';
+        btn.disabled=false;
       } else {
-        document.getElementById('cErr').textContent=(data&&data.error)?data.error:'Diçka shkoi keq.';
+        document.getElementById('cErr').textContent=(data&&data.error)?data.error:t('genericError');
         document.getElementById('cErr').style.display='block';
         btn.disabled=false;
       }
     })
     .catch(function(){
-      document.getElementById('cErr').textContent='Lidhja dështoi. Provo përsëri.';
+      document.getElementById('cErr').textContent=t('connError');
       document.getElementById('cErr').style.display='block';
-      btn.disabled=false; btn.textContent='Dërgo';
+      btn.disabled=false; btn.textContent=t('send');
     });
   }
 
@@ -404,7 +596,7 @@
       : (catEmojiAds[a.category] || '⭐');
     var html = '<article class="card" style="border:2px solid #F5C518;box-shadow:0 6px 16px rgba(245,197,24,.28)">';
     html += '<div class="card-media">'+ media;
-    html += '<span class="badge-discount" style="background:#F5C518;color:#3a2d00">⭐ E Promovuar</span>';
+    html += '<span class="badge-discount" style="background:#F5C518;color:#3a2d00">'+t('featured')+'</span>';
     html += '</div>';
     html += '<div class="card-body">';
     html += '<div class="card-title">'+esc(a.title)+'</div>';
@@ -416,8 +608,8 @@
     if(a.price!=null && a.price!=='') html += '<div class="price-row"><span class="price-now">'+fmtPrice(a.price)+'</span></div>';
     var mapQ = ((a.partnerName||'') + ' ' + (a.city||'')).trim();
     html += '<div class="card-actions">';
-    if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="Shiko në hartë">📍 Hartë</button>';
-    html += '<button class="btn-claim" type="button" data-id="'+esc(a.id)+'">E dua këtë</button>';
+    if(mapQ) html += '<button class="btn-map" type="button" data-mapq="'+esc(mapQ)+'" title="'+esc(t('viewMap'))+'">'+t('mapBtn')+'</button>';
+    html += '<button class="btn-claim" type="button" data-id="'+esc(a.id)+'">'+t('claimBtn')+'</button>';
     html += '</div>';
     html += '</div></article>';
     return html;
@@ -450,8 +642,15 @@
       .catch(function(){});
   }
 
-  loadAds();
-  loadDeals();
+  document.addEventListener('DOMContentLoaded', function(){
+    var saved = 'sq';
+    try { saved = localStorage.getItem('savora_lang') || 'sq'; } catch(e){}
+    if (saved!=='sq' && saved!=='en' && saved!=='it') saved = 'sq';
+    applyLang(saved);
+    loadAds();
+    loadDeals();
+    handleCancelParam();
+  });
 </script>
 </body>
 </html>
