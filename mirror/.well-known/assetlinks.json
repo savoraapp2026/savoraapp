@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.savoraapp.twa",
+      "sha256_cert_fingerprints": [
+        "EB:04:E6:71:53:22:1E:01:6A:93:6C:DC:FB:B0:38:CE:07:8C:9E:A4:9E:FD:0A:01:26:0A:CE:7C:BF:A1:D2:30",
+        "26:32:D4:54:81:35:0C:98:2B:CE:5A:ED:7F:7C:46:12:E1:AE:76:DE:1C:F8:C4:C1:CA:A7:0E:AD:75:A6:94:2A",
+        "0E:12:9F:25:26:7D:5C:EC:36:65:8C:81:14:FE:B2:A3:2C:CB:7E:E5:CA:28:6C:4B:EA:5F:06:E6:23:4F:E5:7B"
+      ]
+    }
+  }
+]
